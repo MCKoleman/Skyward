@@ -12,6 +12,7 @@ public class PlayerController : CharacterController
 
     /* Component references*/
     protected List<Interactable> interactables;
+    protected CameraController cam;
 
 
 
@@ -20,6 +21,7 @@ public class PlayerController : CharacterController
     {
         base.Start();
         interactables = new List<Interactable>();
+        cam = this.GetComponent<CameraController>();
     }
 
 
@@ -81,11 +83,6 @@ public class PlayerController : CharacterController
     }
 
     /* ==================================================== Input actions =================================================================== */
-    protected void HandleLook(Vector2 delta)
-    {
-
-    }
-
     protected void HandleFire()
     {
 
@@ -138,7 +135,7 @@ public class PlayerController : CharacterController
     public void HandleLookContext(InputAction.CallbackContext context)
     {
         if (CanTakeInput())
-            HandleLook(context.ReadValue<Vector2>());
+            cam.HandleLook(context.ReadValue<Vector2>());
     }
 
     public void HandleFireContext(InputAction.CallbackContext context)

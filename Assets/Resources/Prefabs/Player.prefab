@@ -106,14 +106,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3277659688473195578}
-  m_LocalRotation: {x: 0.11236478, y: -0, z: -0, w: 0.99366707}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963194228}
   m_Father: {fileID: 5709032547906216084}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 12.903, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5476302239681886078
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,8 +246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e14272f0dbf6547852df336d8b250a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxNumJumps: 2
-  maxNumDashes: 2
+  maxNumJumps: 1
+  maxNumDashes: 4
   jumpClips: []
   dashClips: []
   speedMods: {fileID: 11400000, guid: 75d7579733736f44280935be581a88fe, type: 2}
@@ -265,8 +265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b145bb2e1392d34a88ee915850d23d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  baseMoveSpeed: 5
+  maxHealth: 15
+  baseMoveSpeed: 8
   movementSpeedMod: 1
 --- !u!114 &7120619675437001521
 MonoBehaviour:
@@ -610,3 +610,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPivot: {fileID: 944349557466876898}
+  rotateMod: 0.3
+  invertX: 0
+  invertY: 0

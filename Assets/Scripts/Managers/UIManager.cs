@@ -106,4 +106,5 @@ public class UIManager : Singleton<UIManager>
     public void RefreshHUD() { hud.RefreshHUD(); }
 
     /* ============================================================ Child component function wrappers ==================================== */
+    //public void UpdateLifeDisplay() { hud.UpdateLifeDisplay(); }
 }

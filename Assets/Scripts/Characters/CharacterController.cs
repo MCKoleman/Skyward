@@ -91,7 +91,7 @@ public class CharacterController : MonoBehaviour
         // If the player is on the ground for an extended time period, reset their grounded status
         else if (!isGrounded && MathUtils.AlmostZero(rb.velocity.y, 2) && airMovementCooldown <= 0.0f)
         {
-            Print.Log("Ground detection failed, fixing it...");
+            //Print.Log("Ground detection failed, fixing it...");
             SetIsGrounded(true);
         }
 

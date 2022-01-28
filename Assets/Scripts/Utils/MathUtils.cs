@@ -206,6 +206,21 @@ public class MathUtils : MonoBehaviour
     }
     
     /// <summary>
+    /// Clamps the value to the nearest integer, towards zero. Effectively this means that values are floored if greater than zero and ceiled if less than zero
+    /// </summary>
+    /// <param name="value">Value to convert to int</param>
+    /// <returns>Clamped value</returns>
+    public static int FloorToZero(float value)
+    {
+        // If the value is greater than zero, floor
+        if (value >= 0)
+            return Mathf.FloorToInt(value);
+        // If the value is less than zero, ceil
+        else
+            return Mathf.CeilToInt(value);
+    }
+
+    /// <summary>
     /// Linearly interpolates between two colors
     /// </summary>
     /// <param name="a">First color</param>

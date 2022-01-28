@@ -132,12 +132,6 @@ public class PlayerController : CharacterController
             HandleMove(context.ReadValue<Vector2>());
     }
 
-    public void HandleLookContext(InputAction.CallbackContext context)
-    {
-        if (CanTakeInput())
-            cam.HandleLook(context.ReadValue<Vector2>());
-    }
-
     public void HandleFireContext(InputAction.CallbackContext context)
     {
         if (context.performed && CanTakeInput())

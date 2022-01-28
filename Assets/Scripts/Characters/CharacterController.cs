@@ -21,6 +21,7 @@ public class CharacterController : MonoBehaviour
     /* Movement data */
     protected float facingDir = 1.0f;
     protected Vector2 moveDelta = Vector2.zero;
+    protected Vector3 prevDelta = Vector3.zero;
     protected int numJumpsUsed = 0;
     protected int numDashesUsed = 0;
 
@@ -162,7 +163,11 @@ public class CharacterController : MonoBehaviour
     // Handles the movement based on Vector2 directional input
     protected virtual void HandleMove(Vector2 moveContext)
     {
-        // Get the movement delta for each frame from the x-axis input
+        // If the movement hasn't ended, store it as the previous delta for direction calculations
+        if(moveDelta != Vector2.zero)
+            prevDelta = new Vector3(moveDelta.x, 0.0f, moveDelta.y);
+
+        // Get the movement delta for each frame from the x and y axis input
         moveDelta = moveContext * speedMods.MOVE_MOD;
 
         // Set animation state
@@ -204,7 +209,7 @@ public class CharacterController : MonoBehaviour
         rb.useGravity = false;
 
         // Activate dash
-        rb.AddForce(new Vector3(facingDir * speedMods.DASH_MOD, 0.0f), ForceMode.Impulse);
+        rb.AddForce(prevDelta * speedMods.DASH_MOD, ForceMode.Impulse);
 
         // Play dash sound
         if (source != null && dashClips.Length != 0)

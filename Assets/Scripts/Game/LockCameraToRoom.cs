@@ -5,6 +5,8 @@ using UnityEngine;
 public class LockCameraToRoom : MonoBehaviour
 {
     [SerializeField]
+    private Vector3 offset;
+    [SerializeField]
     private Vector3 destination;
     [SerializeField]
     private float followSpeed = 1.5f;
@@ -32,13 +34,13 @@ public class LockCameraToRoom : MonoBehaviour
         if(isLockedToRoom)
         {
             UpdateDestination();
-            Vector3 tempVec = Vector3.Lerp(transform.position, destination, lockedFollowSpeed * Time.deltaTime);
+            Vector3 tempVec = Vector3.Lerp(transform.position, destination + offset, lockedFollowSpeed * Time.deltaTime);
             transform.position = new Vector3(tempVec.x, transform.position.y, tempVec.z);
         }
         // If the camera is not locked to the room, follow the player
         else if(objToFollow != null)
         {
-            Vector3 tempVec = Vector3.Lerp(transform.position, objToFollow.transform.position, followSpeed * Time.deltaTime);
+            Vector3 tempVec = Vector3.Lerp(transform.position, objToFollow.transform.position + offset, followSpeed * Time.deltaTime);
             transform.position = new Vector3(tempVec.x, transform.position.y, tempVec.z);
         }
     }

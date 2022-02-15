@@ -15,6 +15,8 @@ public class LockCameraToRoom : MonoBehaviour
     [SerializeField]
     private bool isLockedToRoom = true;
     [SerializeField]
+    private bool isLockedToPlayer = true;
+    [SerializeField]
     private Vector3 roomCoords;
     [SerializeField]
     private Vector3 roomSize;
@@ -36,6 +38,18 @@ public class LockCameraToRoom : MonoBehaviour
             UpdateDestination();
             Vector3 tempVec = Vector3.Lerp(transform.position, destination + offset, lockedFollowSpeed * Time.deltaTime);
             transform.position = new Vector3(tempVec.x, transform.position.y, tempVec.z);
+
+            // TEMP CODE
+            // Rotate camera to face player position
+            if(isLockedToPlayer)
+            {
+                Vector3 distanceToPlayer = this.transform.position - objToFollow.transform.position;
+                float angleX = (distanceToPlayer.x != 0) ? Mathf.Atan2(distanceToPlayer.y, distanceToPlayer.x) : 0;
+                float angleY = (distanceToPlayer.z != 0) ? Mathf.Atan2(distanceToPlayer.y, distanceToPlayer.z) : 0;
+                Print.Log($"Angles to player: [{angleX}], [{angleY}]");
+                this.transform.eulerAngles = new Vector3(angleX * Mathf.Rad2Deg, angleY * Mathf.Rad2Deg, 0.0f);
+                //Print.Log($"Distance between camera and player: [{distance}]");
+            }
         }
         // If the camera is not locked to the room, follow the player
         else if(objToFollow != null)

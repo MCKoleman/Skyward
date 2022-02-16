@@ -5,6 +5,8 @@ using UnityEngine;
 public class LockCameraToRoom : MonoBehaviour
 {
     [SerializeField]
+    private Vector3 offset;
+    [SerializeField]
     private Vector3 destination;
     [SerializeField]
     private float followSpeed = 1.5f;
@@ -12,6 +14,8 @@ public class LockCameraToRoom : MonoBehaviour
     private float lockedFollowSpeed = 5.0f;
     [SerializeField]
     private bool isLockedToRoom = true;
+    [SerializeField]
+    private bool isLockedToPlayer = true;
     [SerializeField]
     private Vector3 roomCoords;
     [SerializeField]
@@ -32,13 +36,25 @@ public class LockCameraToRoom : MonoBehaviour
         if(isLockedToRoom)
         {
             UpdateDestination();
-            Vector3 tempVec = Vector3.Lerp(transform.position, destination, lockedFollowSpeed * Time.deltaTime);
+            Vector3 tempVec = Vector3.Lerp(transform.position, destination + offset, lockedFollowSpeed * Time.deltaTime);
             transform.position = new Vector3(tempVec.x, transform.position.y, tempVec.z);
+
+            // TEMP CODE
+            // Rotate camera to face player position
+            if(isLockedToPlayer)
+            {
+                Vector3 distanceToPlayer = this.transform.position - objToFollow.transform.position;
+                float angleX = (distanceToPlayer.x != 0) ? Mathf.Atan2(distanceToPlayer.y, distanceToPlayer.x) : 0;
+                float angleY = (distanceToPlayer.z != 0) ? Mathf.Atan2(distanceToPlayer.y, distanceToPlayer.z) : 0;
+                Print.Log($"Angles to player: [{angleX}], [{angleY}]");
+                this.transform.eulerAngles = new Vector3(angleX * Mathf.Rad2Deg, angleY * Mathf.Rad2Deg, 0.0f);
+                //Print.Log($"Distance between camera and player: [{distance}]");
+            }
         }
         // If the camera is not locked to the room, follow the player
         else if(objToFollow != null)
         {
-            Vector3 tempVec = Vector3.Lerp(transform.position, objToFollow.transform.position, followSpeed * Time.deltaTime);
+            Vector3 tempVec = Vector3.Lerp(transform.position, objToFollow.transform.position + offset, followSpeed * Time.deltaTime);
             transform.position = new Vector3(tempVec.x, transform.position.y, tempVec.z);
         }
     }

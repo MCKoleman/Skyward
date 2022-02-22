@@ -26,6 +26,7 @@ public class Character : MonoBehaviour
     {
         CurMoveSpeed = baseMoveSpeed * movementSpeedMod;
         CurHealth = maxHealth;
+        HandleHealthChange();
     }
 
     // Handles health changes (should be overriden to update UI etc)

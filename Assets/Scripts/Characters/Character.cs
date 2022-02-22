@@ -19,6 +19,12 @@ public class Character : MonoBehaviour
         HandleStart();
     }
 
+    // Updates the UI etc when health changes
+    public virtual void HandleHealthChange()
+    {
+
+    }
+
     /// <summary>
     /// Handles construction for the character
     /// </summary>
@@ -26,6 +32,7 @@ public class Character : MonoBehaviour
     {
         CurMoveSpeed = baseMoveSpeed * movementSpeedMod;
         CurHealth = maxHealth;
+        HandleHealthChange();
     }
 
     /// <summary>

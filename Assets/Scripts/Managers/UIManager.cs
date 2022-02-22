@@ -105,6 +105,9 @@ public class UIManager : Singleton<UIManager>
     // Wrapper function for refreshing the HUD, callable from anywhere
     public void RefreshHUD() { hud.RefreshHUD(); }
 
+    // Wrapper for updating the health bar in the HUD
+    public void UpdateHealth(float percent) { hud.UpdateHealth(percent); }
+
     /* ============================================================ Child component function wrappers ==================================== */
     //public void UpdateLifeDisplay() { hud.UpdateLifeDisplay(); }
 }

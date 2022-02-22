@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlayerCharacter : Character
 {
-<<<<<<< HEAD
-    public int CurrentHealth;
-=======
     public override void HandleDeath()
     {
         CheckpointManager.Instance.ResetToCheckpoint();
@@ -19,13 +16,11 @@ public class PlayerCharacter : Character
         base.HandleHealthChange();
         UIManager.Instance.UpdateHealth(CurHealth / (float)maxHealth);
     }
->>>>>>> 0711b6b30d1bfe326d1ebad86795c9cfa33220b2
 
     protected override void HandleStart()
     {
         base.HandleStart();
         Debug.Log("Started player character");
-        CurrentHealth = CurHealth;
     }
 
     public override bool IsPlayer()

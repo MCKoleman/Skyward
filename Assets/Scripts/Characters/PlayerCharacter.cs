@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerCharacter : Character
 {
+    public override void HandleDeath()
+    {
+        CheckpointManager.Instance.ResetToCheckpoint();
+        HandleStart();
+        HandleHealthChange();
+    }
+
     public override void HandleHealthChange()
     {
         base.HandleHealthChange();

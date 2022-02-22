@@ -84,10 +84,10 @@ public class PlayerController : CharacterController
     public void RespawnPlayer()
     {
         // Play death sound in temp channel in audioManager
-        AudioManager.Instance.PlayClip(deathClips[Random.Range(0,deathClips.Length)]);
+        //AudioManager.Instance.PlayClip(deathClips[Random.Range(0,deathClips.Length)]);
 
         // Handle player death info
-        SaveManager.Instance.IncDeaths();
+        //SaveManager.Instance.IncDeaths();
     }
 
     // Returns whether the player can take input or not

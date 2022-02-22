@@ -455,6 +455,7 @@ Transform:
   - {fileID: 3116778457170140329}
   - {fileID: 3116778457618857827}
   - {fileID: 3116778456625985369}
+  - {fileID: 1612940231248842041}
   - {fileID: 837755734760963609}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -858,6 +859,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &6122825431390506379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1612940231248842041}
+  - component: {fileID: 7882501136958943608}
+  m_Layer: 0
+  m_Name: DungeonManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1612940231248842041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6122825431390506379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3116778457940156363}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7882501136958943608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6122825431390506379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65e01b606b0e4b4c9df275d622ad0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
+  roomList: {fileID: 11400000, guid: d0dd0e97c98613740bd7068cae226e5f, type: 2}
 --- !u!1 &6170610240298877166
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +937,7 @@ RectTransform:
   m_Children:
   - {fileID: 4329006096355418192}
   m_Father: {fileID: 3116778457940156363}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1109,6 +1155,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37754ae068af0834383cbf4a3862850d, type: 3}
+--- !u!224 &1126972074343234172 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1710444722916627708, guid: 37754ae068af0834383cbf4a3862850d, type: 3}
+  m_PrefabInstance: {fileID: 1738239135369424512}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1600395691215361607 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1020848366865971399, guid: 37754ae068af0834383cbf4a3862850d, type: 3}
@@ -1120,8 +1171,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23e930bbaa2326419ed4635406027ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &1126972074343234172 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1710444722916627708, guid: 37754ae068af0834383cbf4a3862850d, type: 3}
-  m_PrefabInstance: {fileID: 1738239135369424512}
-  m_PrefabAsset: {fileID: 0}

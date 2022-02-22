@@ -5,16 +5,23 @@ using UnityEngine;
 public class Hazard : MonoBehaviour
 {
     [SerializeField]
+<<<<<<< HEAD
     private int damage;
+=======
+    private int damage = 1;
+>>>>>>> 0711b6b30d1bfe326d1ebad86795c9cfa33220b2
 
     // Check if colliding with the player
     private void OnCollisionEnter(Collision collision)
     {
-        // If the player collides with a hazard, reset them to the last checkpoint
-        if(collision.collider.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player") && !collision.collider.isTrigger)
         {
             Character tempChar = collision.collider.GetComponent<Character>();
+<<<<<<< HEAD
             if(tempChar != null)
+=======
+            if (tempChar != null)
+>>>>>>> 0711b6b30d1bfe326d1ebad86795c9cfa33220b2
             {
                 tempChar.TakeDamage(damage);
             }

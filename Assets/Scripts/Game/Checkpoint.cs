@@ -22,23 +22,18 @@ public class Checkpoint : MonoBehaviour
     {
         // Set anim info
         isActive = _isActive;
+        anim.SetBool("isActive", _isActive);
 
-        // Don't activate animator or sound if they don't both exist
-        if(anim != null && source != null)
-        {
-            anim.SetBool("isActive", _isActive);
-
-            // Play audio
-            if (_isActive)
-                source.Play();
-        }
+        // Play audio
+        if (_isActive)
+            source.Play();
     }
 
     // Returns whether this is the currently active checkpoint
     public bool IsActive() { return isActive; }
 
     // Check collisions
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // If the player collides with a checkpoint, set the current checkpoint as the one most recently collided with
         if(collision.CompareTag("Player") && !collision.isTrigger)

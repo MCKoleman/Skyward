@@ -26,13 +26,6 @@ public class Character : MonoBehaviour
     {
         CurMoveSpeed = baseMoveSpeed * movementSpeedMod;
         CurHealth = maxHealth;
-        HandleHealthChange();
-    }
-
-    // Handles health changes (should be overriden to update UI etc)
-    public virtual void HandleHealthChange()
-    {
-
     }
 
     /// <summary>
@@ -42,7 +35,6 @@ public class Character : MonoBehaviour
     public virtual void Heal(int _amount)
     {
         CurHealth = Mathf.Clamp(CurHealth + _amount, 0, maxHealth);
-        HandleHealthChange();
     }
 
     /// <summary>
@@ -52,7 +44,6 @@ public class Character : MonoBehaviour
     public virtual void TakeDamage(int _amount)
     {
         CurHealth = Mathf.Clamp(CurHealth - _amount, 0, maxHealth);
-        HandleHealthChange();
 
         // Checks whether the character is dead
         if(CurHealth <= 0)

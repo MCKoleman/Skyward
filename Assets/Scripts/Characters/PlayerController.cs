@@ -14,11 +14,6 @@ public class PlayerController : CharacterController
     protected List<Interactable> interactables;
     protected CameraController cam;
 
-    protected float rayLength;
-    protected Ray cameraRay;
-    protected Plane gamePlane;
-
-    protected MeleeAttack mAttack;
 
 
     /* ==================================================== Built-in functions =================================================================== */
@@ -27,18 +22,9 @@ public class PlayerController : CharacterController
         base.Start();
         interactables = new List<Interactable>();
         cam = this.GetComponent<CameraController>();
-
-        gamePlane = new Plane(Vector3.up, Vector3.zero);
-
-        
     }
-    protected void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            HandleAttack();
-        }
-    }
+
+
 
     /* ==================================================== Helper functions =================================================================== */
     // Returns whether the player is colliding with the given interactable type
@@ -65,29 +51,14 @@ public class PlayerController : CharacterController
         return null;
     }
 
-    // Cast ray from top-down camera onto imaginary plane
-    protected void FaceMousePos()
-    {
-        // Cast ray from top-down camera onto mouse's x/y position
-        cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        // When ray intersects imaginary plane representing the game space
-        if (gamePlane.Raycast(cameraRay, out rayLength))
-        {
-            // Rotate Player forward vector to face mouse position (point of intersection)
-            Vector3 pointToLook = cameraRay.GetPoint(rayLength);
-            transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
-        }
-    }
-
     // Handles resetting the player information during the respawn process
     public void RespawnPlayer()
     {
         // Play death sound in temp channel in audioManager
-        //AudioManager.Instance.PlayClip(deathClips[Random.Range(0,deathClips.Length)]);
+        AudioManager.Instance.PlayClip(deathClips[Random.Range(0,deathClips.Length)]);
 
         // Handle player death info
-        //SaveManager.Instance.IncDeaths();
+        SaveManager.Instance.IncDeaths();
     }
 
     // Returns whether the player can take input or not
@@ -112,11 +83,6 @@ public class PlayerController : CharacterController
     }
 
     /* ==================================================== Input actions =================================================================== */
-    protected void HandleAttack()
-    {
-
-    }
-    
     protected void HandleFire()
     {
 
@@ -153,9 +119,7 @@ public class PlayerController : CharacterController
 
     protected void HandleMenu()
     {
-        // TEMP: QUIT GAME ON EXIT INSTEAD OF PAUSE
-        GameManager.Instance.QuitGame();
-        //UIManager.Instance.PauseGameToggle();
+        UIManager.Instance.PauseGameToggle();
     }
 
 

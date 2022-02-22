@@ -25,6 +25,7 @@ public class CheckpointManager : Singleton<CheckpointManager>
             // If a checkpoint does not exist, move the player to the position zero which should always be within game bounds
             player.RespawnPlayer();
             player.transform.position = (curCheckpoint != null) ? curCheckpoint.transform.position : Vector3.zero;
+            Camera.main.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, Camera.main.transform.position.z);
         }
     }
 

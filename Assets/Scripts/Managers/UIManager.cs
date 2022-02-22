@@ -107,5 +107,4 @@ public class UIManager : Singleton<UIManager>
 
     /* ============================================================ Child component function wrappers ==================================== */
     //public void UpdateLifeDisplay() { hud.UpdateLifeDisplay(); }
-    public void UpdateHealth(float percent) { hud.UpdateHealth(percent); }
 }

@@ -635,7 +635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1062493577
 Transform:
   m_ObjectHideFlags: 0
@@ -1280,7 +1280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &4300838294601706439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1297,7 +1297,7 @@ MonoBehaviour:
   destination: {x: 0, y: 0, z: 0}
   followSpeed: 5
   lockedFollowSpeed: 9
-  isLockedToRoom: 0
+  isLockedToRoom: 1
   isLockedToPlayer: 0
   roomCoords: {x: 0, y: 0, z: 0}
   roomSize: {x: 15, y: 1, z: 10}

@@ -24,6 +24,7 @@ public class GameManager : Singleton<GameManager>
         UIManager.Instance.Init();
         SaveManager.Instance.Init();
         CheckpointManager.Instance.Init();
+        DungeonManager.Instance.Init();
         StartGame();
     }
 

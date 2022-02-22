@@ -5,11 +5,11 @@ using UnityEngine;
 [System.Serializable]
 public class WeightedGameObjectList
 {
-    [Header("Wave Spawn Information")]
+    [Header("Weighted Objects")]
     [SerializeField]
-    private List<WeightedGameObject> list;
+    private List<WeightedGameObject> list = new List<WeightedGameObject>();
 
-    public WeightedGameObject GetWeightedObject(int index) { return list[index]; }
+    public WeightedGameObject Get(int index) { return list[index]; }
     public GameObject GetObject(int index) { return list[index].prefab; }
     public int GetWeight(int index) { return list[index].weight; }
 
@@ -37,7 +37,7 @@ public class WeightedGameObjectList
     public GameObject GetRandomObject()
     {
         int index = 0;
-        int rng = Random.Range(0, GetTotalWeights());
+        int rng = Random.Range(0, GetTotalWeights()+1);
 
         // Iterate through wave enemies until weight limit is reached
         for (; index < list.Count; index++)

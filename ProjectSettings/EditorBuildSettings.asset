@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/KristianSampleSceneTP.unity
-    guid: 35fe6fcc8f02aba4e99a5434b798079b
+    path: Assets/Scenes/GameScene.unity
+    guid: ddf6a4c38c43b05479aa0020cadfc0c7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0193c0e8c6f024343b2844ab2d95de3b, type: 2}

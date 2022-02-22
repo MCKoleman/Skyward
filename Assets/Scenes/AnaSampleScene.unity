@@ -911,7 +911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0016e953a82f2f14ba94e513ac40e295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
 --- !u!136 &518338553
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1112,7 +1111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0016e953a82f2f14ba94e513ac40e295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
 --- !u!136 &544742737
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2187,7 +2185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0016e953a82f2f14ba94e513ac40e295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
 --- !u!136 &1227237893
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2532,7 +2529,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0016e953a82f2f14ba94e513ac40e295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
 --- !u!136 &1521308900
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2642,7 +2638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0016e953a82f2f14ba94e513ac40e295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
 --- !u!136 &1548010668
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3084,7 +3079,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0016e953a82f2f14ba94e513ac40e295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
 --- !u!136 &1949531874
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3233,7 +3227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0016e953a82f2f14ba94e513ac40e295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
 --- !u!136 &1992170217
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3343,7 +3336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0016e953a82f2f14ba94e513ac40e295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
 --- !u!136 &2021594279
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3483,7 +3475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0016e953a82f2f14ba94e513ac40e295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
 --- !u!136 &2063408546
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class HUD : MonoBehaviour
     [SerializeField]
     private GameObject hudObj;
     [SerializeField]
+    private HealthBar healthBar;
+    [SerializeField]
     private bool isActive;
 
     // Enables the hud. Passing false allows the same function to disable the hud
@@ -28,6 +30,10 @@ public class HUD : MonoBehaviour
         // Update parts of the hud
     }
 
+    public void UpdateHealth(float percent)
+    {
+        healthBar.UpdateHealth(percent);
+    }
 
     /* ============================================================ Child component function wrappers ==================================== */
 }

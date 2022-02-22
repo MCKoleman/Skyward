@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerCharacter : Character
 {
-    public int CurrentHealth;
+    public override void HandleHealthChange()
+    {
+        base.HandleHealthChange();
+        UIManager.Instance.UpdateHealth(CurHealth / (float)maxHealth);
+    }
 
     protected override void HandleStart()
     {
         base.HandleStart();
         Debug.Log("Started player character");
-        CurrentHealth = CurHealth;
     }
 
     public override bool IsPlayer()

@@ -67,6 +67,11 @@ public class GameManager : Singleton<GameManager>
         sceneLoader.LoadNextScene();
     }
 
+    public void QuitGame()
+    {
+        sceneLoader.Quit();
+    }
+
     // Getters and setters
     public void SetIsGameActive(bool state) { IsGameActive = state; }
 }

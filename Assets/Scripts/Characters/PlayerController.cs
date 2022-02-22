@@ -153,7 +153,9 @@ public class PlayerController : CharacterController
 
     protected void HandleMenu()
     {
-        UIManager.Instance.PauseGameToggle();
+        // TEMP: QUIT GAME ON EXIT INSTEAD OF PAUSE
+        GameManager.Instance.QuitGame();
+        //UIManager.Instance.PauseGameToggle();
     }
 
 

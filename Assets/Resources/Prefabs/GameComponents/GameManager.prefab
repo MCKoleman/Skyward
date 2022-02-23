@@ -925,8 +925,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
   roomList: {fileID: 11400000, guid: d0dd0e97c98613740bd7068cae226e5f, type: 2}
+  contentList: {fileID: 11400000, guid: afce021cf1d9ac54ab4195b293a569b2, type: 2}
   startRoom: {fileID: 0}
-  spawnNodes: []
+  numRooms: 0
 --- !u!1 &6170610240298877166
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallSpawner : MonoBehaviour
+public class WallNode : MonoBehaviour
 {
     private DungeonRoom parentRoom;
     [SerializeField]
@@ -12,6 +12,7 @@ public class WallSpawner : MonoBehaviour
     {
         parentRoom = this.transform.GetComponentInParent<DungeonRoom>();
         SpawnWall();
+        DestroySelf();
     }
 
     // Spawns the correct wall type at this position
@@ -20,7 +21,13 @@ public class WallSpawner : MonoBehaviour
         GameObject tempWall = PrefabManager.Instance.GetWallObject(type, parentRoom.theme);
         if (tempWall != null)
         {
-            Instantiate(tempWall, this.transform.position, Quaternion.identity, this.transform);
+            Instantiate(tempWall, this.transform.position, Quaternion.identity, this.transform.parent);
         }
+    }
+
+    // Destroys the node, allowing for additional cleanup
+    private void DestroySelf()
+    {
+        Destroy(this.gameObject);
     }
 }

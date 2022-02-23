@@ -13,6 +13,7 @@ public class DungeonRoom : MonoBehaviour
     public List<GlobalVars.RoomReq> roomReqs = new List<GlobalVars.RoomReq>();
     public List<RoomNode> roomNodes = new List<RoomNode>();
     public uint reqFlag;
+    public int roomNum = 0;
     public GlobalVars.DungeonTheme theme;
 
     void Start()

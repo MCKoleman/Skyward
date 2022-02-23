@@ -326,6 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
   enemyPrefabList: []
+  exitPrefab: {fileID: 1992895975375133948, guid: fcf8c673c0232ab4e9f681804f1a1a89, type: 3}
   projectileHolder: {fileID: 3116778456051282564}
   enemyHolder: {fileID: 3116778456941221364}
   powerupHolder: {fileID: 3116778457604670714}
@@ -904,6 +905,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
   roomList: {fileID: 11400000, guid: d0dd0e97c98613740bd7068cae226e5f, type: 2}
+  startRoom: {fileID: 0}
+  spawnNodes: []
 --- !u!1 &6170610240298877166
 GameObject:
   m_ObjectHideFlags: 0

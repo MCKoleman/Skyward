@@ -107,20 +107,5 @@ public class DungeonManager : Singleton<DungeonManager>
                 spawnNodes.Add(tempNode);
             }
         }
-
-        /*
-        Print.Log("Printing roomNodes");
-        // DEBUG: Print lists
-        foreach(RoomNode roomNode in roomNodes.Values)
-        {
-            Print.Log($"RoomNode: [{roomNode}]");
-        }
-
-        Print.Log("Printing spawnNodes");
-        foreach(RoomNode spawnNode in spawnNodes.Values)
-        {
-            Print.Log($"SpawnNode: [{spawnNode}]");
-        }
-        */
     }
 }

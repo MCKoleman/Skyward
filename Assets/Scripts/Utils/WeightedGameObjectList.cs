@@ -5,13 +5,30 @@ using UnityEngine;
 [System.Serializable]
 public class WeightedGameObjectList
 {
-    [Header("Wave Spawn Information")]
+    [Header("Weighted Objects")]
     [SerializeField]
     private List<WeightedGameObject> list = new List<WeightedGameObject>();
 
-    public WeightedGameObject Get(int index) { return list[index]; }
-    public GameObject GetObject(int index) { return list[index].prefab; }
-    public int GetWeight(int index) { return list[index].weight; }
+    public WeightedGameObject Get(int index)
+    {
+        if (index < 0 || index >= list.Count)
+            return new WeightedGameObject(null, -1);
+        return list[index]; 
+    }
+
+    public GameObject GetObject(int index)
+    { 
+        if(index < 0 || index >= list.Count)
+            return null;
+        return list[index].prefab;
+    }
+
+    public int GetWeight(int index)
+    {
+        if (index < 0 || index >= list.Count)
+            return -1;
+        return list[index].weight;
+    }
 
     public int Count() { return list.Count; }
     public void Clear() { list.Clear(); }

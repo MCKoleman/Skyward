@@ -14,23 +14,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomList:
     list:
-    - weight: 5
+    - weight: 10
       prefab: {fileID: 8540803500904776699, guid: 61325463a7f45ce4d96be9e204b013da, type: 3}
-    - weight: 5
+    - weight: 10
       prefab: {fileID: 5128724924484038745, guid: ca07c48bd2bd64c4f9f2411cc319cb1d, type: 3}
-    - weight: 5
+    - weight: 10
       prefab: {fileID: 6696784045645710853, guid: b452f8dea360e8f439a2e6ec10b3d2c1, type: 3}
-    - weight: 5
+    - weight: 10
       prefab: {fileID: 133356753050047333, guid: 4b8da6565dd9afc45b4b9e1b67fd11cb, type: 3}
-    - weight: 3
+    - weight: 5
       prefab: {fileID: 8715135629679179277, guid: 2d79103ba67ee254eb857b0e0627a924, type: 3}
-    - weight: 3
+    - weight: 5
       prefab: {fileID: 5497269552478715869, guid: 6beb22cd1c3d7ff4da557093a5d89628, type: 3}
-    - weight: 3
+    - weight: 5
       prefab: {fileID: 3935002250200032329, guid: 6d54a3632db1bee449f1686e3cb89b9d, type: 3}
-    - weight: 3
-      prefab: {fileID: 942000723957194847, guid: a6de273fbd660c34889c85a0d67365ee, type: 3}
-    - weight: 3
+    - weight: 5
       prefab: {fileID: 3321227419250198871, guid: 69f58fd7a525f0643ac01648e88dd8f8, type: 3}
-    - weight: 1
+    - weight: 5
+      prefab: {fileID: 942000723957194847, guid: a6de273fbd660c34889c85a0d67365ee, type: 3}
+    - weight: 5
+      prefab: {fileID: 7172801126223269070, guid: 6e0d664fc0b5fdf47b4bc7c028d4f607, type: 3}
+    - weight: 4
+      prefab: {fileID: 426354920049078834, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+    - weight: 4
+      prefab: {fileID: 1565517350554224419, guid: 28d3050b58933a44db0b07ecf295b027, type: 3}
+    - weight: 4
+      prefab: {fileID: 5083139562978325087, guid: 8c351f85d949fe244b80262c8af09490, type: 3}
+    - weight: 4
+      prefab: {fileID: 70708824089447456, guid: e10587c628c5b66418d45e08c706ac04, type: 3}
+    - weight: 3
       prefab: {fileID: 1781211391673690570, guid: 2da35c6c4c497134b8091ad47bc05ea0, type: 3}

@@ -1,26 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4214610404622535534
+--- !u!1001 &873020113550205703
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 848993903599506509, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+    - target: {fileID: 34755666563368137, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 929608940452851495, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: m_Name
-      value: RoomTL
+      value: RoomRBL
       objectReference: {fileID: 0}
-    - target: {fileID: 2079206406728512726, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 8
+    - target: {fileID: 1302580666394744127, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 2079206406728512726, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
-      propertyPath: m_LocalPosition.z
+    - target: {fileID: 1302580666394744127, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2118321708370530172, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
@@ -67,31 +67,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2751945267199900902, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869839258000683399, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+    - target: {fileID: 6323904045955281876, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: req
-      value: 32
+      value: 64
       objectReference: {fileID: 0}
-    - target: {fileID: 5869839258000683399, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
-      propertyPath: shouldSpawn
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439843171029028081, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439843171029028081, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7458961958497173185, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
-      propertyPath: req
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 7458961958497173185, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+    - target: {fileID: 6323904045955281876, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: shouldSpawn
       value: 0
       objectReference: {fileID: 0}
@@ -101,19 +81,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7647388060284559768, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: roomReqs.Array.data[0]
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7647388060284559768, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: roomReqs.Array.data[1]
-      value: 16
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7647388060284559768, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: roomReqs.Array.data[2]
-      value: 128
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7647388060284559768, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: roomReqs.Array.data[3]
-      value: 64
+      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}

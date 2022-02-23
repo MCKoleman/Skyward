@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4214610404622535534
+--- !u!1001 &1828311758679762948
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -13,15 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 929608940452851495, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: m_Name
-      value: RoomTL
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079206406728512726, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079206406728512726, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
+      value: RoomTRL
       objectReference: {fileID: 0}
     - target: {fileID: 2118321708370530172, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: m_RootOrder
@@ -67,10 +59,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2751945267199900902, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5869839258000683399, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: req
       value: 32
@@ -87,14 +75,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7458961958497173185, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
-      propertyPath: req
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 7458961958497173185, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
-      propertyPath: shouldSpawn
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7647388060284559768, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: roomReqs.Array.size
       value: 4
@@ -105,11 +85,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7647388060284559768, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: roomReqs.Array.data[1]
-      value: 16
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7647388060284559768, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: roomReqs.Array.data[2]
-      value: 128
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7647388060284559768, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: roomReqs.Array.data[3]

@@ -53,6 +53,7 @@ public class DungeonManager : Singleton<DungeonManager>
             {
                 latestRoom = Instantiate(tempRoomPrefab, tempNode.transform.position, Quaternion.identity, PrefabManager.Instance.levelHolder);
                 DungeonRoom tempDungeonRoom = latestRoom.GetComponent<DungeonRoom>();
+                tempDungeonRoom.theme = room.theme;
                 AddNodesToDict(roomNodes, spawnNodes, tempDungeonRoom.roomNodes);
             }
             // Mark the node as completed and remove it from the list

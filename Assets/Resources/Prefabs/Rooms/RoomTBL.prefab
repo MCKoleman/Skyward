@@ -67,6 +67,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2930085396425959142, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681462038575912182, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7458961958497173185, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: req
       value: 256
@@ -94,6 +102,10 @@ PrefabInstance:
     - target: {fileID: 7647388060284559768, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: roomReqs.Array.data[3]
       value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269400765361903710, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: type
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}

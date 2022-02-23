@@ -2,19 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-// NONE = 0_0000_0001,
-// TOP = 0_0000_0010, BOTTOM = 0_0000_0100, RIGHT = 0_0000_1000, LEFT = 0_0001_0000,
-// NOTOP = 0_0010_0000, NOBOTTOM = 0_0100_0000, NORIGHT = 0_1000_0000, NOLEFT = 1_0000_0000
-[System.Serializable]
-public enum RoomReq { NONE = 1, TOP = 2, BOTTOM = 4, RIGHT = 8, LEFT = 16, NOTOP = 32, NOBOTTOM = 64, NORIGHT = 128, NOLEFT = 256 }
-
 public class RoomNode : MonoBehaviour
 {
     public bool shouldSpawn;
     public bool hasSpawned;
     [SerializeField]
-    private RoomReq req;
+    private GlobalVars.RoomReq req;
     public uint reqFlag { get; private set; }
 
     private void OnEnable()

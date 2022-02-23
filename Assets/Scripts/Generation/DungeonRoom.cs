@@ -10,9 +10,10 @@ public class DungeonRoom : MonoBehaviour
     // NOTOP = 0_0010_0000, NOBOTTOM = 0_0100_0000, NORIGHT = 0_1000_0000, NOLEFT = 1_0000_0000
     //public enum RoomReq { NONE = 1, TOP = 2, BOTTOM = 4, RIGHT = 8, LEFT = 16, NOTOP = 32, NOBOTTOM = 64, NORIGHT = 128, NOLEFT = 256 }
 
-    public List<RoomReq> roomReqs = new List<RoomReq>();
+    public List<GlobalVars.RoomReq> roomReqs = new List<GlobalVars.RoomReq>();
     public List<RoomNode> roomNodes = new List<RoomNode>();
     public uint reqFlag;
+    public GlobalVars.DungeonTheme theme;
 
     void Start()
     {
@@ -40,7 +41,7 @@ public class DungeonRoom : MonoBehaviour
     }
 
     // Calculate the requirements flag from the given requirements
-    public static uint CalcReqFlagFromReqs(List<RoomReq> _reqs)
+    public static uint CalcReqFlagFromReqs(List<GlobalVars.RoomReq> _reqs)
     {
         // Make sure all elements are unique
         uint _reqFlag = 0;
@@ -56,56 +57,56 @@ public class DungeonRoom : MonoBehaviour
     }
 
     // Returns the negated requirement of the one given
-    public static RoomReq GetNegatedReq(RoomReq req)
+    public static GlobalVars.RoomReq GetNegatedReq(GlobalVars.RoomReq req)
     {
         switch(req)
         {
-            case RoomReq.TOP:
-                return RoomReq.NOTOP;
-            case RoomReq.BOTTOM:
-                return RoomReq.NOBOTTOM;
-            case RoomReq.RIGHT:
-                return RoomReq.NORIGHT;
-            case RoomReq.LEFT:
-                return RoomReq.NOLEFT;
-            case RoomReq.NOTOP:
-                return RoomReq.TOP;
-            case RoomReq.NOBOTTOM:
-                return RoomReq.BOTTOM;
-            case RoomReq.NORIGHT:
-                return RoomReq.RIGHT;
-            case RoomReq.NOLEFT:
-                return RoomReq.LEFT;
-            case RoomReq.NONE:
+            case GlobalVars.RoomReq.TOP:
+                return GlobalVars.RoomReq.NOTOP;
+            case GlobalVars.RoomReq.BOTTOM:
+                return GlobalVars.RoomReq.NOBOTTOM;
+            case GlobalVars.RoomReq.RIGHT:
+                return GlobalVars.RoomReq.NORIGHT;
+            case GlobalVars.RoomReq.LEFT:
+                return GlobalVars.RoomReq.NOLEFT;
+            case GlobalVars.RoomReq.NOTOP:
+                return GlobalVars.RoomReq.TOP;
+            case GlobalVars.RoomReq.NOBOTTOM:
+                return GlobalVars.RoomReq.BOTTOM;
+            case GlobalVars.RoomReq.NORIGHT:
+                return GlobalVars.RoomReq.RIGHT;
+            case GlobalVars.RoomReq.NOLEFT:
+                return GlobalVars.RoomReq.LEFT;
+            case GlobalVars.RoomReq.NONE:
             default:
-                return RoomReq.NONE;
+                return GlobalVars.RoomReq.NONE;
         }
     }
 
     // Returns the opposite requirement of the one given
-    public static RoomReq GetOppositeReq(RoomReq req)
+    public static GlobalVars.RoomReq GetOppositeReq(GlobalVars.RoomReq req)
     {
         switch(req)
         {
-            case RoomReq.TOP:
-                return RoomReq.BOTTOM;
-            case RoomReq.BOTTOM:
-                return RoomReq.TOP;
-            case RoomReq.RIGHT:
-                return RoomReq.LEFT;
-            case RoomReq.LEFT:
-                return RoomReq.RIGHT;
-            case RoomReq.NOTOP:
-                return RoomReq.NOBOTTOM;
-            case RoomReq.NOBOTTOM:
-                return RoomReq.NOTOP;
-            case RoomReq.NORIGHT:
-                return RoomReq.NOLEFT;
-            case RoomReq.NOLEFT:
-                return RoomReq.NORIGHT;
-            case RoomReq.NONE:
+            case GlobalVars.RoomReq.TOP:
+                return GlobalVars.RoomReq.BOTTOM;
+            case GlobalVars.RoomReq.BOTTOM:
+                return GlobalVars.RoomReq.TOP;
+            case GlobalVars.RoomReq.RIGHT:
+                return GlobalVars.RoomReq.LEFT;
+            case GlobalVars.RoomReq.LEFT:
+                return GlobalVars.RoomReq.RIGHT;
+            case GlobalVars.RoomReq.NOTOP:
+                return GlobalVars.RoomReq.NOBOTTOM;
+            case GlobalVars.RoomReq.NOBOTTOM:
+                return GlobalVars.RoomReq.NOTOP;
+            case GlobalVars.RoomReq.NORIGHT:
+                return GlobalVars.RoomReq.NOLEFT;
+            case GlobalVars.RoomReq.NOLEFT:
+                return GlobalVars.RoomReq.NORIGHT;
+            case GlobalVars.RoomReq.NONE:
             default:
-                return RoomReq.NONE;
+                return GlobalVars.RoomReq.NONE;
         }
     }
 }

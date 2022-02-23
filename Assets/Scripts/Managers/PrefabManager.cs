@@ -9,6 +9,13 @@ public class PrefabManager : Singleton<PrefabManager>
     public GameObject[] enemyPrefabList;
     public GameObject exitPrefab;
 
+    [Header("Wall prefabs")]
+    [Tooltip("DEFAULT = 0, CAVE = 1, SKY = 2, CASTLE = 3")]
+    public GameObject[] topWalls;
+    public GameObject[] sideWalls;
+    public GameObject[] topDoorWalls;
+    public GameObject[] sideDoorWalls;
+
     [Header("Holders")]
     // Object holders
     public Transform projectileHolder;
@@ -40,6 +47,25 @@ public class PrefabManager : Singleton<PrefabManager>
 
         for (int i = bossHolder.childCount - 1; i >= 0; i--)
             Destroy(bossHolder.GetChild(i).gameObject);
+    }
+
+    // Returns a wall object of the given wall type and given theme
+    public GameObject GetWallObject(GlobalVars.WallType wallType, GlobalVars.DungeonTheme themeType)
+    {
+        switch(wallType)
+        {
+            case GlobalVars.WallType.TOP:
+                return topWalls[Mathf.Clamp((int)themeType, 0, topWalls.Length)];
+            case GlobalVars.WallType.SIDE:
+                return sideWalls[Mathf.Clamp((int)themeType, 0, sideWalls.Length)];
+            case GlobalVars.WallType.TOP_DOOR:
+                return topDoorWalls[Mathf.Clamp((int)themeType, 0, topDoorWalls.Length)];
+            case GlobalVars.WallType.SIDE_DOOR:
+                return sideDoorWalls[Mathf.Clamp((int)themeType, 0, sideDoorWalls.Length)];
+            case GlobalVars.WallType.DEFAULT:
+            default:
+                return null;
+        }
     }
 
     // Returns the number of enemies 

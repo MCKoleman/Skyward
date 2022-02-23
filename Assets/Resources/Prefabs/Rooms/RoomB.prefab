@@ -87,9 +87,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2368777148331672398, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: m_Name
+      value: FullWallTop
+      objectReference: {fileID: 0}
     - target: {fileID: 2751945267199900902, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681462038575912182, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: type
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6323904045955281876, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: req

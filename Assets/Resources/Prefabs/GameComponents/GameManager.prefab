@@ -327,6 +327,26 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   enemyPrefabList: []
   exitPrefab: {fileID: 1992895975375133948, guid: fcf8c673c0232ab4e9f681804f1a1a89, type: 3}
+  topWalls:
+  - {fileID: 4203021188474652247, guid: a62c974cdcab1bf4e82510948d90ef23, type: 3}
+  - {fileID: 8489704961069576143, guid: 305056d18d24d69478667617e3733ec2, type: 3}
+  - {fileID: 2278144523139748489, guid: 7ffe9187fd86b70439df682373d83196, type: 3}
+  - {fileID: 5047857394557346839, guid: 4d1e97a8c927c324694b7c0d3f1125a0, type: 3}
+  sideWalls:
+  - {fileID: 5595462276835784885, guid: 86dc5a5562f228b4bb26653fa56d2a4c, type: 3}
+  - {fileID: 3374471044451574224, guid: 259f7408d34ba2f4087769389161b02e, type: 3}
+  - {fileID: 5121332941121498330, guid: a0ff73dee513d6b429a0fbf7ae0d54b1, type: 3}
+  - {fileID: 61855773778006163, guid: 4f3241762896cec4ba189f2f3741c7a0, type: 3}
+  topDoorWalls:
+  - {fileID: 5013924933096544700, guid: 07007de53e507064a9330031636297a3, type: 3}
+  - {fileID: 7100223086438353367, guid: 85d9f5d57bb92884eba6b4d7104c0274, type: 3}
+  - {fileID: 8192645345764039591, guid: 9e523ee04d70e1b42be9b7b697d9bc1b, type: 3}
+  - {fileID: 1415976063745584687, guid: cc48ab8fa377f2c48952b9ba61479a03, type: 3}
+  sideDoorWalls:
+  - {fileID: 1994716805079337537, guid: ee10ded3994147e4ab737fdc68a201d7, type: 3}
+  - {fileID: 679577129714706575, guid: 998eec3fdcab3d448b02a54bfd6e2b1b, type: 3}
+  - {fileID: 4592363245870622026, guid: 1e22d114d1cd4db4e912175977df7e53, type: 3}
+  - {fileID: 1050525084677508416, guid: af7f35182d6b627409d02e4d162280ae, type: 3}
   projectileHolder: {fileID: 3116778456051282564}
   enemyHolder: {fileID: 3116778456941221364}
   powerupHolder: {fileID: 3116778457604670714}
@@ -905,8 +925,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
   roomList: {fileID: 11400000, guid: d0dd0e97c98613740bd7068cae226e5f, type: 2}
+  contentList: {fileID: 11400000, guid: afce021cf1d9ac54ab4195b293a569b2, type: 2}
   startRoom: {fileID: 0}
-  spawnNodes: []
+  numRooms: 0
 --- !u!1 &6170610240298877166
 GameObject:
   m_ObjectHideFlags: 0

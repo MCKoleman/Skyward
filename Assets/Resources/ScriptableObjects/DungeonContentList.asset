@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648c9026a73cc2b499a2c0e1b8d6d50e, type: 3}
+  m_Name: DungeonContentList
+  m_EditorClassIdentifier: 
+  enemyList:
+    list:
+    - weight: 1
+      prefab: {fileID: 2339939541448353092, guid: 3093d3d5d4482384bb492d2c3ac35934, type: 3}
+  treasureList:
+    list:
+    - weight: 1
+      prefab: {fileID: 3424616783585441499, guid: 1e96b2e06d01a55448caf3f024805c96, type: 3}
+  hazardList:
+    list:
+    - weight: 5
+      prefab: {fileID: 7794817357590401744, guid: b2d8e8e00bd8a274c80af382eebab40b, type: 3}
+    - weight: 1
+      prefab: {fileID: 3432599287562161461, guid: 7a9232eaecb4bc1438a64c52a5d72343, type: 3}
+  nothingWeight: 90
+  enemyWeight: 5
+  treasureWeight: 2
+  hazardWeight: 3
+  baseNothingWeight: 1
+  baseEnemyWeight: 0.1
+  baseTreasureWeight: 0.1
+  baseHazardWeight: 0.1
+  nothingMod: 2
+  enemyMod: 3
+  treasureMod: 2
+  hazardMod: 2

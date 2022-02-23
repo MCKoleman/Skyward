@@ -7,6 +7,7 @@ public class PrefabManager : Singleton<PrefabManager>
     [Header("Prefabs")]
     // Player prefabs
     public GameObject[] enemyPrefabList;
+    public GameObject exitPrefab;
 
     [Header("Holders")]
     // Object holders

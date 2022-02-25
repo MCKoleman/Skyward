@@ -34,7 +34,12 @@ public class DungeonManager : Singleton<DungeonManager>
     {
         // Keep track of the latest node used
         GameObject latestRoom = null;
-        numRooms = 0;
+        numRooms = 1;
+
+        // Get spawn parameters
+        int minRooms = roomList.GetMinRoomCount();
+        int maxRooms = roomList.GetMaxRoomCount();
+        int prefRooms = roomList.GetPrefRoomCount();
         
         // Keep a list of all nodes that have been spawned and a list of all nodes that should spawn
         roomNodes.Clear();
@@ -51,7 +56,32 @@ public class DungeonManager : Singleton<DungeonManager>
             //Print.Log($"Running loop on node: [{tempNode}]");
 
             // Find a random room that meets the spawn requirements
-            GameObject tempRoomPrefab = roomList.GetRandomRoomByFlag(tempNode.reqFlag);
+            GameObject tempRoomPrefab;
+            
+            // If the minimum number of rooms hasn't been met yet and there are less spawn nodes than needed rooms, spawn max rooms
+            if(minRooms > numRooms + spawnNodes.Count)
+            {
+                tempRoomPrefab = roomList.GetRandomRoomByFlag(GlobalVars.LockInverseFlagReqs(tempNode.reqFlag));
+            }
+            // If the preferred number of rooms hasn't been met yet, spawn with inverted spawn rates
+            else if (prefRooms > numRooms + spawnNodes.Count)
+            {
+                tempRoomPrefab = roomList.GetInverseRandomRoomByFlag(tempNode.reqFlag);
+            }
+            // If the preferred number of rooms has been met, spawn normally until approaching max rooms
+            else if (maxRooms > numRooms + spawnNodes.Count)
+            {
+                tempRoomPrefab = roomList.GetRandomRoomByFlag(tempNode.reqFlag);
+            }
+            // If approaching max rooms, force stop
+            else
+            {
+                tempRoomPrefab = roomList.GetRandomRoomByFlag(GlobalVars.LockFlagReqs(tempNode.reqFlag));
+            }
+
+            Print.Log($"Picked prefab: [{tempRoomPrefab}]. Needs to satisfy [{tempNode.reqFlag}]. Locked: [{GlobalVars.LockFlagReqs(tempNode.reqFlag)}], InvLocked: [{GlobalVars.LockInverseFlagReqs(tempNode.reqFlag)}]");
+
+            // Spawn the room chosen
             if(tempRoomPrefab != null)
             {
                 latestRoom = Instantiate(tempRoomPrefab, tempNode.transform.position, Quaternion.identity, PrefabManager.Instance.levelHolder);

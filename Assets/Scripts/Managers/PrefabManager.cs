@@ -7,7 +7,11 @@ public class PrefabManager : Singleton<PrefabManager>
     [Header("Prefabs")]
     // Player prefabs
     public GameObject[] enemyPrefabList;
+
+    [Header("Room prefabs")]
     public GameObject exitPrefab;
+    public GameObject baseRoomPrefab;
+    public GameObject bossRoomPrefab;
 
     [Header("Wall prefabs")]
     [Tooltip("DEFAULT = 0, CAVE = 1, SKY = 2, CASTLE = 3")]

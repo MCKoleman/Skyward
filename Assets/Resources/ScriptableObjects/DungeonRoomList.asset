@@ -44,3 +44,6 @@ MonoBehaviour:
       prefab: {fileID: 70708824089447456, guid: e10587c628c5b66418d45e08c706ac04, type: 3}
     - weight: 3
       prefab: {fileID: 1781211391673690570, guid: 2da35c6c4c497134b8091ad47bc05ea0, type: 3}
+  minRoomCount: 6
+  prefRoomCount: 15
+  maxRoomCount: 25

@@ -54,7 +54,7 @@ public class WeightedGameObjectList
     public GameObject GetRandomObject()
     {
         int index = 0;
-        int rng = Random.Range(0, GetTotalWeights()+1);
+        int rng = Random.Range(0, GetTotalWeights() + 1);
 
         // Iterate through wave enemies until weight limit is reached
         for (; index < list.Count; index++)
@@ -71,12 +71,44 @@ public class WeightedGameObjectList
         return GetObject(index);
     }
 
-    // Gets the total weight of all game objects in wave
+    // Returns a reference to a random game object prefab by inverted weight
+    public GameObject GetInverseRandomObject()
+    {
+        int index = 0;
+        int rng = Random.Range(0, GetInverseTotalWeights() + 1);
+        int totalWeights = GetTotalWeights();
+
+        // Iterate through wave enemies until weight limit is reached
+        for (; index < list.Count; index++)
+        {
+            // If random number generated is greater than the weight of the object at index, move forward
+            int weight = totalWeights - GetWeight(index);
+            if (rng > weight)
+                rng -= weight;
+            // If rng is too low to move on, break and return the index
+            else
+                break;
+        }
+
+        return GetObject(index);
+    }
+
+    // Gets the total weight of all game objects in the list
     public int GetTotalWeights()
     {
         int totalWeight = 0;
         foreach (var obj in list)
             totalWeight += obj.weight;
+        return totalWeight;
+    }
+
+    // Gets the inverted total weight of all game objects in the list
+    public int GetInverseTotalWeights()
+    {
+        int total = GetTotalWeights();
+        int totalWeight = 0;
+        foreach (var obj in list)
+            totalWeight += total - obj.weight;
         return totalWeight;
     }
 }

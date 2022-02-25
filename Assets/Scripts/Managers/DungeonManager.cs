@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,11 +6,14 @@ public class DungeonManager : Singleton<DungeonManager>
     [SerializeField]
     private DungeonRoomList roomList;
     [SerializeField]
+    private DungeonContentList contentList;
+    [SerializeField]
     private DungeonRoom startRoom;
+    [SerializeField]
+    private int numRooms = 0;
 
-    [SerializeField]
+    // Room spawn data
     private Dictionary<string, RoomNode> roomNodes = new Dictionary<string, RoomNode>();
-    [SerializeField]
     private List<RoomNode> spawnNodes = new List<RoomNode>();
 
     // Should only be called by GameManager. Initializes the singleton
@@ -32,6 +34,12 @@ public class DungeonManager : Singleton<DungeonManager>
     {
         // Keep track of the latest node used
         GameObject latestRoom = null;
+        numRooms = 1;
+
+        // Get spawn parameters
+        int minRooms = roomList.GetMinRoomCount();
+        int maxRooms = roomList.GetMaxRoomCount();
+        int prefRooms = roomList.GetPrefRoomCount();
         
         // Keep a list of all nodes that have been spawned and a list of all nodes that should spawn
         roomNodes.Clear();
@@ -48,12 +56,44 @@ public class DungeonManager : Singleton<DungeonManager>
             //Print.Log($"Running loop on node: [{tempNode}]");
 
             // Find a random room that meets the spawn requirements
-            GameObject tempRoomPrefab = roomList.GetRandomRoomByFlag(tempNode.reqFlag);
+            GameObject tempRoomPrefab;
+            
+            // If the minimum number of rooms hasn't been met yet and there are less spawn nodes than needed rooms, spawn max rooms
+            if(minRooms > numRooms + spawnNodes.Count)
+            {
+                tempRoomPrefab = roomList.GetRandomRoomByFlag(GlobalVars.LockInverseFlagReqs(tempNode.reqFlag));
+            }
+            // If the preferred number of rooms hasn't been met yet, spawn with inverted spawn rates
+            else if (prefRooms > numRooms + spawnNodes.Count)
+            {
+                tempRoomPrefab = roomList.GetInverseRandomRoomByFlag(tempNode.reqFlag);
+            }
+            // If the preferred number of rooms has been met, spawn normally until approaching max rooms
+            else if (maxRooms > numRooms + spawnNodes.Count)
+            {
+                tempRoomPrefab = roomList.GetRandomRoomByFlag(tempNode.reqFlag);
+            }
+            // If approaching max rooms, force stop
+            else
+            {
+                tempRoomPrefab = roomList.GetRandomRoomByFlag(GlobalVars.LockFlagReqs(tempNode.reqFlag));
+            }
+
+            //Print.Log($"Picked prefab: [{tempRoomPrefab}]. Needs to satisfy [{tempNode.reqFlag}]. Locked: [{GlobalVars.LockFlagReqs(tempNode.reqFlag)}], InvLocked: [{GlobalVars.LockInverseFlagReqs(tempNode.reqFlag)}]");
+
+            // Spawn the room chosen
             if(tempRoomPrefab != null)
             {
                 latestRoom = Instantiate(tempRoomPrefab, tempNode.transform.position, Quaternion.identity, PrefabManager.Instance.levelHolder);
+                
+                // Update dungeon room information
                 DungeonRoom tempDungeonRoom = latestRoom.GetComponent<DungeonRoom>();
+                tempDungeonRoom.theme = room.theme;
+                tempDungeonRoom.roomNum = numRooms;
                 AddNodesToDict(roomNodes, spawnNodes, tempDungeonRoom.roomNodes);
+
+                // Increment the current room number
+                numRooms++;
             }
             // Mark the node as completed and remove it from the list
             tempNode.hasSpawned = true;
@@ -108,4 +148,18 @@ public class DungeonManager : Singleton<DungeonManager>
             }
         }
     }
+
+    // Spawns content for the given room
+    public void SpawnContent(ContentNode node)
+    {
+        // Find random content for the room
+        GameObject tempContent = contentList.GetRandomContent(node.GetParentRoom().roomNum / (float)numRooms);
+        if (tempContent != null)
+        {
+            Instantiate(tempContent, node.transform.position, Quaternion.identity, node.GetParentRoom().transform);
+        }
+    }
+
+    // Returns the number of rooms in this dungeon
+    public int GetNumRooms() { return numRooms; }
 }

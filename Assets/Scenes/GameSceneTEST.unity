@@ -182,6 +182,10 @@ PrefabInstance:
       propertyPath: hasSpawned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9114857769982093173, guid: 2da35c6c4c497134b8091ad47bc05ea0, type: 3}
+      propertyPath: theme
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2da35c6c4c497134b8091ad47bc05ea0, type: 3}
 --- !u!1 &179673130

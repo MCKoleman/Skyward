@@ -266,6 +266,7 @@ MonoBehaviour:
   reqFlag: 0
   roomNum: 0
   theme: 0
+  roomPos: {x: 0, y: 0}
 --- !u!1 &1085078707124132309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,7 +1776,7 @@ GameObject:
   - component: {fileID: 6478978259815181756}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

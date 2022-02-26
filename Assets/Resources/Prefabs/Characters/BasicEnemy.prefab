@@ -322,11 +322,15 @@ PrefabInstance:
     - target: {fileID: 573981774380439044, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: speedMods
       value: 
-      objectReference: {fileID: 11400000, guid: 75d7579733736f44280935be581a88fe, type: 2}
+      objectReference: {fileID: 11400000, guid: 4537d0465671a4d448c0aac0e3fcfc3c, type: 2}
     - target: {fileID: 2296353288259372170, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3135bd1ff81aa4c4f82a1be6a5d64b44, type: 2}
+    - target: {fileID: 5478232311811608648, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7042752535427001969, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -371,6 +375,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7481033249912703728, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8412883445067086715, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_UseGravity
       value: 1
@@ -381,7 +389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8947402544891268238, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_Name
-      value: TestEnemy
+      value: BasicEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 8947402544891268238, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_TagString

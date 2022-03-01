@@ -3,22 +3,56 @@ using UnityEngine;
 
 public class DungeonManager : Singleton<DungeonManager>
 {
+    [Header("Spawn information")]
     [SerializeField]
     private DungeonRoomList roomList;
     [SerializeField]
     private DungeonContentList contentList;
     [SerializeField]
     private DungeonRoom startRoom;
+
+    [Header("Runtime information")]
+    [SerializeField]
+    private List<MinimapNode> roomMap = new List<MinimapNode>();
     [SerializeField]
     private int numRooms = 0;
+    [SerializeField]
+    private Vector2 roomSize = Vector2.zero;
+    [SerializeField]
+    private Vector2Int blCoord = new Vector2Int(int.MaxValue, int.MaxValue);
+    [SerializeField]
+    private Vector2Int trCoord = new Vector2Int(int.MinValue, int.MinValue);
+    [SerializeField]
+    private Vector2 dungeonCenter = Vector2.zero;
+    [SerializeField]
+    private Vector2 dungeonSize = Vector2.zero;
 
     // Room spawn data
     private Dictionary<string, RoomNode> roomNodes = new Dictionary<string, RoomNode>();
     private List<RoomNode> spawnNodes = new List<RoomNode>();
 
+
+
+    // TEMP: REMOVE ASAP. DO NOT KEEP THIS UPDATE FUNCTION AROUND
+    // ----------------------------------------------------------
+    public Vector2 plPos = new Vector2();
+    private GameObject player;
+    private void Update()
+    {
+        plPos = new Vector2(
+            (player.transform.position.x + dungeonCenter.x) / (dungeonSize.x * roomSize.x), 
+            (player.transform.position.z + dungeonCenter.y) / (dungeonSize.y * roomSize.y));
+    }
+    // TEMP: REMOVE ASAP. DO NOT KEEP THIS UPDATE FUNCTION AROUND
+    // ----------------------------------------------------------
+
+
+
     // Should only be called by GameManager. Initializes the singleton
     public void Init()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         // If there is no start room, find one
         if(startRoom == null)
         {
@@ -32,19 +66,24 @@ public class DungeonManager : Singleton<DungeonManager>
     // Generates the dungeon starting from the given room
     public void Generate(DungeonRoom room)
     {
-        // Keep track of the latest node used
+        // Reset dungeon info
         GameObject latestRoom = null;
         numRooms = 1;
+        blCoord = new Vector2Int(int.MaxValue, int.MaxValue);
+        trCoord = new Vector2Int(int.MinValue, int.MinValue);
+
+        // Clear previous dungeon
+        roomMap.Clear();
+        roomNodes.Clear();
+        spawnNodes.Clear();
 
         // Get spawn parameters
         int minRooms = roomList.GetMinRoomCount();
         int maxRooms = roomList.GetMaxRoomCount();
         int prefRooms = roomList.GetPrefRoomCount();
-        
-        // Keep a list of all nodes that have been spawned and a list of all nodes that should spawn
-        roomNodes.Clear();
-        spawnNodes.Clear();
+        roomSize = room.CalcSize();
 
+        // Keep a list of all nodes that have been spawned and a list of all nodes that should spawn
         // Add the spawn nodes of the first room to the dictionary
         AddNodesToDict(roomNodes, spawnNodes, room.roomNodes);
 
@@ -60,26 +99,22 @@ public class DungeonManager : Singleton<DungeonManager>
             
             // If the minimum number of rooms hasn't been met yet and there are less spawn nodes than needed rooms, spawn max rooms
             if(minRooms > numRooms + spawnNodes.Count)
-            {
                 tempRoomPrefab = roomList.GetRandomRoomByFlag(GlobalVars.LockInverseFlagReqs(tempNode.reqFlag));
-            }
+
             // If the preferred number of rooms hasn't been met yet, spawn with inverted spawn rates
             else if (prefRooms > numRooms + spawnNodes.Count)
-            {
                 tempRoomPrefab = roomList.GetInverseRandomRoomByFlag(tempNode.reqFlag);
-            }
+
             // If the preferred number of rooms has been met, spawn normally until approaching max rooms
             else if (maxRooms > numRooms + spawnNodes.Count)
-            {
                 tempRoomPrefab = roomList.GetRandomRoomByFlag(tempNode.reqFlag);
-            }
+
             // If approaching max rooms, force stop
             else
-            {
                 tempRoomPrefab = roomList.GetRandomRoomByFlag(GlobalVars.LockFlagReqs(tempNode.reqFlag));
-            }
 
-            //Print.Log($"Picked prefab: [{tempRoomPrefab}]. Needs to satisfy [{tempNode.reqFlag}]. Locked: [{GlobalVars.LockFlagReqs(tempNode.reqFlag)}], InvLocked: [{GlobalVars.LockInverseFlagReqs(tempNode.reqFlag)}]");
+            //Print.Log($"Picked prefab: [{tempRoomPrefab}]. Needs to satisfy [{tempNode.reqFlag}].
+            //Locked: [{GlobalVars.LockFlagReqs(tempNode.reqFlag)}], InvLocked: [{GlobalVars.LockInverseFlagReqs(tempNode.reqFlag)}]");
 
             // Spawn the room chosen
             if(tempRoomPrefab != null)
@@ -90,7 +125,18 @@ public class DungeonManager : Singleton<DungeonManager>
                 DungeonRoom tempDungeonRoom = latestRoom.GetComponent<DungeonRoom>();
                 tempDungeonRoom.theme = room.theme;
                 tempDungeonRoom.roomNum = numRooms;
+                tempDungeonRoom.roomPos = new Vector2Int(
+                    Mathf.FloorToInt(latestRoom.transform.position.x / roomSize.x), 
+                    Mathf.FloorToInt(latestRoom.transform.position.z / roomSize.y));
+
                 AddNodesToDict(roomNodes, spawnNodes, tempDungeonRoom.roomNodes);
+
+                // Add room to minimap
+                roomMap.Add(new MinimapNode(tempDungeonRoom));
+
+                // Find bottom and top bounds of the map
+                blCoord = new Vector2Int(Mathf.Min(blCoord.x, tempDungeonRoom.roomPos.x), Mathf.Min(blCoord.y, tempDungeonRoom.roomPos.y));
+                trCoord = new Vector2Int(Mathf.Max(trCoord.x, tempDungeonRoom.roomPos.x), Mathf.Max(trCoord.y, tempDungeonRoom.roomPos.y));
 
                 // Increment the current room number
                 numRooms++;
@@ -102,6 +148,13 @@ public class DungeonManager : Singleton<DungeonManager>
             // Remove all nodes that have been exhausted
             TrimSpawnedNodes(spawnNodes);
         }
+
+        // Calculate dungeon size information. 
+        dungeonSize = trCoord - blCoord;
+        dungeonCenter = dungeonSize / 2;
+
+        // For finding the actual size of the dungeon, add 0.5 * 2 because coordinates are in the center of rooms.
+        dungeonSize += Vector2.one;
 
         // When generation is done, spawn an exit in the last room spawned
         Instantiate(PrefabManager.Instance.exitPrefab, latestRoom.transform.position, Quaternion.identity, PrefabManager.Instance.levelHolder);

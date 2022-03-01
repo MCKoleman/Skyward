@@ -14,6 +14,7 @@ public class DungeonRoom : MonoBehaviour
     public uint reqFlag;
     public int roomNum = 0;
     public GlobalVars.DungeonTheme theme;
+    public Vector2Int roomPos;
 
     void Start()
     {
@@ -38,5 +39,33 @@ public class DungeonRoom : MonoBehaviour
     {
         reqFlag = GlobalVars.CalcReqFlagFromReqs(roomReqs);
         return reqFlag;
+    }
+
+    // Calculates and returns the size of the room based on how additional nodes are placed
+    public Vector2 CalcSize()
+    {
+        float minX = int.MaxValue;
+        float minZ = int.MaxValue;
+        float maxX = int.MinValue;
+        float maxZ = int.MinValue;
+
+        // Find the lowest and highest x and z
+        for(int i = 0; i < roomNodes.Count; i++)
+        {
+            if (roomNodes[i].transform.position.x < minX)
+                minX = roomNodes[i].transform.position.x;
+
+            if (roomNodes[i].transform.position.x > maxX)
+                maxX = roomNodes[i].transform.position.x;
+
+            if (roomNodes[i].transform.position.z < minZ)
+                minZ = roomNodes[i].transform.position.z;
+
+            if (roomNodes[i].transform.position.z > maxZ)
+                maxZ = roomNodes[i].transform.position.z;
+        }
+
+        // The size of a room is half the distance between its furthest nodes
+        return new Vector2((maxX - minX) / 2, (maxZ - minZ) / 2);
     }
 }

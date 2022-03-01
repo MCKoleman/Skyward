@@ -20,7 +20,7 @@ public class CharacterController : MonoBehaviour
 
     /* Movement data */
     protected float facingDir = 1.0f;
-    protected Vector2 moveDelta = Vector2.zero;
+    protected Vector3 moveDelta = Vector3.zero;
     protected Vector3 prevDelta = Vector3.zero;
     protected int numJumpsUsed = 0;
     protected int numDashesUsed = 0;
@@ -74,9 +74,9 @@ public class CharacterController : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         // If there is movement input being given, move the rigidbody in the direction of the delta over time
-        if (moveDelta != Vector2.zero && !isDashing)
+        if (moveDelta != Vector3.zero && !isDashing)
             //rb.MovePosition(rb.position + moveDelta * Time.fixedDeltaTime * Vector2.right);
-            rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(moveDelta.x, rb.velocity.y, moveDelta.y), GetAccelerationMod(true) * Time.fixedDeltaTime);
+            rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(moveDelta.x, rb.velocity.y, moveDelta.z), GetAccelerationMod(true) * Time.fixedDeltaTime);
         else
             rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(0.0f, rb.velocity.y, 0.0f), GetAccelerationMod(false) * Time.fixedDeltaTime);
 
@@ -164,14 +164,14 @@ public class CharacterController : MonoBehaviour
     protected virtual void HandleMove(Vector2 moveContext)
     {
         // If the movement hasn't ended, store it as the previous delta for direction calculations
-        if(moveDelta != Vector2.zero)
-            prevDelta = new Vector3(moveDelta.x, 0.0f, moveDelta.y);
+        if(moveDelta != Vector3.zero)
+            prevDelta = new Vector3(moveDelta.x, 0.0f, moveDelta.z);
 
         // Get the movement delta for each frame from the x and y axis input
-        moveDelta = moveContext * speedMods.MOVE_MOD;
+        moveDelta = new Vector3(moveContext.x, 0.0f, moveContext.y) * speedMods.MOVE_MOD;
 
         // Set animation state
-        SetIsWalking((moveDelta != Vector2.zero));
+        SetIsWalking((moveDelta != Vector3.zero));
     }
 
     // Handles the jumping of the character
@@ -209,7 +209,7 @@ public class CharacterController : MonoBehaviour
         rb.useGravity = false;
 
         // Activate dash
-        rb.AddForce(prevDelta * speedMods.DASH_MOD, ForceMode.Impulse);
+        rb.AddForce(prevDelta.normalized * speedMods.DASH_MOD, ForceMode.Impulse);
 
         // Play dash sound
         if (source != null && dashClips.Length != 0)

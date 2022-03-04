@@ -23,6 +23,9 @@ public class GlobalVars : Singleton<GlobalVars>
     [System.Serializable]
     public enum WallType { DEFAULT = 0, TOP = 1, SIDE = 2, TOP_DOOR = 3, SIDE_DOOR = 4, FLOOR = 5 }
 
+    [System.Serializable]
+    public enum SpeakerType { PLAYER, ZEIL, VISAGE, MOM, DAD }
+
     // Locks the requirement flag to not allow any variation, ie. if top is not required, don't allow it
     public static uint LockFlagReqs(uint reqFlag)
     {

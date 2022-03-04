@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f636dcb3ed6e34849b0626e187913841, type: 3}
+  m_Name: DialogueList
+  m_EditorClassIdentifier: 
+  dialogue:
+  - dialogue:
+    - speaker: 0
+      text: This is the player saying their first thing
+    - speaker: 0
+      text: And their second
+    - speaker: 1
+      text: Zeil responds
+    - speaker: 0
+      text: And so does the player
+  - dialogue:
+    - speaker: 0
+      text: The player says only one thing
+  - dialogue:
+    - speaker: 2
+      text: All five
+    - speaker: 3
+      text: characters
+    - speaker: 4
+      text: say
+    - speaker: 1
+      text: something
+    - speaker: 0
+      text: in a row

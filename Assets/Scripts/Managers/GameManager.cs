@@ -5,7 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(SceneLoader))]
 public class GameManager : Singleton<GameManager>
 {
+    public enum GameState { MENU, OVERWORLD, PAUSED, IN_DUNGEON, IN_BOSS_ROOM, IN_DIALOGUE, GENERATING_DUNGEON }
     public bool IsGameActive { get; private set; }
+    [SerializeField]
+    private GameState gameState;
 
     private SceneLoader sceneLoader;
 
@@ -24,6 +27,7 @@ public class GameManager : Singleton<GameManager>
         UIManager.Instance.Init();
         SaveManager.Instance.Init();
         CheckpointManager.Instance.Init();
+        DialogueManager.Instance.Init();
         DungeonManager.Instance.Init();
         StartGame();
     }
@@ -68,6 +72,7 @@ public class GameManager : Singleton<GameManager>
         sceneLoader.LoadNextScene();
     }
 
+    // Quits the game
     public void QuitGame()
     {
         sceneLoader.Quit();
@@ -75,4 +80,8 @@ public class GameManager : Singleton<GameManager>
 
     // Getters and setters
     public void SetIsGameActive(bool state) { IsGameActive = state; }
+    public GameState GetGameState() { return gameState; }
+
+    // Sets the gameState to the given gameState. This function should be managed carefully
+    public void SetGameState(GameState _gameState) { gameState = _gameState; }
 }

@@ -14,14 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - dialogue:
+    - speaker: 2
+      text: "What\u2019s with the blank face, ******?"
     - speaker: 0
-      text: This is the player saying their first thing
-    - speaker: 0
-      text: And their second
-    - speaker: 1
-      text: Zeil responds
-    - speaker: 0
-      text: And so does the player
+      text: ...
+    - speaker: 2
+      text: 'Back in the day you would never shut up about your love for potatoes. '
+    - speaker: 2
+      text: 'Baked potatoes, potato soup, potato cake, nothing was off the table
+        as long as it had a potato in it. '
+    - speaker: 2
+      text: "Well it\u2019s not a potato but here\u2019s a little gift from me. Hope
+        to see you again one day!"
   - dialogue:
     - speaker: 0
       text: The player says only one thing

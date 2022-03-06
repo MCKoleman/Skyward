@@ -7,6 +7,7 @@ public class DungeonExit : MonoBehaviour
     // Exits the dungeon, completing it
     private void ExitDungeon()
     {
+        GameManager.Instance.HandleLevelSwap(1);
         Print.Log("Level won!");
     }
 

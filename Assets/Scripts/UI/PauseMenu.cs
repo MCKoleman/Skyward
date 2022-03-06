@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
     public void PauseGame()
     {
         EnableMenu(true);
-        Time.timeScale = 0.0f;
+        GameManager.Instance.SetTimeScale(0.0f);
         Cursor.visible = true;
 
         // Redundant call to make sure button is selected
@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
     // Unpauses the game
     public void UnpauseGame()
     {
-        Time.timeScale = 1.0f;
+        GameManager.Instance.SetTimeScale(1.0f);
         Cursor.visible = false;
         EnableMenu(false);
     }

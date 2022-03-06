@@ -10,11 +10,41 @@ public class DialogueManager : Singleton<DialogueManager>
     private SpeakerLibrary speakerLibrary;
     [SerializeField]
     private int currentDialogue;
+    [SerializeField]
+    private int maxUnlockedDialogue;
+    [SerializeField]
+    private float curDialogueSpeedMultiplier = 1.0f;
+    private const float SPED_UP_DIALOGUE_MULTIPLIER = 0.33f;
 
     // Initializer for the manager. Should only be called from GameManager
     public void Init()
     {
         currentDialogue = 0;
+    }
+
+    // Starts dialogue, setting the new max dialogue index to be 1 higher
+    public void BeginDialogue()
+    {
+        BeginDialogue(maxUnlockedDialogue + 1);
+    }
+
+    // Starts dialogue, setting the new max dialogue index
+    public void BeginDialogue(int newMaxIndex)
+    {
+        SetMaxUnlockedDialogue(newMaxIndex);
+        GameManager.Instance.SetTimeScale(0.0f);
+        UIManager.Instance.ContinueDialogue();
+    }
+
+    // Continues dialogue, either returning the highest unlocked dialogue or a null dialogue item
+    public DialogueItem ContinueDialogue()
+    {
+        // Only give the next dialogue if it has been unlocked and exists
+        if (currentDialogue < maxUnlockedDialogue && currentDialogue < dialogueList.Count)
+            return GetNextDialogue();
+        // Otherwise, return null dialogue
+        else
+            return new DialogueItem();
     }
 
     // Returns the next dialogue item
@@ -37,6 +67,26 @@ public class DialogueManager : Singleton<DialogueManager>
         speakerLibrary.GetSpeaker(type, out speaker);
         return speaker;
     }
+
+    // Sets the dialogue speed to fast or normal
+    public void EnableFastDialogue(bool shouldEnable)
+    {
+        // Enables fast dialogue
+        if (shouldEnable)
+            curDialogueSpeedMultiplier = SPED_UP_DIALOGUE_MULTIPLIER;
+        // Disables fast dialogue
+        else
+            curDialogueSpeedMultiplier = 1.0f;
+    }
+
+    // Returns the current dialogue speed
+    public float GetDialogueSpeed() { return curDialogueSpeedMultiplier; }
+
+    // Sets the new highest possible dialogue index
+    public void SetMaxUnlockedDialogue(int _max) { maxUnlockedDialogue = _max; }
+
+    // Returns the highest unlocked dialogue index
+    public int GetMaxUnlockedDialogue() { return maxUnlockedDialogue; }
 
     // Returns the dialogue index
     public int GetDialogueIndex() { return currentDialogue; }

@@ -10,6 +10,8 @@ public class DungeonManager : Singleton<DungeonManager>
     private DungeonContentList contentList;
     [SerializeField]
     private DungeonRoom startRoom;
+    [SerializeField]
+    private GlobalVars.DungeonTheme startTheme;
 
     [Header("Runtime information")]
     [SerializeField]
@@ -53,11 +55,15 @@ public class DungeonManager : Singleton<DungeonManager>
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
-        // If there is no start room, find one
+        // If there is no start room, make one
         if(startRoom == null)
         {
-            startRoom = GameObject.FindGameObjectWithTag("DungeonRoom").GetComponent<DungeonRoom>();
+            GameObject tempObj = Instantiate(PrefabManager.Instance.baseRoomPrefab, Vector3.zero, Quaternion.identity, PrefabManager.Instance.levelHolder);
+            startRoom = tempObj.GetComponent<DungeonRoom>();
         }
+
+        // Set theme
+        startRoom.theme = startTheme;
 
         // Generate the dungeon
         Generate(startRoom);

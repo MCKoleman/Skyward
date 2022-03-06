@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Luminance Games
+  companyName: LuminanceGames
   productName: Skyward
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -136,7 +136,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.0.2
+  bundleVersion: 0.1.0
   preloadedAssets:
   - {fileID: 11400000, guid: 0193c0e8c6f024343b2844ab2d95de3b, type: 2}
   metroInputSource: 0

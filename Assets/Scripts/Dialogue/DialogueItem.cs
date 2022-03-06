@@ -29,7 +29,10 @@ public struct DialogueItem
     // Returns the number of dialogue elements in this struct
     public int GetDialogueCount()
     {
-        return dialogue.Count;
+        if(dialogue != null)
+            return dialogue.Count;
+        else
+            return -1;
     }
 }
 

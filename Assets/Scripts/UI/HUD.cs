@@ -9,7 +9,13 @@ public class HUD : MonoBehaviour
     [SerializeField]
     private GameObject hudObj;
     [SerializeField]
-    private HealthBar healthBar;
+    private UIHealthBar healthBar;
+    [SerializeField]
+    private UICooldown dashCooldown;
+    [SerializeField]
+    private UIMinimap minimap;
+    [SerializeField]
+    private UIDialogueBox dialogueBox;
     [SerializeField]
     private bool isActive;
 
@@ -30,10 +36,9 @@ public class HUD : MonoBehaviour
         // Update parts of the hud
     }
 
-    public void UpdateHealth(float percent)
-    {
-        healthBar.UpdateHealth(percent);
-    }
-
     /* ============================================================ Child component function wrappers ==================================== */
+    public void EnableDialogue(bool shouldEnable = true) { dialogueBox.EnableDialogue(shouldEnable); }
+    public void ContinueDialogue() { dialogueBox.ContinueDialogue(); }
+    public void UpdateHealth(float percent) { healthBar.UpdateHealth(percent); }
+    public void UpdateDashCooldown(float percent) { dashCooldown.UpdateCooldown(percent); }
 }

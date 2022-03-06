@@ -416,22 +416,26 @@ MonoBehaviour:
   introSlides:
   - image: {fileID: 21300000, guid: e00e827525c11d74c94f700a9325109e, type: 3}
     textList:
-    - Hello
-    - Part 2
+    - 'There was once a peaceful small village located behind a large mountain range. '
+    - It was mostly an unknown village that prided itself on its potatoes and tapestries.
   - image: {fileID: 21300000, guid: 9fa7fbfddafeb3940a1b0de77836f977, type: 3}
     textList:
-    - Again
-    - With multiple parts
-    - And a very long text that'll take some time to go through and fully type onto
-      the line of text that is the dialogue box
+    - However, one day the village was suddenly attacked by the dark archmage Ziel.
+    - As he descended upon the defenseless village, his minions followed.
   - image: {fileID: 21300000, guid: 8f2504665ab5cce438afb528341a6cc8, type: 3}
     textList:
-    - 
+    - "It was total destruction\u2026"
+    - "Not a single building was left standing, not a single person was left alive\u2026"
+  - image: {fileID: 21300000, guid: 8f2504665ab5cce438afb528341a6cc8, type: 3}
+    textList:
+    - "It was total destruction\u2026"
+    - "Not a single building was left standing, not a single person was left alive\u2026"
   currentSlide:
     image: {fileID: 0}
-    textList: []
+    textList:
+    - 
   currentSlideIndex: 0
-  currentDialogueIndex: 0
+  currentDialogueIndex: 1
   currentDialogueSpeed: 1
 --- !u!1001 &225369383
 PrefabInstance:

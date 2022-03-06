@@ -350,6 +350,11 @@ MonoBehaviour:
   - {fileID: 679577129714706575, guid: 998eec3fdcab3d448b02a54bfd6e2b1b, type: 3}
   - {fileID: 4592363245870622026, guid: 1e22d114d1cd4db4e912175977df7e53, type: 3}
   - {fileID: 1050525084677508416, guid: af7f35182d6b627409d02e4d162280ae, type: 3}
+  floors:
+  - {fileID: 5258120401421032166, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
+  - {fileID: 4580473805462178785, guid: 6441f869b83bfd742809f15dcfd2902d, type: 3}
+  - {fileID: 909771516207208557, guid: 2c0e52c94bb4c40478129595175dbe6e, type: 3}
+  - {fileID: 9074575651632807400, guid: 894a2916588a11a4d91e0e23174e1d5c, type: 3}
   projectileHolder: {fileID: 3116778456051282564}
   enemyHolder: {fileID: 3116778456941221364}
   powerupHolder: {fileID: 3116778457604670714}
@@ -1447,6 +1452,10 @@ PrefabInstance:
     - target: {fileID: 4062157406826362825, guid: 9de0d1cbd2143e04cb528cdec05665b5, type: 3}
       propertyPath: m_Name
       value: Minimap
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113133319813239848, guid: 9de0d1cbd2143e04cb528cdec05665b5, type: 3}
+      propertyPath: m_ShowMaskGraphic
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9de0d1cbd2143e04cb528cdec05665b5, type: 3}

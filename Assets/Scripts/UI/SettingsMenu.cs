@@ -9,23 +9,17 @@ public class SettingsMenu : MonoBehaviour
 {
     // Settings UI components
     [SerializeField]
-    private OptionBoxUI qualityBox;
+    private UIOptionBox qualityBox;
     [SerializeField]
-    private OptionBoxUI resolutionBox;
+    private UIOptionBox resolutionBox;
     [SerializeField]
-    private OptionBoxUI windowBox;
+    private UIOptionBox windowBox;
     [SerializeField]
-    private Slider masterVolumeSlider;
+    private UISlider masterVolumeSlider;
     [SerializeField]
-    private Slider musicVolumeSlider;
+    private UISlider musicVolumeSlider;
     [SerializeField]
-    private Slider sfxVolumeSlider;
-    [SerializeField]
-    private TextMeshProUGUI masterVolumeText;
-    [SerializeField]
-    private TextMeshProUGUI musicVolumeText;
-    [SerializeField]
-    private TextMeshProUGUI sfxVolumeText;
+    private UISlider sfxVolumeSlider;
 
     // Settings variables
     [SerializeField]
@@ -61,23 +55,23 @@ public class SettingsMenu : MonoBehaviour
         windowBox.SetIndex((int)Screen.fullScreenMode);
 
         // Init current volume to slider default
-        SetMasterVolume(masterVolumeSlider.value);
-        SetMusicVolume(musicVolumeSlider.value);
-        SetSFXVolume(sfxVolumeSlider.value);
+        SetMasterVolume(masterVolumeSlider.GetValue());
+        SetMusicVolume(musicVolumeSlider.GetValue());
+        SetSFXVolume(sfxVolumeSlider.GetValue());
     }
 
     // Sets the option of the given type to the given value
-    public void SetOption(OptionBoxUI.OptionType option, int value)
+    public void SetOption(UIOptionBox.OptionType option, int value)
     {
         switch(option)
         {
-            case OptionBoxUI.OptionType.QUALITY:
+            case UIOptionBox.OptionType.QUALITY:
                 SetQuality(value);
                 break;
-            case OptionBoxUI.OptionType.RESOLUTION:
+            case UIOptionBox.OptionType.RESOLUTION:
                 SetResolution(value);
                 break;
-            case OptionBoxUI.OptionType.WINDOW:
+            case UIOptionBox.OptionType.WINDOW:
                 // Sets the window mode to the given value or default Windowed if value is 2 or more 
                 SetWindow((int)value >= 2 ? 3 : value);
                 break;
@@ -110,20 +104,17 @@ public class SettingsMenu : MonoBehaviour
     public void SetMasterVolume(float volume)
     {
         audioMixer.SetFloat("MasterVolume", decibelScale[Mathf.Clamp(Mathf.FloorToInt(volume), 0, decibelScale.Length - 1)]);
-        masterVolumeText.text = Mathf.FloorToInt(volume).ToString();
     }
 
     // Sets the volume of the game
     public void SetMusicVolume(float volume)
     {
         audioMixer.SetFloat("MusicVolume", decibelScale[Mathf.Clamp(Mathf.FloorToInt(volume), 0, decibelScale.Length - 1)]);
-        musicVolumeText.text = Mathf.FloorToInt(volume).ToString();
     }
 
     // Sets the volume of the game
     public void SetSFXVolume(float volume)
     {
         audioMixer.SetFloat("SFXVolume", decibelScale[Mathf.Clamp(Mathf.FloorToInt(volume), 0, decibelScale.Length - 1)]);
-        sfxVolumeText.text = Mathf.FloorToInt(volume).ToString();
     }
 }

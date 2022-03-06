@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyCharacter : Character
 {
     [SerializeField]
-    private HealthBar healthBar;
+    private UIHealthBar healthBar;
 
     public override void HandleHealthChange()
     {

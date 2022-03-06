@@ -19,6 +19,7 @@ public class PrefabManager : Singleton<PrefabManager>
     public GameObject[] sideWalls;
     public GameObject[] topDoorWalls;
     public GameObject[] sideDoorWalls;
+    public GameObject[] floors;
 
     [Header("Holders")]
     // Object holders
@@ -66,6 +67,8 @@ public class PrefabManager : Singleton<PrefabManager>
                 return topDoorWalls[Mathf.Clamp((int)themeType, 0, topDoorWalls.Length)];
             case GlobalVars.WallType.SIDE_DOOR:
                 return sideDoorWalls[Mathf.Clamp((int)themeType, 0, sideDoorWalls.Length)];
+            case GlobalVars.WallType.FLOOR:
+                return floors[Mathf.Clamp((int)themeType, 0, floors.Length)];
             case GlobalVars.WallType.DEFAULT:
             default:
                 return null;

@@ -37,7 +37,7 @@ public class GameManager : Singleton<GameManager>
     {
         SetIsGameActive(true);
         UIManager.Instance.InitHUD();
-        Time.timeScale = 1.0f;
+        SetTimeScale(1.0f);
         Print.Log("Started game");
     }
 
@@ -64,6 +64,12 @@ public class GameManager : Singleton<GameManager>
         // TODO: Save any necessary information from previous level
 
         sceneLoader.LoadSceneWithId(newLevelIndex);
+    }
+
+    // Sets the time scale of the game to the given float
+    public void SetTimeScale(float scale)
+    {
+        Time.timeScale = scale;
     }
 
     // Loads the next available level

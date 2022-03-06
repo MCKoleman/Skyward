@@ -14,4 +14,7 @@ public class DialogueList : ScriptableObject
     {
         return dialogue[index];
     }
+
+    // Size of the dialogue list
+    public int Count { get { return dialogue.Count; } }
 }

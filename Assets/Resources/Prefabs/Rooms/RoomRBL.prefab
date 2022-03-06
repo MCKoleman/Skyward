@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 110235423379095756, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 929608940452851495, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: m_Name
       value: RoomRBL
@@ -21,6 +25,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1302580666394744127, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681955589324564355, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2118321708370530172, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
@@ -71,6 +79,34 @@ PrefabInstance:
       propertyPath: type
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3049210327978794526, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549001551837713231, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860823134583863660, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655320922294118719, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665976290585627283, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4697776645757337065, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5229372301020172019, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5681462038575912182, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: type
       value: 3
@@ -86,6 +122,14 @@ PrefabInstance:
     - target: {fileID: 6610412813623416679, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: type
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691555961119061445, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236413392770552780, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7647388060284559768, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: roomReqs.Array.size
@@ -110,6 +154,10 @@ PrefabInstance:
     - target: {fileID: 8269400765361903710, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
       propertyPath: type
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9205455625706280769, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffc3c24c700042441a83d5b8a916ecdb, type: 3}

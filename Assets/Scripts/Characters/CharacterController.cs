@@ -50,6 +50,9 @@ public class CharacterController : MonoBehaviour
     [SerializeField, Range(0.0f, 10.0f)]
     protected float maxJumpCooldown = 0.2f;
     protected float curJumpCooldown = 0.0f;
+    [SerializeField, Range(0.0f, 10.0f)]
+    protected float maxDashCooldown = 0.4f;
+    protected float curDashCooldown = 0.0f;
     protected float maxAirMovementCooldown = 0.1f;
     protected float airMovementCooldown = 0.0f;
 
@@ -150,14 +153,17 @@ public class CharacterController : MonoBehaviour
     // Resets all cooldowns of this character
     protected virtual void ResetAllCooldowns()
     {
-        curJumpCooldown = maxJumpCooldown;
+        SetJumpCooldown(maxJumpCooldown);
+        SetDashCooldown(maxDashCooldown);
     }
 
     // Handles the tick of each cooldown (handled in fixed delta time)
     protected virtual void HandleCooldowns()
     {
         if (curJumpCooldown > 0.0f)
-            curJumpCooldown = Mathf.Max(curJumpCooldown - Time.fixedDeltaTime, 0.0f);
+            SetJumpCooldown(curJumpCooldown - Time.fixedDeltaTime);
+        if (curDashCooldown > 0.0f)
+            SetDashCooldown(curDashCooldown - Time.fixedDeltaTime);
     }
 
     // Handles the movement based on Vector2 directional input
@@ -193,7 +199,7 @@ public class CharacterController : MonoBehaviour
 
             // Increment number of jumps to prevent illegal jumping
             numJumpsUsed++;
-            curJumpCooldown = maxJumpCooldown;
+            SetJumpCooldown(maxJumpCooldown);
             SetIsGrounded(false);
         }
     }
@@ -208,8 +214,15 @@ public class CharacterController : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.useGravity = false;
 
+        // Calculate the dash force either from the previous or current move delta
+        Vector3 dashForce;
+        if (moveDelta != Vector3.zero)
+            dashForce = moveDelta.normalized * speedMods.DASH_MOD;
+        else
+            dashForce = prevDelta.normalized * speedMods.DASH_MOD;
+
         // Activate dash
-        rb.AddForce(prevDelta.normalized * speedMods.DASH_MOD, ForceMode.Impulse);
+        rb.AddForce(dashForce, ForceMode.Impulse);
 
         // Play dash sound
         if (source != null && dashClips.Length != 0)
@@ -228,8 +241,27 @@ public class CharacterController : MonoBehaviour
         // Reset movement after dash
         rb.velocity = Vector3.zero;
         rb.useGravity = true;
+        SetDashCooldown(maxDashCooldown);
         SetIsDashing(false);
     }
+
+    // Sets the jump cooldown to the given value, clamping it to [0, max]
+    protected virtual void SetJumpCooldown(float _val)
+    {
+        curJumpCooldown = Mathf.Clamp(_val, 0.0f, maxJumpCooldown);
+    }
+
+    // Sets the dash cooldown to the given value, clamping it to [0, max]
+    protected virtual void SetDashCooldown(float _val)
+    {
+        curDashCooldown = Mathf.Clamp(_val, 0.0f, maxDashCooldown);
+    }
+
+    // Returns the current jump cooldown percentage
+    public float GetJumpCooldownPercent() { return curJumpCooldown / maxJumpCooldown; }
+
+    // Returns the current dash cooldown percentage
+    public float GetDashCooldownPercent() { return curDashCooldown / maxDashCooldown; }
 
 
 

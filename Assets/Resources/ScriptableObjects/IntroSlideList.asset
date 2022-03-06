@@ -16,3 +16,35 @@ MonoBehaviour:
   - image: {fileID: 21300000, guid: e00e827525c11d74c94f700a9325109e, type: 3}
     textList:
     - 
+    - 'There was once a peaceful small village located behind a large mountain range. '
+    - It was mostly an unknown village that prided itself on its potatoes and tapestries.
+  - image: {fileID: 21300000, guid: 9fa7fbfddafeb3940a1b0de77836f977, type: 3}
+    textList:
+    - However, one day the village was suddenly attacked by the dark archmage Ziel.
+    - As he descended upon the defenseless village, his minions followed.
+  - image: {fileID: 21300000, guid: 8f2504665ab5cce438afb528341a6cc8, type: 3}
+    textList:
+    - "It was total destruction\u2026"
+    - "Not a single building was left standing, not a single person was left alive\u2026"
+  - image: {fileID: 21300000, guid: 4da1520ec15986440bc914c1e4455e94, type: 3}
+    textList:
+    - 'Ziel used his dark magic to survey the corpses and reanimated the one person
+      who was found to have a very strong affinity for magic as an Antek. '
+    - "Anteks are a type of monster used as Ziel\u2019s personal guard."
+  - image: {fileID: 21300000, guid: 933cdd61f2205634f830858ce10d65dc, type: 3}
+    textList:
+    - "Ziel\u2019s magical fortress stands 2,000 feet tall and is filled with floors
+      of various biomes and monsters."
+  - image: {fileID: 21300000, guid: a1c69d8d120a0564f94e4ebe4e20713e, type: 3}
+    textList:
+    - At the top of the tower, Ziel instructed the new Anteks.
+    - "Until one of the Anteks started to show signs of free will and \u201Cself.\u201D"
+  - image: {fileID: 21300000, guid: 6e06c609ae6209645b8b426e5341b326, type: 3}
+    textList:
+    - Ziel, unable to kill Anteks due to them being immortal, banished the defective
+      Antek into the depths of his fortress.
+  - image: {fileID: 21300000, guid: 8e3d847e37f11ef4b8a1b58e4fce4d03, type: 3}
+    textList:
+    - "Alone and without its memories, the determined Antek starts its journey to
+      climb skyward towards the top of Ziel\u2019s magical fortress to reclaim his
+      \u201Cself\u201D and defeat Ziel. "

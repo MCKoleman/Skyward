@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class OptionBoxUI : MonoBehaviour
+public class UIOptionBox : MonoBehaviour
 {
     public enum OptionType { QUALITY, RESOLUTION, WINDOW }
 

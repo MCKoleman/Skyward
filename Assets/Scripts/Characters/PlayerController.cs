@@ -107,6 +107,22 @@ public class PlayerController : CharacterController
         SaveManager.Instance.WinLevel();
     }
 
+
+
+    /* ==================================================== UI Functions =================================================================== */
+    protected override void SetDashCooldown(float _val)
+    {
+        base.SetDashCooldown(_val);
+        UIManager.Instance.UpdateDashCooldown(GetDashCooldownPercent());
+    }
+
+    protected override void SetJumpCooldown(float _val)
+    {
+        base.SetJumpCooldown(_val);
+    }
+
+
+
     /* ==================================================== Input actions =================================================================== */
     protected void HandleAttack()
     {
@@ -126,7 +142,7 @@ public class PlayerController : CharacterController
     protected void HandleDash()
     {
         // Only allow dash if the dash cooldown has finished and the player has dashes left
-        if(HasDashesLeft() && !isDashing)
+        if((isGrounded || HasDashesLeft()) && curDashCooldown <= 0.0f && !isDashing)
         {
             // Increase dash counter only when midair
             if(!isGrounded)
@@ -149,9 +165,7 @@ public class PlayerController : CharacterController
 
     protected void HandleMenu()
     {
-        // TEMP: QUIT GAME ON EXIT INSTEAD OF PAUSE
-        GameManager.Instance.QuitGame();
-        //UIManager.Instance.PauseGameToggle();
+        UIManager.Instance.PauseGameToggle();
     }
 
 
@@ -205,6 +219,14 @@ public class PlayerController : CharacterController
         // Allow input when paused, but not when game is inactive
         if (context.performed && GameManager.Instance.IsGameActive)
             HandleMenu();
+    }
+    public void HandleSkipContext(InputAction.CallbackContext context)
+    {
+        // Turn on and off dialogue skipping
+        if (context.performed && GameManager.Instance.IsGameActive)
+            DialogueManager.Instance.EnableFastDialogue(true);
+        else if (context.canceled)
+            DialogueManager.Instance.EnableFastDialogue(false);
     }
 
 

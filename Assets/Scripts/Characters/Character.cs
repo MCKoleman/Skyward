@@ -76,6 +76,7 @@ public class Character : MonoBehaviour
     /// </summary>
     public virtual void HandleDeath()
     {
+        //Debug.Log($"{this.gameObject.name} died.");
         Destroy(this.gameObject);
     }
 }

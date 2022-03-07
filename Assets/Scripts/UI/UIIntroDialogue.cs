@@ -15,8 +15,6 @@ public class UIIntroDialogue : MonoBehaviour
     [SerializeField]
     private GameObject mainMenu;
     [SerializeField]
-    private GameObject mainMenuFirstBtn;
-    [SerializeField]
     private TextMeshProUGUI textBox;
     [SerializeField]
     private Image bgImage;
@@ -39,13 +37,14 @@ public class UIIntroDialogue : MonoBehaviour
     private const float FAST_DIALOGUE_SPEED = 0.33f;
 
     // Disable the main menu and start dialogue as soon as possible
-    private void Start()
+    public void Activate()
     {
         introHolder.SetActive(true);
         mainMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(continueBtn);
 
         // Get first slide
-        if(introSlides.slidesList.Count > 0)
+        if (introSlides.slidesList.Count > 0)
             currentSlide = introSlides.slidesList[0];
 
         // Start intro
@@ -103,9 +102,9 @@ public class UIIntroDialogue : MonoBehaviour
         }
 
         // Enable main menu and disable intro
-        mainMenu.SetActive(true);
-        introHolder.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(mainMenuFirstBtn);
+        //mainMenu.SetActive(true);
+        //introHolder.SetActive(false);
+        GetComponentInParent<SceneLoader>().LoadSceneWithId(1);
     }
 
     // Enables or disables fast dialogue

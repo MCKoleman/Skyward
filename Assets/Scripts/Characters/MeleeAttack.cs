@@ -10,15 +10,14 @@ public class MeleeAttack : MonoBehaviour
     private bool canAttack = true;
     public int damage = 1;
 
-    private void Update()
+    // Attacks using the attack coroutine
+    public void Attack()
     {
-        if (Input.GetMouseButtonDown(0) && canAttack)
-        {
-            StartCoroutine(Attack());
-        }
+        if(canAttack)
+            StartCoroutine(HandleAttack());
     }
 
-    IEnumerator Attack()
+    private IEnumerator HandleAttack()
     {
         canAttack = false;
 

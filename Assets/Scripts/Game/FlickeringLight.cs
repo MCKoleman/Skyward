@@ -1,10 +1,12 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Light))]
-public class Flickering_Light : MonoBehaviour
+public class FlickeringLight : MonoBehaviour
 {
-	public float minIntensity = 0.25f;
-	public float maxIntensity = 0.5f;
+	[SerializeField]
+	private float minIntensity = 0.25f;
+	[SerializeField]
+	private float maxIntensity = 0.5f;
 
 	float random;
 

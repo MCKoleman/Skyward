@@ -416,9 +416,10 @@ MonoBehaviour:
   introSlides: {fileID: 11400000, guid: 34fdc67c3c08a814b821995eecdbe6c6, type: 2}
   currentSlide:
     image: {fileID: 0}
-    textList: []
+    textList:
+    - 
   currentSlideIndex: 0
-  currentDialogueIndex: 0
+  currentDialogueIndex: 1
   currentDialogueSpeed: 1
 --- !u!1001 &225369383
 PrefabInstance:

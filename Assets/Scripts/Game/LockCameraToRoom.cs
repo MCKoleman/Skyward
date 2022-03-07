@@ -37,7 +37,7 @@ public class LockCameraToRoom : MonoBehaviour
         {
             UpdateDestination();
             Vector3 tempVec = Vector3.Lerp(transform.position, destination + offset, lockedFollowSpeed * Time.deltaTime);
-            transform.position = new Vector3(tempVec.x, transform.position.y, tempVec.z);
+            this.transform.position = new Vector3(tempVec.x, transform.position.y, tempVec.z);
 
             // TEMP CODE
             // Rotate camera to face player position

@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2358043394979810682, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
       propertyPath: m_Name
-      value: Player Variant
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2629054334402796176, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
       propertyPath: m_RootOrder
@@ -254,19 +254,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5324886333712449826, guid: 1df4bd29284bafa439d4404bc3d6343f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5324886333712449826, guid: 1df4bd29284bafa439d4404bc3d6343f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5324886333712449826, guid: 1df4bd29284bafa439d4404bc3d6343f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8660254
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5324886333712449826, guid: 1df4bd29284bafa439d4404bc3d6343f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5324886333712449826, guid: 1df4bd29284bafa439d4404bc3d6343f, type: 3}
       propertyPath: m_LocalRotation.y
@@ -278,7 +278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5324886333712449826, guid: 1df4bd29284bafa439d4404bc3d6343f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 60
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5324886333712449826, guid: 1df4bd29284bafa439d4404bc3d6343f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -291,10 +291,6 @@ PrefabInstance:
     - target: {fileID: 5324886333712449831, guid: 1df4bd29284bafa439d4404bc3d6343f, type: 3}
       propertyPath: m_Name
       value: MainCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821491987219531500, guid: 1df4bd29284bafa439d4404bc3d6343f, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1df4bd29284bafa439d4404bc3d6343f, type: 3}

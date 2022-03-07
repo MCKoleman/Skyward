@@ -17,7 +17,7 @@ public class CameraShake : MonoBehaviour
 
     private void OnEnable()
     {
-        initialPosition = transform.localPosition;
+        initialPosition = this.transform.localPosition;
         dampingSpeed = baseDampingSpeed;
         shakeMagnitude = baseShakeMagnitude;
     }
@@ -30,7 +30,7 @@ public class CameraShake : MonoBehaviour
         {
             if (shakeDuration > 0)
             {
-                transform.localPosition = initialPosition + Random.insideUnitSphere; // * VFXManager.Instance.GetShakeIntensity(shakeMagnitude);
+                transform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude; // * VFXManager.Instance.GetShakeIntensity(shakeMagnitude);
                 shakeDuration -= Time.deltaTime * dampingSpeed;
             }
             else

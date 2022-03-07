@@ -212,10 +212,10 @@ public class DungeonManager : Singleton<DungeonManager>
     public void SpawnContent(ContentNode node)
     {
         // Find random content for the room
-        GameObject tempContent = contentList.GetRandomContent(node.GetParentRoom().roomNum / (float)numRooms);
+        GameObject tempContent = contentList.GetRandomContent(node.GetParentRoom().roomNum / (float)numRooms, node.nodePlace);
         if (tempContent != null)
         {
-            Instantiate(tempContent, node.transform.position, Quaternion.identity, node.GetParentRoom().transform);
+            Instantiate(tempContent, node.transform.position, node.transform.rotation, node.GetParentRoom().transform);
         }
     }
 

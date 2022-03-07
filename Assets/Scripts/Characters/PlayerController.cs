@@ -13,6 +13,8 @@ public class PlayerController : CharacterController
     /* Component references*/
     protected List<Interactable> interactables;
     protected CameraController cam;
+    [SerializeField]
+    protected MeleeAttack meleeAttack;
 
     protected float rayLength;
     protected Ray cameraRay;
@@ -124,14 +126,15 @@ public class PlayerController : CharacterController
 
 
     /* ==================================================== Input actions =================================================================== */
-    protected void HandleAttack()
+    protected void HandleLook(Vector2 lookDelta)
     {
 
     }
     
-    protected void HandleFire()
+    protected void HandleAttack()
     {
-
+        meleeAttack.Attack();
+        cam.Shake(0.1f, 0.1f);
     }
 
     protected void HandleCrouch()
@@ -177,11 +180,17 @@ public class PlayerController : CharacterController
         if(CanTakeInput())
             HandleMove(context.ReadValue<Vector2>());
     }
+    public void HandleLookContext(InputAction.CallbackContext context)
+    {
+        //Debug.Log($"Can move? : [{GameManager.Instance.IsGameActive}]");
+        if (CanTakeInput())
+            HandleLook(context.ReadValue<Vector2>());
+    }
 
-    public void HandleFireContext(InputAction.CallbackContext context)
+    public void HandleAttackContext(InputAction.CallbackContext context)
     {
         if (context.performed && CanTakeInput())
-            HandleFire();
+            HandleAttack();
     }
 
     public void HandleCrouchContext(InputAction.CallbackContext context)

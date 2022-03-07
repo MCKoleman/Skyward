@@ -29,15 +29,11 @@ public class PlayerController : CharacterController
         cam = this.GetComponent<CameraController>();
 
         gamePlane = new Plane(Vector3.up, Vector3.zero);
-
-        
     }
+
     protected void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            HandleAttack();
-        }
+
     }
 
     /* ==================================================== Helper functions =================================================================== */

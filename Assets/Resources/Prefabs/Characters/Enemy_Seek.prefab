@@ -389,7 +389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8947402544891268238, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_Name
-      value: TestEnemy
+      value: Enemy_Seek
       objectReference: {fileID: 0}
     - target: {fileID: 8947402544891268238, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_TagString
@@ -443,8 +443,9 @@ MonoBehaviour:
   maxNumDashes: 2
   jumpClips: []
   dashClips: []
-  speedMods: {fileID: 0}
+  speedMods: {fileID: 11400000, guid: 4537d0465671a4d448c0aac0e3fcfc3c, type: 2}
   maxJumpCooldown: 0.2
+  maxDashCooldown: 0.4
   movSpeed: 2
   rotSpeed: 3
   chaseDist: 5

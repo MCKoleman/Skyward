@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyList:
     list:
+    - weight: 3
+      prefab: {fileID: 6316325146996303914, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
     - weight: 1
-      prefab: {fileID: 2339939541448353092, guid: 3093d3d5d4482384bb492d2c3ac35934, type: 3}
+      prefab: {fileID: 4090781983781968280, guid: 9b6a738b7c47bdc47abc26ce40b2c780, type: 3}
   treasureList:
     list:
     - weight: 1
@@ -34,10 +36,12 @@ MonoBehaviour:
   enemyWeight: 5
   treasureWeight: 2
   hazardWeight: 3
+  wallObjWeight: 0.3
   baseNothingWeight: 1
   baseEnemyWeight: 0.1
   baseTreasureWeight: 0.1
   baseHazardWeight: 0.1
+  baseWallObjWeight: 0.1
   nothingMod: 2
   enemyMod: 3
   treasureMod: 2

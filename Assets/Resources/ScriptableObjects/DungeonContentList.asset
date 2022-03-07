@@ -26,6 +26,10 @@ MonoBehaviour:
       prefab: {fileID: 7794817357590401744, guid: b2d8e8e00bd8a274c80af382eebab40b, type: 3}
     - weight: 1
       prefab: {fileID: 3432599287562161461, guid: 7a9232eaecb4bc1438a64c52a5d72343, type: 3}
+  wallObjList:
+    list:
+    - weight: 1
+      prefab: {fileID: 4332150400686094098, guid: 9abb7cf8fbefc304aa25dcc1020d2ba2, type: 3}
   nothingWeight: 90
   enemyWeight: 5
   treasureWeight: 2

@@ -381,7 +381,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206311536}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -409,29 +409,16 @@ MonoBehaviour:
   introHolder: {fileID: 1171218815}
   continueBtn: {fileID: 510324049}
   mainMenu: {fileID: 482374238}
-  mainMenuFirstBtn: {fileID: 590595433}
   textBox: {fileID: 289592665}
   bgImage: {fileID: 2092544350}
   dialogueRevealSpeed: 50
-  introSlides:
-  - image: {fileID: 21300000, guid: e00e827525c11d74c94f700a9325109e, type: 3}
-    textList:
-    - Hello
-    - Part 2
-  - image: {fileID: 21300000, guid: 9fa7fbfddafeb3940a1b0de77836f977, type: 3}
-    textList:
-    - Again
-    - With multiple parts
-    - And a very long text that'll take some time to go through and fully type onto
-      the line of text that is the dialogue box
-  - image: {fileID: 21300000, guid: 8f2504665ab5cce438afb528341a6cc8, type: 3}
-    textList:
-    - 
+  introSlides: {fileID: 11400000, guid: 34fdc67c3c08a814b821995eecdbe6c6, type: 2}
   currentSlide:
     image: {fileID: 0}
-    textList: []
+    textList:
+    - 
   currentSlideIndex: 0
-  currentDialogueIndex: 0
+  currentDialogueIndex: 1
   currentDialogueSpeed: 1
 --- !u!1001 &225369383
 PrefabInstance:
@@ -1240,7 +1227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 510324049}
+  m_FirstSelected: {fileID: 590595433}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &312398044
@@ -2285,19 +2272,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7124346345958305899, guid: f516bf3c0757fee42bbb9e613f4004cb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7124346345958305899, guid: f516bf3c0757fee42bbb9e613f4004cb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 574297160}
+      objectReference: {fileID: 206311538}
     - target: {fileID: 7124346345958305899, guid: f516bf3c0757fee42bbb9e613f4004cb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadSceneWithId
+      value: Activate
       objectReference: {fileID: 0}
     - target: {fileID: 7124346345958305899, guid: f516bf3c0757fee42bbb9e613f4004cb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: SceneLoader, Assembly-CSharp
+      value: UIIntroDialogue, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7124346345958305899, guid: f516bf3c0757fee42bbb9e613f4004cb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
@@ -2378,6 +2365,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1171218816}
     m_Modifications:
+    - target: {fileID: 4590465665808397269, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590465665808397269, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590465665808397269, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590465665808397269, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4971988529933442922, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
       propertyPath: m_Name
       value: ContinueBtn
@@ -2398,6 +2401,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4278190080
       objectReference: {fileID: 0}
+    - target: {fileID: 5838668369187266286, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 6781770776078665549, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2416,11 +2423,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6781770776078665549, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6781770776078665549, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6781770776078665549, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
       propertyPath: m_AnchorMin.y
@@ -2428,11 +2435,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6781770776078665549, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 600
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6781770776078665549, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6781770776078665549, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2464,11 +2471,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6781770776078665549, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -350
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6781770776078665549, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6781770776078665549, guid: 52af635021c37a2429b8753efc2b1371, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

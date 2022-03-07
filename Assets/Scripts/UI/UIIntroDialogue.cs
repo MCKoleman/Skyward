@@ -15,8 +15,6 @@ public class UIIntroDialogue : MonoBehaviour
     [SerializeField]
     private GameObject mainMenu;
     [SerializeField]
-    private GameObject mainMenuFirstBtn;
-    [SerializeField]
     private TextMeshProUGUI textBox;
     [SerializeField]
     private Image bgImage;
@@ -25,11 +23,11 @@ public class UIIntroDialogue : MonoBehaviour
     [SerializeField, Range(0.01f, 100.0f), Tooltip("How many characters should be revealed per second")]
     private float dialogueRevealSpeed = 70.0f;
     [SerializeField]
-    private List<UIIntroStruct> introSlides;
+    private IntroSlideList introSlides;
 
     [Header("Runtime information")]
     [SerializeField]
-    private UIIntroStruct currentSlide;
+    private IntroSlideList.UIIntroStruct currentSlide;
     [SerializeField]
     private int currentSlideIndex = 0;
     [SerializeField]
@@ -38,22 +36,16 @@ public class UIIntroDialogue : MonoBehaviour
     private float currentDialogueSpeed = 1.0f;
     private const float FAST_DIALOGUE_SPEED = 0.33f;
 
-    // Structs
-    [System.Serializable]
-    private struct UIIntroStruct {
-        public Sprite image;
-        public List<string> textList;
-    }
-
     // Disable the main menu and start dialogue as soon as possible
-    private void Awake()
+    public void Activate()
     {
         introHolder.SetActive(true);
         mainMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(continueBtn);
 
         // Get first slide
-        if(introSlides.Count > 0)
-            currentSlide = introSlides[0];
+        if (introSlides.slidesList.Count > 0)
+            currentSlide = introSlides.slidesList[0];
 
         // Start intro
         ContinueDialogue();
@@ -63,10 +55,13 @@ public class UIIntroDialogue : MonoBehaviour
     // ---------------------------------------------
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-            SetFastDialogue(true);
-        else if(Input.GetKeyUp(KeyCode.Space))
-            SetFastDialogue(false);
+        if(introHolder.activeInHierarchy)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+                SetFastDialogue(true);
+            else if (Input.GetKeyUp(KeyCode.Space))
+                SetFastDialogue(false);
+        }
     }
     // ---------------------------------------------
     // TEMP: REPLACE THIS WITH NEW INPUT SYSTEM ASAP
@@ -79,20 +74,20 @@ public class UIIntroDialogue : MonoBehaviour
         continueBtn.SetActive(false);
 
         // Continue dialogue as long as there are options
-        if (currentSlideIndex < introSlides.Count)
+        if (currentSlideIndex < introSlides.slidesList.Count)
         {
             // If the dialogue index has gone past the max, select the next slide
-            if(currentDialogueIndex >= introSlides[currentSlideIndex].textList.Count)
+            if(currentDialogueIndex >= introSlides.slidesList[currentSlideIndex].textList.Count)
             {
                 currentDialogueIndex = 0;
                 currentSlideIndex++;
 
                 // If the next slide index is still valid, get the next slide
-                if (currentSlideIndex < introSlides.Count && introSlides[currentSlideIndex].textList != null)
-                    currentSlide = introSlides[currentSlideIndex];
+                if (currentSlideIndex < introSlides.slidesList.Count && introSlides.slidesList[currentSlideIndex].textList != null)
+                    currentSlide = introSlides.slidesList[currentSlideIndex];
                 // If the slide is invalid, break
                 else
-                    currentSlide = new UIIntroStruct();
+                    currentSlide = new IntroSlideList.UIIntroStruct();
             }
 
             // If the current slide is valid, start the next dialogue
@@ -107,9 +102,9 @@ public class UIIntroDialogue : MonoBehaviour
         }
 
         // Enable main menu and disable intro
-        mainMenu.SetActive(true);
-        introHolder.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(mainMenuFirstBtn);
+        //mainMenu.SetActive(true);
+        //introHolder.SetActive(false);
+        GetComponentInParent<SceneLoader>().LoadSceneWithId(1);
     }
 
     // Enables or disables fast dialogue

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMeleeAttack : MonoBehaviour
+public class EnemyAttack_Melee : MonoBehaviour
 {
     public int damage = 1;
     public float cooldown = 0.0f;

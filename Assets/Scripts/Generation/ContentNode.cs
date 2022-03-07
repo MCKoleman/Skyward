@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ContentNode : MonoBehaviour
 {
-    public enum NodePlace { NORMAL = 0, EDGE = 1, CORNER = 2, CENTER = 3}
+    public enum NodePlace { NORMAL = 0, EDGE = 1, CORNER = 2, CENTER = 3, WALL = 4}
 
     public NodePlace nodePlace;
     private DungeonRoom parentRoom;

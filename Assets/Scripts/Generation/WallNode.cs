@@ -21,7 +21,7 @@ public class WallNode : MonoBehaviour
         GameObject tempWall = PrefabManager.Instance.GetWallObject(type, parentRoom.theme);
         if (tempWall != null)
         {
-            Instantiate(tempWall, this.transform.position, Quaternion.identity, this.transform.parent);
+            Instantiate(tempWall, this.transform.position, this.transform.rotation, this.transform.parent);
         }
     }
 

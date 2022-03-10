@@ -9,6 +9,8 @@ public class UILoadingScreen : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI tooltipBox;
     [SerializeField]
+    private TextMeshProUGUI progressBox;
+    [SerializeField]
     private TooltipList tooltipList;
     [SerializeField]
     private GameObject screenHolder;
@@ -36,7 +38,13 @@ public class UILoadingScreen : MonoBehaviour
         }
     }
 
-    // Setst the tooltip text to be a random text
+    // Sets the text in the progress box to the given text
+    public void SetProgressText(string text)
+    {
+        progressBox.text = text;
+    }
+
+    // Sets the tooltip text to be a random text
     private void SetRandomTooltip()
     {
         string text = tooltipList.GetRandomTooltip();

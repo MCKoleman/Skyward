@@ -12,6 +12,8 @@ public class UIManager : Singleton<UIManager>
     private PauseMenu pauseMenu;
     [SerializeField]
     private DeathMenu deathMenu;
+    [SerializeField]
+    private UILoadingScreen loadingScreen;
     //public MainMenu mainMenu;
 
     // Initializes the UI
@@ -71,6 +73,12 @@ public class UIManager : Singleton<UIManager>
 
     }
 
+    // Enables or disables the loading screen
+    public void EnableLoadingScreen(bool shouldEnable = true)
+    {
+        loadingScreen.gameObject.SetActive(shouldEnable);
+    }
+
     // Toggles the game's pause state
     public void PauseGameToggle()
     {
@@ -95,7 +103,7 @@ public class UIManager : Singleton<UIManager>
     // Handles the player leaving the scene or game
     public void HandleExit()
     {
-        Time.timeScale = 1.0f;
+        GameManager.Instance.SetTimeScale(1.0f);
         GameManager.Instance.EndGame();
     }
 
@@ -110,4 +118,5 @@ public class UIManager : Singleton<UIManager>
     public void UpdateHealth(float percent) { hud.UpdateHealth(percent); }
     public void UpdateDashCooldown(float percent) { hud.UpdateDashCooldown(percent); }
     public void ContinueDialogue() { hud.ContinueDialogue(); }
+    public void SetLoadingProgressText(string text) { loadingScreen.SetProgressText(text); }
 }

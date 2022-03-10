@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +20,8 @@ public class DungeonManager : Singleton<DungeonManager>
     private List<MinimapNode> roomMap = new List<MinimapNode>();
     [SerializeField]
     private int numRooms = 0;
+    [SerializeField]
+    private bool isGenerated = false;
     [SerializeField]
     private Vector2 roomSize = Vector2.zero;
     [SerializeField]
@@ -66,12 +70,37 @@ public class DungeonManager : Singleton<DungeonManager>
         startRoom.theme = startTheme;
 
         // Generate the dungeon
-        Generate(startRoom);
+        StartCoroutine(AsyncGenerateHandle(startRoom));
+    }
+
+    // Asynchronously generates the dungeon
+    private IEnumerator AsyncGenerateHandle(DungeonRoom room)
+    {
+        // Start dungeon generation
+        isGenerated = false;
+        Generate(room);
+
+        // Communicate beginning of generation to GameStateManager
+        GameManager.Instance.SetGameState(GameManager.GameState.GENERATING_DUNGEON, true);
+        UIManager.Instance.EnableLoadingScreen(true);
+
+        // Suspends the coroutine until the dungeon is fully generated
+        yield return new WaitUntil(() => isGenerated);
+
+        // Wait an extra second to allow time to transition
+        yield return new WaitForSeconds(1.0f);
+
+        // Communicate ending of generation to GameStateManager
+        GameManager.Instance.SetGameState(GameManager.GameState.IN_DUNGEON);
+        UIManager.Instance.EnableLoadingScreen(false);
     }
 
     // Generates the dungeon starting from the given room
     public void Generate(DungeonRoom room)
     {
+        // Update loading UI
+        UIManager.Instance.SetLoadingProgressText("Setting up dungeon");
+
         // Reset dungeon info
         GameObject latestRoom = null;
         numRooms = 1;
@@ -93,8 +122,11 @@ public class DungeonManager : Singleton<DungeonManager>
         // Add the spawn nodes of the first room to the dictionary
         AddNodesToDict(roomNodes, spawnNodes, room.roomNodes);
 
+        // Update loading UI
+        UIManager.Instance.SetLoadingProgressText("Generating dungeon");
+
         // Keep generating until all nodes have been exhausted
-        while(spawnNodes.Count > 0)
+        while (spawnNodes.Count > 0)
         {
             // Pop the first spawnNode
             RoomNode tempNode = spawnNodes[0];
@@ -155,6 +187,9 @@ public class DungeonManager : Singleton<DungeonManager>
             TrimSpawnedNodes(spawnNodes);
         }
 
+        // Update loading UI
+        UIManager.Instance.SetLoadingProgressText("Reticulating splines");
+
         // Calculate dungeon size information. 
         dungeonSize = trCoord - blCoord;
         dungeonCenter = dungeonSize / 2;
@@ -164,6 +199,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
         // When generation is done, spawn an exit in the last room spawned
         Instantiate(PrefabManager.Instance.exitPrefab, latestRoom.transform.position, Quaternion.identity, PrefabManager.Instance.levelHolder);
+        isGenerated = true;
     }
 
     // Remove all nodes that have already spawned from the list

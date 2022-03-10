@@ -32,10 +32,10 @@ RectTransform:
   m_Father: {fileID: 6635044279517338248}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 200}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 300, y: 150}
+  m_SizeDelta: {x: 700, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3975954263177308920
 CanvasRenderer:
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -432,6 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipBox: {fileID: 6635044278845669649}
+  progressBox: {fileID: 6030621173133639990}
   tooltipList: {fileID: 11400000, guid: 7f290d02117b80841bf6388b4f13cb20, type: 2}
   screenHolder: {fileID: 6635044279517338255}
   tooltipLength: 5

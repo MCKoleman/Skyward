@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(SceneLoader))]
 public class GameManager : Singleton<GameManager>
 {
-    public enum GameState { INVALID = 0, MENU = 1, OVERWORLD = 2, PAUSED = 3, IN_DUNGEON = 4, IN_BOSS_ROOM = 5, IN_DIALOGUE = 6, GENERATING_DUNGEON = 7 }
+    public enum GameState { INVALID = 0, MENU = 1, OVERWORLD = 2, PAUSED = 3, IN_DUNGEON = 4, IN_BOSS_ROOM = 5, IN_DIALOGUE = 6, GENERATING_DUNGEON = 7, LOADING_LEVEL = 8 }
 
     [SerializeField]
     private GameState gameState;
@@ -35,7 +36,6 @@ public class GameManager : Singleton<GameManager>
         CheckpointManager.Instance.Init();
         DialogueManager.Instance.Init();
         DungeonManager.Instance.Init();
-        StartGame();
     }
 
     // Starts the game
@@ -64,10 +64,28 @@ public class GameManager : Singleton<GameManager>
         StartGame();
     }
 
+    // Communicates scene changing to necessary components, such as the dungeon generator
+    public void HandleSceneChange(GlobalVars.SceneType sceneType)
+    {
+        switch(sceneType)
+        {
+            case GlobalVars.SceneType.MENU:
+                SetGameState(GameState.MENU);
+                break;
+            case GlobalVars.SceneType.DUNGEON:
+            case GlobalVars.SceneType.BOSS:
+                DungeonManager.Instance.StartDungeon();
+                break;
+            default:
+                break;
+        }
+    }
+
     // Swaps the level to the given level
     public void HandleLevelSwap(int newLevelIndex)
     {
         // TODO: Save any necessary information from previous level
+        EndGame();
 
         sceneLoader.LoadSceneWithId(newLevelIndex);
     }
@@ -76,12 +94,6 @@ public class GameManager : Singleton<GameManager>
     public void SetTimeScale(float scale)
     {
         Time.timeScale = scale;
-    }
-
-    // Loads the next available level
-    public void HandleNextLevel()
-    {
-        sceneLoader.LoadNextScene();
     }
 
     // Quits the game
@@ -93,6 +105,10 @@ public class GameManager : Singleton<GameManager>
     // Sets the gameState to the given gameState. This function should be managed carefully
     public void SetGameState(GameState _gameState, bool savePrev = false)
     {
+#if UNITY_EDITOR
+        Debug.Log($"Changing gamestate. Previous: [{prevGameState.ToString()}], New: [{_gameState.ToString()}]");
+#endif
+
         // If the previous game state should be preserved, update it
         if (savePrev)
             prevGameState = this.gameState;
@@ -116,8 +132,23 @@ public class GameManager : Singleton<GameManager>
     // Acts on the effects of changing the gamestate
     private void EvaluateGameStateEffects()
     {
-        // If the game is not paused, timeScale should be 1. If the game is paused, the timeScale should be 0
-        SetTimeScale(gameState != GameState.PAUSED ? 1.0f : 0.0f);
+        switch (gameState)
+        {
+            // Pause the game for states where the game should be paused
+            case GameState.LOADING_LEVEL:
+            case GameState.GENERATING_DUNGEON:
+            case GameState.PAUSED:
+                SetTimeScale(0.0f);
+                break;
+            case GameState.MENU:
+                EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
+                SetTimeScale(1.0f);
+                break;
+            // For every other situation, do nothing but unpause
+            default:
+                SetTimeScale(1.0f);
+                break;
+        }
     }
 
     // Returns whether pausing is allowed currently based on the current gameState

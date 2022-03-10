@@ -101,10 +101,10 @@ public class UIIntroDialogue : MonoBehaviour
             }
         }
 
-        // Enable main menu and disable intro
-        //mainMenu.SetActive(true);
-        //introHolder.SetActive(false);
-        GetComponentInParent<SceneLoader>().LoadSceneWithId(1);
+        // Disable main menu and disable intro
+        mainMenu.SetActive(false);
+        introHolder.SetActive(false);
+        GameManager.Instance.HandleLevelSwap(1);
     }
 
     // Enables or disables fast dialogue

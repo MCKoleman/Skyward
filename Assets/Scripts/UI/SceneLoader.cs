@@ -30,9 +30,9 @@ public class SceneLoader : MonoBehaviour
 
     // Loads the scene with the given ID
     public void LoadSceneWithId(int level)
-    {   
+    {
         // Reset time to unpause
-        Time.timeScale = 1.0f;
+        GameManager.Instance.SetTimeScale(1.0f);
         GameManager.Instance.SetIsGameActive(false);
         SaveManager.Instance.EndGame();
 
@@ -44,7 +44,29 @@ public class SceneLoader : MonoBehaviour
             StartCoroutine(HandleLoadLevel(level));
         // If the transition does not exist, swap immediately
         else
-            LoadLevel(level);
+            LoadSceneWithIdAsync(level);
+    }
+
+    // Asynchronously loads the scene with the given ID
+    public void LoadSceneWithIdAsync(int level)
+    {
+        GameManager.Instance.SetGameState(GameManager.GameState.LOADING_LEVEL);
+        UIManager.Instance.EnableLoadingScreen(true);
+        UIManager.Instance.SetLoadingProgressText("Loading level");
+        StartCoroutine(HandleSceneLoadAsync(level));
+    }
+
+    // Handles the asynchronous part of loading a scene
+    private IEnumerator HandleSceneLoadAsync(int level)
+    {
+        AsyncOperation progress = SceneManager.LoadSceneAsync(level);
+
+        yield return new WaitUntil(() => progress.isDone);
+        UIManager.Instance.SetLoadingProgressText("Initializing components");
+
+        yield return new WaitUntil(() => progress.progress >= 1.0f);
+        UIManager.Instance.SetLoadingProgressText("Level loaded");
+
     }
     
     // Loads the given scene while playing the correct animation

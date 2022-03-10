@@ -42,6 +42,9 @@ public class UILoadingScreen : MonoBehaviour
     public void SetProgressText(string text)
     {
         progressBox.text = text;
+#if UNITY_EDITOR
+        Debug.Log($"Changing loading screen text to [{text}]");
+#endif
     }
 
     // Sets the tooltip text to be a random text

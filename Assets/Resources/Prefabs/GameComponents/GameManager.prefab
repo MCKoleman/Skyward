@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78475c866d5d47f4496c93790610822e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 0
+  dontDestroyOnLoad: 1
   gameState: 0
   prevGameState: 0
 --- !u!1 &3116778457977238769
@@ -1012,14 +1012,14 @@ PrefabInstance:
     - target: {fileID: 3211698589642855250, guid: c024c4455be1afd409f7d46ffe41308c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 3116778457940156362}
+      objectReference: {fileID: 3116778457940156341}
     - target: {fileID: 3211698589642855250, guid: c024c4455be1afd409f7d46ffe41308c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadSceneWithId
+      value: HandleLevelSwap
       objectReference: {fileID: 0}
     - target: {fileID: 3211698589642855250, guid: c024c4455be1afd409f7d46ffe41308c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: SceneLoader, Assembly-CSharp
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3211698589642855250, guid: c024c4455be1afd409f7d46ffe41308c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1848,14 +1848,14 @@ PrefabInstance:
     - target: {fileID: 1808256754226271852, guid: 6e16e05ecc0e7bf4aba0008755114b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 3116778457940156362}
+      objectReference: {fileID: 3116778457940156341}
     - target: {fileID: 1808256754226271852, guid: 6e16e05ecc0e7bf4aba0008755114b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadSceneWithId
+      value: HandleLevelSwap
       objectReference: {fileID: 0}
     - target: {fileID: 1808256754226271852, guid: 6e16e05ecc0e7bf4aba0008755114b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: SceneLoader, Assembly-CSharp
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1808256754226271852, guid: 6e16e05ecc0e7bf4aba0008755114b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
@@ -1876,14 +1876,14 @@ PrefabInstance:
     - target: {fileID: 4413337699446915170, guid: 6e16e05ecc0e7bf4aba0008755114b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 3116778457940156362}
+      objectReference: {fileID: 3116778457940156341}
     - target: {fileID: 4413337699446915170, guid: 6e16e05ecc0e7bf4aba0008755114b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadSceneWithId
+      value: HandleLevelSwap
       objectReference: {fileID: 0}
     - target: {fileID: 4413337699446915170, guid: 6e16e05ecc0e7bf4aba0008755114b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: SceneLoader, Assembly-CSharp
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4413337699446915170, guid: 6e16e05ecc0e7bf4aba0008755114b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName

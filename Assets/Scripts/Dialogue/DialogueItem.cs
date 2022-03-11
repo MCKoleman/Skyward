@@ -39,6 +39,8 @@ public struct DialogueItem
 [System.Serializable]
 public struct DialogueStruct
 {
+    [Tooltip("Who is saying the current dialogue")]
     public GlobalVars.SpeakerType speaker;
+    [TextArea, Tooltip("The message of the speaker")]
     public string text;
 }

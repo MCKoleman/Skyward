@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Modular_12
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
 --- !u!1001 &1093886000363919703
@@ -215,6 +219,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d666d59673dc4f15a06b6b8f3393f97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d666d59673dc4f15a06b6b8f3393f97, type: 3}
 --- !u!1001 &1132453237428540698
@@ -280,6 +288,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Modular_5
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
 --- !u!1001 &1894402710767805204
@@ -344,6 +356,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
       propertyPath: m_Name
       value: Wall_Modular_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
@@ -414,6 +430,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
 --- !u!1001 &3713238566301176566
@@ -483,6 +503,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
 --- !u!1001 &3848598298610166362
@@ -547,6 +571,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
       propertyPath: m_Name
       value: Wall_Modular_11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
@@ -613,6 +641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Modular_13
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
 --- !u!1001 &4093931752839019184
@@ -677,6 +709,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
       propertyPath: m_Name
       value: Wall_Modular_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
@@ -747,6 +783,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d666d59673dc4f15a06b6b8f3393f97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d666d59673dc4f15a06b6b8f3393f97, type: 3}
 --- !u!1001 &4573807656278238052
@@ -812,6 +852,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Modular_2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
 --- !u!1001 &4960984986466880817
@@ -876,6 +920,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
       propertyPath: m_Name
       value: Wall_Modular_9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
@@ -945,6 +993,10 @@ PrefabInstance:
     - target: {fileID: 5507610136871591559, guid: a62c974cdcab1bf4e82510948d90ef23, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7304442934577924312, guid: a62c974cdcab1bf4e82510948d90ef23, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a62c974cdcab1bf4e82510948d90ef23, type: 3}
@@ -1016,6 +1068,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Modular_6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
 --- !u!1001 &7676546494543522424
@@ -1080,6 +1136,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
       propertyPath: m_Name
       value: Wall_Modular_8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
@@ -1150,6 +1210,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
 --- !u!1001 &9019738680370664880
@@ -1218,6 +1282,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cfa0ea16f9649b6b4a7b5a9a7380fd, type: 3}

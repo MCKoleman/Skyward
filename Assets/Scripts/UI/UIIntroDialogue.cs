@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class UIIntroDialogue : MonoBehaviour
@@ -51,21 +52,17 @@ public class UIIntroDialogue : MonoBehaviour
         ContinueDialogue();
     }
 
-    // TEMP: REPLACE THIS WITH NEW INPUT SYSTEM ASAP
-    // ---------------------------------------------
-    private void Update()
+    // Handle dialogue speedup
+    public void HandlePressContext(InputAction.CallbackContext context)
     {
-        if(introHolder.activeInHierarchy)
+        if (introHolder.activeInHierarchy)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (context.performed)
                 SetFastDialogue(true);
-            else if (Input.GetKeyUp(KeyCode.Space))
+            else if (context.canceled)
                 SetFastDialogue(false);
         }
     }
-    // ---------------------------------------------
-    // TEMP: REPLACE THIS WITH NEW INPUT SYSTEM ASAP
-
 
     // Continues the dialogue until the intro is over
     public void ContinueDialogue()
@@ -101,10 +98,10 @@ public class UIIntroDialogue : MonoBehaviour
             }
         }
 
-        // Enable main menu and disable intro
-        //mainMenu.SetActive(true);
-        //introHolder.SetActive(false);
-        GetComponentInParent<SceneLoader>().LoadSceneWithId(1);
+        // Disable main menu and disable intro
+        mainMenu.SetActive(false);
+        introHolder.SetActive(false);
+        GameManager.Instance.HandleLevelSwap(1);
     }
 
     // Enables or disables fast dialogue

@@ -17,6 +17,15 @@
                 {
                     "name": "Look",
                     "type": "Value",
+                    "id": "9f9a026a-a63e-408a-82c9-15c991807916",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LookDelta",
+                    "type": "Value",
                     "id": "f2f6901f-abde-4114-8384-8dc669adacc0",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -225,7 +234,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Look",
+                    "action": "LookDelta",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -235,8 +244,8 @@
                     "path": "<Pointer>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse;Touch",
-                    "action": "Look",
+                    "groups": "Touch",
+                    "action": "LookDelta",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -247,7 +256,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Look",
+                    "action": "LookDelta",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -512,6 +521,17 @@
                     "processors": "",
                     "groups": "Touch",
                     "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a727b859-4487-4a04-9bd8-bdd59e932e56",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

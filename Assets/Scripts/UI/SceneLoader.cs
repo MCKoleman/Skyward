@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -53,6 +54,7 @@ public class SceneLoader : MonoBehaviour
         GameManager.Instance.SetGameState(GameManager.GameState.LOADING_LEVEL);
         UIManager.Instance.EnableLoadingScreen(true);
         UIManager.Instance.SetLoadingProgressText("Loading level");
+        EventSystem.current.SetSelectedGameObject(null);
         StartCoroutine(HandleSceneLoadAsync(level));
     }
 
@@ -65,7 +67,7 @@ public class SceneLoader : MonoBehaviour
         UIManager.Instance.SetLoadingProgressText("Initializing components");
 
         yield return new WaitUntil(() => progress.progress >= 1.0f);
-        UIManager.Instance.SetLoadingProgressText("Level loaded");
+        UIManager.Instance.SetLoadingProgressText("Constructing additional pylons");
 
     }
     

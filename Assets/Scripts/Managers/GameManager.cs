@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(SceneLoader))]
 public class GameManager : Singleton<GameManager>
@@ -141,7 +140,6 @@ public class GameManager : Singleton<GameManager>
                 SetTimeScale(0.0f);
                 break;
             case GameState.MENU:
-                EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
                 SetTimeScale(1.0f);
                 break;
             // For every other situation, do nothing but unpause

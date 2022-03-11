@@ -12,7 +12,8 @@ public class UIManager : Singleton<UIManager>
     private PauseMenu pauseMenu;
     [SerializeField]
     private DeathMenu deathMenu;
-    //public MainMenu mainMenu;
+    [SerializeField]
+    private UILoadingScreen loadingScreen;
 
     // Initializes the UI
     public void Init()
@@ -20,30 +21,13 @@ public class UIManager : Singleton<UIManager>
 
     }
 
-    // Starts the game in the selected gamemode
-    // 0: Default
-    public void StartGame(int gamemode = 0)
-    {
-        GameManager.Instance.StartGame();
-    }
-
     // Initializes the hud
     public void InitHUD()
     {
         ShowPauseMenu(false);
-        //ShowDeathMenu(false);
-        //ShowMainMenu(false);
+        ShowDeathMenu(false);
         ShowHUD(true);
         //Cursor.visible = (SceneManager.GetActiveScene().buildIndex == 0);
-    }
-
-    // Returns to the main menu
-    public void ReturnToMainMenu()
-    {
-        ShowPauseMenu(false);
-        ShowDeathMenu(false);
-        ShowHUD(false);
-        ShowMainMenu(true);
     }
 
     // Displays the HUD
@@ -64,11 +48,10 @@ public class UIManager : Singleton<UIManager>
         pauseMenu.EnableMenu(shouldEnable);
     }
 
-    // Displays the main menu
-    public void ShowMainMenu(bool shouldEnable = true)
+    // Enables or disables the loading screen
+    public void EnableLoadingScreen(bool shouldEnable = true)
     {
-        //mainMenu.EnableMenu(shouldEnable);
-
+        loadingScreen.gameObject.SetActive(shouldEnable);
     }
 
     // Toggles the game's pause state
@@ -95,7 +78,7 @@ public class UIManager : Singleton<UIManager>
     // Handles the player leaving the scene or game
     public void HandleExit()
     {
-        Time.timeScale = 1.0f;
+        GameManager.Instance.SetTimeScale(1.0f);
         GameManager.Instance.EndGame();
     }
 
@@ -110,4 +93,5 @@ public class UIManager : Singleton<UIManager>
     public void UpdateHealth(float percent) { hud.UpdateHealth(percent); }
     public void UpdateDashCooldown(float percent) { hud.UpdateDashCooldown(percent); }
     public void ContinueDialogue() { hud.ContinueDialogue(); }
+    public void SetLoadingProgressText(string text) { loadingScreen.SetProgressText(text); }
 }

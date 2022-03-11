@@ -138,7 +138,9 @@ MonoBehaviour:
   dashClips: []
   speedMods: {fileID: 11400000, guid: 75d7579733736f44280935be581a88fe, type: 2}
   maxJumpCooldown: 0.2
+  maxDashCooldown: 0.4
   deathClips: []
+  meleeAttack: {fileID: 0}
 --- !u!114 &5993057676315562651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +201,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4773102276367652192}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: HandleLookContext
+        m_MethodName: HandleLookDeltaContext
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -379,6 +381,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6df44f67-b92c-43f4-8f38-16160d71f2a3
     m_ActionName: Player/Skip[/Keyboard/space,/Keyboard/enter,/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4773102276367652192}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: HandleLookContext
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9f9a026a-a63e-408a-82c9-15c991807916
+    m_ActionName: Player/Look[/Mouse/position]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -512,6 +530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPivot: {fileID: 0}
+  shake: {fileID: 0}
   rotateMod: 0.3
   invertX: 0
   invertY: 0

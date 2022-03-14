@@ -13,6 +13,8 @@ public class DungeonManager : Singleton<DungeonManager>
     [SerializeField]
     private DungeonRoom startRoom;
     [SerializeField]
+    private DungeonRoom currentRoom;
+    [SerializeField]
     private GlobalVars.DungeonTheme startTheme;
 
     [Header("Runtime information")]
@@ -252,6 +254,27 @@ public class DungeonManager : Singleton<DungeonManager>
                 spawnNodes.Add(tempNode);
             }
         }
+    }
+
+    // Updates which room the player is currently in
+    public void UpdateCurrentRoom(Vector3 playerPos)
+    {
+        // If the room that the player is in 
+        DungeonRoom tempRoom = GetRoomFromPos(playerPos);
+        if (tempRoom != currentRoom)
+            SetCurrentRoom(tempRoom);
+    }
+
+    // Returns the room at the given position
+    public DungeonRoom GetRoomFromPos(Vector3 pos)
+    {
+        return new DungeonRoom();
+    }
+
+    // Sets the current room to the given room
+    public void SetCurrentRoom(DungeonRoom newRoom)
+    {
+        currentRoom = newRoom;
     }
 
     // Spawns content for the given room

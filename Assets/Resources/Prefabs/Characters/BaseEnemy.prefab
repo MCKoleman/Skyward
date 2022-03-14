@@ -151,9 +151,8 @@ MonoBehaviour:
   dashClips: []
   speedMods: {fileID: 11400000, guid: 4537d0465671a4d448c0aac0e3fcfc3c, type: 2}
   maxJumpCooldown: 0.2
-  chaseDist: 5
-  stopDist: 1.5
-  speed: 2
+  maxDashCooldown: 0.4
+  movSpeed: 2
   rotSpeed: 3
 --- !u!82 &4250830922056954526
 AudioSource:
@@ -544,7 +543,7 @@ PrefabInstance:
     - target: {fileID: 9152321924096239752, guid: 92f922b0b4a2904429b0b9d8097da822, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3135bd1ff81aa4c4f82a1be6a5d64b44, type: 2}
+      objectReference: {fileID: 2100000, guid: 781d9c28f2bb10a4f9f373bc38e369c8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92f922b0b4a2904429b0b9d8097da822, type: 3}
 --- !u!4 &7481033249912703728 stripped

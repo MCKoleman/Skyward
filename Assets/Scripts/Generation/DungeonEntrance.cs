@@ -6,7 +6,7 @@ public class DungeonEntrance : MonoBehaviour
 {
     private DungeonRoom room;
 
-    private void Start()
+    private void Awake()
     {
         room = this.GetComponentInParent<DungeonRoom>();
     }

@@ -516,6 +516,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3116778457940156341, guid: 26b32b4adb726b746b694beada11eeb3, type: 3}
+      propertyPath: DEBUG_DISABLE_DUNGEON
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3116778457940156363, guid: 26b32b4adb726b746b694beada11eeb3, type: 3}
       propertyPath: m_RootOrder
       value: 4

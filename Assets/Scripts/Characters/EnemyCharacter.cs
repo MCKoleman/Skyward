@@ -10,6 +10,6 @@ public class EnemyCharacter : Character
     public override void HandleHealthChange()
     {
         base.HandleHealthChange();
-        healthBar.UpdateHealth(CurHealth / (float)maxHealth);
+        healthBar?.UpdateHealth(CurHealth / (float)maxHealth);
     }
 }

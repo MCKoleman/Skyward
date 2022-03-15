@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1710444722916627708}
-  - component: {fileID: 1020848366865971399}
-  m_Layer: 0
+  - component: {fileID: 7257421765203199608}
+  m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469140983700867282}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -38,7 +38,7 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: -70}
   m_SizeDelta: {x: 500, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1020848366865971399
+--- !u!114 &7257421765203199608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1469140983700867282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e23e930bbaa2326419ed4635406027ef, type: 3}
+  m_Script: {fileID: 11500000, guid: e9dcf390ec0127a4d9db8a46bbb9072d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fill: {fileID: 5348286911703801705}
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 2582587002128356873}
   - component: {fileID: 808035826650154951}
   - component: {fileID: 5348286911703801705}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 8272582886661474496}
   - component: {fileID: 7545762770433838634}
   - component: {fileID: 8976895697433057452}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}

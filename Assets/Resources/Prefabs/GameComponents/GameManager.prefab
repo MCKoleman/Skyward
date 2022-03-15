@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hudObj: {fileID: 8955084238842933313}
-  healthBar: {fileID: 1600395691215361607}
+  healthBar: {fileID: 8982708648627169528}
   dashCooldown: {fileID: 2134234515046709612}
   minimap: {fileID: 94319604887328906}
   dialogueBox: {fileID: 3053222535879203170}
@@ -1260,10 +1260,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBar
       objectReference: {fileID: 0}
-    - target: {fileID: 1469140983700867282, guid: 37754ae068af0834383cbf4a3862850d, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1710444722916627708, guid: 37754ae068af0834383cbf4a3862850d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1348,25 +1344,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2842831773020313127, guid: 37754ae068af0834383cbf4a3862850d, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5280563337309839085, guid: 37754ae068af0834383cbf4a3862850d, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37754ae068af0834383cbf4a3862850d, type: 3}
---- !u!114 &1600395691215361607 stripped
+--- !u!114 &8982708648627169528 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1020848366865971399, guid: 37754ae068af0834383cbf4a3862850d, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7257421765203199608, guid: 37754ae068af0834383cbf4a3862850d, type: 3}
   m_PrefabInstance: {fileID: 1738239135369424512}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e23e930bbaa2326419ed4635406027ef, type: 3}
+  m_Script: {fileID: 11500000, guid: e9dcf390ec0127a4d9db8a46bbb9072d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &1126972074343234172 stripped

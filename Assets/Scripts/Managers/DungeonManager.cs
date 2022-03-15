@@ -34,29 +34,11 @@ public class DungeonManager : Singleton<DungeonManager>
     private Vector2 dungeonCenter = Vector2.zero;
     [SerializeField]
     private Vector2 dungeonSize = Vector2.zero;
+    private CameraController cameraController;
 
     // Room spawn data
     private Dictionary<string, RoomNode> roomNodes = new Dictionary<string, RoomNode>();
     private List<RoomNode> spawnNodes = new List<RoomNode>();
-
-
-
-    // TEMP: REMOVE ASAP. DO NOT KEEP THIS UPDATE FUNCTION AROUND
-    // ----------------------------------------------------------
-    public Vector2 plPos = new Vector2();
-    private GameObject player;
-    private void Update()
-    {
-        // Don't do anything if the player does not exist
-        if (player == null)
-            return;
-
-        plPos = new Vector2(
-            (player.transform.position.x + dungeonCenter.x) / (dungeonSize.x * roomSize.x), 
-            (player.transform.position.z + dungeonCenter.y) / (dungeonSize.y * roomSize.y));
-    }
-    // TEMP: REMOVE ASAP. DO NOT KEEP THIS UPDATE FUNCTION AROUND
-    // ----------------------------------------------------------
 
 
 
@@ -68,7 +50,7 @@ public class DungeonManager : Singleton<DungeonManager>
     // Starts the dungeon generation process for the current level.
     public void StartDungeon()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        cameraController = Camera.main?.GetComponent<CameraController>();
 
         // If there is no start room, make one
         if (startRoom == null)
@@ -275,6 +257,9 @@ public class DungeonManager : Singleton<DungeonManager>
     public void SetCurrentRoom(DungeonRoom newRoom)
     {
         currentRoom = newRoom;
+
+        if(newRoom != null)
+            cameraController.SetRoom(newRoom);
     }
 
     // Spawns content for the given room

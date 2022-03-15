@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LockCameraToRoom : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
+    [SerializeField]
+    protected Transform cameraPivot;
+    [SerializeField]
+    protected CameraShake shake;
     [SerializeField]
     private Vector3 offset;
     [SerializeField]
@@ -17,6 +21,8 @@ public class LockCameraToRoom : MonoBehaviour
     [SerializeField]
     private bool isLockedToPlayer = true;
     [SerializeField]
+    private DungeonRoom room;
+    [SerializeField]
     private Vector3 roomCoords;
     [SerializeField]
     private Vector3 roomSize;
@@ -26,12 +32,22 @@ public class LockCameraToRoom : MonoBehaviour
     private void Start()
     {
         objToFollow = GameObject.FindGameObjectWithTag("Player");
+        shake = Camera.main.GetComponentInParent<CameraShake>();
         //Print.Log($"Camera bounds: [{Camera.main.ScreenToWorldPoint(new Vector3(1.0f, 1.0f, 0.0f))}], [{Camera.main.ViewportToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f))}]");
         //cameraSpace = Camera.main.ViewportToWorldPoint(new Vector3(1.0f, 1.0f, 0.0f)) - Camera.main.ViewportToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f));
     }
 
     private void Update()
     {
+        // Follow with camera to destination
+        if (MathUtils.AlmostZero(this.transform.position - destination, 2))
+            return;
+
+        Vector3 tempVec = Vector3.Lerp(this.transform.position, destination, lockedFollowSpeed * Time.deltaTime);
+        this.transform.position = new Vector3(tempVec.x, transform.position.y, tempVec.z);
+        Camera.main.fieldOfView = 2 * Mathf.Atan(roomSize.x / (2 * Camera.main.focalLength)) * Mathf.Rad2Deg;
+
+        /*
         // If the camera view is locked to the room, follow locked rules
         if(isLockedToRoom)
         {
@@ -57,6 +73,20 @@ public class LockCameraToRoom : MonoBehaviour
             Vector3 tempVec = Vector3.Lerp(transform.position, objToFollow.transform.position + offset, followSpeed * Time.deltaTime);
             transform.position = new Vector3(tempVec.x, transform.position.y, tempVec.z);
         }
+        */
+    }
+
+    // Set the room to follow with the camera
+    public void SetRoom(DungeonRoom newRoom)
+    {
+        // Don't set the room to follow to null
+        if (newRoom == null)
+            return;
+
+        room = newRoom;
+        roomSize = newRoom.CalcSize();
+        roomCoords = new Vector3(newRoom.roomPos.x, 1.0f, newRoom.roomPos.y);
+        destination = new Vector3(roomCoords.x + offset.x, offset.y, roomCoords.z + offset.z);
     }
 
     // Returns the coordinates of the room that the target is currently in (in room space)
@@ -75,5 +105,11 @@ public class LockCameraToRoom : MonoBehaviour
             roomCoords = GetRoomCoordinates();
             destination = new Vector3(roomCoords.x * roomSize.x, transform.position.y, roomCoords.z* roomSize.z);
         }
+    }
+
+    // Shakes the camera
+    public void Shake(float duration = 0.5f, float magnitude = 0.7f, float damping = 1.0f)
+    {
+        shake.TriggerShake(duration, magnitude, damping);
     }
 }

@@ -16,10 +16,12 @@ public class UIMinimap : MonoBehaviour
         if (map == null || !map.enabled)
             return;
 
+        /*
         map.rectTransform.anchoredPosition = new Vector2(
             (-DungeonManager.Instance.plPos.x) * map.rectTransform.rect.width * zoom, 
             (-DungeonManager.Instance.plPos.y) * map.rectTransform.rect.width * zoom);
 
         map.rectTransform.localScale = new Vector2(zoom, zoom);
+        */
     }
 }

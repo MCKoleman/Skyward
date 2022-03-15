@@ -577,17 +577,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3116778457170140334, guid: 26b32b4adb726b746b694beada11eeb3, type: 3}
-      propertyPath: baseRoomPrefab
-      value: 
-      objectReference: {fileID: 4816909695034899694, guid: 5802792d96ac74240a442c825b64ed5e, type: 3}
     - target: {fileID: 3116778457940156340, guid: 26b32b4adb726b746b694beada11eeb3, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116778457940156341, guid: 26b32b4adb726b746b694beada11eeb3, type: 3}
-      propertyPath: DEBUG_DISABLE_DUNGEON
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3116778457940156363, guid: 26b32b4adb726b746b694beada11eeb3, type: 3}
       propertyPath: m_RootOrder

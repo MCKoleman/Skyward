@@ -280,7 +280,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   enemyPrefabList: []
   exitPrefab: {fileID: 1992895975375133948, guid: fcf8c673c0232ab4e9f681804f1a1a89, type: 3}
-  baseRoomPrefab: {fileID: 1781211391673690570, guid: 2da35c6c4c497134b8091ad47bc05ea0, type: 3}
+  baseRoomPrefab: {fileID: 4816909695034899694, guid: 5802792d96ac74240a442c825b64ed5e, type: 3}
   bossRoomPrefab: {fileID: 1781211391673690570, guid: 2da35c6c4c497134b8091ad47bc05ea0, type: 3}
   topWalls:
   - {fileID: 4203021188474652247, guid: a62c974cdcab1bf4e82510948d90ef23, type: 3}
@@ -473,6 +473,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 1
   gameState: 0
   prevGameState: 0
+  DEBUG_DISABLE_DUNGEON: 0
 --- !u!1 &3116778457977238769
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +765,7 @@ MonoBehaviour:
   roomList: {fileID: 11400000, guid: d0dd0e97c98613740bd7068cae226e5f, type: 2}
   contentList: {fileID: 11400000, guid: afce021cf1d9ac54ab4195b293a569b2, type: 2}
   startRoom: {fileID: 0}
+  currentRoom: {fileID: 0}
   startTheme: 1
   roomMap: []
   numRooms: 0
@@ -773,7 +775,6 @@ MonoBehaviour:
   trCoord: {x: -2147483648, y: -2147483648}
   dungeonCenter: {x: 0, y: 0}
   dungeonSize: {x: 0, y: 0}
-  plPos: {x: 0, y: 0}
 --- !u!1 &6170610240298877166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,7 +1355,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9dcf390ec0127a4d9db8a46bbb9072d, type: 3}
+  m_Script: {fileID: 11500000, guid: e23e930bbaa2326419ed4635406027ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &1126972074343234172 stripped

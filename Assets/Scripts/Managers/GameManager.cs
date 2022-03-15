@@ -14,6 +14,9 @@ public class GameManager : Singleton<GameManager>
     public GameState State { get { return gameState; } }
     public bool IsGameActive { get; private set; }
 
+    [SerializeField]
+    private bool DEBUG_DISABLE_DUNGEON = false;
+
     private SceneLoader sceneLoader;
 
     // Initialize all other singletons
@@ -73,6 +76,16 @@ public class GameManager : Singleton<GameManager>
                 break;
             case GlobalVars.SceneType.DUNGEON:
             case GlobalVars.SceneType.BOSS:
+#if UNITY_EDITOR
+                if(DEBUG_DISABLE_DUNGEON)
+                {
+                    // Communicate ending of generation to GameStateManager
+                    StartGame();
+                    SetGameState(GameState.IN_DUNGEON);
+                    UIManager.Instance.EnableLoadingScreen(false);
+                    break;
+                }
+#endif
                 DungeonManager.Instance.StartDungeon();
                 break;
             default:

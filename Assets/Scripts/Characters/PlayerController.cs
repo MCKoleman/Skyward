@@ -26,19 +26,19 @@ public class PlayerController : CharacterController
     {
         base.Start();
         interactables = new List<Interactable>();
-        cam = this.GetComponent<CameraController>();
+        cam = Camera.main.GetComponent<CameraController>();
 
         rotationPlane = new Plane(Vector3.up, Vector3.zero);
     }
 
     protected void Update()
     {
+        if (DoesMatchRotation())
+            return;
+
         // Rotate player to face look direction
-        if(!DoesMatchRotation())
-        {
-            float tempRot = Mathf.Lerp(0.0f, GetNormalizedAngleDifference(), rotationLerpSpeed * Time.deltaTime);
-            this.transform.Rotate(new Vector3(0.0f, tempRot, 0.0f));
-        }
+        float tempRot = Mathf.Lerp(0.0f, GetNormalizedAngleDifference(), rotationLerpSpeed * Time.deltaTime);
+        this.transform.Rotate(new Vector3(0.0f, tempRot, 0.0f));
     }
 
     /* ==================================================== Helper functions =================================================================== */

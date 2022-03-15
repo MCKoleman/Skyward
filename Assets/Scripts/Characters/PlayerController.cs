@@ -9,17 +9,17 @@ public class PlayerController : CharacterController
     [Header("Player Controller data")]
     [SerializeField]
     protected AudioClip[] deathClips;
+    [SerializeField]
+    protected float rotationLerpSpeed = 5.0f;
 
     /* Component references*/
     protected List<Interactable> interactables;
     protected CameraController cam;
+    [SerializeField]
+    protected MeleeAttack meleeAttack;
 
-    protected float rayLength;
-    protected Ray cameraRay;
-    protected Plane gamePlane;
-
-    protected MeleeAttack mAttack;
-
+    private Plane rotationPlane;
+    private float targetRotation = 0.0f;
 
     /* ==================================================== Built-in functions =================================================================== */
     protected override void Start()
@@ -28,15 +28,48 @@ public class PlayerController : CharacterController
         interactables = new List<Interactable>();
         cam = this.GetComponent<CameraController>();
 
-        gamePlane = new Plane(Vector3.up, Vector3.zero);
+        rotationPlane = new Plane(Vector3.up, Vector3.zero);
     }
 
     protected void Update()
     {
-
+        // Rotate player to face look direction
+        if(!DoesMatchRotation())
+        {
+            float tempRot = Mathf.Lerp(0.0f, GetNormalizedAngleDifference(), rotationLerpSpeed * Time.deltaTime);
+            this.transform.Rotate(new Vector3(0.0f, tempRot, 0.0f));
+        }
     }
 
     /* ==================================================== Helper functions =================================================================== */
+    // Returns whether the rotation of the character matches the target rotation
+    private bool DoesMatchRotation()
+    {
+        // Normalize target rotation
+        if (targetRotation < 0.0f)
+            targetRotation += 360.0f;
+
+        return MathUtils.AlmostZero(GetRotationAngleDifference(), 1);
+    }
+
+    // Normalizes the angle difference given
+    private float NormalizeAngleDif(float angleDif)
+    {
+        // Fix angle differences
+        if (angleDif <= -180.0f)
+            return angleDif + 360.0f;
+        else if (angleDif >= 180.0f)
+            return angleDif - 360.0f;
+        else
+            return angleDif;
+    }
+
+    // Returns the normalized angle difference between current and target rotations
+    private float GetNormalizedAngleDifference() { return NormalizeAngleDif(GetRotationAngleDifference()); }
+
+    // Returns the angle difference between the current and target rotations
+    private float GetRotationAngleDifference() { return targetRotation - this.transform.rotation.eulerAngles.y; }
+    
     // Returns whether the player is colliding with the given interactable type
     protected bool CollidingWithInteractable(Interactable.InteractableType iType)
     {
@@ -59,21 +92,6 @@ public class PlayerController : CharacterController
 
         // If none is found, return null
         return null;
-    }
-
-    // Cast ray from top-down camera onto imaginary plane
-    protected void FaceMousePos()
-    {
-        // Cast ray from top-down camera onto mouse's x/y position
-        cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        // When ray intersects imaginary plane representing the game space
-        if (gamePlane.Raycast(cameraRay, out rayLength))
-        {
-            // Rotate Player forward vector to face mouse position (point of intersection)
-            Vector3 pointToLook = cameraRay.GetPoint(rayLength);
-            transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
-        }
     }
 
     // Handles resetting the player information during the respawn process
@@ -124,14 +142,36 @@ public class PlayerController : CharacterController
 
 
     /* ==================================================== Input actions =================================================================== */
+    protected void HandleLook(Vector2 lookPos)
+    {
+        // Don't look outside of screen
+        Vector3 viewPort = Camera.main.ScreenToViewportPoint(lookPos);
+        if (viewPort.x < 0.0f || viewPort.y < 0.0f || viewPort.x > 1.0f || viewPort.y > 1.0f)
+            return;
+
+        Ray viewRay = Camera.main.ScreenPointToRay(lookPos);
+        float rayLength;
+        if (rotationPlane.Raycast(viewRay, out rayLength))
+        {
+            // Rotate Player forward vector to face mouse position (point of intersection)
+            Vector3 lookDif = viewRay.GetPoint(rayLength) - this.transform.position;
+            targetRotation = Vector2.SignedAngle(new Vector2(lookDif.x, lookDif.z), Vector2.up);
+        }
+    }
+
+    protected void HandleLookDelta(Vector2 lookDelta)
+    {
+        // Don't change the look direction to nothing
+        if(lookDelta != Vector2.zero && lookDelta.magnitude > 0.1f)
+        {
+            targetRotation = Vector2.SignedAngle(lookDelta, Vector2.up);
+        }
+    }
+
     protected void HandleAttack()
     {
-
-    }
-    
-    protected void HandleFire()
-    {
-
+        meleeAttack.Attack();
+        cam.Shake(0.1f, 0.1f);
     }
 
     protected void HandleCrouch()
@@ -178,10 +218,22 @@ public class PlayerController : CharacterController
             HandleMove(context.ReadValue<Vector2>());
     }
 
-    public void HandleFireContext(InputAction.CallbackContext context)
+    public void HandleLookContext(InputAction.CallbackContext context)
+    {
+        if (CanTakeInput())
+            HandleLook(context.ReadValue<Vector2>());
+    }
+
+    public void HandleLookDeltaContext(InputAction.CallbackContext context)
+    {
+        if (CanTakeInput())
+            HandleLookDelta(context.ReadValue<Vector2>());
+    }
+
+    public void HandleAttackContext(InputAction.CallbackContext context)
     {
         if (context.performed && CanTakeInput())
-            HandleFire();
+            HandleAttack();
     }
 
     public void HandleCrouchContext(InputAction.CallbackContext context)

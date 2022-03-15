@@ -43,8 +43,25 @@ public class DungeonRoom : MonoBehaviour
         return reqFlag;
     }
 
+    // Returns the position of the room
+    public Vector3 GetPosition()
+    {
+        return this.transform.position;
+        //return new Vector3(roomPos.x * GetSize().x, 0.0f, roomPos.y * GetSize().y);
+    }
+
+    // Returns the size of the room, calculating it if it hasn't been calculated yet
+    public Vector2Int GetSize()
+    {
+        // If the roomSize is null, calculate it
+        if (roomSize == Vector2.zero)
+            roomSize = CalcSize();
+
+        return roomSize;
+    }
+
     // Calculates and returns the size of the room based on how additional nodes are placed
-    public Vector2 CalcSize()
+    private Vector2Int CalcSize()
     {
         float minX = int.MaxValue;
         float minZ = int.MaxValue;
@@ -54,20 +71,13 @@ public class DungeonRoom : MonoBehaviour
         // Find the lowest and highest x and z
         for(int i = 0; i < borderNodes.Count; i++)
         {
-            if (roomNodes[i].transform.position.x < minX)
-                minX = roomNodes[i].transform.position.x;
-
-            if (roomNodes[i].transform.position.x > maxX)
-                maxX = roomNodes[i].transform.position.x;
-
-            if (roomNodes[i].transform.position.z < minZ)
-                minZ = roomNodes[i].transform.position.z;
-
-            if (roomNodes[i].transform.position.z > maxZ)
-                maxZ = roomNodes[i].transform.position.z;
+            minX = Mathf.Min(borderNodes[i].transform.position.x, minX);
+            minZ = Mathf.Min(borderNodes[i].transform.position.z, minZ);
+            maxX = Mathf.Max(borderNodes[i].transform.position.x, maxX);
+            maxZ = Mathf.Max(borderNodes[i].transform.position.z, maxZ);
         }
 
         // The size of a room is half the distance between its furthest nodes
-        return new Vector2(maxX - minX, maxZ - minZ);
+        return new Vector2Int(Mathf.FloorToInt(maxX - minX), Mathf.FloorToInt(maxZ - minZ));
     }
 }

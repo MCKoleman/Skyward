@@ -13,39 +13,43 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private Vector3 destination;
     [SerializeField]
-    private float followSpeed = 1.5f;
-    [SerializeField]
     private float lockedFollowSpeed = 5.0f;
     [SerializeField]
-    private bool isLockedToRoom = true;
-    [SerializeField]
-    private bool isLockedToPlayer = true;
+    private float fovLerpSpeed = 3.0f;
     [SerializeField]
     private DungeonRoom room;
     [SerializeField]
-    private Vector3 roomCoords;
+    private Vector3 roomPos;
     [SerializeField]
-    private Vector3 roomSize;
+    private Vector2 roomSize;
+
     [SerializeField]
-    private GameObject objToFollow;
+    private float targetFov = 0.0f;
+    private const float FOCAL_LENGTH_MOD = 2.95f;
+    private const float OFFSET_X_MOD = -0.2f;
+    private const float OFFSET_B_MOD = -2.5f;
 
     private void Start()
     {
-        objToFollow = GameObject.FindGameObjectWithTag("Player");
         shake = Camera.main.GetComponentInParent<CameraShake>();
+        destination = new Vector3(roomPos.x + offset.x, offset.y, roomPos.z + offset.z);
+        targetFov = 2 * Mathf.Atan(roomSize.x * FOCAL_LENGTH_MOD / (2 * Camera.main.focalLength)) * Mathf.Rad2Deg;
         //Print.Log($"Camera bounds: [{Camera.main.ScreenToWorldPoint(new Vector3(1.0f, 1.0f, 0.0f))}], [{Camera.main.ViewportToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f))}]");
         //cameraSpace = Camera.main.ViewportToWorldPoint(new Vector3(1.0f, 1.0f, 0.0f)) - Camera.main.ViewportToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f));
     }
 
     private void Update()
     {
+        // Lerp camera to target FOV
+        if(!MathUtils.AlmostZero(Camera.main.fieldOfView - targetFov, 2))
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFov, fovLerpSpeed * Time.deltaTime);
+
         // Follow with camera to destination
         if (MathUtils.AlmostZero(this.transform.position - destination, 2))
             return;
 
         Vector3 tempVec = Vector3.Lerp(this.transform.position, destination, lockedFollowSpeed * Time.deltaTime);
         this.transform.position = new Vector3(tempVec.x, transform.position.y, tempVec.z);
-        Camera.main.fieldOfView = 2 * Mathf.Atan(roomSize.x / (2 * Camera.main.focalLength)) * Mathf.Rad2Deg;
 
         /*
         // If the camera view is locked to the room, follow locked rules
@@ -84,27 +88,11 @@ public class CameraController : MonoBehaviour
             return;
 
         room = newRoom;
-        roomSize = newRoom.CalcSize();
-        roomCoords = new Vector3(newRoom.roomPos.x, 1.0f, newRoom.roomPos.y);
-        destination = new Vector3(roomCoords.x + offset.x, offset.y, roomCoords.z + offset.z);
-    }
-
-    // Returns the coordinates of the room that the target is currently in (in room space)
-    private Vector3Int GetRoomCoordinates()
-    {
-        return new Vector3Int(Mathf.FloorToInt(objToFollow.transform.position.x / roomSize.x + 0.5f), 
-            0,
-            Mathf.FloorToInt(objToFollow.transform.position.z / roomSize.z + 0.5f));
-    }
-
-    // Updates the target destination to be the current room
-    private void UpdateDestination()
-    {
-        if(objToFollow != null)
-        {
-            roomCoords = GetRoomCoordinates();
-            destination = new Vector3(roomCoords.x * roomSize.x, transform.position.y, roomCoords.z* roomSize.z);
-        }
+        roomSize = room.GetSize();
+        roomPos = room.GetPosition();
+        offset.z = OFFSET_X_MOD * roomSize.x + OFFSET_B_MOD;
+        destination = new Vector3(roomPos.x + offset.x, offset.y, roomPos.z + offset.z);
+        targetFov = 2 * Mathf.Atan(roomSize.x * FOCAL_LENGTH_MOD / (2 * Camera.main.focalLength)) * Mathf.Rad2Deg;
     }
 
     // Shakes the camera

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5653661362314424795}
   - component: {fileID: 8892126738010008612}
   - component: {fileID: 4195954143410989163}
-  - component: {fileID: 4998604580585425951}
   - component: {fileID: 414916838088707535}
+  - component: {fileID: 203604389471786007}
   m_Layer: 0
   m_Name: CameraPivot
   m_TagString: MainCamera
@@ -85,27 +85,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3472865580292651585}
   m_Enabled: 1
---- !u!114 &4998604580585425951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3472865580292651585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b566f25c8b9edb341b9c05f57a249a29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: -5.5}
-  destination: {x: 0, y: 0, z: 0}
-  followSpeed: 5
-  lockedFollowSpeed: 9
-  isLockedToRoom: 1
-  isLockedToPlayer: 0
-  roomCoords: {x: 0, y: 0, z: 0}
-  roomSize: {x: 15, y: 1, z: 10}
-  objToFollow: {fileID: 0}
 --- !u!114 &414916838088707535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +145,30 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &203604389471786007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472865580292651585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6052611c8049e144e9ef607d75ea09c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPivot: {fileID: 5324886333712449826}
+  shake: {fileID: 2997889600413255836}
+  offset: {x: 0, y: 10, z: -5.5}
+  destination: {x: 0, y: 0, z: 0}
+  followSpeed: 1.5
+  lockedFollowSpeed: 5
+  isLockedToRoom: 0
+  isLockedToPlayer: 0
+  room: {fileID: 0}
+  roomCoords: {x: 0, y: 0, z: 0}
+  roomSize: {x: 15, y: 1, z: 10}
+  objToFollow: {fileID: 0}
 --- !u!1 &5324886333712449831
 GameObject:
   m_ObjectHideFlags: 0

@@ -140,6 +140,7 @@ MonoBehaviour:
   maxJumpCooldown: 0.2
   maxDashCooldown: 0.4
   deathClips: []
+  rotationLerpSpeed: 5
   meleeAttack: {fileID: 0}
 --- !u!114 &5993057676315562651
 MonoBehaviour:
@@ -589,6 +590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MinimapIcon
       objectReference: {fileID: 0}
+    - target: {fileID: 9152321924096239752, guid: 92f922b0b4a2904429b0b9d8097da822, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c3a1d2b80c944e148aeb7c05562959b4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92f922b0b4a2904429b0b9d8097da822, type: 3}
 --- !u!4 &8500645875446692715 stripped

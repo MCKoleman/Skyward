@@ -8,11 +8,13 @@ public class RoomNode : MonoBehaviour
     public bool hasSpawned;
     [SerializeField]
     private GlobalVars.RoomReq req;
-    public uint reqFlag { get; private set; }
+    [SerializeField]
+    private uint m_reqFlag;
+    public uint ReqFlag { get { return m_reqFlag; } private set { m_reqFlag = value; } }
 
     private void OnEnable()
     {
-        reqFlag = (uint)req;
+        ReqFlag = (uint)req;
         hasSpawned = false;
     }
 
@@ -22,7 +24,7 @@ public class RoomNode : MonoBehaviour
         if(other != null)
         {
             // Bitwise OR both flags to keep all reqs of both
-            reqFlag |= other.reqFlag;
+            ReqFlag |= other.ReqFlag;
             // If either node wants to spawn, this should too
             shouldSpawn = other.shouldSpawn || shouldSpawn;
             // If either node has spawned, don't try spawning again

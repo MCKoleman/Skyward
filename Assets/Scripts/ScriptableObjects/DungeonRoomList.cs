@@ -22,13 +22,19 @@ public class DungeonRoomList : ScriptableObject
     // Returns all rooms from the roomList that meet the given requirement
     public WeightedGameObjectList GetRoomsByReq(uint reqFlag)
     {
+        return GetRoomsByReq(reqFlag, roomList);
+    }
+
+    // Returns all rooms from the roomList that meet the given requirement
+    public WeightedGameObjectList GetRoomsByReq(uint reqFlag, WeightedGameObjectList rooms)
+    {
         WeightedGameObjectList newRooms = new WeightedGameObjectList();
-        
+
         // Find all rooms that meet the requirements flag
-        for (int i = 0; i < roomList.Count(); i++)
+        for (int i = 0; i < rooms.Count(); i++)
         {
             // If the object in the list is not a room, skip it
-            DungeonRoom tempRoom = roomList.GetObject(i).GetComponent<DungeonRoom>();
+            DungeonRoom tempRoom = rooms.GetObject(i).GetComponent<DungeonRoom>();
             if (tempRoom == null)
                 continue;
 
@@ -37,10 +43,10 @@ public class DungeonRoomList : ScriptableObject
                 tempRoom.CalcReqFlag();
 
             // Bitwise and the requirement flags to see which components match. If all components match, add the room to the output
-            if((tempRoom.reqFlag & reqFlag) == reqFlag)
+            if ((tempRoom.reqFlag & reqFlag) == reqFlag)
             {
                 //Print.Log($"Bitwise checking [{newFlag}] vs [{reqFlag}]. Result: [{newFlag & reqFlag}]");
-                newRooms.Add(roomList.Get(i));
+                newRooms.Add(rooms.Get(i));
             }
         }
 
@@ -50,7 +56,7 @@ public class DungeonRoomList : ScriptableObject
     // Returns random objects
     public GameObject GetRandomSpecialRoomByFlag(uint reqFlag)
     {
-        return GetRoomsByReq(reqFlag).GetRandomObject();
+        return GetRoomsByReq(reqFlag, specialRoomlist).GetRandomObject();
     }
 
     // Find a random room that meets all the requirements of the given flag

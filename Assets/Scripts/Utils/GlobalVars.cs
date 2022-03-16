@@ -33,6 +33,13 @@ public class GlobalVars : Singleton<GlobalVars>
     [System.Serializable]
     public enum SpeakerType { PLAYER, ZEIL, VISAGE, MOM, DAD }
 
+    // Returns whether the room with given flagType requires a special room
+    public static bool DoesRequireSpecialReq(uint reqFlag)
+    {
+        // Open rooms are guaranteed to have a value of 512 or greater
+        return reqFlag >= 512;
+    }
+
     // Locks the requirement flag to not allow any variation, ie. if top is not required, don't allow it
     public static uint LockFlagReqs(uint reqFlag)
     {

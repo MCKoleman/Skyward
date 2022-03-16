@@ -38,6 +38,7 @@ public class DungeonManager : Singleton<DungeonManager>
     private Vector2 revealedBL = Vector2.zero;
     private Vector2 revealedTR = Vector2.zero;
     private CameraController cameraController;
+    private const float MINIMAP_SIZE_MOD = 0.55f;
 
     // Room spawn data
     private Dictionary<string, RoomNode> roomNodes = new Dictionary<string, RoomNode>();
@@ -131,6 +132,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
             // Find a random room that meets the spawn requirements
             GameObject tempRoomPrefab = SelectRoomPrefab(minRooms, maxRooms, prefRooms, tempNode);
+            Debug.Log($"Selected room [{tempRoomPrefab}] for flag [{tempNode.ReqFlag}]");
             
             // Spawn the room chosen
             if(tempRoomPrefab != null)
@@ -183,31 +185,31 @@ public class DungeonManager : Singleton<DungeonManager>
     // Selects a room prefab to spawn that meets the current criteria
     private GameObject SelectRoomPrefab(int minRooms, int maxRooms, int prefRooms, RoomNode node)
     {
-        // First check if a special room should be attempted
-        if (roomList.ShouldAttemptSpecialRoom())
-            return roomList.GetRandomSpecialRoomByFlag(node.reqFlag);
+        GameObject tempPrefab = null;
+
+        // First check if a special room should be attempted (either it is required, or there is space and a random chance succeeds)
+        if (GlobalVars.DoesRequireSpecialReq(node.ReqFlag) || (prefRooms > numRooms + spawnNodes.Count && roomList.ShouldAttemptSpecialRoom()))
+            tempPrefab = roomList.GetRandomSpecialRoomByFlag(node.ReqFlag);
+
+        // If a suitable special room was not found or searched for, keep going
+        if (tempPrefab != null)
+            return tempPrefab;
 
         // If the minimum number of rooms hasn't been met yet and there are less spawn nodes than needed rooms, spawn max rooms
         if (minRooms > numRooms + spawnNodes.Count)
-            return roomList.GetRandomRoomByFlag(GlobalVars.LockInverseFlagReqs(node.reqFlag));
+            return roomList.GetRandomRoomByFlag(GlobalVars.LockInverseFlagReqs(node.ReqFlag));
 
         // If the preferred number of rooms hasn't been met yet, spawn with inverted spawn rates
         else if (prefRooms > numRooms + spawnNodes.Count)
-            return roomList.GetInverseRandomRoomByFlag(node.reqFlag);
+            return roomList.GetInverseRandomRoomByFlag(node.ReqFlag);
 
         // If the preferred number of rooms has been met, spawn normally until approaching max rooms
         else if (maxRooms > numRooms + spawnNodes.Count)
-            return roomList.GetRandomRoomByFlag(node.reqFlag);
+            return roomList.GetRandomRoomByFlag(node.ReqFlag);
 
         // If approaching max rooms, force stop
         else
-            return roomList.GetRandomRoomByFlag(GlobalVars.LockFlagReqs(node.reqFlag));
-    }
-
-    // Returns whether a large room can be spawned or not
-    private bool CanSpawnLargeRoom(RoomNode node)
-    {
-        return false;
+            return roomList.GetRandomRoomByFlag(GlobalVars.LockFlagReqs(node.ReqFlag));
     }
 
     // Remove all nodes that have already spawned from the list
@@ -285,7 +287,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
         Vector2 tempSize = revealedTR - revealedBL;
         UIManager.Instance.SetMinimapDungeonCenter(new Vector3((revealedBL.x + revealedTR.x) / 2.0f, 0.0f, (revealedBL.y + revealedTR.y) / 2.0f));
-        UIManager.Instance.SetMinimapCameraWidth(Mathf.Max(tempSize.x, tempSize.y) * 0.55f);
+        UIManager.Instance.SetMinimapCameraWidth(Mathf.Max(tempSize.x, tempSize.y) * MINIMAP_SIZE_MOD);
     }
 
     // Spawns content for the given room

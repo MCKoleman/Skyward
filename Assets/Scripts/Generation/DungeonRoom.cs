@@ -21,7 +21,7 @@ public class DungeonRoom : MonoBehaviour
     public Vector2Int roomSize;
     public bool isRevealed = false;
 
-    void Start()
+    void Awake()
     {
         CalcReqFlag();
     }
@@ -50,7 +50,6 @@ public class DungeonRoom : MonoBehaviour
     public Vector3 GetPosition()
     {
         return this.transform.position;
-        //return new Vector3(roomPos.x * GetSize().x, 0.0f, roomPos.y * GetSize().y);
     }
 
     // Returns the size of the room, calculating it if it hasn't been calculated yet

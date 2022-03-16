@@ -19,6 +19,7 @@ public class PlayerController : CharacterController
     protected MeleeAttack meleeAttack;
 
     private Plane rotationPlane;
+    [SerializeField]
     private float targetRotation = 0.0f;
 
     /* ==================================================== Built-in functions =================================================================== */
@@ -33,8 +34,12 @@ public class PlayerController : CharacterController
 
     protected void Update()
     {
+        // If the rotation is already close to correct, set it to be the exact desired rotation
         if (DoesMatchRotation())
+        {
+            this.transform.rotation = Quaternion.Euler(0.0f, targetRotation, 0.0f);
             return;
+        }
 
         // Rotate player to face look direction
         float tempRot = Mathf.Lerp(0.0f, GetNormalizedAngleDifference(), rotationLerpSpeed * Time.deltaTime);

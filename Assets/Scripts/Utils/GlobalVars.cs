@@ -15,7 +15,12 @@ public class GlobalVars : Singleton<GlobalVars>
     // TOP = 0_0000_0010, BOTTOM = 0_0000_0100, RIGHT = 0_0000_1000, LEFT = 0_0001_0000,
     // NOTOP = 0_0010_0000, NOBOTTOM = 0_0100_0000, NORIGHT = 0_1000_0000, NOLEFT = 1_0000_0000
     [System.Serializable]
-    public enum RoomReq { NONE = 1, TOP = 2, BOTTOM = 4, RIGHT = 8, LEFT = 16, NOTOP = 32, NOBOTTOM = 64, NORIGHT = 128, NOLEFT = 256 }
+    public enum RoomReq { 
+        NONE = 1, 
+        TOP_DOOR = 2,   BOTTOM_DOOR = 4,    RIGHT_DOOR = 8,     LEFT_DOOR = 16, 
+        TOP_WALL = 32,  BOTTOM_WALL = 64,   RIGHT_WALL = 128,   LEFT_WALL = 256,
+        TOP_OPEN = 512, BOTTOM_OPEN = 1024, RIGHT_OPEN = 2048,  LEFT_OPEN = 4096
+    }
 
     [System.Serializable]
     public enum DungeonTheme { DEFAULT = 0, CAVE = 1, SKY = 2, CASTLE = 3 }
@@ -34,20 +39,20 @@ public class GlobalVars : Singleton<GlobalVars>
         uint newFlag = reqFlag;
 
         // If the TOP bit is 0, set the NOTOP bit to 1
-        if ((newFlag & ((int)RoomReq.TOP)) == 0)
-            newFlag |= ((int)RoomReq.NOTOP);
+        if ((newFlag & ((int)RoomReq.TOP_DOOR)) == 0)
+            newFlag |= ((int)RoomReq.TOP_WALL);
 
         // If the BOTTOM bit is 0, set the NOBOTTOM bit to 1
-        if ((newFlag & ((int)RoomReq.BOTTOM)) == 0)
-            newFlag |= ((int)RoomReq.NOBOTTOM);
+        if ((newFlag & ((int)RoomReq.BOTTOM_DOOR)) == 0)
+            newFlag |= ((int)RoomReq.BOTTOM_WALL);
 
         // If the RIGHT bit is 0, set the NORIGHT bit to 1
-        if ((newFlag & ((int)RoomReq.RIGHT)) == 0)
-            newFlag |= ((int)RoomReq.NORIGHT);
+        if ((newFlag & ((int)RoomReq.RIGHT_DOOR)) == 0)
+            newFlag |= ((int)RoomReq.RIGHT_WALL);
 
         // If the LEFT bit is 0, set the NOLEFT bit to 1
-        if ((newFlag & ((int)RoomReq.LEFT)) == 0)
-            newFlag |= ((int)RoomReq.NOLEFT);
+        if ((newFlag & ((int)RoomReq.LEFT_DOOR)) == 0)
+            newFlag |= ((int)RoomReq.LEFT_WALL);
 
         return newFlag;
     }
@@ -58,26 +63,26 @@ public class GlobalVars : Singleton<GlobalVars>
         uint newFlag = reqFlag;
 
         // If the NOTOP bit is 0, set the TOP bit to 1
-        if ((newFlag & ((int)RoomReq.NOTOP)) == 0)
-            newFlag |= ((int)RoomReq.TOP);
+        if ((newFlag & ((int)RoomReq.TOP_WALL)) == 0)
+            newFlag |= ((int)RoomReq.TOP_DOOR);
 
         // If the NOBOTTOM bit is 0, set the BOTTOM bit to 1
-        if ((newFlag & ((int)RoomReq.NOBOTTOM)) == 0)
-            newFlag |= ((int)RoomReq.BOTTOM);
+        if ((newFlag & ((int)RoomReq.BOTTOM_WALL)) == 0)
+            newFlag |= ((int)RoomReq.BOTTOM_DOOR);
 
         // If the NORIGHT bit is 0, set the RIGHT bit to 1
-        if ((newFlag & ((int)RoomReq.NORIGHT)) == 0)
-            newFlag |= ((int)RoomReq.RIGHT);
+        if ((newFlag & ((int)RoomReq.RIGHT_WALL)) == 0)
+            newFlag |= ((int)RoomReq.RIGHT_DOOR);
 
         // If the NOLEFT bit is 0, set the LEFT bit to 1
-        if ((newFlag & ((int)RoomReq.NOLEFT)) == 0)
-            newFlag |= ((int)RoomReq.LEFT);
+        if ((newFlag & ((int)RoomReq.LEFT_WALL)) == 0)
+            newFlag |= ((int)RoomReq.LEFT_DOOR);
 
         return newFlag;
     }
 
     // Calculate the requirements flag from the given requirements
-    public static uint CalcReqFlagFromReqs(List<GlobalVars.RoomReq> _reqs)
+    public static uint CalcReqFlagFromReqs(List<RoomReq> _reqs)
     {
         // Make sure all elements are unique
         uint _reqFlag = 0;
@@ -93,56 +98,56 @@ public class GlobalVars : Singleton<GlobalVars>
     }
 
     // Returns the negated requirement of the one given
-    public static GlobalVars.RoomReq GetNegatedReq(GlobalVars.RoomReq req)
+    public static RoomReq GetNegatedReq(RoomReq req)
     {
         switch (req)
         {
-            case GlobalVars.RoomReq.TOP:
-                return GlobalVars.RoomReq.NOTOP;
-            case GlobalVars.RoomReq.BOTTOM:
-                return GlobalVars.RoomReq.NOBOTTOM;
-            case GlobalVars.RoomReq.RIGHT:
-                return GlobalVars.RoomReq.NORIGHT;
-            case GlobalVars.RoomReq.LEFT:
-                return GlobalVars.RoomReq.NOLEFT;
-            case GlobalVars.RoomReq.NOTOP:
-                return GlobalVars.RoomReq.TOP;
-            case GlobalVars.RoomReq.NOBOTTOM:
-                return GlobalVars.RoomReq.BOTTOM;
-            case GlobalVars.RoomReq.NORIGHT:
-                return GlobalVars.RoomReq.RIGHT;
-            case GlobalVars.RoomReq.NOLEFT:
-                return GlobalVars.RoomReq.LEFT;
-            case GlobalVars.RoomReq.NONE:
+            case RoomReq.TOP_DOOR:
+                return RoomReq.TOP_WALL;
+            case RoomReq.BOTTOM_DOOR:
+                return RoomReq.BOTTOM_WALL;
+            case RoomReq.RIGHT_DOOR:
+                return RoomReq.RIGHT_WALL;
+            case RoomReq.LEFT_DOOR:
+                return RoomReq.LEFT_WALL;
+            case RoomReq.TOP_WALL:
+                return RoomReq.TOP_DOOR;
+            case RoomReq.BOTTOM_WALL:
+                return RoomReq.BOTTOM_DOOR;
+            case RoomReq.RIGHT_WALL:
+                return RoomReq.RIGHT_DOOR;
+            case RoomReq.LEFT_WALL:
+                return RoomReq.LEFT_DOOR;
+            case RoomReq.NONE:
             default:
-                return GlobalVars.RoomReq.NONE;
+                return RoomReq.NONE;
         }
     }
 
     // Returns the opposite requirement of the one given
-    public static GlobalVars.RoomReq GetOppositeReq(GlobalVars.RoomReq req)
+    public static RoomReq GetOppositeReq(RoomReq req)
     {
         switch (req)
         {
-            case GlobalVars.RoomReq.TOP:
-                return GlobalVars.RoomReq.BOTTOM;
-            case GlobalVars.RoomReq.BOTTOM:
-                return GlobalVars.RoomReq.TOP;
-            case GlobalVars.RoomReq.RIGHT:
-                return GlobalVars.RoomReq.LEFT;
-            case GlobalVars.RoomReq.LEFT:
-                return GlobalVars.RoomReq.RIGHT;
-            case GlobalVars.RoomReq.NOTOP:
-                return GlobalVars.RoomReq.NOBOTTOM;
-            case GlobalVars.RoomReq.NOBOTTOM:
-                return GlobalVars.RoomReq.NOTOP;
-            case GlobalVars.RoomReq.NORIGHT:
-                return GlobalVars.RoomReq.NOLEFT;
-            case GlobalVars.RoomReq.NOLEFT:
-                return GlobalVars.RoomReq.NORIGHT;
-            case GlobalVars.RoomReq.NONE:
+            case RoomReq.TOP_DOOR:
+                return RoomReq.BOTTOM_DOOR;
+            case RoomReq.BOTTOM_DOOR:
+                return RoomReq.TOP_DOOR;
+            case RoomReq.RIGHT_DOOR:
+                return RoomReq.LEFT_DOOR;
+            case RoomReq.LEFT_DOOR:
+                return RoomReq.RIGHT_DOOR;
+            case RoomReq.TOP_WALL:
+                return RoomReq.BOTTOM_WALL;
+            case RoomReq.BOTTOM_WALL:
+                return RoomReq.TOP_WALL;
+            case RoomReq.RIGHT_WALL:
+                return RoomReq.LEFT_WALL;
+            case RoomReq.LEFT_WALL:
+                return RoomReq.RIGHT_WALL;
+            case RoomReq.NONE:
             default:
-                return GlobalVars.RoomReq.NONE;
+                return RoomReq.NONE;
         }
     }
 }

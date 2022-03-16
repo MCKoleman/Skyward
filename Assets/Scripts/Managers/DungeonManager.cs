@@ -125,30 +125,10 @@ public class DungeonManager : Singleton<DungeonManager>
         {
             // Pop the first spawnNode
             RoomNode tempNode = spawnNodes[0];
-            //Print.Log($"Running loop on node: [{tempNode}]");
 
             // Find a random room that meets the spawn requirements
-            GameObject tempRoomPrefab;
+            GameObject tempRoomPrefab = SelectRoomPrefab(minRooms, maxRooms, prefRooms, tempNode);
             
-            // If the minimum number of rooms hasn't been met yet and there are less spawn nodes than needed rooms, spawn max rooms
-            if(minRooms > numRooms + spawnNodes.Count)
-                tempRoomPrefab = roomList.GetRandomRoomByFlag(GlobalVars.LockInverseFlagReqs(tempNode.reqFlag));
-
-            // If the preferred number of rooms hasn't been met yet, spawn with inverted spawn rates
-            else if (prefRooms > numRooms + spawnNodes.Count)
-                tempRoomPrefab = roomList.GetInverseRandomRoomByFlag(tempNode.reqFlag);
-
-            // If the preferred number of rooms has been met, spawn normally until approaching max rooms
-            else if (maxRooms > numRooms + spawnNodes.Count)
-                tempRoomPrefab = roomList.GetRandomRoomByFlag(tempNode.reqFlag);
-
-            // If approaching max rooms, force stop
-            else
-                tempRoomPrefab = roomList.GetRandomRoomByFlag(GlobalVars.LockFlagReqs(tempNode.reqFlag));
-
-            //Print.Log($"Picked prefab: [{tempRoomPrefab}]. Needs to satisfy [{tempNode.reqFlag}].
-            //Locked: [{GlobalVars.LockFlagReqs(tempNode.reqFlag)}], InvLocked: [{GlobalVars.LockInverseFlagReqs(tempNode.reqFlag)}]");
-
             // Spawn the room chosen
             if(tempRoomPrefab != null)
             {
@@ -197,8 +177,38 @@ public class DungeonManager : Singleton<DungeonManager>
         isGenerated = true;
     }
 
+    // Selects a room prefab to spawn that meets the current criteria
+    private GameObject SelectRoomPrefab(int minRooms, int maxRooms, int prefRooms, RoomNode node)
+    {
+        // First check if a special room should be attempted
+        if (roomList.ShouldAttemptSpecialRoom())
+            return roomList.GetRandomSpecialRoomByFlag(node.reqFlag);
+
+        // If the minimum number of rooms hasn't been met yet and there are less spawn nodes than needed rooms, spawn max rooms
+        if (minRooms > numRooms + spawnNodes.Count)
+            return roomList.GetRandomRoomByFlag(GlobalVars.LockInverseFlagReqs(node.reqFlag));
+
+        // If the preferred number of rooms hasn't been met yet, spawn with inverted spawn rates
+        else if (prefRooms > numRooms + spawnNodes.Count)
+            return roomList.GetInverseRandomRoomByFlag(node.reqFlag);
+
+        // If the preferred number of rooms has been met, spawn normally until approaching max rooms
+        else if (maxRooms > numRooms + spawnNodes.Count)
+            return roomList.GetRandomRoomByFlag(node.reqFlag);
+
+        // If approaching max rooms, force stop
+        else
+            return roomList.GetRandomRoomByFlag(GlobalVars.LockFlagReqs(node.reqFlag));
+    }
+
+    // Returns whether a large room can be spawned or not
+    private bool CanSpawnLargeRoom(RoomNode node)
+    {
+        return false;
+    }
+
     // Remove all nodes that have already spawned from the list
-    public void TrimSpawnedNodes(List<RoomNode> spawnNodes)
+    private void TrimSpawnedNodes(List<RoomNode> spawnNodes)
     {
         // Find all nodes that have already spawned or don't need to spawn
         for(int i = spawnNodes.Count - 1; i >= 0; i--)
@@ -210,7 +220,7 @@ public class DungeonManager : Singleton<DungeonManager>
     }
 
     // Adds all the nodes from the given list to the dictionary, combining duplicates
-    public void AddNodesToDict(Dictionary<string, RoomNode> roomNodes, List<RoomNode> spawnNodes, List<RoomNode> roomList)
+    private void AddNodesToDict(Dictionary<string, RoomNode> roomNodes, List<RoomNode> spawnNodes, List<RoomNode> roomList)
     {
         // Check each node against both dicts before adding it
         for(int i = 0; i < roomList.Count; i++)
@@ -237,21 +247,6 @@ public class DungeonManager : Singleton<DungeonManager>
                 spawnNodes.Add(tempNode);
             }
         }
-    }
-
-    // Updates which room the player is currently in
-    public void UpdateCurrentRoom(Vector3 playerPos)
-    {
-        // If the room that the player is in 
-        DungeonRoom tempRoom = GetRoomFromPos(playerPos);
-        if (tempRoom != currentRoom)
-            SetCurrentRoom(tempRoom);
-    }
-
-    // Returns the room at the given position
-    public DungeonRoom GetRoomFromPos(Vector3 pos)
-    {
-        return new DungeonRoom();
     }
 
     // Sets the current room to the given room

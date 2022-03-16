@@ -280,6 +280,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   enemyPrefabList: []
   exitPrefab: {fileID: 1992895975375133948, guid: fcf8c673c0232ab4e9f681804f1a1a89, type: 3}
+  entrancePrefab: {fileID: 1992895975375133948, guid: 0dd58b34fb467ba4a99beca9429e7d7d, type: 3}
   baseRoomPrefab: {fileID: 4816909695034899694, guid: 5802792d96ac74240a442c825b64ed5e, type: 3}
   bossRoomPrefab: {fileID: 1781211391673690570, guid: 2da35c6c4c497134b8091ad47bc05ea0, type: 3}
   topWalls:

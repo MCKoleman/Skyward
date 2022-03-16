@@ -10,6 +10,7 @@ public class PrefabManager : Singleton<PrefabManager>
 
     [Header("Room prefabs")]
     public GameObject exitPrefab;
+    public GameObject entrancePrefab;
     public GameObject baseRoomPrefab;
     public GameObject bossRoomPrefab;
 

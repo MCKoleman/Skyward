@@ -17,6 +17,7 @@ public class DungeonRoom : MonoBehaviour
     public GlobalVars.DungeonTheme theme;
     public Vector2Int roomPos;
     public Vector2Int roomSize;
+    public bool isRevealed = false;
 
     void Start()
     {

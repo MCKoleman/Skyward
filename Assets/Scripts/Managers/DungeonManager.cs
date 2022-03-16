@@ -254,8 +254,18 @@ public class DungeonManager : Singleton<DungeonManager>
     {
         currentRoom = newRoom;
 
-        if(newRoom != null)
+        // Set camera to follow new room
+        if (newRoom != null)
             cameraController.SetRoom(newRoom);
+
+        // Reveal the room if it hasn't been revealed yet
+        if (!currentRoom.isRevealed)
+        {
+            currentRoom.isRevealed = true;
+            FogOfWarClear tempFog = currentRoom.GetComponentInChildren<FogOfWarClear>();
+            if (tempFog != null)
+                tempFog.Reveal();
+        }
     }
 
     // Spawns content for the given room

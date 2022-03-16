@@ -72,6 +72,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8322525907157109148, guid: 28d3050b58933a44db0b07ecf295b027, type: 3}
+      propertyPath: isCombinedRoom
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322525907157109148, guid: 28d3050b58933a44db0b07ecf295b027, type: 3}
       propertyPath: roomReqs.Array.data[3]
       value: 1024
       objectReference: {fileID: 0}

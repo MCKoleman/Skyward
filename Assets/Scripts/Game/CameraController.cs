@@ -33,7 +33,7 @@ public class CameraController : MonoBehaviour
     {
         shake = Camera.main.GetComponentInParent<CameraShake>();
         destination = new Vector3(roomPos.x + offset.x, offset.y, roomPos.z + offset.z);
-        targetFov = 2 * Mathf.Atan(roomSize.x * FOCAL_LENGTH_MOD / (2 * Camera.main.focalLength)) * Mathf.Rad2Deg;
+        targetFov = GetTargetFOV();
         //Print.Log($"Camera bounds: [{Camera.main.ScreenToWorldPoint(new Vector3(1.0f, 1.0f, 0.0f))}], [{Camera.main.ViewportToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f))}]");
         //cameraSpace = Camera.main.ViewportToWorldPoint(new Vector3(1.0f, 1.0f, 0.0f)) - Camera.main.ViewportToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f));
     }
@@ -92,7 +92,13 @@ public class CameraController : MonoBehaviour
         roomPos = room.GetPosition();
         offset.z = OFFSET_X_MOD * roomSize.x + OFFSET_B_MOD;
         destination = new Vector3(roomPos.x + offset.x, offset.y, roomPos.z + offset.z);
-        targetFov = 2 * Mathf.Atan(roomSize.x * FOCAL_LENGTH_MOD / (2 * Camera.main.focalLength)) * Mathf.Rad2Deg;
+        targetFov = GetTargetFOV();
+    }
+
+    // Returns the targetFOV
+    private float GetTargetFOV()
+    {
+        return 2 * Mathf.Atan(Mathf.Max(roomSize.x, roomSize.y) * FOCAL_LENGTH_MOD / (2 * Camera.main.focalLength)) * Mathf.Rad2Deg; ;
     }
 
     // Shakes the camera

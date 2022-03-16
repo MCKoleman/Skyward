@@ -21,15 +21,21 @@ public class RoomNode : MonoBehaviour
     // Combines this node with the given node
     public void CombineNodes(RoomNode other)
     {
-        if(other != null)
-        {
-            // Bitwise OR both flags to keep all reqs of both
-            ReqFlag |= other.ReqFlag;
-            // If either node wants to spawn, this should too
-            shouldSpawn = other.shouldSpawn || shouldSpawn;
-            // If either node has spawned, don't try spawning again
-            hasSpawned = other.hasSpawned || hasSpawned;
-        }
+        // Don't combine will null
+        if (other == null)
+            return;
+
+        // Bitwise OR both flags to keep all reqs of both
+        ReqFlag |= other.ReqFlag;
+        // If either node wants to spawn, this should too
+        shouldSpawn = other.shouldSpawn || shouldSpawn;
+        // If either node has spawned, don't try spawning again
+        hasSpawned = other.hasSpawned || hasSpawned;
+
+        // Update info of the other to match this
+        other.ReqFlag = this.ReqFlag;
+        other.shouldSpawn = this.shouldSpawn;
+        other.hasSpawned = this.hasSpawned;
     }
 
     // Returns the position of this object as a string
@@ -39,4 +45,7 @@ public class RoomNode : MonoBehaviour
             ((int)this.transform.position.y).ToString() + 
             ((int)this.transform.position.z).ToString();
     }
+
+    // Returns the original requirement of this room node
+    public GlobalVars.RoomReq GetOriginalReq() { return req; }
 }

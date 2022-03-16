@@ -132,7 +132,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
             // Find a random room that meets the spawn requirements
             GameObject tempRoomPrefab = SelectRoomPrefab(minRooms, maxRooms, prefRooms, tempNode);
-            Debug.Log($"Selected room [{tempRoomPrefab}] for flag [{tempNode.ReqFlag}]");
+            //Debug.Log($"Selected room [{tempRoomPrefab}] for flag [{tempNode.ReqFlag}]");
             
             // Spawn the room chosen
             if(tempRoomPrefab != null)
@@ -141,6 +141,7 @@ public class DungeonManager : Singleton<DungeonManager>
                 
                 // Update dungeon room information
                 DungeonRoom tempDungeonRoom = latestRoom.GetComponent<DungeonRoom>();
+                roomSize = tempDungeonRoom.GetSize();
                 tempDungeonRoom.theme = room.theme;
                 tempDungeonRoom.roomNum = numRooms;
                 tempDungeonRoom.roomPos = new Vector2Int(
@@ -148,6 +149,9 @@ public class DungeonManager : Singleton<DungeonManager>
                     Mathf.FloorToInt(latestRoom.transform.position.z / roomSize.y));
 
                 AddNodesToDict(roomNodes, spawnNodes, tempDungeonRoom.roomNodes);
+
+                // Combine rooms that want to be combined
+                tempDungeonRoom.CheckCombination();
 
                 // Add room to minimap
                 roomMap.Add(new MinimapNode(tempDungeonRoom));
@@ -266,13 +270,27 @@ public class DungeonManager : Singleton<DungeonManager>
         // Reveal the room if it hasn't been revealed yet
         if (!currentRoom.isRevealed)
         {
-            currentRoom.isRevealed = true;
+            currentRoom.RevealFogOfWar();
             UpdateMinimapCamera();
-
-            FogOfWarClear tempFog = currentRoom.GetComponentInChildren<FogOfWarClear>();
-            if (tempFog != null)
-                tempFog.Reveal();
         }
+    }
+
+    // Returns the room node with the given key
+    public DungeonRoom GetRoomWithKey(string key)
+    {
+        // Don't search an empty key
+        if (key == "")
+            return new DungeonRoom();
+
+        // Search roomMap for a matching key
+        for(int i = 0; i < roomMap.Count; i++)
+        {
+            // If a matching room is found, return it
+            if (roomMap[i].room.GetKey() == key)
+                return roomMap[i].room;
+        }
+
+        return new DungeonRoom();
     }
     
     // Updates the minimap camera each time a new room is set

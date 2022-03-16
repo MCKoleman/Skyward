@@ -2,26 +2,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIMinimap : MonoBehaviour
 {
     [SerializeField]
-    private Image map;
-    [SerializeField, Range(0.01f, 10.0f)]
-    private float zoom = 1.0f;
+    private TextMeshProUGUI btnText;
 
-    void Update()
+    // Add null guarding to getting the value of controller
+    private MinimapCameraController m_controller;
+    private MinimapCameraController Controller {
+        get
+        {
+            if (m_controller == null)
+                m_controller = GameObject.FindGameObjectWithTag("MinimapCamera").GetComponent<MinimapCameraController>();
+
+            return m_controller;
+        }
+        set
+        {
+            m_controller = value;
+        }
+    }
+
+    // Sets the width required for the camera to display the entire dungeon
+    public void SetCameraWidth(float width)
     {
-        // Don't update map if it isn't active
-        if (map == null || !map.enabled)
-            return;
+        Controller.SetCameraWidth(width);
+    }
 
-        /*
-        map.rectTransform.anchoredPosition = new Vector2(
-            (-DungeonManager.Instance.plPos.x) * map.rectTransform.rect.width * zoom, 
-            (-DungeonManager.Instance.plPos.y) * map.rectTransform.rect.width * zoom);
+    // Sets the dungeon center to the given position
+    public void SetDungeonCenter(Vector3 center)
+    {
+        Controller.SetDungeonCenter(center);
+    }
 
-        map.rectTransform.localScale = new Vector2(zoom, zoom);
-        */
+    // Toggles the display mode of the minimap
+    public void ToggleDisplayMode()
+    {
+        Controller.ToggleDisplayMode();
+        btnText.text = Controller.GetIsPlayerView() ? "Dungeon View" : "Player View";
+    }
+
+    // Sets the display mode to map display
+    public void SetDisplayModeFull()
+    {
+        Controller.SetDisplayMode(false);
+        btnText.text = "Player View";
+    }
+
+    // Sets the display mode to player display
+    public void SetDisplayModePlayer()
+    {
+        Controller.SetDisplayMode(true);
+        btnText.text = "Dungeon View";
     }
 }

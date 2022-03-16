@@ -34,6 +34,9 @@ public class DungeonManager : Singleton<DungeonManager>
     private Vector2 dungeonCenter = Vector2.zero;
     [SerializeField]
     private Vector2 dungeonSize = Vector2.zero;
+
+    private Vector2 revealedBL = Vector2.zero;
+    private Vector2 revealedTR = Vector2.zero;
     private CameraController cameraController;
 
     // Room spawn data
@@ -262,10 +265,27 @@ public class DungeonManager : Singleton<DungeonManager>
         if (!currentRoom.isRevealed)
         {
             currentRoom.isRevealed = true;
+            UpdateMinimapCamera();
+
             FogOfWarClear tempFog = currentRoom.GetComponentInChildren<FogOfWarClear>();
             if (tempFog != null)
                 tempFog.Reveal();
         }
+    }
+    
+    // Updates the minimap camera each time a new room is set
+    private void UpdateMinimapCamera()
+    {
+        if (currentRoom == null)
+            return;
+
+        // Get the size of the dungeon
+        revealedBL = Vector2.Min(revealedBL, currentRoom.blBound);
+        revealedTR = Vector2.Max(revealedTR, currentRoom.trBound);
+
+        Vector2 tempSize = revealedTR - revealedBL;
+        UIManager.Instance.SetMinimapDungeonCenter(new Vector3((revealedBL.x + revealedTR.x) / 2.0f, 0.0f, (revealedBL.y + revealedTR.y) / 2.0f));
+        UIManager.Instance.SetMinimapCameraWidth(Mathf.Max(tempSize.x, tempSize.y) * 0.55f);
     }
 
     // Spawns content for the given room

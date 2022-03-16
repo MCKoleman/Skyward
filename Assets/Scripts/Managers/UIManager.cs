@@ -94,4 +94,6 @@ public class UIManager : Singleton<UIManager>
     public void UpdateDashCooldown(float percent) { hud.UpdateDashCooldown(percent); }
     public void ContinueDialogue() { hud.ContinueDialogue(); }
     public void SetLoadingProgressText(string text) { loadingScreen.SetProgressText(text); }
+    public void SetMinimapCameraWidth(float width) { hud.SetMinimapCameraWidth(width); }
+    public void SetMinimapDungeonCenter(Vector3 center) { hud.SetMinimapDungeonCenter(center); }
 }

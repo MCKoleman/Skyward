@@ -12,6 +12,8 @@ public class DungeonRoom : MonoBehaviour
     public List<GlobalVars.RoomReq> roomReqs = new List<GlobalVars.RoomReq>();
     public List<RoomNode> roomNodes = new List<RoomNode>();
     public List<GameObject> borderNodes = new List<GameObject>();
+    public Vector2 trBound = Vector2.zero;
+    public Vector2 blBound = Vector2.zero;
     public uint reqFlag;
     public int roomNum = 0;
     public GlobalVars.DungeonTheme theme;
@@ -77,6 +79,10 @@ public class DungeonRoom : MonoBehaviour
             maxX = Mathf.Max(borderNodes[i].transform.position.x, maxX);
             maxZ = Mathf.Max(borderNodes[i].transform.position.z, maxZ);
         }
+
+        // Set bounds of the room
+        blBound = new Vector2(minX, minZ);
+        trBound = new Vector2(maxX, maxZ);
 
         // The size of a room is half the distance between its furthest nodes
         return new Vector2Int(Mathf.FloorToInt(maxX - minX), Mathf.FloorToInt(maxZ - minZ));

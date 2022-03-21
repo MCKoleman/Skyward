@@ -704,6 +704,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   gameState: 0
   prevGameState: 0
+  DEBUG_DISABLE_DUNGEON: 0
 --- !u!114 &192986048
 MonoBehaviour:
   m_ObjectHideFlags: 0

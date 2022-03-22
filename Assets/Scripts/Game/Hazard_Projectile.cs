@@ -8,7 +8,6 @@ public class Hazard_Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Player"))
         {
             Character tempChar = collision.gameObject.GetComponent<Character>();
@@ -18,6 +17,8 @@ public class Hazard_Projectile : MonoBehaviour
             }
         }
 
-        Destroy(gameObject);
+        if (collision.gameObject.name != "Plane") {
+            Destroy(gameObject);
+        }
     }
 }

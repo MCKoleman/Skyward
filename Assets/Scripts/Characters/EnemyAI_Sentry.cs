@@ -18,7 +18,7 @@ public class EnemyAI_Sentry : EnemyController
     protected void Update()
     {
         dist = Vector3.Distance(transform.position, player.transform.position);
-        transform.LookAt(player.transform);
+        transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
         if (rAttack != null && dist <= range)
         {
             rAttack.Fire();

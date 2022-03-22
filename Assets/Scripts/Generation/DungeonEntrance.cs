@@ -17,6 +17,10 @@ public class DungeonEntrance : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
+        // Cast room upwards if needed
+        if (room.IsPartOfCombinedRoom() && !room.IsCombinedRoom())
+            room = room.GetComponentInParent<CombinedDungeonRoom>();
+
         // Set the current room to this room
         DungeonManager.Instance.SetCurrentRoom(room);
     }

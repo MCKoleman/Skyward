@@ -41,4 +41,6 @@ public class HUD : MonoBehaviour
     public void ContinueDialogue() { dialogueBox.ContinueDialogue(); }
     public void UpdateHealth(float percent) { healthBar.UpdateHealth(percent); }
     public void UpdateDashCooldown(float percent) { dashCooldown.UpdateCooldown(percent); }
+    public void SetMinimapCameraWidth(float width) { minimap.SetCameraWidth(width); }
+    public void SetMinimapDungeonCenter(Vector3 center) { minimap.SetDungeonCenter(center); }
 }

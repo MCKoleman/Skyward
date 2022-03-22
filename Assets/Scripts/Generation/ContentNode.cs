@@ -12,7 +12,14 @@ public class ContentNode : MonoBehaviour
     void Start()
     {
         parentRoom = GetComponentInParent<DungeonRoom>();
-        DungeonManager.Instance.SpawnContent(this);
+
+        // Don't spawn content in the first room
+        if (parentRoom.roomNum >= 1)
+            DungeonManager.Instance.SpawnContent(this);
+        // Spawn the entrance in the center of the first room
+        else if(nodePlace == NodePlace.CENTER)
+            Instantiate(PrefabManager.Instance.entrancePrefab, new Vector3(0.0f, -0.2f, 0.0f), Quaternion.identity, PrefabManager.Instance.levelHolder);
+
         DestroySelf();
     }
 

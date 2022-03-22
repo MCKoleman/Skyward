@@ -34,7 +34,11 @@ public class DungeonManager : Singleton<DungeonManager>
     private Vector2 dungeonCenter = Vector2.zero;
     [SerializeField]
     private Vector2 dungeonSize = Vector2.zero;
+
+    private Vector2 revealedBL = Vector2.zero;
+    private Vector2 revealedTR = Vector2.zero;
     private CameraController cameraController;
+    private const float MINIMAP_SIZE_MOD = 0.55f;
 
     // Room spawn data
     private Dictionary<string, RoomNode> roomNodes = new Dictionary<string, RoomNode>();
@@ -125,30 +129,11 @@ public class DungeonManager : Singleton<DungeonManager>
         {
             // Pop the first spawnNode
             RoomNode tempNode = spawnNodes[0];
-            //Print.Log($"Running loop on node: [{tempNode}]");
 
             // Find a random room that meets the spawn requirements
-            GameObject tempRoomPrefab;
+            GameObject tempRoomPrefab = SelectRoomPrefab(minRooms, maxRooms, prefRooms, tempNode);
+            //Debug.Log($"Selected room [{tempRoomPrefab}] for flag [{tempNode.ReqFlag}]");
             
-            // If the minimum number of rooms hasn't been met yet and there are less spawn nodes than needed rooms, spawn max rooms
-            if(minRooms > numRooms + spawnNodes.Count)
-                tempRoomPrefab = roomList.GetRandomRoomByFlag(GlobalVars.LockInverseFlagReqs(tempNode.reqFlag));
-
-            // If the preferred number of rooms hasn't been met yet, spawn with inverted spawn rates
-            else if (prefRooms > numRooms + spawnNodes.Count)
-                tempRoomPrefab = roomList.GetInverseRandomRoomByFlag(tempNode.reqFlag);
-
-            // If the preferred number of rooms has been met, spawn normally until approaching max rooms
-            else if (maxRooms > numRooms + spawnNodes.Count)
-                tempRoomPrefab = roomList.GetRandomRoomByFlag(tempNode.reqFlag);
-
-            // If approaching max rooms, force stop
-            else
-                tempRoomPrefab = roomList.GetRandomRoomByFlag(GlobalVars.LockFlagReqs(tempNode.reqFlag));
-
-            //Print.Log($"Picked prefab: [{tempRoomPrefab}]. Needs to satisfy [{tempNode.reqFlag}].
-            //Locked: [{GlobalVars.LockFlagReqs(tempNode.reqFlag)}], InvLocked: [{GlobalVars.LockInverseFlagReqs(tempNode.reqFlag)}]");
-
             // Spawn the room chosen
             if(tempRoomPrefab != null)
             {
@@ -156,6 +141,7 @@ public class DungeonManager : Singleton<DungeonManager>
                 
                 // Update dungeon room information
                 DungeonRoom tempDungeonRoom = latestRoom.GetComponent<DungeonRoom>();
+                roomSize = tempDungeonRoom.GetSize();
                 tempDungeonRoom.theme = room.theme;
                 tempDungeonRoom.roomNum = numRooms;
                 tempDungeonRoom.roomPos = new Vector2Int(
@@ -163,6 +149,9 @@ public class DungeonManager : Singleton<DungeonManager>
                     Mathf.FloorToInt(latestRoom.transform.position.z / roomSize.y));
 
                 AddNodesToDict(roomNodes, spawnNodes, tempDungeonRoom.roomNodes);
+
+                // Combine rooms that want to be combined
+                tempDungeonRoom.CheckCombination();
 
                 // Add room to minimap
                 roomMap.Add(new MinimapNode(tempDungeonRoom));
@@ -197,8 +186,38 @@ public class DungeonManager : Singleton<DungeonManager>
         isGenerated = true;
     }
 
+    // Selects a room prefab to spawn that meets the current criteria
+    private GameObject SelectRoomPrefab(int minRooms, int maxRooms, int prefRooms, RoomNode node)
+    {
+        GameObject tempPrefab = null;
+
+        // First check if a special room should be attempted (either it is required, or there is space and a random chance succeeds)
+        if (GlobalVars.DoesRequireSpecialReq(node.ReqFlag) || (prefRooms > numRooms + spawnNodes.Count && roomList.ShouldAttemptSpecialRoom()))
+            tempPrefab = roomList.GetRandomSpecialRoomByFlag(node.ReqFlag);
+
+        // If a suitable special room was not found or searched for, keep going
+        if (tempPrefab != null)
+            return tempPrefab;
+
+        // If the minimum number of rooms hasn't been met yet and there are less spawn nodes than needed rooms, spawn max rooms
+        if (minRooms > numRooms + spawnNodes.Count)
+            return roomList.GetRandomRoomByFlag(GlobalVars.LockInverseFlagReqs(node.ReqFlag));
+
+        // If the preferred number of rooms hasn't been met yet, spawn with inverted spawn rates
+        else if (prefRooms > numRooms + spawnNodes.Count)
+            return roomList.GetInverseRandomRoomByFlag(node.ReqFlag);
+
+        // If the preferred number of rooms has been met, spawn normally until approaching max rooms
+        else if (maxRooms > numRooms + spawnNodes.Count)
+            return roomList.GetRandomRoomByFlag(node.ReqFlag);
+
+        // If approaching max rooms, force stop
+        else
+            return roomList.GetRandomRoomByFlag(GlobalVars.LockFlagReqs(node.ReqFlag));
+    }
+
     // Remove all nodes that have already spawned from the list
-    public void TrimSpawnedNodes(List<RoomNode> spawnNodes)
+    private void TrimSpawnedNodes(List<RoomNode> spawnNodes)
     {
         // Find all nodes that have already spawned or don't need to spawn
         for(int i = spawnNodes.Count - 1; i >= 0; i--)
@@ -210,7 +229,7 @@ public class DungeonManager : Singleton<DungeonManager>
     }
 
     // Adds all the nodes from the given list to the dictionary, combining duplicates
-    public void AddNodesToDict(Dictionary<string, RoomNode> roomNodes, List<RoomNode> spawnNodes, List<RoomNode> roomList)
+    private void AddNodesToDict(Dictionary<string, RoomNode> roomNodes, List<RoomNode> spawnNodes, List<RoomNode> roomList)
     {
         // Check each node against both dicts before adding it
         for(int i = 0; i < roomList.Count; i++)
@@ -239,28 +258,54 @@ public class DungeonManager : Singleton<DungeonManager>
         }
     }
 
-    // Updates which room the player is currently in
-    public void UpdateCurrentRoom(Vector3 playerPos)
-    {
-        // If the room that the player is in 
-        DungeonRoom tempRoom = GetRoomFromPos(playerPos);
-        if (tempRoom != currentRoom)
-            SetCurrentRoom(tempRoom);
-    }
-
-    // Returns the room at the given position
-    public DungeonRoom GetRoomFromPos(Vector3 pos)
-    {
-        return new DungeonRoom();
-    }
-
     // Sets the current room to the given room
     public void SetCurrentRoom(DungeonRoom newRoom)
     {
         currentRoom = newRoom;
 
-        if(newRoom != null)
+        // Set camera to follow new room
+        if (newRoom != null)
             cameraController.SetRoom(newRoom);
+
+        // Reveal the room if it hasn't been revealed yet
+        if (!currentRoom.isRevealed)
+        {
+            currentRoom.RevealFogOfWar();
+            UpdateMinimapCamera();
+        }
+    }
+
+    // Returns the room node with the given key
+    public DungeonRoom GetRoomWithKey(string key)
+    {
+        // Don't search an empty key
+        if (key == "")
+            return new DungeonRoom();
+
+        // Search roomMap for a matching key
+        for(int i = 0; i < roomMap.Count; i++)
+        {
+            // If a matching room is found, return it
+            if (roomMap[i].room.GetKey() == key)
+                return roomMap[i].room;
+        }
+
+        return new DungeonRoom();
+    }
+    
+    // Updates the minimap camera each time a new room is set
+    private void UpdateMinimapCamera()
+    {
+        if (currentRoom == null)
+            return;
+
+        // Get the size of the dungeon
+        revealedBL = Vector2.Min(revealedBL, currentRoom.blBound);
+        revealedTR = Vector2.Max(revealedTR, currentRoom.trBound);
+
+        Vector2 tempSize = revealedTR - revealedBL;
+        UIManager.Instance.SetMinimapDungeonCenter(new Vector3((revealedBL.x + revealedTR.x) / 2.0f, 0.0f, (revealedBL.y + revealedTR.y) / 2.0f));
+        UIManager.Instance.SetMinimapCameraWidth(Mathf.Max(tempSize.x, tempSize.y) * MINIMAP_SIZE_MOD);
     }
 
     // Spawns content for the given room

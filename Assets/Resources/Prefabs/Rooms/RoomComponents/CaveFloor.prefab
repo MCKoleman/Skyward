@@ -1,80 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2033690065
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 6656918643756967276}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 23541c73f1f314cf2a2c2d1b542d2386, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23541c73f1f314cf2a2c2d1b542d2386, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23541c73f1f314cf2a2c2d1b542d2386, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23541c73f1f314cf2a2c2d1b542d2386, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23541c73f1f314cf2a2c2d1b542d2386, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23541c73f1f314cf2a2c2d1b542d2386, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23541c73f1f314cf2a2c2d1b542d2386, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23541c73f1f314cf2a2c2d1b542d2386, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23541c73f1f314cf2a2c2d1b542d2386, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23541c73f1f314cf2a2c2d1b542d2386, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23541c73f1f314cf2a2c2d1b542d2386, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 23541c73f1f314cf2a2c2d1b542d2386, type: 3}
-      propertyPath: m_Name
-      value: Tiled 15x10 Dungeon Floor
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 23541c73f1f314cf2a2c2d1b542d2386, type: 3}
---- !u!1 &919132147967236224 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 23541c73f1f314cf2a2c2d1b542d2386, type: 3}
-  m_PrefabInstance: {fileID: 2033690065}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &3858056602881472941
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132147967236224}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 15, y: 0.25, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8604553755064619271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85,14 +10,6 @@ PrefabInstance:
     - target: {fileID: 3101753301799957611, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101753301799957611, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101753301799957611, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3101753301799957611, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -138,22 +55,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: CaveFloor
       objectReference: {fileID: 0}
-    - target: {fileID: 7024714610057950014, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7024714610057950014, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050630537612465141, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 8134412904447009563, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
---- !u!4 &6656918643756967276 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3101753301799957611, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
-  m_PrefabInstance: {fileID: 8604553755064619271}
-  m_PrefabAsset: {fileID: 0}

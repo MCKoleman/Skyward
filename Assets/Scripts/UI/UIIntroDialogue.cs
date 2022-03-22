@@ -98,6 +98,12 @@ public class UIIntroDialogue : MonoBehaviour
             }
         }
 
+        EndIntro();
+    }
+
+    // Ends the intro sequence
+    public void EndIntro()
+    {
         // Disable main menu and disable intro
         mainMenu.SetActive(false);
         introHolder.SetActive(false);

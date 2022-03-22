@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3549641216363050376}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4258901605904342242
 BoxCollider:
@@ -128,6 +128,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 752453350737659984, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 1402963012064454230, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -180,9 +184,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3804385365311498303, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0812137
+      objectReference: {fileID: 0}
+    - target: {fileID: 3804385365311498303, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_Center.x
+      value: -0.04060523
+      objectReference: {fileID: 0}
     - target: {fileID: 5013924933096544700, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_Name
       value: CaveWallTopDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219586654780981037, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0832667
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219586654780981037, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_Center.x
+      value: 0.04163186
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765002042073054614, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7194067148402244554, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_Enabled
@@ -557,7 +581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 158ece2a46f0a45c1b4ac05bffd4ad43, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 158ece2a46f0a45c1b4ac05bffd4ad43, type: 3}
       propertyPath: m_LocalRotation.x
@@ -565,15 +589,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 158ece2a46f0a45c1b4ac05bffd4ad43, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 158ece2a46f0a45c1b4ac05bffd4ad43, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 158ece2a46f0a45c1b4ac05bffd4ad43, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 158ece2a46f0a45c1b4ac05bffd4ad43, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6712714173655023923
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 426354920049078834, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: m_Name
+      value: RoomTRB_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470952714632909417, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470952714632909417, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470952714632909417, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470952714632909417, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470952714632909417, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470952714632909417, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470952714632909417, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470952714632909417, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470952714632909417, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470952714632909417, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470952714632909417, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014155933567200963, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146349500039756941, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: reqFlag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146349500039756941, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: isCombinedRoom
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146349500039756941, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: roomReqs.Array.data[3]
+      value: 4096
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062071573668031997, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: req
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062071573668031997, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}
+      propertyPath: shouldSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5ca692fb9f697747b7b1e5a99dc4ce4, type: 3}

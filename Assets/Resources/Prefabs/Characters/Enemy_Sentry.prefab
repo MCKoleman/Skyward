@@ -370,7 +370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8412883445067086715, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_Constraints
-      value: 126
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 8947402544891268238, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_Name
@@ -448,6 +448,7 @@ MonoBehaviour:
   dashClips: []
   speedMods: {fileID: 11400000, guid: 4537d0465671a4d448c0aac0e3fcfc3c, type: 2}
   maxJumpCooldown: 0.2
+  maxDashCooldown: 0.4
   movSpeed: 2
   rotSpeed: 3
   range: 5

@@ -10,8 +10,10 @@ public class PrefabManager : Singleton<PrefabManager>
 
     [Header("Room prefabs")]
     public GameObject exitPrefab;
+    public GameObject entrancePrefab;
     public GameObject baseRoomPrefab;
     public GameObject bossRoomPrefab;
+    public GameObject combinedRoomPrefab;
 
     [Header("Wall prefabs")]
     [Tooltip("DEFAULT = 0, CAVE = 1, SKY = 2, CASTLE = 3")]

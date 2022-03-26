@@ -28,7 +28,29 @@ MonoBehaviour:
         to see you again one day!"
   - dialogue:
     - speaker: 0
-      text: The player says only one thing
+      text: ...
+    - speaker: 2
+      text: ...
+    - speaker: 0
+      text: ...
+    - speaker: 2
+      text: ...
+    - speaker: 2
+      text: "Are you going to say something or\u2026?"
+    - speaker: 0
+      text: ...
+    - speaker: 2
+      text: "It\u2019s funny how short you are now."
+    - speaker: 2
+      text: "What are you? 3\u20192\u201D? Hahahaha"
+    - speaker: 2
+      text: "Quite the downgrade from 5\u20198\u201D."
+    - speaker: 2
+      text: "Maybe if you ate your celery, you would be taller\u2026"
+    - speaker: 2
+      text: ' HAHAHAHA'
+    - speaker: 2
+      text: Sorry sorry. Here take this as an apology for the teasing.
   - dialogue:
     - speaker: 2
       text: All five

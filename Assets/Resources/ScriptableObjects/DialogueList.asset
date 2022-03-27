@@ -40,17 +40,23 @@ MonoBehaviour:
     - speaker: 0
       text: ...
     - speaker: 2
-      text: "It\u2019s funny how short you are now."
+      text: 'Thanks for setting me free. I know as a kid I always said I wanted to
+        be a king and live in a castle, but not like this. '
     - speaker: 2
-      text: "What are you? 3\u20192\u201D? Hahahaha"
+      text: 'This place is suffocating and reeks of dead bodies. '
     - speaker: 2
-      text: "Quite the downgrade from 5\u20198\u201D."
+      text: I wish we could spend more time together.
     - speaker: 2
-      text: "Maybe if you ate your celery, you would be taller\u2026"
+      text: I missed playing soccer with everyone, you were a marvel to see on the
+        field, so fast. Honestly, your speed and power were impressive despite how
+        bad your diet was.
     - speaker: 2
-      text: ' HAHAHAHA'
+      text: ' You still hate broccoli? '
+    - speaker: 0
+      text: '*nods*'
     - speaker: 2
-      text: Sorry sorry. Here take this as an apology for the teasing.
+      text: Fair enough, well I imagine your journey will only get harder from here.
+        Please take this with you and take care of yourself.
   - dialogue:
     - speaker: 2
       text: All five

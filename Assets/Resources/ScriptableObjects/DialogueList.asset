@@ -28,7 +28,35 @@ MonoBehaviour:
         to see you again one day!"
   - dialogue:
     - speaker: 0
-      text: The player says only one thing
+      text: ...
+    - speaker: 2
+      text: ...
+    - speaker: 0
+      text: ...
+    - speaker: 2
+      text: ...
+    - speaker: 2
+      text: "Are you going to say something or\u2026?"
+    - speaker: 0
+      text: ...
+    - speaker: 2
+      text: 'Thanks for setting me free. I know as a kid I always said I wanted to
+        be a king and live in a castle, but not like this. '
+    - speaker: 2
+      text: 'This place is suffocating and reeks of dead bodies. '
+    - speaker: 2
+      text: I wish we could spend more time together.
+    - speaker: 2
+      text: I missed playing soccer with everyone, you were a marvel to see on the
+        field, so fast. Honestly, your speed and power were impressive despite how
+        bad your diet was.
+    - speaker: 2
+      text: ' You still hate broccoli? '
+    - speaker: 0
+      text: '*nods*'
+    - speaker: 2
+      text: Fair enough, well I imagine your journey will only get harder from here.
+        Please take this with you and take care of yourself.
   - dialogue:
     - speaker: 2
       text: All five

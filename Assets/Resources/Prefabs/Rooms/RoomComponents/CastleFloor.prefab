@@ -53,7 +53,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5258120401421032166, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
       propertyPath: m_Name
-      value: Floor
+      value: CastleFloor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964836258018564212, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7babb15a0d27e4348a084bff40ad4706, type: 2}
+    - target: {fileID: 7024714610057950014, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}

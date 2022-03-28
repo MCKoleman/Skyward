@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CaveFloor
       objectReference: {fileID: 0}
+    - target: {fileID: 7024714610057950014, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8134412904447009563, guid: b1165988062a7474aae9da59fdf4a4f1, type: 3}
       propertyPath: m_LocalPosition.y
       value: -1

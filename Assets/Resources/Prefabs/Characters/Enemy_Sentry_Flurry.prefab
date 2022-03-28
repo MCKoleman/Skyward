@@ -75,5 +75,17 @@ PrefabInstance:
       propertyPath: range
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5694555580692154789, guid: 9b6a738b7c47bdc47abc26ce40b2c780, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992661335311407505, guid: 9b6a738b7c47bdc47abc26ce40b2c780, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -40635325021332067, guid: dd86bcaa9a53b42538a8cbd47be32d66, type: 3}
+    - target: {fileID: 7992661335311407505, guid: 9b6a738b7c47bdc47abc26ce40b2c780, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 4400912183637033359, guid: 0fd419c636a9b4a0b97c16d1750cdf09, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b6a738b7c47bdc47abc26ce40b2c780, type: 3}

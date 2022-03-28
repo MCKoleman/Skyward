@@ -21,7 +21,12 @@ public class EnemyAI_Sentry : EnemyController
         transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
         if (rAttack != null && dist <= range)
         {
-            rAttack.Fire();
+            if (rAttack.AttackState())
+            {
+                rAttack.ToggleAttack(false);
+                animController.SetTrigger("Attack");
+            }
+            //rAttack.Fire();
         }
     }
 }

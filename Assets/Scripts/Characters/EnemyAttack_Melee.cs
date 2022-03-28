@@ -5,31 +5,14 @@ using UnityEngine;
 public class EnemyAttack_Melee : MonoBehaviour
 {
     public int damage = 1;
-    public float delay = 0.5f;
     public float cooldown = 2.0f;
-    private bool delaying = true;
-    private bool attacking = false;
-
-    //TEMPORARY. THIS IS NOT PRETTY AND BEING REWORKED.
-
-    IEnumerator Delay()
-    {
-        yield return new WaitForSeconds(delay);
-        delaying = false;
-    }
+    private bool cooling = false;
+    private bool canAttack = false;
 
     IEnumerator CoolDown()
     {
         yield return new WaitForSeconds(cooldown);
-        attacking = false;
-        delaying = true;
-        //gameObject.transform.parent.GetComponent<EnemyAI_Seek>().ToggleChase();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        delaying = true;
-        attacking = false;
+        cooling = false;
     }
 
     private void OnTriggerStay(Collider collision)
@@ -37,17 +20,29 @@ public class EnemyAttack_Melee : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Character tempChar = collision.gameObject.GetComponent<Character>();
-            if (tempChar != null && delaying)
+            if (tempChar != null && canAttack && !cooling)
             {
-                StartCoroutine(Delay());
-            }
-            if (tempChar != null && !delaying && !attacking)
-            {
-                attacking = true;
-                //gameObject.transform.parent.GetComponent<EnemyAI_Seek>().ToggleChase();
+                canAttack = false;
+                cooling = true;
                 tempChar.TakeDamage(damage);
-                StartCoroutine(CoolDown());
             }
         }
+    }
+
+    public void ToggleAttack() 
+    {
+        canAttack = true;
+    }
+
+    public void ExitAttack()
+    {
+        canAttack = false;
+        cooling = true;
+        StartCoroutine(CoolDown());
+    }
+
+    public bool IsCooling()
+    {
+        return cooling;
     }
 }

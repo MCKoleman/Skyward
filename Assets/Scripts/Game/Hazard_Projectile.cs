@@ -5,6 +5,16 @@ using UnityEngine;
 public class Hazard_Projectile : MonoBehaviour
 {
     public int damage = 1;
+    public float lifeTime = 5.0f;
+
+    public void Update()
+    {
+        lifeTime -= Time.deltaTime;
+        if (lifeTime < 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

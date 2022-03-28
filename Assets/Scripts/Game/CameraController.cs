@@ -13,9 +13,13 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private Vector3 destination;
     [SerializeField]
+    private Vector3 targetRot;
+    [SerializeField]
     private float lockedFollowSpeed = 5.0f;
     [SerializeField]
     private float fovLerpSpeed = 3.0f;
+    [SerializeField]
+    private float angleLerpSpeed = 3.0f;
     [SerializeField]
     private DungeonRoom room;
     [SerializeField]
@@ -28,6 +32,7 @@ public class CameraController : MonoBehaviour
     private const float FOCAL_LENGTH_MOD = 2.95f;
     private const float OFFSET_X_MOD = -0.2f;
     private const float OFFSET_B_MOD = -2.5f;
+    private const float MIN_LARGE_ROOM = 15.0f;
 
     private void Start()
     {
@@ -50,6 +55,7 @@ public class CameraController : MonoBehaviour
 
         Vector3 tempVec = Vector3.Lerp(this.transform.position, destination, lockedFollowSpeed * Time.deltaTime);
         this.transform.position = new Vector3(tempVec.x, transform.position.y, tempVec.z);
+        this.transform.eulerAngles = Vector3.Lerp(this.transform.eulerAngles, targetRot, angleLerpSpeed * Time.deltaTime);
 
         /*
         // If the camera view is locked to the room, follow locked rules
@@ -90,8 +96,19 @@ public class CameraController : MonoBehaviour
         room = newRoom;
         roomSize = room.GetSize();
         roomPos = room.GetPosition();
-        offset.z = OFFSET_X_MOD * roomSize.x + OFFSET_B_MOD;
-        destination = new Vector3(roomPos.x + offset.x, offset.y, roomPos.z + offset.z);
+        //offset.z = OFFSET_X_MOD * roomSize.x + OFFSET_B_MOD;
+
+        // Position the camera to match the room type
+        if(Mathf.Max(roomSize.x, roomSize.y) > MIN_LARGE_ROOM)
+        {
+            destination = new Vector3(roomPos.x + offset.x, offset.y, roomPos.z);
+            targetRot = new Vector3(90f, 0f, 0f);
+        }
+        else
+        {
+            destination = new Vector3(roomPos.x + offset.x, offset.y, roomPos.z + offset.z);
+            targetRot = new Vector3(60f, 0f, 0f);
+        }
         targetFov = GetTargetFOV();
     }
 

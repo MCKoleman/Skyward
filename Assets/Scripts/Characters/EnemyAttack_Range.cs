@@ -27,6 +27,22 @@ public class EnemyAttack_Range : MonoBehaviour
         canAttack = true;
     }
 
+    public void Attack()
+    {
+        //canAttack = false;
+        StartCoroutine(ShootAndRest());
+    }
+
+    public bool AttackState()
+    {
+        return canAttack;
+    }
+
+    public void ToggleAttack(bool set)
+    {
+        canAttack = set;
+    }
+
     public void Fire()
     {
         if (canAttack)

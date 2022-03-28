@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 4329604982603963192, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -905690159841262435, guid: 82bff4243e670415fb527a83fbc9198e, type: 3}
     - target: {fileID: 5350123980015848149, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -65,6 +69,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6652570536751656082, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
       propertyPath: movSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652570536751656082, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
+      propertyPath: chaseDist
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652570537470424297, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652570537470424297, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
+      propertyPath: cooldown
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

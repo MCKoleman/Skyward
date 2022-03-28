@@ -1706,6 +1706,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5391189953278385930, guid: 9de0d1cbd2143e04cb528cdec05665b5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391189953278385930, guid: 9de0d1cbd2143e04cb528cdec05665b5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 8211552628516974955}
+    - target: {fileID: 5391189953278385930, guid: 9de0d1cbd2143e04cb528cdec05665b5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetSelectedGameObject
+      objectReference: {fileID: 0}
     - target: {fileID: 7219790967910462676, guid: 9de0d1cbd2143e04cb528cdec05665b5, type: 3}
       propertyPath: m_Layer
       value: 5

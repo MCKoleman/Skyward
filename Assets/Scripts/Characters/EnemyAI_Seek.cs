@@ -29,7 +29,7 @@ public class EnemyAI_Seek : EnemyController
 
         if (curr != State.DEATH) {
 
-            dist = Vector3.Distance(transform.position, player.transform.position);
+            dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(player.transform.position.x, player.transform.position.z));
             if (dist <= chaseDist && dist > stopDist && curr != State.ATTACK)
             {
                 if (curr != State.CHASE)

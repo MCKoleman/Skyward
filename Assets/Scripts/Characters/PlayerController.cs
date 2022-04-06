@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class PlayerController : CharacterController
 {
@@ -237,7 +238,8 @@ public class PlayerController : CharacterController
 
     public void HandleAttackContext(InputAction.CallbackContext context)
     {
-        if (context.performed && CanTakeInput())
+        // Prevent attacking if the player has their mouse over UI elements
+        if (context.performed && CanTakeInput() && !EventSystem.current.IsPointerOverGameObject())
             HandleAttack();
     }
 

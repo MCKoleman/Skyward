@@ -65,7 +65,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 311
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -101,8 +101,10 @@ MonoBehaviour:
   shake: {fileID: 2997889600413255836}
   offset: {x: 0, y: 10, z: -5.5}
   destination: {x: 0, y: 0, z: 0}
+  targetRot: {x: 0, y: 0, z: 0}
   lockedFollowSpeed: 5
   fovLerpSpeed: 3
+  angleLerpSpeed: 3
   room: {fileID: 0}
   roomPos: {x: 0, y: 0, z: 0}
   roomSize: {x: 15, y: 1}

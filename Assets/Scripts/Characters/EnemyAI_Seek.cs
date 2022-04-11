@@ -23,7 +23,6 @@ public class EnemyAI_Seek : EnemyController
 
     protected void Update()
     {
-        Debug.Log(curr);
 
         player = GameObject.FindWithTag("Player");
 

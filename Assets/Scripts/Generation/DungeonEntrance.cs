@@ -14,7 +14,7 @@ public class DungeonEntrance : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Ignore all collisions except the player
-        if (!other.CompareTag("Player"))
+        if (!other.CompareTag("Player") || other.isTrigger)
             return;
 
         // Cast room upwards if needed

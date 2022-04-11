@@ -299,11 +299,12 @@ MonoBehaviour:
   borderNodes:
   - {fileID: 854149619765140076}
   - {fileID: 7478003926879637455}
-  trBound: {x: 0, y: 0}
-  blBound: {x: 0, y: 0}
   reqFlag: 0
   roomNum: 0
   theme: 0
+  isCombinedRoom: 0
+  trBound: {x: 0, y: 0}
+  blBound: {x: 0, y: 0}
   roomPos: {x: 0, y: 0}
   roomSize: {x: 0, y: 0}
   isRevealed: 0
@@ -2650,7 +2651,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 14.9, y: 5, z: 9.9}
+  m_Size: {x: 13.5, y: 5, z: 8.5}
   m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!114 &1884575129523742065
 MonoBehaviour:

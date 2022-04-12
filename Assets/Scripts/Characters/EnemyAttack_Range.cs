@@ -9,6 +9,7 @@ public class EnemyAttack_Range : MonoBehaviour
 
     public int volleySize = 1;
     public float projSpeed = 100.0f;
+    //public float velocitySpeed = 5.0f;
     public float timeBetweenProj = 0.5f;
 
     public Transform spawnPoint;
@@ -20,6 +21,7 @@ public class EnemyAttack_Range : MonoBehaviour
         {
             var temp = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation);
             temp.GetComponent<Rigidbody>().AddForce(temp.transform.forward * projSpeed);
+            //temp.GetComponent<Rigidbody>().velocity = temp.transform.forward * projSpeed;
             yield return new WaitForSeconds(timeBetweenProj);
         }
 

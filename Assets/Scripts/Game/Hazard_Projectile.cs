@@ -7,6 +7,11 @@ public class Hazard_Projectile : MonoBehaviour
     public int damage = 1;
     public float lifeTime = 5.0f;
 
+    public void Start()
+    {
+        gameObject.tag = "Projectile";
+    }
+
     public void Update()
     {
         lifeTime -= Time.deltaTime;
@@ -16,18 +21,20 @@ public class Hazard_Projectile : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        var obj = collision.gameObject;
+
+        if (obj.CompareTag("Player"))
         {
-            Character tempChar = collision.gameObject.GetComponent<Character>();
+            Character tempChar = obj.GetComponent<Character>();
             if (tempChar != null)
             {
                 tempChar.TakeDamage(damage);
+                Destroy(gameObject);
             }
         }
-
-        if (collision.gameObject.name != "Plane") {
+        else if (obj.CompareTag("Enemy") || obj.CompareTag("Wall") || obj.CompareTag("DungeonContent")) {
             Destroy(gameObject);
         }
     }

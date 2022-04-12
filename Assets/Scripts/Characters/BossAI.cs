@@ -11,6 +11,7 @@ public class BossAI : EnemyController
     [SerializeField]
     protected Transform anchor;
 
+    // States
     protected enum State { ASLEEP, CASTING, TELEPORT, ATTACK };
     protected State curr = State.ASLEEP;
 
@@ -18,8 +19,8 @@ public class BossAI : EnemyController
     private int health;
 
     // State timers
-    public float teleTime;
-    public float atkTime;
+    public float minStateTime;
+    public float maxStateTime;
     private float stateTimer = 0.0f;
 
     // Delays
@@ -38,7 +39,8 @@ public class BossAI : EnemyController
 
         //testing
         curr = State.TELEPORT;
-        stateTimer = teleTime;
+        stateTimer = 20.0f;
+        EnterTeleport();
     }
 
     // Update is called once per frame
@@ -69,6 +71,7 @@ public class BossAI : EnemyController
         stateTimer -= Time.deltaTime;
     }
 
+    /*===============================UTILITY===============================*/
     protected void FacePlayer()
     {
         transform.rotation = Quaternion.Slerp(transform.rotation,
@@ -88,6 +91,12 @@ public class BossAI : EnemyController
         return new Vector3(Random.Range(minX, maxX), transform.position.y, Random.Range(minZ, maxZ));
     }
 
+    protected float GetStateTime()
+    {
+        return Random.Range(minStateTime, maxStateTime);
+    }
+
+    /*===============================STATE MANAGEMENT===============================*/
     protected void EnterDeath()
     {
         // Only want to enter death once, so set health and prevent further damaging
@@ -103,7 +112,7 @@ public class BossAI : EnemyController
 
     protected void EnterTeleport()
     {
-
+        StartCoroutine(Teleport());
     }
 
     protected void EnterAttack()
@@ -140,6 +149,7 @@ public class BossAI : EnemyController
 
     }
 
+    /*===============================STATE BEHAVIOURS===============================*/
     private IEnumerator Attack()
     {
         while (stateTimer > 0)

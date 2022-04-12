@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - DungeonRoom
   - MinimapCamera
+  - Projectile
+  - DungeonContent
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f177df0e3a5d1e3489ae1f98e4b2a393, type: 2}
+    - target: {fileID: 752453350737659984, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402963012064454230, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1611970422674925027, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -59,10 +67,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkyWallTopDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 6765002042073054614, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7194067148402244554, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f177df0e3a5d1e3489ae1f98e4b2a393, type: 2}
+    - target: {fileID: 8811539035286546289, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07007de53e507064a9330031636297a3, type: 3}
 --- !u!4 &2484240074297698296 stripped

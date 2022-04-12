@@ -14,10 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyList:
     list:
-    - weight: 3
+    - weight: 7
       prefab: {fileID: 6316325146996303914, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
+    - weight: 3
+      prefab: {fileID: 3400568896785504730, guid: 9a508df9ab376f84a803dc9266ffa017, type: 3}
     - weight: 1
+      prefab: {fileID: 995893028546865498, guid: c0920127907ad134d8fa52e0759f7151, type: 3}
+    - weight: 7
       prefab: {fileID: 4090781983781968280, guid: 9b6a738b7c47bdc47abc26ce40b2c780, type: 3}
+    - weight: 3
+      prefab: {fileID: 8133456730930962250, guid: 188b4be9d3cf3614fbcbe0078d782961, type: 3}
+    - weight: 1
+      prefab: {fileID: 1372351876827900137, guid: cb2c39a3109d483419d86d7419ee3536, type: 3}
   treasureList:
     list:
     - weight: 1

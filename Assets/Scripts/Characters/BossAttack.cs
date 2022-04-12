@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttack_Range : MonoBehaviour
+public class BossAttack : MonoBehaviour
 {
     public float cooldownTime = 5.0f;
     private bool canAttack = true;
@@ -27,9 +27,9 @@ public class EnemyAttack_Range : MonoBehaviour
         canAttack = true;
     }
 
-    // Animation event
     public void Attack()
     {
+        //canAttack = false;
         StartCoroutine(ShootAndRest());
     }
 
@@ -41,5 +41,14 @@ public class EnemyAttack_Range : MonoBehaviour
     public void ToggleAttack(bool set)
     {
         canAttack = set;
+    }
+
+    public void Fire()
+    {
+        if (canAttack)
+        {
+            canAttack = false;
+            StartCoroutine(ShootAndRest());
+        }
     }
 }

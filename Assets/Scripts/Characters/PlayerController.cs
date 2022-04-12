@@ -16,7 +16,7 @@ public class PlayerController : CharacterController
     protected List<Interactable> interactables;
     protected CameraController cam;
     [SerializeField]
-    protected MeleeAttack meleeAttack;
+    protected PlayerAttack_Melee meleeAttack;
 
     private Plane rotationPlane;
     [SerializeField]
@@ -176,7 +176,6 @@ public class PlayerController : CharacterController
     protected void HandleAttack()
     {
         meleeAttack.Attack();
-        cam.Shake(0.1f, 0.1f);
     }
 
     protected void HandleCrouch()

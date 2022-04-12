@@ -9,7 +9,7 @@ public class EnemyCharacter : Character
     [SerializeField]
     protected float invincTime = 0.25f;
 
-    private bool invincible = false;
+    protected bool invincible = false;
 
     public override void HandleHealthChange()
     {
@@ -31,5 +31,10 @@ public class EnemyCharacter : Character
             invincible = true;
             StartCoroutine(Invincibility());
         }
+    }
+
+    public void SetInvincible()
+    {
+        invincible = true;
     }
 }

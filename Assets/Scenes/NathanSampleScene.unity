@@ -1121,6 +1121,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5784cdae1e4a0ac44840e049767e96ac, type: 3}
+--- !u!1 &2088723052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2088723053}
+  m_Layer: 0
+  m_Name: BossAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2088723053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088723052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2115769843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1512,13 +1542,18 @@ MonoBehaviour:
   maxNumDashes: 2
   jumpClips: []
   dashClips: []
-  speedMods: {fileID: 0}
+  speedMods: {fileID: 11400000, guid: 4537d0465671a4d448c0aac0e3fcfc3c, type: 2}
   maxJumpCooldown: 0.2
   maxDashCooldown: 0.4
   movSpeed: 2
   rotSpeed: 3
-  roomX: 0
-  roomY: 0
+  roomX: 5
+  roomZ: 5
+  anchor: {fileID: 2088723053}
+  teleTime: 5
+  atkTime: 5
+  teleDelay: 1
+  atkDelay: 5
 --- !u!136 &7126717128657198299
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1533,6 +1568,25 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &7126717128657198306
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7126717128657198297}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7730085876013414863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1588,6 +1642,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2989192909499199332, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
+      propertyPath: meleeAttack
+      value: 
+      objectReference: {fileID: 1611860011}
     - target: {fileID: 3645749468918423067, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
       propertyPath: m_Constraints
       value: 116

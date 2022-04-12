@@ -24,6 +24,7 @@ public class PlayerAttack_Melee : MonoBehaviour
     {
         canAttack = false;
         GetComponent<BoxCollider>().enabled = true;
+        Camera.main.GetComponent<CameraController>().Shake(0.1f, 0.1f);
         yield return new WaitForSeconds(duration);
         GetComponent<BoxCollider>().enabled = false;
 

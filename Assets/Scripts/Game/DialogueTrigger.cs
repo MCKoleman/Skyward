@@ -10,6 +10,7 @@ public class DialogueTrigger : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             DialogueManager.Instance.BeginDialogue();
+            this.gameObject.SetActive(false);
         }
     }
 }

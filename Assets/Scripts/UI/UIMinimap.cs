@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class UIMinimap : MonoBehaviour
@@ -42,6 +43,7 @@ public class UIMinimap : MonoBehaviour
     {
         Controller.ToggleDisplayMode();
         btnText.text = Controller.GetIsPlayerView() ? "Dungeon View" : "Player View";
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     // Sets the display mode to map display

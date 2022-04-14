@@ -252,6 +252,14 @@ PrefabInstance:
       propertyPath: offset.y
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 203604389471786007, guid: 1df4bd29284bafa439d4404bc3d6343f, type: 3}
+      propertyPath: defaultRoomSize.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 203604389471786007, guid: 1df4bd29284bafa439d4404bc3d6343f, type: 3}
+      propertyPath: defaultRoomSize.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5324886333712449826, guid: 1df4bd29284bafa439d4404bc3d6343f, type: 3}
       propertyPath: m_RootOrder
       value: 5

@@ -43,3 +43,15 @@ MonoBehaviour:
     bgColor: {r: 1, g: 1, b: 1, a: 1}
     nameColor: {r: 0, g: 0, b: 0, a: 1}
     textColor: {r: 0, g: 0, b: 0, a: 1}
+  - type: 5
+    sprite: {fileID: 21300000, guid: 933cdd61f2205634f830858ce10d65dc, type: 3}
+    name: Visage#1
+    bgColor: {r: 1, g: 1, b: 1, a: 1}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+    textColor: {r: 0, g: 0, b: 0, a: 1}
+  - type: 6
+    sprite: {fileID: 21300000, guid: a1c69d8d120a0564f94e4ebe4e20713e, type: 3}
+    name: Visage#2
+    bgColor: {r: 1, g: 1, b: 1, a: 1}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+    textColor: {r: 0, g: 0, b: 0, a: 1}

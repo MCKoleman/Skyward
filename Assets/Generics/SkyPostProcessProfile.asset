@@ -53,28 +53,28 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: 20
+    value: -20
   tint:
     overrideState: 1
-    value: -10
+    value: 0
   colorFilter:
     overrideState: 1
-    value: {r: 0.6509434, g: 0.3963354, b: 0.37255248, a: 1}
+    value: {r: 0.43503022, g: 0.4375588, b: 0.735849, a: 1}
   hueShift:
     overrideState: 0
     value: 0
   saturation:
     overrideState: 1
-    value: -15
+    value: 0
   brightness:
     overrideState: 1
-    value: -10
+    value: 10
   postExposure:
     overrideState: 0
     value: 0
   contrast:
     overrideState: 1
-    value: 15
+    value: 10
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -1332,10 +1332,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 2
+    value: 3
   color:
     overrideState: 1
-    value: {r: 0.5377358, g: 0.3199955, b: 0.25195795, a: 1}
+    value: {r: 0.6398351, g: 0.6180135, b: 0.8773585, a: 1}
   ambientOnly:
     overrideState: 0
     value: 1
@@ -1350,7 +1350,7 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 1
+    value: 1.5
   directLightingStrength:
     overrideState: 0
     value: 0
@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: CavePostProcessProfile
+  m_Name: SkyPostProcessProfile
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 2668537018339116578}
@@ -1398,13 +1398,13 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0, g: 0, b: 0, a: 1}
+    value: {r: 0.39622638, g: 0.4224055, b: 0.5943396, a: 1}
   center:
     overrideState: 1
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.3
+    value: 0.1
   smoothness:
     overrideState: 1
     value: 0.7
@@ -1439,7 +1439,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 10
+    value: 12
   threshold:
     overrideState: 1
     value: 2
@@ -1457,7 +1457,7 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0.8113208, g: 0.50020105, b: 0.47964874, a: 1}
+    value: {r: 0.49495667, g: 0.51358193, b: 0.8113208, a: 1}
   fastMode:
     overrideState: 0
     value: 0

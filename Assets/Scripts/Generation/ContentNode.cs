@@ -14,7 +14,7 @@ public class ContentNode : MonoBehaviour
         parentRoom = GetComponentInParent<DungeonRoom>();
 
         // Don't spawn content in the first room
-        if (parentRoom.roomNum >= 1)
+        if (parentRoom.roomNum >= 1 || nodePlace == NodePlace.WALL)
             DungeonManager.Instance.SpawnContent(this);
         // Spawn the entrance in the center of the first room
         else if(nodePlace == NodePlace.CENTER)

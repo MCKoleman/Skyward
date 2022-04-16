@@ -31,7 +31,7 @@ public class GlobalVars : Singleton<GlobalVars>
     public enum WallType { DEFAULT = 0, TOP = 1, SIDE = 2, TOP_DOOR = 3, SIDE_DOOR = 4, FLOOR = 5 }
 
     [System.Serializable]
-    public enum SpeakerType { PLAYER, ZEIL, VISAGE, MOM, DAD, VISAGE_1, VISAGE_2 }
+    public enum SpeakerType { PLAYER, ZEIL, VISAGE, MOM, DAD, VISAGE_1, VISAGE_2, BOTH }
 
     // Returns whether the room with given flagType requires a special room
     public static bool DoesRequireSpecialReq(uint reqFlag)

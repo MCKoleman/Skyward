@@ -15,7 +15,7 @@ public class EnemyAttack_Range : MonoBehaviour
     public Transform spawnPoint;
     public Transform projectile;
 
-    IEnumerator ShootAndRest()
+    public IEnumerator ShootAndRest()
     {
         for (int i = 0; i < volleySize; i++)
         {

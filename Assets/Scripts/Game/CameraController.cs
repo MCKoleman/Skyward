@@ -46,7 +46,6 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         // Lerp camera to target FOV
-        /*
         if(!MathUtils.AlmostZero(Camera.main.fieldOfView - targetFov, 2))
             Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFov, fovLerpSpeed * Time.deltaTime);
 
@@ -57,7 +56,7 @@ public class CameraController : MonoBehaviour
         Vector3 tempVec = Vector3.Lerp(this.transform.position, destination, lockedFollowSpeed * Time.deltaTime);
         this.transform.position = new Vector3(tempVec.x, transform.position.y, tempVec.z);
         this.transform.eulerAngles = Vector3.Lerp(this.transform.eulerAngles, targetRot, angleLerpSpeed * Time.deltaTime);
-        */
+
         /*
         // If the camera view is locked to the room, follow locked rules
         if(isLockedToRoom)

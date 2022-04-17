@@ -34,7 +34,7 @@ public class Hazard_Projectile : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else if (obj.CompareTag("Enemy") || obj.CompareTag("Wall") || obj.CompareTag("DungeonContent")) {
+        else if (obj.CompareTag("Wall") || obj.CompareTag("DungeonContent")) {
             Destroy(gameObject);
         }
     }

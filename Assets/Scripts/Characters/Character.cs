@@ -11,6 +11,8 @@ public class Character : MonoBehaviour
     [SerializeField]
     protected float movementSpeedMod = 1.0f;
 
+    protected bool invincible = false;
+
     public int CurHealth { get; protected set; }
     public float CurMoveSpeed { get; protected set; }
 
@@ -51,13 +53,16 @@ public class Character : MonoBehaviour
     /// <param name="_amount">Amount of damage that the character takes</param>
     public virtual void TakeDamage(int _amount)
     {
-        CurHealth = Mathf.Clamp(CurHealth - _amount, 0, maxHealth);
-        HandleHealthChange();
+        if (!invincible) {
 
-        // Checks whether the character is dead
-        if(CurHealth <= 0)
-        {
-            HandleDeath();
+            CurHealth = Mathf.Clamp(CurHealth - _amount, 0, maxHealth);
+            HandleHealthChange();
+
+            // Checks whether the character is dead
+            if (CurHealth <= 0)
+            {
+                HandleDeath();
+            }
         }
     }
 
@@ -78,5 +83,10 @@ public class Character : MonoBehaviour
     {
         //Debug.Log($"{this.gameObject.name} died.");
         Destroy(this.gameObject);
+    }
+
+    public virtual void ToggleInvincibility(bool setTo)
+    {
+        invincible = setTo;
     }
 }

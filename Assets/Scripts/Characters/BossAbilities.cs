@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossAttack : MonoBehaviour
+public class BossAbilities : MonoBehaviour
 {
     // Attack 1: contact with player
     public int contactDmg;
@@ -42,12 +42,26 @@ public class BossAttack : MonoBehaviour
 
     public Barrier barriers;
     private bool barriersActive;
+    private bool gameOver = false;
+
+    // Attack 4: spawn baddies
+    [System.Serializable]
+    public class Henchmen
+    {
+        public Transform enemy;
+        public int min;
+        public int max;
+        public float timeBetween;
+        [HideInInspector]
+        public List<GameObject> curr;
+    }
+
+    public Henchmen backup;
 
     // Misc. VFX
-    public ParticleSystem teleVFX;
-    public float teleTime;
-    public ParticleSystem deathVFX;
-    public float deathTime;
+    public GameObject teleVFX;
+    public GameObject spawnVFX;
+    public GameObject deathVFX;
 
     private void LateUpdate()
     {
@@ -55,6 +69,7 @@ public class BossAttack : MonoBehaviour
         ManageBarriers();
     }
 
+    /*===============================ATTACK 1: CONTACT===============================*/
     private IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(contactCooldown);
@@ -74,6 +89,7 @@ public class BossAttack : MonoBehaviour
         }
     }
 
+    /*===============================ATTACK 2: PROJECTILES===============================*/
     public IEnumerator MagicMissiles()
     {
         // Randomly choose between the projectile options
@@ -91,7 +107,7 @@ public class BossAttack : MonoBehaviour
 
         // Spawn projectiles
         int volleySize = Mathf.CeilToInt(Random.Range(currMissile.minVolley, currMissile.maxVolley));
-        for (int i = 0; i < volleySize; i++)
+        for (int i = 0; !gameOver && i < volleySize; i++)
         {
             var temp = Instantiate(currMissile.projectile, projPoint.position, projPoint.rotation);
             temp.GetComponent<Rigidbody>().AddForce(temp.transform.forward * currMissile.speed);
@@ -99,6 +115,7 @@ public class BossAttack : MonoBehaviour
         }
     }
 
+    /*===============================ATTACK 3: BARRIERS===============================*/
     public void ReleaseBarriers()
     {
         //Stop the rotation
@@ -125,7 +142,7 @@ public class BossAttack : MonoBehaviour
     private void ManageBarriers()
     {
         //Note: this depends on barriers being parented by boss
-        if (barriersActive)
+        if (!gameOver && barriersActive)
         {
             //Rotate each of the barriers around the pivot
             foreach (GameObject barrier in barriers.curr)
@@ -159,7 +176,7 @@ public class BossAttack : MonoBehaviour
         Random.InitState(System.DateTime.Now.Millisecond);
         int num = Mathf.CeilToInt(Random.Range(barriers.min, barriers.max));
 
-        for (int i = 0; i < num; i++)
+        for (int i = 0; !gameOver && i < num; i++)
         {
 
             var radians = 2 * Mathf.PI / num * i;
@@ -186,14 +203,81 @@ public class BossAttack : MonoBehaviour
         yield break;
     }
 
+    /*===============================ATTACK 4: ENEMY BACKUP===============================*/
+    public IEnumerator GoodbyeHenchman(GameObject baddie)
+    {
+        Instantiate(teleVFX, baddie.transform.position, Quaternion.identity);
+        yield return teleVFX.GetComponent<ParticleSystem>().main.duration;
+        Destroy(baddie);
+        yield break;
+    }
+
+    public IEnumerator GoAwayBaddies()
+    {
+        List<GameObject> temp = new List<GameObject>(backup.curr);
+        foreach (GameObject baddie in temp)
+        {
+            if (baddie != null)
+            {
+                StartCoroutine(GoodbyeHenchman(baddie));
+            }
+
+            backup.curr.Remove(baddie);
+            yield return new WaitForSeconds(backup.timeBetween);
+        }
+
+        backup.curr.TrimExcess();
+        yield break;
+    }
+
+    public IEnumerator Spawn(Vector3 spawnPos, GameObject obj)
+    {
+        Instantiate(spawnVFX, spawnPos, Quaternion.identity);
+        yield return spawnVFX.GetComponent<ParticleSystem>().main.duration;
+        var baddie = Instantiate(obj, spawnPos, Quaternion.identity) as GameObject;
+
+        //Keep track of spawned
+        backup.curr.Add(baddie);
+    }
+
+    public IEnumerator SpawnBaddies(float maxX, float minX, float minZ, float maxZ)
+    {
+        Random.InitState(System.DateTime.Now.Millisecond);
+        int num = Mathf.CeilToInt(Random.Range(backup.min, backup.max));
+
+        for (int i = 0; !gameOver && i < num; i++)
+        {
+
+            Random.InitState(System.DateTime.Now.Millisecond);
+
+            //Spawn
+            var spawnPos = new Vector3(Random.Range(minX, maxX), transform.position.y, Random.Range(minZ, maxZ));
+            StartCoroutine(Spawn(spawnPos, backup.enemy.gameObject));
+
+            yield return new WaitForSeconds(backup.timeBetween);
+        }
+
+        yield break;
+    }
+
+    /*===============================ADITIONAL ABILITIES / MISC.===============================*/
     public float Teleport()
     {
         Instantiate(teleVFX, transform.position, Quaternion.identity);
         return teleVFX.GetComponent<ParticleSystem>().main.duration;
+    }
 
-        //note about teleVFX:
-        //currently sim speed 1.5 w/ dur 0.6 works, but it's hardcoded
-        //test: simulation speed 3 and dur 0.8, disappear object after duration, use callback when system finishes to trigger teleport
-        //that way vfx is part of boss and not instantiated
+    //Refactor these to reuse the particle system instead of instantiating objects
+    //I couldn't figure out a good way to synchronize the AI with the VFXs in time, so hopefully this works in the actual build
+    public float SelfDestruct()
+    {
+        Instantiate(deathVFX, transform.position, Quaternion.identity);
+        return deathVFX.GetComponent<ParticleSystem>().main.duration;
+    }
+
+    public void DisableAbilities()
+    {
+        gameOver = true;
+        ReleaseBarriers();
     }
 }

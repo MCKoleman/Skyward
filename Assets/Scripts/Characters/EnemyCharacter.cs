@@ -6,10 +6,30 @@ public class EnemyCharacter : Character
 {
     [SerializeField]
     private UIHealthBar healthBar;
+    [SerializeField]
+    protected float invincTime = 0.25f;
+
+    private bool invincible = false;
 
     public override void HandleHealthChange()
     {
         base.HandleHealthChange();
         healthBar?.UpdateHealth(CurHealth / (float)maxHealth);
+    }
+
+    IEnumerator Invincibility()
+    {
+        yield return new WaitForSeconds(invincTime);
+        invincible = false;
+    }
+
+    public override void TakeDamage(int _amount)
+    {
+        if (!invincible)
+        {
+            base.TakeDamage(_amount);
+            invincible = true;
+            StartCoroutine(Invincibility());
+        }
     }
 }

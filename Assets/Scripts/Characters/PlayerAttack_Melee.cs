@@ -14,17 +14,14 @@ public class PlayerAttack_Melee : MonoBehaviour
         GetComponent<BoxCollider>().enabled = false;
     }
 
-    private void Update()
+    public void Attack()
     {
-        if (Input.GetMouseButtonDown(0) && canAttack)
-        {
-            StartCoroutine(Attack());
-        }
+        if (canAttack)
+            StartCoroutine(HandleAttack());
     }
 
-    IEnumerator Attack()
+    IEnumerator HandleAttack()
     {
-        Debug.Log("attacking!");
         canAttack = false;
         GetComponent<BoxCollider>().enabled = true;
         yield return new WaitForSeconds(duration);

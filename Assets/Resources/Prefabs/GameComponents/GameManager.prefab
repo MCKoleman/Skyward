@@ -417,7 +417,7 @@ MonoBehaviour:
   exitPrefab: {fileID: 1992895975375133948, guid: fcf8c673c0232ab4e9f681804f1a1a89, type: 3}
   entrancePrefab: {fileID: 1992895975375133948, guid: 0dd58b34fb467ba4a99beca9429e7d7d, type: 3}
   baseRoomPrefab: {fileID: 4816909695034899694, guid: 5802792d96ac74240a442c825b64ed5e, type: 3}
-  bossRoomPrefab: {fileID: 1781211391673690570, guid: 2da35c6c4c497134b8091ad47bc05ea0, type: 3}
+  bossRoomPrefab: {fileID: 4816909695034899694, guid: 60a3473b9a7f7af4aa428e50804bffdb, type: 3}
   combinedRoomPrefab: {fileID: 6725586613556486317, guid: 3ad04a0f098bdd04ea4b593fca760d14, type: 3}
   topWalls:
   - {fileID: 4203021188474652247, guid: a62c974cdcab1bf4e82510948d90ef23, type: 3}
@@ -444,6 +444,10 @@ MonoBehaviour:
   - {fileID: 4580473805462178785, guid: 6441f869b83bfd742809f15dcfd2902d, type: 3}
   - {fileID: 909771516207208557, guid: 2c0e52c94bb4c40478129595175dbe6e, type: 3}
   - {fileID: 9074575651632807400, guid: 894a2916588a11a4d91e0e23174e1d5c, type: 3}
+  mainBossPrefab: {fileID: 6316325146996303914, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
+  caveBossPrefab: {fileID: 6316325146996303914, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
+  castleBossPrefab: {fileID: 6316325146996303914, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
+  skyBossPrefab: {fileID: 6316325146996303914, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
   projectileHolder: {fileID: 3116778456051282564}
   enemyHolder: {fileID: 3116778456941221364}
   powerupHolder: {fileID: 3116778457604670714}
@@ -903,11 +907,14 @@ MonoBehaviour:
   contentList: {fileID: 11400000, guid: afce021cf1d9ac54ab4195b293a569b2, type: 2}
   levelProgressList: {fileID: 11400000, guid: 97c2df18dcdc4f0478c7b86f616979a8, type: 2}
   startRoom: {fileID: 0}
-  currentRoom: {fileID: 0}
-  startTheme: 1
+  bossSpawnOffset: {x: 0, y: 0, z: 5}
   roomMap: []
+  currentRoom: {fileID: 0}
   numRooms: 0
   curLevel: 0
+  curLevelInfo:
+    sceneType: 0
+    theme: 0
   isGenerated: 0
   roomSize: {x: 0, y: 0}
   blCoord: {x: 2147483647, y: 2147483647}
@@ -1872,7 +1879,8 @@ PrefabInstance:
       propertyPath: m_ShowMaskGraphic
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3566370151634525085, guid: 9de0d1cbd2143e04cb528cdec05665b5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9de0d1cbd2143e04cb528cdec05665b5, type: 3}
 --- !u!224 &7511601958244878629 stripped
 RectTransform:

@@ -107,6 +107,7 @@ public class UIIntroDialogue : MonoBehaviour
         // Disable main menu and disable intro
         mainMenu.SetActive(false);
         introHolder.SetActive(false);
+        DungeonManager.Instance.ResetCurLevel();
         GameManager.Instance.HandleLevelSwap((byte)GlobalVars.SceneType.DUNGEON);
     }
 

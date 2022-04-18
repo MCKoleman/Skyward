@@ -367,6 +367,9 @@ public class DungeonManager : Singleton<DungeonManager>
         UIManager.Instance.SetLevelNum(levelProgressList.GetLevelMinusMiniBosses(curLevel));
     }
 
+    // Resets the current level number
+    public void ResetCurLevel() { curLevel = 0; }
+
     // Returns the number of rooms in this dungeon
     public int GetNumRooms() { return numRooms; }
     // Returns the current level number

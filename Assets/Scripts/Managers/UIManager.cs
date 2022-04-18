@@ -57,8 +57,14 @@ public class UIManager : Singleton<UIManager>
     // Toggles the game's pause state
     public void PauseGameToggle()
     {
+        // Don't allow pausing during dialogue
+        if (hud.IsDialogueActive())
+            return;
+
+        // Pause an unpaused game
         if (Time.timeScale != 0.0f)
             PauseGame();
+        // Unpause a paused game
         else
             UnpauseGame();
     }

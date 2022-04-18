@@ -96,7 +96,7 @@ public class CharacterController : MonoBehaviour
         else if (!isGrounded && MathUtils.AlmostZero(rb.velocity.y, 2) && airMovementCooldown <= 0.0f)
         {
             //Print.Log("Ground detection failed, fixing it...");
-            SetIsGrounded(true);
+            //SetIsGrounded(true);
         }
 
         // Handle cooldowns

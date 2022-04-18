@@ -43,6 +43,9 @@ public class CombinedDungeonRoom : DungeonRoom
     // Returns the position of this room
     public override Vector3 GetPosition()
     {
+        // If requesting invalid size, recalculate it
+        if (blBound == Vector2.zero || trBound == Vector2.zero)
+            CalcSize();
         return new Vector3((blBound.x + trBound.x) * 0.5f, 0.0f, (blBound.y + trBound.y) * 0.5f);
     }
 

@@ -23,6 +23,12 @@ public class PrefabManager : Singleton<PrefabManager>
     public GameObject[] sideDoorWalls;
     public GameObject[] floors;
 
+    [Header("Boss prefabs")]
+    public GameObject mainBossPrefab;
+    public GameObject caveBossPrefab;
+    public GameObject castleBossPrefab;
+    public GameObject skyBossPrefab;
+
     [Header("Holders")]
     // Object holders
     public Transform projectileHolder;
@@ -72,6 +78,22 @@ public class PrefabManager : Singleton<PrefabManager>
             case GlobalVars.WallType.FLOOR:
                 return floors[Mathf.Clamp((int)themeType, 0, floors.Length)];
             case GlobalVars.WallType.DEFAULT:
+            default:
+                return null;
+        }
+    }
+
+    // Returns the miniboss matching the current theme
+    public GameObject GetMiniboss(GlobalVars.DungeonTheme theme)
+    {
+        switch(theme)
+        {
+            case GlobalVars.DungeonTheme.CAVE:
+                return caveBossPrefab;
+            case GlobalVars.DungeonTheme.CASTLE:
+                return castleBossPrefab;
+            case GlobalVars.DungeonTheme.SKY:
+                return skyBossPrefab;
             default:
                 return null;
         }

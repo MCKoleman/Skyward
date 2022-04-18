@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class PlayerAttack_Melee : MonoBehaviour
 {
@@ -9,9 +10,11 @@ public class PlayerAttack_Melee : MonoBehaviour
     private bool canAttack = true;
     public int damage = 1;
 
+    public VisualEffect slash;
+
     private void Start()
     {
-        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<CapsuleCollider>().enabled = false;
     }
 
     public void Attack()
@@ -20,17 +23,21 @@ public class PlayerAttack_Melee : MonoBehaviour
             StartCoroutine(HandleAttack());
     }
 
+    //Temporarily turn on trigger and play VFX
     IEnumerator HandleAttack()
     {
         canAttack = false;
-        GetComponent<BoxCollider>().enabled = true;
+        GetComponent<CapsuleCollider>().enabled = true;
+        slash.Play();
+        Camera.main.GetComponent<CameraController>().Shake(0.1f, 0.1f);
         yield return new WaitForSeconds(duration);
-        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<CapsuleCollider>().enabled = false;
 
         yield return new WaitForSeconds(cooldown);
         canAttack = true;
     }
 
+    //If enemy is caught in trigger when it's turned on, they take damage
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))

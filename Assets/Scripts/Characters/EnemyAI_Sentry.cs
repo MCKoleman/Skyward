@@ -26,7 +26,6 @@ public class EnemyAI_Sentry : EnemyController
                 rAttack.ToggleAttack(false);
                 animController.SetTrigger("Attack");
             }
-            //rAttack.Fire();
         }
     }
 }

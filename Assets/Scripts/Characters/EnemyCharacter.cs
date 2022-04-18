@@ -8,8 +8,8 @@ public class EnemyCharacter : Character
     private UIHealthBar healthBar;
     [SerializeField]
     protected float invincTime = 0.25f;
-
-    private bool invincible = false;
+    [SerializeField]
+    protected bool destroyOnDeath = true;
 
     public override void HandleHealthChange()
     {
@@ -23,11 +23,23 @@ public class EnemyCharacter : Character
         invincible = false;
     }
 
+    public override void HandleDeath()
+    {
+        if (destroyOnDeath)
+        {
+            Destroy(this.gameObject);
+        }
+
+        invincible = true;
+    }
+
     public override void TakeDamage(int _amount)
     {
+        base.TakeDamage(_amount);
+
+        //Make sure player damage only hurts once
         if (!invincible)
         {
-            base.TakeDamage(_amount);
             invincible = true;
             StartCoroutine(Invincibility());
         }

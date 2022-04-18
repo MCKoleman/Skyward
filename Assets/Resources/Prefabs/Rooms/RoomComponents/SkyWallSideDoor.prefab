@@ -64,6 +64,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 15026118287264082, guid: ee10ded3994147e4ab737fdc68a201d7, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 370011787508595790, guid: ee10ded3994147e4ab737fdc68a201d7, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1994716805079337537, guid: ee10ded3994147e4ab737fdc68a201d7, type: 3}
       propertyPath: m_Name
       value: SkyWallSideDoor
@@ -111,6 +119,14 @@ PrefabInstance:
     - target: {fileID: 6651572206585690434, guid: ee10ded3994147e4ab737fdc68a201d7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048219236939195926, guid: ee10ded3994147e4ab737fdc68a201d7, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136257230936399580, guid: ee10ded3994147e4ab737fdc68a201d7, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8162785804423019725, guid: ee10ded3994147e4ab737fdc68a201d7, type: 3}
       propertyPath: m_Materials.Array.data[0]

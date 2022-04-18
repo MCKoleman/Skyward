@@ -103,6 +103,7 @@ public class EnemyAI_Seek : EnemyController
         mAttack.ToggleAttack();
     }
 
+    // Called on animation event
     public void ExitAttack()
     {
         mAttack.ExitAttack();

@@ -11,6 +11,8 @@ public class DungeonManager : Singleton<DungeonManager>
     [SerializeField]
     private DungeonContentList contentList;
     [SerializeField]
+    private LevelProgressList levelProgressList;
+    [SerializeField]
     private DungeonRoom startRoom;
     [SerializeField]
     private DungeonRoom currentRoom;
@@ -327,7 +329,7 @@ public class DungeonManager : Singleton<DungeonManager>
     public void ProgressToNextLevel()
     {
         curLevel++;
-        UIManager.Instance.SetLevelNum(curLevel);
+        UIManager.Instance.SetLevelNum(levelProgressList.GetLevelMinusMiniBosses(curLevel));
     }
 
     // Returns the number of rooms in this dungeon

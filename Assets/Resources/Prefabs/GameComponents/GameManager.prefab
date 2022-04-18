@@ -901,6 +901,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   roomList: {fileID: 11400000, guid: d0dd0e97c98613740bd7068cae226e5f, type: 2}
   contentList: {fileID: 11400000, guid: afce021cf1d9ac54ab4195b293a569b2, type: 2}
+  levelProgressList: {fileID: 11400000, guid: 97c2df18dcdc4f0478c7b86f616979a8, type: 2}
   startRoom: {fileID: 0}
   currentRoom: {fileID: 0}
   startTheme: 1

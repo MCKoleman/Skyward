@@ -779,8 +779,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
-  dialogueList: {fileID: 11400000, guid: bdad3bb740049d74a963c5bf167cdfba, type: 2}
-  speakerLibrary: {fileID: 11400000, guid: 714dacb6f42f5e24fa8ec2fc01d6beba, type: 2}
+  dialogueList: {fileID: 11400000, guid: 2f9576b9a43ef6547b127695aa278fc2, type: 2}
+  speakerLibrary: {fileID: 11400000, guid: 4f612323b7ea2aa4d931fadcc7a5b003, type: 2}
   currentDialogue: 0
   maxUnlockedDialogue: 0
   curDialogueSpeedMultiplier: 1

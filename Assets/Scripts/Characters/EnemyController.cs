@@ -10,21 +10,19 @@ public class EnemyController : CharacterController
     protected float rotSpeed = 3.0f;
 
     protected GameObject player;
-
     protected Animator animController;
-    protected AnimationClip atkClip;
-    protected AnimationClip dthClip;
-    protected AnimationClip idlClip;
-    protected AnimationClip runClip;
-    protected AnimationClip spnClip;
 
     protected override void Start()
     {
         base.Start();
         player = GameObject.FindWithTag("Player");
-
         animController = GetComponent<Animator>();
-        AnimationClip[] clips = animController.runtimeAnimatorController.animationClips;
+    }
+}
+
+// Replaced with animation triggers. Possible use later?
+/*
+         AnimationClip[] clips = animController.runtimeAnimatorController.animationClips;
         foreach (AnimationClip clip in clips)
         {
             switch (clip.name)
@@ -49,5 +47,4 @@ public class EnemyController : CharacterController
                     break;
             }
         }
-    }
-}
+ */

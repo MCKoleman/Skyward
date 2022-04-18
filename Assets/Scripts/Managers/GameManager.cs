@@ -75,6 +75,7 @@ public class GameManager : Singleton<GameManager>
                 SetGameState(GameState.MENU);
                 break;
             case GlobalVars.SceneType.DUNGEON:
+            case GlobalVars.SceneType.MINIBOSS:
             case GlobalVars.SceneType.BOSS:
 #if UNITY_EDITOR
                 if(DEBUG_DISABLE_DUNGEON)

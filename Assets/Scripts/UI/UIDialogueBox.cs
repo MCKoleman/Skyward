@@ -109,4 +109,10 @@ public class UIDialogueBox : MonoBehaviour
         continueBtn.SetActive(true);
         EventSystem.current.SetSelectedGameObject(continueBtn);
     }
+
+    // Returns whether dialogue is active or not
+    public bool IsDialogueActive()
+    {
+        return dialogueHolder.activeInHierarchy;
+    }
 }

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b28cb0c5d121f546a02f0a50a217621, type: 3}
+  m_Name: LevelProgressList
+  m_EditorClassIdentifier: 
+  progressList:
+  - sceneType: 0
+    theme: 0
+  - sceneType: 1
+    theme: 1
+  - sceneType: 1
+    theme: 1
+  - sceneType: 1
+    theme: 1
+  - sceneType: 2
+    theme: 1
+  - sceneType: 1
+    theme: 3
+  - sceneType: 1
+    theme: 3
+  - sceneType: 1
+    theme: 3
+  - sceneType: 2
+    theme: 3
+  - sceneType: 1
+    theme: 2
+  - sceneType: 1
+    theme: 2
+  - sceneType: 1
+    theme: 2
+  - sceneType: 2
+    theme: 2
+  - sceneType: 3
+    theme: 2

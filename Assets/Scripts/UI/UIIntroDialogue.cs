@@ -107,7 +107,8 @@ public class UIIntroDialogue : MonoBehaviour
         // Disable main menu and disable intro
         mainMenu.SetActive(false);
         introHolder.SetActive(false);
-        GameManager.Instance.HandleLevelSwap(1);
+        DungeonManager.Instance.ResetCurLevel();
+        GameManager.Instance.HandleLevelSwap((byte)GlobalVars.SceneType.DUNGEON);
     }
 
     // Enables or disables fast dialogue

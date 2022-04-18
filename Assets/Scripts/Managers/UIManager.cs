@@ -57,8 +57,14 @@ public class UIManager : Singleton<UIManager>
     // Toggles the game's pause state
     public void PauseGameToggle()
     {
+        // Don't allow pausing during dialogue
+        if (hud.IsDialogueActive())
+            return;
+
+        // Pause an unpaused game
         if (Time.timeScale != 0.0f)
             PauseGame();
+        // Unpause a paused game
         else
             UnpauseGame();
     }
@@ -96,4 +102,5 @@ public class UIManager : Singleton<UIManager>
     public void SetLoadingProgressText(string text) { loadingScreen.SetProgressText(text); }
     public void SetMinimapCameraWidth(float width) { hud.SetMinimapCameraWidth(width); }
     public void SetMinimapDungeonCenter(Vector3 center) { hud.SetMinimapDungeonCenter(center); }
+    public void SetLevelNum(int num) { hud.SetLevelNum(num); }
 }

@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f636dcb3ed6e34849b0626e187913841, type: 3}
+  m_Name: DialogueList
+  m_EditorClassIdentifier: 
+  dialogue:
+  - dialogue:
+    - speaker: 2
+      text: "What\u2019s with the blank face, ******?"
+    - speaker: 0
+      text: ...
+    - speaker: 2
+      text: Wow, I would have never thought you of all people would be so quiet.
+    - speaker: 2
+      text: 'Back in the day you would never shut up about your love for potatoes. '
+    - speaker: 2
+      text: 'Baked potatoes, potato soup, potato cake, nothing was off the table
+        as long as it had a potato in it. '
+    - speaker: 2
+      text: "Well it\u2019s not a potato but here\u2019s a little gift from me. Hope
+        to see you again one day!"
+  - dialogue:
+    - speaker: 0
+      text: ...
+    - speaker: 2
+      text: ...
+    - speaker: 0
+      text: ...
+    - speaker: 2
+      text: ...
+    - speaker: 2
+      text: "Are you going to say something or\u2026?"
+    - speaker: 0
+      text: ...
+    - speaker: 2
+      text: 'Thanks for setting me free. I know as a kid I always said I wanted to
+        be a king and live in a castle, but not like this. '
+    - speaker: 2
+      text: 'This place is suffocating and reeks of dead bodies. '
+    - speaker: 2
+      text: I wish we could spend more time together.
+    - speaker: 2
+      text: I missed playing soccer with everyone, you were a marvel to see on the
+        field, so fast. Honestly, your speed and power were impressive despite how
+        bad your diet was.
+    - speaker: 2
+      text: ' You still hate broccoli? '
+    - speaker: 0
+      text: '*nods*'
+    - speaker: 2
+      text: Fair enough, well I imagine your journey will only get harder from here.
+        Please take this with you and take care of yourself.
+  - dialogue:
+    - speaker: 1
+      text: So you found your way back up again?
+    - speaker: 1
+      text: "I\u2019m impressed."
+    - speaker: 1
+      text: "But no matter, I\u2019ll keep on disposing of you over and over again
+        till your soul breaks."
+    - speaker: 1
+      text: HAHAHAHAHAHAHAHAHAHAHAHAHAHA
+    - speaker: 0
+      text: ...
+    - speaker: 1
+      text: Your blank stare really pisses me off!
+    - speaker: 1
+      text: ...
+    - speaker: 1
+      text: Oh by the way, how was fighting my chamber guardians this time?
+    - speaker: 1
+      text: "Here\u2019s a little secret."
+    - speaker: 1
+      text: The floor guardians were your loved ones reincarnated as flesh-eating
+        monsters.
+    - speaker: 1
+      text: HAHAHAHAHAHAHAHAHAHAHAHAHAHA
+    - speaker: 0
+      text: '!!!'
+    - speaker: 1
+      text: " You\u2019re a real eyesore, you know."
+    - speaker: 1
+      text: Your feeble attempts to gain your freedom back are hard to watch.
+    - speaker: 1
+      text: Your feeble attempts to gain your freedom back are hard to watch.
+    - speaker: 1
+      text: "This is a hopeless endeavor, you\u2019ll never best me."
+    - speaker: 1
+      text: "You are a puppet. \r\n"
+    - speaker: 1
+      text: ' A bird with clipped wings.'
+    - speaker: 1
+      text: A husk with no self.
+    - speaker: 1
+      text: DRAW UPON ALL THE MIGHT YOU CAN MUSTER.
+    - speaker: 1
+      text: I AM ZIEL THE VOID MAGE AND THIS WILL BE THE END OF YOUR PATHETIC DISPLAY
+        OF RESISTANCE.
+  - dialogue:
+    - speaker: 1
+      text: "WHAT?! THIS WASN\u2019T SUPPOSE TO HAPPEN!"
+    - speaker: 1
+      text: "I\u2019m impressed."
+    - speaker: 1
+      text: HOW CAN SOMEONE LIKE YOU DEFEAT SOMEONE LIKE ME!
+    - speaker: 1
+      text: " I\u2013 I\u2013 I WON'T LET A MERE PUPPET KILL ME!"
+    - speaker: 1
+      text: 'DISAPPEAR! DISAPPEAR! DISAPPEAR! DISAPPEAR! DISAPPEAR! '
+    - speaker: 1
+      text: 'DISAPPEAR! DISAPPEAR! DISAPPEAR! DISAPPEAR! DISAPPEAR! '
+    - speaker: 1
+      text: ...
+    - speaker: 1
+      text: 'DISAPPEAR! DISAPPEAR! DISAPPEAR! DISAPPEAR! DISAPPEAR! '
+    - speaker: 1
+      text: 'DISAPPEAR! DISAPPEAR! DISAPPEAR! DISAPPEAR! DISAPPEAR! '
+    - speaker: 1
+      text: ' AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH'
+    - speaker: 0
+      text: '*pant* *pant*'
+  - dialogue:
+    - speaker: 5
+      text: "We are so glad you\u2019re ok!"
+    - speaker: 6
+      text: "Yea your mother and I were worried to death watching you fight Ziel.\r"
+    - speaker: 4
+      text: He was a twisted man, who only found joy in toying with others.
+    - speaker: 3
+      text: "Thank you for releasing us from Ziel\u2019s clutches."
+    - speaker: 3
+      text: We were worried he would try to use us against you if you lost again
+        for his sick enjoyment.
+    - speaker: 4
+      text: But you overcame all odds and defeated him.
+    - speaker: 3
+      text: We are so proud of you.
+    - speaker: 4
+      text: Please take care of yourself.
+    - speaker: 7
+      text: We love you, Strelitzia.

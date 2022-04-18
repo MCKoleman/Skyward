@@ -9,7 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: b4c3d16d78722da4da00d91304699f5f
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
+    path: Assets/Scenes/Dungeon.unity
     guid: ddf6a4c38c43b05479aa0020cadfc0c7
+  - enabled: 1
+    path: Assets/Scenes/MiniBossDungeon.unity
+    guid: 28ed616bda72fe746b1ec8f34e5b528f
+  - enabled: 1
+    path: Assets/Scenes/BossDungeon.unity
+    guid: ef58a10fc64b4d44085fa47821b0d763
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0193c0e8c6f024343b2844ab2d95de3b, type: 2}

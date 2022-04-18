@@ -23,6 +23,8 @@ public class DungeonManager : Singleton<DungeonManager>
     [SerializeField]
     private int numRooms = 0;
     [SerializeField]
+    private int curLevel = 0;
+    [SerializeField]
     private bool isGenerated = false;
     [SerializeField]
     private Vector2 roomSize = Vector2.zero;
@@ -49,6 +51,8 @@ public class DungeonManager : Singleton<DungeonManager>
     // Should only be called by GameManager. Initializes the singleton
     public void Init()
     {
+        curLevel = 1;
+        UIManager.Instance.SetLevelNum(curLevel);
     }
 
     // Starts the dungeon generation process for the current level.
@@ -319,6 +323,14 @@ public class DungeonManager : Singleton<DungeonManager>
         }
     }
 
+    // Continues level progression
+    public void ProgressToNextLevel()
+    {
+        curLevel++;
+        UIManager.Instance.SetLevelNum(curLevel);
+    }
+
     // Returns the number of rooms in this dungeon
     public int GetNumRooms() { return numRooms; }
+    public int GetLevelNum() { return curLevel; }
 }

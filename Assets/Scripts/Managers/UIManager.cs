@@ -96,4 +96,5 @@ public class UIManager : Singleton<UIManager>
     public void SetLoadingProgressText(string text) { loadingScreen.SetProgressText(text); }
     public void SetMinimapCameraWidth(float width) { hud.SetMinimapCameraWidth(width); }
     public void SetMinimapDungeonCenter(Vector3 center) { hud.SetMinimapDungeonCenter(center); }
+    public void SetLevelNum(int num) { hud.SetLevelNum(num); }
 }

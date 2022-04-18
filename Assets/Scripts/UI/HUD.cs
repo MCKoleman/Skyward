@@ -17,6 +17,8 @@ public class HUD : MonoBehaviour
     [SerializeField]
     private UIDialogueBox dialogueBox;
     [SerializeField]
+    private TextMeshProUGUI levelNum;
+    [SerializeField]
     private bool isActive;
 
     // Enables the hud. Passing false allows the same function to disable the hud
@@ -34,6 +36,12 @@ public class HUD : MonoBehaviour
             EnableHUD();
 
         // Update parts of the hud
+    }
+
+    // Sets the level number displayed
+    public void SetLevelNum(int num)
+    {
+        levelNum.text = num.ToString();
     }
 
     /* ============================================================ Child component function wrappers ==================================== */

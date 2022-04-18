@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - DungeonRoom
   - MinimapCamera
+  - PostProcess
   layers:
   - Default
   - TransparentFX

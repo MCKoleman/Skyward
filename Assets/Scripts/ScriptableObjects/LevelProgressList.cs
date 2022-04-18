@@ -15,6 +15,23 @@ public class LevelProgressList : ScriptableObject
 
     public List<LevelProgress> progressList;
 
+    // Returns the current level
+    public LevelProgress GetCurrentLevel(int curLevel)
+    {
+        return progressList[curLevel];
+    }
+
+    // Returns the desired sceneType of the next scene. If the scene progression is over, the next scene will be the main menu
+    public GlobalVars.SceneType GetNextSceneType(int curLevel)
+    {
+        // If the next level still exists in the progression, return it
+        if (curLevel + 1 < progressList.Count)
+            return progressList[curLevel + 1].sceneType;
+        // Otherwise return menu
+        else
+            return GlobalVars.SceneType.MENU;
+    }
+
     // Returns the current level index, skipping minibosses
     public int GetLevelMinusMiniBosses(int curLevel)
     {

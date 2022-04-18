@@ -48,8 +48,8 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         // Lerp camera to target FOV
-        if(!MathUtils.AlmostZero(Camera.main.fieldOfView - targetFov, 2))
-            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFov, fovLerpSpeed * Time.deltaTime);
+        //if(!MathUtils.AlmostZero(Camera.main.fieldOfView - targetFov, 2))
+        //    Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFov, fovLerpSpeed * Time.deltaTime);
 
         // Update destination to be player if in a large room
         if (IsLargeRoom())
@@ -96,7 +96,7 @@ public class CameraController : MonoBehaviour
         return new Vector3(
             Mathf.Clamp(destination.x, roomPos.x - defaultRoomSize.x * 0.5f + offset.x, roomPos.x + defaultRoomSize.x * 0.5f + offset.x), 
             Mathf.Clamp(destination.y, offset.y, offset.y), 
-            Mathf.Clamp(destination.z, roomPos.z - defaultRoomSize.y * 0.5f, roomPos.z - defaultRoomSize.y * 0.5f));
+            Mathf.Clamp(destination.z, roomPos.z - defaultRoomSize.y * 0.5f, roomPos.z + defaultRoomSize.y * 0.5f));
     }
 
     // Returns whether the player is in a big room or not

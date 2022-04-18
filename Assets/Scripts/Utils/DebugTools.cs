@@ -201,5 +201,12 @@ public class DebugTools : MonoBehaviour
         Instantiate(loadedObj, new Vector3(0.0f, ENEMY_SPAWN_Y, 0.0f), Quaternion.identity);
     }
     */
+
+    [MenuItem("DebugTools/SpawnExit #1")]
+    private static void SpawnExit()
+    {
+        var loadedObj = Resources.Load("Prefabs/Rooms/RoomComponents/Exit");
+        Instantiate(loadedObj, new Vector3(2.0f, 0.0f, 0.0f), Quaternion.identity);
+    }
 #endif
 }

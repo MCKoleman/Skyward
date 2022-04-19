@@ -444,10 +444,10 @@ MonoBehaviour:
   - {fileID: 4580473805462178785, guid: 6441f869b83bfd742809f15dcfd2902d, type: 3}
   - {fileID: 909771516207208557, guid: 2c0e52c94bb4c40478129595175dbe6e, type: 3}
   - {fileID: 9074575651632807400, guid: 894a2916588a11a4d91e0e23174e1d5c, type: 3}
-  mainBossPrefab: {fileID: 6316325146996303914, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
-  caveBossPrefab: {fileID: 6316325146996303914, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
-  castleBossPrefab: {fileID: 6316325146996303914, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
-  skyBossPrefab: {fileID: 6316325146996303914, guid: 1011594336877f44bbb1aef6baa9edd9, type: 3}
+  mainBossPrefab: {fileID: 5020240624230274278, guid: d8e42e53e7e7b474386f7c608956d1b8, type: 3}
+  caveBossPrefab: {fileID: 4053390719857314872, guid: 2fca4713f97d6e747b2ba4a2e9c3a167, type: 3}
+  castleBossPrefab: {fileID: 6190339627474799183, guid: 018177ba28b596b4bb4c92388c9acce9, type: 3}
+  skyBossPrefab: {fileID: 9171935492634522533, guid: a1986a937b745c447a003e1303ed52e0, type: 3}
   projectileHolder: {fileID: 3116778456051282564}
   enemyHolder: {fileID: 3116778456941221364}
   powerupHolder: {fileID: 3116778457604670714}

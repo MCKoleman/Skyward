@@ -1531,7 +1531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8947402544891268238, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_Name
-      value: Enemy_Sentry_1
+      value: Enemy_Sentry
       objectReference: {fileID: 0}
     - target: {fileID: 8947402544891268238, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_TagString
@@ -1610,4 +1610,5 @@ MonoBehaviour:
   maxDashCooldown: 0.4
   movSpeed: 2
   rotSpeed: 3
+  despawnTime: 5
   range: 5

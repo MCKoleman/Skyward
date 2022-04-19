@@ -30,6 +30,7 @@ public class EnemyCharacter : Character
             Destroy(this.gameObject);
         }
 
+        healthBar.gameObject.SetActive(false);
         invincible = true;
     }
 

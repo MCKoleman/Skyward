@@ -129,10 +129,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dcf14f152fa2b446adef335f2f998c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 50
   baseMoveSpeed: 5
   movementSpeedMod: 1
   healthBar: {fileID: 5712758943342983509}
+  invincTime: 0.25
+  destroyOnDeath: 0
 --- !u!114 &573981774380439044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +156,7 @@ MonoBehaviour:
   maxDashCooldown: 0.4
   movSpeed: 2
   rotSpeed: 3
+  despawnTime: 5
 --- !u!82 &4250830922056954526
 AudioSource:
   m_ObjectHideFlags: 0

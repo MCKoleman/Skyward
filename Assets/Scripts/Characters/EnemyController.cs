@@ -8,15 +8,33 @@ public class EnemyController : CharacterController
     protected float movSpeed = 2.0f;
     [SerializeField]
     protected float rotSpeed = 3.0f;
+    [SerializeField]
+    protected float despawnTime = 2.0f;
 
     protected GameObject player;
-    protected Animator animController;
 
     protected override void Start()
     {
         base.Start();
-        player = GameObject.FindWithTag("Player");
-        animController = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        if(anim == null)
+            anim = GetComponentInChildren<Animator>();
+    }
+    
+    // Despawns the enemy after allowing them to be dead for a bit
+    public override void HandleTakeDamage(bool isDead)
+    {
+        if(isDead)
+            StartCoroutine(HandleDespawn());
+    }
+
+    // Handles despawning the body of the boss
+    protected IEnumerator HandleDespawn()
+    {
+        rb.isKinematic = true;
+        rb.detectCollisions = false;
+        yield return new WaitForSeconds(despawnTime);
+        Destroy(this.gameObject);
     }
 }
 

@@ -21,7 +21,7 @@ MonoBehaviour:
     textColor: {r: 0.3782725, g: 1, b: 0.3339622, a: 1}
   - type: 1
     sprite: {fileID: 21300000, guid: 5407cc0b12d8469499a64dada8bfdc54, type: 3}
-    name: Zeil
+    name: Ziel
     bgColor: {r: 0.6320754, g: 0.07990386, b: 0.07990386, a: 0.24313726}
     nameColor: {r: 1, g: 0, b: 0, a: 1}
     textColor: {r: 0.9756979, g: 1, b: 0, a: 1}

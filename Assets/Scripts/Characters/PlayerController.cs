@@ -18,10 +18,11 @@ public class PlayerController : CharacterController
     protected CameraController cam;
     [SerializeField]
     protected PlayerAttack_Melee meleeAttack;
-
     private Plane rotationPlane;
+
     [SerializeField]
     private float targetRotation = 0.0f;
+    protected GlobalVars.AbilityType curAbility;
 
     /* ==================================================== Built-in functions =================================================================== */
     protected override void Start()
@@ -48,6 +49,10 @@ public class PlayerController : CharacterController
     }
 
     /* ==================================================== Helper functions =================================================================== */
+    // Getters and setters for ability type
+    public GlobalVars.AbilityType GetActiveAbility() { return curAbility; }
+    public void SetActiveAbility(GlobalVars.AbilityType _type) { curAbility = _type; }
+    
     // Returns whether the rotation of the character matches the target rotation
     private bool DoesMatchRotation()
     {
@@ -179,11 +184,6 @@ public class PlayerController : CharacterController
         meleeAttack.Attack();
     }
 
-    protected void HandleCrouch()
-    {
-
-    }
-
     protected void HandleDash()
     {
         // Only allow dash if the dash cooldown has finished and the player has dashes left
@@ -198,14 +198,47 @@ public class PlayerController : CharacterController
         }
     }
 
-    protected void HandleAbility()
+    protected void HandleSpell()
     {
-        // TODO: Handle ability
+        // TODO: Handle spell
+        switch(curAbility)
+        {
+            case GlobalVars.AbilityType.MAGIC_MISSILE:
+                // Cast magic missiles
+                break;
+            case GlobalVars.AbilityType.METEOR:
+                // Cast meteor
+                break;
+            case GlobalVars.AbilityType.ICE_WAVE:
+                // Cast ice wave
+                break;
+            case GlobalVars.AbilityType.LIGHTNING_BOLT:
+                // Cast lightning bolt
+                break;
+            case GlobalVars.AbilityType.DEFAULT:
+            default:
+                break;
+        }
     }
 
-    protected void HandleInteract()
+    protected void HandleShield()
     {
-        // TODO: Handle interacting with objects
+        // TODO: Handle shield
+    }
+
+    protected void HandleAbility1()
+    {
+        curAbility = UIManager.Instance.SelectAbility(GlobalVars.AbilityType.METEOR, curAbility);
+    }
+
+    protected void HandleAbility2()
+    {
+        curAbility = UIManager.Instance.SelectAbility(GlobalVars.AbilityType.ICE_WAVE, curAbility);
+    }
+
+    protected void HandleAbility3()
+    {
+        curAbility = UIManager.Instance.SelectAbility(GlobalVars.AbilityType.LIGHTNING_BOLT, curAbility);
     }
 
     protected void HandleMenu()
@@ -242,10 +275,10 @@ public class PlayerController : CharacterController
             HandleAttack();
     }
 
-    public void HandleCrouchContext(InputAction.CallbackContext context)
+    public void HandleSpellContext(InputAction.CallbackContext context)
     {
-        if (context.performed && CanTakeInput())
-            HandleCrouch();
+        if (context.performed && CanTakeInput() && !EventSystem.current.IsPointerOverGameObject())
+            HandleSpell();
     }
 
     public void HandleDashContext(InputAction.CallbackContext context)
@@ -254,16 +287,28 @@ public class PlayerController : CharacterController
             HandleDash();
     }
 
-    public void HandleAbilityContext(InputAction.CallbackContext context)
+    public void HandleShieldContext(InputAction.CallbackContext context)
     {
         if (context.performed && CanTakeInput())
-            HandleAbility();
+            HandleShield();
     }
 
-    public void HandleInteractContext(InputAction.CallbackContext context)
+    public void HandleAbility1Context(InputAction.CallbackContext context)
     {
         if (context.performed && CanTakeInput())
-            HandleInteract();
+            HandleAbility1();
+    }
+
+    public void HandleAbility2Context(InputAction.CallbackContext context)
+    {
+        if (context.performed && CanTakeInput())
+            HandleAbility2();
+    }
+
+    public void HandleAbility3Context(InputAction.CallbackContext context)
+    {
+        if (context.performed && CanTakeInput())
+            HandleAbility3();
     }
 
     public void HandleJumpContext(InputAction.CallbackContext context)

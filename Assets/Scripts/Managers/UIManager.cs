@@ -97,10 +97,16 @@ public class UIManager : Singleton<UIManager>
     /* ============================================================ Child component function wrappers ==================================== */
     //public void UpdateLifeDisplay() { hud.UpdateLifeDisplay(); }
     public void UpdateHealth(float percent) { hud.UpdateHealth(percent); }
-    public void UpdateDashCooldown(float percent) { hud.UpdateDashCooldown(percent); }
     public void ContinueDialogue() { hud.ContinueDialogue(); }
     public void SetLoadingProgressText(string text) { loadingScreen.SetProgressText(text); }
     public void SetMinimapCameraWidth(float width) { hud.SetMinimapCameraWidth(width); }
     public void SetMinimapDungeonCenter(Vector3 center) { hud.SetMinimapDungeonCenter(center); }
     public void SetLevelNum(int num) { hud.SetLevelNum(num); }
+    public GlobalVars.AbilityType SelectAbility(GlobalVars.AbilityType type, GlobalVars.AbilityType activeType) { return hud.SelectAbility(type, activeType); }
+    public void UpdateDashCooldown(float percent) { hud.UpdateDashCooldown(percent); }
+    public void UpdateShieldCooldown(float percent) { hud.UpdateShieldCooldown(percent); }
+    public void UpdateSpellCooldown(float percent) { hud.UpdateSpellCooldown(percent); }
+    public void UpdateAbility1Cooldown(float percent) { hud.UpdateAbility1Cooldown(percent); }
+    public void UpdateAbility2Cooldown(float percent) { hud.UpdateAbility2Cooldown(percent); }
+    public void UpdateAbility3Cooldown(float percent) { hud.UpdateAbility3Cooldown(percent); }
 }

@@ -11,11 +11,11 @@ public class HUD : MonoBehaviour
     [SerializeField]
     private UIHealthBar healthBar;
     [SerializeField]
-    private UICooldown dashCooldown;
-    [SerializeField]
     private UIMinimap minimap;
     [SerializeField]
     private UIDialogueBox dialogueBox;
+    [SerializeField]
+    private UIAbilityHandler abilityHandler;
     [SerializeField]
     private TextMeshProUGUI levelNum;
     [SerializeField]
@@ -48,8 +48,16 @@ public class HUD : MonoBehaviour
     public void EnableDialogue(bool shouldEnable = true) { dialogueBox.EnableDialogue(shouldEnable); }
     public void ContinueDialogue() { dialogueBox.ContinueDialogue(); }
     public void UpdateHealth(float percent) { healthBar.UpdateHealth(percent); }
-    public void UpdateDashCooldown(float percent) { dashCooldown.UpdateCooldown(percent); }
     public void SetMinimapCameraWidth(float width) { minimap.SetCameraWidth(width); }
     public void SetMinimapDungeonCenter(Vector3 center) { minimap.SetDungeonCenter(center); }
     public bool IsDialogueActive() { return dialogueBox.IsDialogueActive(); }
+    public GlobalVars.AbilityType SelectAbility(GlobalVars.AbilityType type, GlobalVars.AbilityType activeType) { return abilityHandler.SelectAbility(type, activeType); }
+
+    // Cooldown handles
+    public void UpdateDashCooldown(float percent) { abilityHandler.UpdateDashCooldown(percent); }
+    public void UpdateShieldCooldown(float percent) { abilityHandler.UpdateShieldCooldown(percent); }
+    public void UpdateSpellCooldown(float percent) { abilityHandler.UpdateSpellCooldown(percent); }
+    public void UpdateAbility1Cooldown(float percent) { abilityHandler.UpdateAbility1Cooldown(percent); }
+    public void UpdateAbility2Cooldown(float percent) { abilityHandler.UpdateAbility2Cooldown(percent); }
+    public void UpdateAbility3Cooldown(float percent) { abilityHandler.UpdateAbility3Cooldown(percent); }
 }

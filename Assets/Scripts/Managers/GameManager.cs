@@ -15,6 +15,8 @@ public class GameManager : Singleton<GameManager>
     public bool IsGameActive { get; private set; }
 
     [SerializeField]
+    private bool isEasyMode = false;
+    [SerializeField]
     private bool DEBUG_DISABLE_DUNGEON = false;
 
     private SceneLoader sceneLoader;
@@ -183,4 +185,12 @@ public class GameManager : Singleton<GameManager>
 
     // Getters and setters
     public void SetIsGameActive(bool state) { IsGameActive = state; }
+
+    public void SetIsEasyMode(bool _isEasy)
+    {
+        isEasyMode = _isEasy;
+        PlayerManager.Instance.UpdateUIDisplay();
+    }
+
+    public bool GetIsEasyMode() { return isEasyMode; }
 }

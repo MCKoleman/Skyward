@@ -62,7 +62,7 @@ public class HUD : MonoBehaviour
     public void SetMinimapDungeonCenter(Vector3 center) { minimap.SetDungeonCenter(center); }
     public bool IsDialogueActive() { return dialogueBox.IsDialogueActive(); }
     public void UpdateXpDisplay(float percent) { xpBar.UpdateValue(percent); }
-    public void UpdateLifeDisplay(int lives) { livesNum.text = lives.ToString(); }
+    public void UpdateLifeDisplay(int lives) { livesNum.text = GameManager.Instance.GetIsEasyMode() ? '\u221E'.ToString() : lives.ToString(); }
     public GlobalVars.AbilityType SelectAbility(GlobalVars.AbilityType type, GlobalVars.AbilityType activeType) { return abilityHandler.SelectAbility(type, activeType); }
 
     // Cooldown handles

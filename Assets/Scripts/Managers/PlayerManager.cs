@@ -16,8 +16,7 @@ public class PlayerManager : Singleton<PlayerManager>
     {
         curXP = 0;
         curLives = 3;
-        UIManager.Instance.UpdateXpDisplay(GetXpPercent());
-        UIManager.Instance.UpdateLifeDisplay(Mathf.Max(curLives, 0));
+        UpdateUIDisplay();
     }
 
     // Handles the final death
@@ -26,9 +25,20 @@ public class PlayerManager : Singleton<PlayerManager>
 
     }
 
+    // Updates the UI display
+    public void UpdateUIDisplay()
+    {
+        UIManager.Instance.UpdateXpDisplay(GetXpPercent());
+        UIManager.Instance.UpdateLifeDisplay(GetLives());
+    }
+
     // Adds xp to the player
     public void AddXp(int xpToAdd)
     {
+        // Don't use XP in easy mode
+        if (GameManager.Instance.GetIsEasyMode())
+            return;
+
         // Add xp
         curXP += xpToAdd;
 
@@ -37,7 +47,7 @@ public class PlayerManager : Singleton<PlayerManager>
         {
             curXP -= xpToLevelUp;
             curLives++;
-            UIManager.Instance.UpdateLifeDisplay(curLives);
+            UIManager.Instance.UpdateLifeDisplay(GetLives());
         }
         UIManager.Instance.UpdateXpDisplay(GetXpPercent());
     }
@@ -45,15 +55,23 @@ public class PlayerManager : Singleton<PlayerManager>
     // Adds the given amount of lives (default 1)
     public void AddLife(int _lives = 1)
     {
+        // Don't use XP in easy mode
+        if (GameManager.Instance.GetIsEasyMode())
+            return;
+
         curLives += _lives;
-        UIManager.Instance.UpdateLifeDisplay(curLives);
+        UIManager.Instance.UpdateLifeDisplay(GetLives());
     }
 
     // Removes lives from the player (default 1)
     public void RemoveLife(int _lives = 1)
     {
+        // Don't use XP in easy mode
+        if (GameManager.Instance.GetIsEasyMode())
+            return;
+
         curLives -= _lives;
-        UIManager.Instance.UpdateLifeDisplay(Mathf.Max(curLives, 0));
+        UIManager.Instance.UpdateLifeDisplay(GetLives());
 
         // Kill the player on negative lives
         if (curLives < 0)
@@ -61,9 +79,23 @@ public class PlayerManager : Singleton<PlayerManager>
     }
 
     // Returns the xp perecentage
-    public float GetXpPercent() { return (float)curXP / (float)xpToLevelUp; }
+    public float GetXpPercent()
+    {
+        if (GameManager.Instance.GetIsEasyMode())
+            return 1.0f;
+        else
+            return (float)curXP / (float)xpToLevelUp;
+    }
+
     // Returns the current lives
-    public int GetLives() { return curLives; }
+    public int GetLives()
+    {
+        if (GameManager.Instance.GetIsEasyMode())
+            return int.MaxValue;
+        else
+            return curLives;
+    }
+
     // Returns whether the player is on their final life
     public bool IsFinalLife() { return curLives == 0; }
 }

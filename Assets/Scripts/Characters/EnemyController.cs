@@ -12,6 +12,7 @@ public class EnemyController : CharacterController
     protected float despawnTime = 2.0f;
 
     protected GameObject player;
+    protected bool isDead;
 
     protected override void Start()
     {
@@ -22,8 +23,9 @@ public class EnemyController : CharacterController
     }
     
     // Despawns the enemy after allowing them to be dead for a bit
-    public override void HandleTakeDamage(bool isDead)
+    public override void HandleTakeDamage(bool _isDead)
     {
+        isDead = _isDead;
         if(isDead)
             StartCoroutine(HandleDespawn());
     }

@@ -55,5 +55,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5993057676315562651, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
+      propertyPath: minRegenTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993057676315562651, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
+      propertyPath: healthRegenRate
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}

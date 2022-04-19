@@ -9,7 +9,9 @@ public class HUD : MonoBehaviour
     [SerializeField]
     private GameObject hudObj;
     [SerializeField]
-    private UIHealthBar healthBar;
+    private UISliderBar healthBar;
+    [SerializeField]
+    private UISliderBar xpBar;
     [SerializeField]
     private UIMinimap minimap;
     [SerializeField]
@@ -19,6 +21,8 @@ public class HUD : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI levelNum;
     [SerializeField]
+    private TextMeshProUGUI livesNum;
+    [SerializeField]
     private bool isActive;
 
     // Enables the hud. Passing false allows the same function to disable the hud
@@ -26,6 +30,12 @@ public class HUD : MonoBehaviour
     {
         hudObj.SetActive(shouldEnable);
         isActive = shouldEnable;
+    }
+
+    // Shows the ability displays
+    public void ShowAbilities(bool shouldEnable = true)
+    {
+        abilityHandler.gameObject.SetActive(shouldEnable);
     }
 
     // Refreshes the HUD, getting information from relevant managers
@@ -47,10 +57,12 @@ public class HUD : MonoBehaviour
     /* ============================================================ Child component function wrappers ==================================== */
     public void EnableDialogue(bool shouldEnable = true) { dialogueBox.EnableDialogue(shouldEnable); }
     public void ContinueDialogue() { dialogueBox.ContinueDialogue(); }
-    public void UpdateHealth(float percent) { healthBar.UpdateHealth(percent); }
+    public void UpdateHealth(float percent) { healthBar.UpdateValue(percent); }
     public void SetMinimapCameraWidth(float width) { minimap.SetCameraWidth(width); }
     public void SetMinimapDungeonCenter(Vector3 center) { minimap.SetDungeonCenter(center); }
     public bool IsDialogueActive() { return dialogueBox.IsDialogueActive(); }
+    public void UpdateXpDisplay(float percent) { xpBar.UpdateValue(percent); }
+    public void UpdateLifeDisplay(int lives) { livesNum.text = lives.ToString(); }
     public GlobalVars.AbilityType SelectAbility(GlobalVars.AbilityType type, GlobalVars.AbilityType activeType) { return abilityHandler.SelectAbility(type, activeType); }
 
     // Cooldown handles

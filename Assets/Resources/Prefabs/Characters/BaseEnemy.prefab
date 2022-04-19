@@ -135,6 +135,7 @@ MonoBehaviour:
   healthBar: {fileID: 707477476020896487}
   invincTime: 0.25
   destroyOnDeath: 0
+  xp: 5
 --- !u!114 &573981774380439044
 MonoBehaviour:
   m_ObjectHideFlags: 0

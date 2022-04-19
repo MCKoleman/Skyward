@@ -112,7 +112,7 @@ public class DungeonRoom : MonoBehaviour
         if (!isCombinedRoom)
             return;
 
-        Debug.Log($"Checking room [{this.gameObject}] for combination:");
+        //Debug.Log($"Checking room [{this.gameObject}] for combination:");
 
         // Search all bordered nodes for combining
         for(int i = 0; i < roomNodes.Count; i++)
@@ -121,9 +121,9 @@ public class DungeonRoom : MonoBehaviour
             if (roomNodes[i].GetOriginalReq() == GlobalVars.RoomReq.NONE)
                 continue;
 
-            Debug.Log($"Checking node [{i}: {roomNodes[i]}] for combination. Has flag " +
-                $"[{roomNodes[i].ReqFlag}], which [{(GlobalVars.DoesRequireSpecialReq(roomNodes[i].ReqFlag) ? "requires" : "does not require")}] open space " +
-                $"and [{(roomNodes[i].hasSpawned ? "has" : "has not")}] spawned yet.");
+            //Debug.Log($"Checking node [{i}: {roomNodes[i]}] for combination. Has flag " +
+            //    $"[{roomNodes[i].ReqFlag}], which [{(GlobalVars.DoesRequireSpecialReq(roomNodes[i].ReqFlag) ? "requires" : "does not require")}] open space " +
+            //    $"and [{(roomNodes[i].hasSpawned ? "has" : "has not")}] spawned yet.");
 
             // If a border node has spawned a special room, check for combining
             if (roomNodes[i].hasSpawned && GlobalVars.DoesRequireSpecialReq(roomNodes[i].ReqFlag)) {
@@ -135,13 +135,13 @@ public class DungeonRoom : MonoBehaviour
     // Combines this room with the given room
     public virtual void CombineRooms(DungeonRoom otherRoom)
     {
-        Debug.Log($"Combine rooms called between [{this.gameObject}] and [{otherRoom.gameObject}]");
+        //Debug.Log($"Combine rooms called between [{this.gameObject}] and [{otherRoom.gameObject}]");
 
         // Don't combine rooms that don't want to be combined
         if (otherRoom == null || !isCombinedRoom || !otherRoom.isCombinedRoom)
             return;
 
-        Debug.Log("Combine rooms passed guarding");
+        //Debug.Log("Combine rooms passed guarding");
 
         // If the other room is already part of a combined room, add this room to that room
         if(otherRoom.IsPartOfCombinedRoom())

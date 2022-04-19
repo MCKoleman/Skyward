@@ -133,7 +133,7 @@ public class DungeonManager : Singleton<DungeonManager>
         int maxRooms = roomList.GetMaxRoomCount();
         int prefRooms = roomList.GetPrefRoomCount();
         roomSize = room.GetSize();
-        Debug.Log($"Dungeon room size is [{roomSize}]");
+        //Debug.Log($"Dungeon room size is [{roomSize}]");
 
         // Keep a list of all nodes that have been spawned and a list of all nodes that should spawn
         // Add the spawn nodes of the first room to the dictionary

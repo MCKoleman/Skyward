@@ -40,7 +40,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         shake = Camera.main.GetComponentInParent<CameraShake>();
-        destination = new Vector3(roomPos.x + offset.x, offset.y, roomPos.z + offset.z);
+        //destination = new Vector3(roomPos.x + offset.x, offset.y, roomPos.z + offset.z);
         player = GameObject.FindGameObjectWithTag("Player").transform;
         targetFov = GetTargetFOV();
     }
@@ -59,9 +59,11 @@ public class CameraController : MonoBehaviour
         if (MathUtils.AlmostZero(this.transform.position - destination, 2))
             return;
 
+        /*
         Vector3 tempVec = Vector3.Lerp(this.transform.position, destination, lockedFollowSpeed * Time.deltaTime);
         this.transform.position = new Vector3(tempVec.x, transform.position.y, tempVec.z);
         this.transform.eulerAngles = Vector3.Lerp(this.transform.eulerAngles, targetRot, angleLerpSpeed * Time.deltaTime);
+        */
     }
 
     // Set the room to follow with the camera

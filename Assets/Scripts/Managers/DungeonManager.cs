@@ -118,7 +118,7 @@ public class DungeonManager : Singleton<DungeonManager>
         UIManager.Instance.SetLoadingProgressText("Setting up dungeon");
 
         // Reset dungeon info
-        GameObject latestRoom = null;
+        GameObject latestRoom = startRoom.gameObject;
         numRooms = 1;
         blCoord = new Vector2Int(int.MaxValue, int.MaxValue);
         trCoord = new Vector2Int(int.MinValue, int.MinValue);
@@ -200,9 +200,6 @@ public class DungeonManager : Singleton<DungeonManager>
         dungeonSize += Vector2.one;
 
         // When generation is done, spawn an exit
-        if (latestRoom == null)
-            latestRoom = startRoom.gameObject;
-
         SpawnExit(latestRoom);
         isGenerated = true;
     }

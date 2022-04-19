@@ -24,8 +24,17 @@ public class EnemyAI_Sentry : EnemyController
             if (rAttack.AttackState())
             {
                 rAttack.ToggleAttack(false);
-                animController.SetTrigger("Attack");
+                anim.SetTrigger("Attack");
             }
         }
+    }
+
+    public override void HandleTakeDamage(bool isDead)
+    {
+        base.HandleTakeDamage(isDead);
+        if (!isDead)
+            anim.SetTrigger("Hurt");
+        else
+            anim.SetTrigger("Death");
     }
 }

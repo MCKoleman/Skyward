@@ -11,6 +11,7 @@ TagManager:
   - Projectile
   - DungeonContent
   - Wall
+  - PostProcess
   layers:
   - Default
   - TransparentFX

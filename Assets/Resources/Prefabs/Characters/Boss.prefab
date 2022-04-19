@@ -238,6 +238,7 @@ MonoBehaviour:
   maxDashCooldown: 0.4
   movSpeed: 10
   rotSpeed: 3
+  despawnTime: 15
   roomX: 10
   roomZ: 10
   anchor: {fileID: 0}

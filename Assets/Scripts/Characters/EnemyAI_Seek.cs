@@ -9,8 +9,8 @@ public class EnemyAI_Seek : EnemyController
     public float chaseDist = 5.0f;
     public float stopDist = 1.5f;
 
-    protected enum State { IDLE, CHASE, ATTACK, DEATH };
-    protected State curr = State.IDLE;
+    protected enum AIState { IDLE, CHASE, ATTACK, DEATH };
+    protected AIState curState = AIState.IDLE;
 
     protected EnemyAttack_Melee mAttack;
 
@@ -23,42 +23,41 @@ public class EnemyAI_Seek : EnemyController
 
     protected void Update()
     {
+        // Only search for player if it has not been found yet
+        if(player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
 
-        player = GameObject.FindWithTag("Player");
+        // Don't update AI when dead
+        if (curState == AIState.DEATH)
+            return;
 
-        if (curr != State.DEATH) {
-
-            dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(player.transform.position.x, player.transform.position.z));
-            if (dist <= chaseDist && dist > stopDist && curr != State.ATTACK)
+        // Evaluate AI conditions
+        dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(player.transform.position.x, player.transform.position.z));
+        if (dist <= chaseDist && dist > stopDist && curState != AIState.ATTACK)
+        {
+            if (curState != AIState.CHASE)
             {
-                if (curr != State.CHASE)
-                {
-                    curr = State.CHASE;
-                    animController.SetTrigger("Chase");
-                }
-                SmoothChase();
+                SetAIState(AIState.CHASE);
             }
-            else if (dist <= stopDist)
+            SmoothChase();
+        }
+        else if (dist <= stopDist)
+        {
+            if (curState != AIState.ATTACK && !mAttack.IsCooling())
             {
-                if (curr != State.ATTACK && !mAttack.IsCooling())
-                {
-                    curr = State.ATTACK;
-                    animController.SetTrigger("Attack");
-                }
-                else if (curr != State.ATTACK && curr != State.IDLE)
-                {
-                    curr = State.IDLE;
-                    animController.SetTrigger("Idle");
-                }
-                FacePlayer();
+                SetAIState(AIState.ATTACK);
             }
-            else if (dist > chaseDist && curr != State.ATTACK)
+            else if (curState != AIState.ATTACK && curState != AIState.IDLE)
             {
-                if (curr != State.IDLE)
-                {
-                    curr = State.IDLE;
-                    animController.SetTrigger("Idle");
-                }
+                SetAIState(AIState.IDLE);
+            }
+            FacePlayer();
+        }
+        else if (dist > chaseDist && curState != AIState.ATTACK)
+        {
+            if (curState != AIState.IDLE)
+            {
+                SetAIState(AIState.IDLE);
             }
         }
     }
@@ -88,6 +87,39 @@ public class EnemyAI_Seek : EnemyController
         */
     }
 
+    // Sets the AIState and animation trigger based on the new state
+    protected virtual void SetAIState(AIState _state)
+    {
+        curState = _state;
+        switch(curState)
+        {
+            case AIState.ATTACK:
+                anim.SetTrigger("Attack");
+                break;
+            case AIState.IDLE:
+                anim.SetTrigger("Idle");
+                break;
+            case AIState.CHASE:
+                anim.SetTrigger("Chase");
+                break;
+            case AIState.DEATH:
+                anim.SetTrigger("Death");
+                break;
+            default:
+                break;
+        }
+    }
+
+    // Handles killing the character
+    public override void HandleTakeDamage(bool isDead)
+    {
+        base.HandleTakeDamage(isDead);
+        if (isDead)
+        {
+            SetAIState(AIState.DEATH);
+        }
+    }
+
     protected void FacePlayer()
     {
         transform.rotation = Quaternion.Slerp(transform.rotation,
@@ -107,6 +139,9 @@ public class EnemyAI_Seek : EnemyController
     public void ExitAttack()
     {
         mAttack.ExitAttack();
-        curr = State.IDLE;
+
+        // Cancel switching to idle state when dead
+        if(curState != AIState.DEATH)
+            curState = AIState.IDLE;
     }
 }

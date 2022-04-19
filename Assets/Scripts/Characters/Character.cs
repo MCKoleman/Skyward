@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
     protected float movementSpeedMod = 1.0f;
 
     protected bool invincible = false;
+    protected CharacterController controller;
 
     public int CurHealth { get; protected set; }
     public float CurMoveSpeed { get; protected set; }
@@ -26,6 +27,7 @@ public class Character : MonoBehaviour
     /// </summary>
     protected virtual void HandleStart()
     {
+        controller = GetComponent<CharacterController>();
         CurMoveSpeed = baseMoveSpeed * movementSpeedMod;
         CurHealth = maxHealth;
         HandleHealthChange();
@@ -57,12 +59,11 @@ public class Character : MonoBehaviour
 
             CurHealth = Mathf.Clamp(CurHealth - _amount, 0, maxHealth);
             HandleHealthChange();
+            controller.HandleTakeDamage(IsDead());
 
             // Checks whether the character is dead
-            if (CurHealth <= 0)
-            {
+            if (IsDead())
                 HandleDeath();
-            }
         }
     }
 
@@ -74,6 +75,15 @@ public class Character : MonoBehaviour
     {
         // By default every character is not a player. This should be overloaded to be true in playerCharacter
         return false;
+    }
+
+    /// <summary>
+    /// Returns whether the character is dead or not
+    /// </summary>
+    /// <returns>Is the character dead</returns>
+    public bool IsDead()
+    {
+        return CurHealth <= 0;
     }
 
     /// <summary>

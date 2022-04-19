@@ -11,19 +11,27 @@ public class DungeonManager : Singleton<DungeonManager>
     [SerializeField]
     private DungeonContentList contentList;
     [SerializeField]
+    private LevelProgressList levelProgressList;
+    [SerializeField]
     private DungeonRoom startRoom;
     [SerializeField]
-    private DungeonRoom currentRoom;
-    [SerializeField]
-    private GlobalVars.DungeonTheme startTheme;
+    private Vector3 bossSpawnOffset;
 
     [Header("Runtime information")]
     [SerializeField]
     private List<MinimapNode> roomMap = new List<MinimapNode>();
     [SerializeField]
+    private DungeonRoom currentRoom;
+    [SerializeField]
     private int numRooms = 0;
     [SerializeField]
+    private int curLevel = 0;
+    [SerializeField]
+    private LevelProgressList.LevelProgress curLevelInfo;
+    [SerializeField]
     private bool isGenerated = false;
+
+    [Header("Dungeon Info")]
     [SerializeField]
     private Vector2 roomSize = Vector2.zero;
     [SerializeField]
@@ -49,6 +57,8 @@ public class DungeonManager : Singleton<DungeonManager>
     // Should only be called by GameManager. Initializes the singleton
     public void Init()
     {
+        curLevel = 1;
+        UIManager.Instance.SetLevelNum(curLevel);
     }
 
     // Starts the dungeon generation process for the current level.
@@ -56,15 +66,23 @@ public class DungeonManager : Singleton<DungeonManager>
     {
         cameraController = Camera.main?.GetComponent<CameraController>();
 
-        // If there is no start room, make one
-        if (startRoom == null)
+        // Set theme
+        curLevelInfo = levelProgressList.GetCurrentLevel(curLevel);
+        GameObject.FindGameObjectWithTag("PostProcess").GetComponent<PostProcessHandler>().SetTheme(curLevelInfo.theme);
+        
+        // Get start room
+        if (curLevelInfo.sceneType == GlobalVars.SceneType.DUNGEON)
         {
             GameObject tempObj = Instantiate(PrefabManager.Instance.baseRoomPrefab, Vector3.zero, Quaternion.identity, PrefabManager.Instance.levelHolder);
             startRoom = tempObj.GetComponent<DungeonRoom>();
         }
-
-        // Set theme
-        startRoom.theme = startTheme;
+        // Get boss room
+        else if(curLevelInfo.sceneType == GlobalVars.SceneType.BOSS || curLevelInfo.sceneType == GlobalVars.SceneType.MINIBOSS)
+        {
+            GameObject tempObj = Instantiate(PrefabManager.Instance.bossRoomPrefab, Vector3.zero, Quaternion.identity, PrefabManager.Instance.levelHolder);
+            startRoom = tempObj.GetComponent<DungeonRoom>();
+        }
+        startRoom.theme = curLevelInfo.theme;
 
         // Generate the dungeon
         StartCoroutine(AsyncGenerateHandle(startRoom));
@@ -100,7 +118,7 @@ public class DungeonManager : Singleton<DungeonManager>
         UIManager.Instance.SetLoadingProgressText("Setting up dungeon");
 
         // Reset dungeon info
-        GameObject latestRoom = null;
+        GameObject latestRoom = startRoom.gameObject;
         numRooms = 1;
         blCoord = new Vector2Int(int.MaxValue, int.MaxValue);
         trCoord = new Vector2Int(int.MinValue, int.MinValue);
@@ -181,8 +199,8 @@ public class DungeonManager : Singleton<DungeonManager>
         // For finding the actual size of the dungeon, add 0.5 * 2 because coordinates are in the center of rooms.
         dungeonSize += Vector2.one;
 
-        // When generation is done, spawn an exit in the last room spawned
-        Instantiate(PrefabManager.Instance.exitPrefab, latestRoom.transform.position, Quaternion.identity, PrefabManager.Instance.levelHolder);
+        // When generation is done, spawn an exit
+        SpawnExit(latestRoom);
         isGenerated = true;
     }
 
@@ -319,6 +337,40 @@ public class DungeonManager : Singleton<DungeonManager>
         }
     }
 
+    // Spawns a way to exit the dungeon
+    private void SpawnExit(GameObject latestRoom)
+    {
+        switch(curLevelInfo.sceneType)
+        {
+            case GlobalVars.SceneType.DUNGEON:
+                Instantiate(PrefabManager.Instance.exitPrefab, latestRoom.transform.position, Quaternion.identity, PrefabManager.Instance.levelHolder);
+                break;
+            case GlobalVars.SceneType.MINIBOSS:
+                Instantiate(PrefabManager.Instance.GetMiniboss(curLevelInfo.theme), bossSpawnOffset, Quaternion.identity, PrefabManager.Instance.bossHolder);
+                break;
+            case GlobalVars.SceneType.BOSS:
+                Instantiate(PrefabManager.Instance.mainBossPrefab, bossSpawnOffset, Quaternion.identity, PrefabManager.Instance.bossHolder);
+                break;
+            case GlobalVars.SceneType.MENU:
+            default:
+                break;
+        }
+    }
+
+    // Continues level progression
+    public void ProgressToNextLevel()
+    {
+        curLevel++;
+        UIManager.Instance.SetLevelNum(levelProgressList.GetLevelMinusMiniBosses(curLevel));
+    }
+
+    // Resets the current level number
+    public void ResetCurLevel() { curLevel = 0; }
+
     // Returns the number of rooms in this dungeon
     public int GetNumRooms() { return numRooms; }
+    // Returns the current level number
+    public int GetLevelNum() { return curLevel; }
+    // Returns the next scene type
+    public GlobalVars.SceneType GetNextSceneType() { return levelProgressList.GetNextSceneType(curLevel); }
 }

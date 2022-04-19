@@ -96,7 +96,7 @@ public class CharacterController : MonoBehaviour
         else if (!isGrounded && MathUtils.AlmostZero(rb.velocity.y, 2) && airMovementCooldown <= 0.0f)
         {
             //Print.Log("Ground detection failed, fixing it...");
-            SetIsGrounded(true);
+            //SetIsGrounded(true);
         }
 
         // Handle cooldowns
@@ -243,6 +243,12 @@ public class CharacterController : MonoBehaviour
         rb.useGravity = true;
         SetDashCooldown(maxDashCooldown);
         SetIsDashing(false);
+    }
+
+    // Handles reacting to taking damage
+    public virtual void HandleTakeDamage(bool isDead)
+    {
+
     }
 
     // Sets the jump cooldown to the given value, clamping it to [0, max]

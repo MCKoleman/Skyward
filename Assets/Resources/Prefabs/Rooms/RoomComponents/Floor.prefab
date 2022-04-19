@@ -188,6 +188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MinimapIcon
       objectReference: {fileID: 0}
+    - target: {fileID: 7138772909028035715, guid: 92f922b0b4a2904429b0b9d8097da822, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 9152321924096239752, guid: 92f922b0b4a2904429b0b9d8097da822, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -253,6 +257,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 35875a5ae17e9446f89b4ae70f2fef2d, type: 3}
       propertyPath: m_Name
       value: New 15x10 Dungeon Floor Meters
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 35875a5ae17e9446f89b4ae70f2fef2d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35875a5ae17e9446f89b4ae70f2fef2d, type: 3}

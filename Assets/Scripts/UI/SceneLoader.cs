@@ -39,6 +39,7 @@ public class SceneLoader : MonoBehaviour
 
         // Only enable the cursor in the main menu
         //Cursor.visible = (level == 0);
+        DungeonManager.Instance.ProgressToNextLevel();
 
         // Only play the transition if it exists
         if (transition != null)

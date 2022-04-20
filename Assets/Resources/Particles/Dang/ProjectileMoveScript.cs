@@ -26,12 +26,12 @@ public class ProjectileMoveScript : MonoBehaviour {
     private GameObject target;
 
     //to deal damage on impact
-    public MeteorSpell spell;
+    private MeteorSpell spell;
 
 	void Start () {
         startPos = transform.position;
         rb = GetComponent <Rigidbody> ();
-
+        spell = GetComponentInParent<MeteorSpell>();
 		
 		if (accuracy != 100) {
 			accuracy = 1 - (accuracy / 100);

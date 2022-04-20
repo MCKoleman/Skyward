@@ -26,6 +26,8 @@ public class SpawnCometsScript : MonoBehaviour {
 					startPos = new Vector3 (startPoint.transform.position.x + Random.Range (-radius, radius), startPoint.transform.position.y + Random.Range (-radius, radius), startPoint.transform.position.z + Random.Range (-radius, radius));					
 				GameObject objVFX = Instantiate (vfx, startPos, Quaternion.identity) as GameObject;
 
+				objVFX.transform.SetParent(gameObject.transform);
+
 				var endPos = endPoint.transform.position;
 				if(radius != 0)
 					endPos = new Vector3 (endPoint.transform.position.x + Random.Range (-radius, radius), endPoint.transform.position.y + Random.Range (-radius, radius), endPoint.transform.position.z + Random.Range (-radius, radius));

@@ -26,7 +26,7 @@ public class PauseMenu : MonoBehaviour
 
         EnableMenu(true);
         GameManager.Instance.SetGameState(GameManager.GameState.PAUSED, true);
-        Cursor.visible = true;
+        //Cursor.visible = true;
 
         // Redundant call to make sure button is selected
         EventSystem.current.SetSelectedGameObject(null);
@@ -38,7 +38,7 @@ public class PauseMenu : MonoBehaviour
     public void UnpauseGame()
     {
         GameManager.Instance.RevertToPreviousGameState();
-        Cursor.visible = false;
+        //Cursor.visible = false;
         EnableMenu(false);
     }
 }

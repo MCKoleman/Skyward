@@ -5,16 +5,18 @@ using UnityEngine;
 public class EnemyCharacter : Character
 {
     [SerializeField]
-    private UIHealthBar healthBar;
+    private UISliderBar healthBar;
     [SerializeField]
     protected float invincTime = 0.25f;
     [SerializeField]
     protected bool destroyOnDeath = true;
+    [SerializeField]
+    protected int xp;
 
     public override void HandleHealthChange()
     {
         base.HandleHealthChange();
-        healthBar?.UpdateHealth(CurHealth / (float)maxHealth);
+        healthBar?.UpdateValue(CurHealth / (float)maxHealth);
     }
 
     IEnumerator Invincibility()
@@ -25,11 +27,15 @@ public class EnemyCharacter : Character
 
     public override void HandleDeath()
     {
+        // Handle xp first
+        PlayerManager.Instance.AddXp(xp);
+
         if (destroyOnDeath)
         {
             Destroy(this.gameObject);
         }
 
+        healthBar.gameObject.SetActive(false);
         invincible = true;
     }
 

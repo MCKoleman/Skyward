@@ -118,7 +118,7 @@ public class DungeonManager : Singleton<DungeonManager>
         UIManager.Instance.SetLoadingProgressText("Setting up dungeon");
 
         // Reset dungeon info
-        GameObject latestRoom = null;
+        GameObject latestRoom = startRoom.gameObject;
         numRooms = 1;
         blCoord = new Vector2Int(int.MaxValue, int.MaxValue);
         trCoord = new Vector2Int(int.MinValue, int.MinValue);
@@ -133,7 +133,7 @@ public class DungeonManager : Singleton<DungeonManager>
         int maxRooms = roomList.GetMaxRoomCount();
         int prefRooms = roomList.GetPrefRoomCount();
         roomSize = room.GetSize();
-        Debug.Log($"Dungeon room size is [{roomSize}]");
+        //Debug.Log($"Dungeon room size is [{roomSize}]");
 
         // Keep a list of all nodes that have been spawned and a list of all nodes that should spawn
         // Add the spawn nodes of the first room to the dictionary
@@ -200,9 +200,6 @@ public class DungeonManager : Singleton<DungeonManager>
         dungeonSize += Vector2.one;
 
         // When generation is done, spawn an exit
-        if (latestRoom == null)
-            latestRoom = startRoom.gameObject;
-
         SpawnExit(latestRoom);
         isGenerated = true;
     }

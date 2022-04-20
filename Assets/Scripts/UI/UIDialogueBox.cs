@@ -14,6 +14,10 @@ public class UIDialogueBox : MonoBehaviour
     private GameObject continueBtn;
     [SerializeField]
     private TextMeshProUGUI textBox;
+    [SerializeField]
+    private TextMeshProUGUI speakerBox;
+    [SerializeField]
+    private Image bgImg;
 
     [Header("Settings")]
     [SerializeField, Range(0.01f, 100.0f), Tooltip("How many characters should be revealed per second")]
@@ -39,6 +43,7 @@ public class UIDialogueBox : MonoBehaviour
     // Enables (by default) or disables the dialogue box
     public void EnableDialogue(bool shouldEnable = true)
     {
+        UIManager.Instance.ShowHUDAbilities(!shouldEnable);
         dialogueHolder.SetActive(shouldEnable);
     }
 
@@ -81,6 +86,12 @@ public class UIDialogueBox : MonoBehaviour
         currentSpeaker = DialogueManager.Instance.GetSpeaker(currentDialogueStruct.speaker);
         speakerImage.sprite = currentSpeaker.sprite;
         textBox.text = "";
+        speakerBox.text = currentSpeaker.name;
+
+        // Set dialogue colors
+        textBox.color = currentSpeaker.textColor;
+        bgImg.color = currentSpeaker.bgColor;
+        speakerBox.color = currentSpeaker.nameColor;
 
         // Play the next dialogue
         StartCoroutine(RevealText(currentDialogueStruct.text));

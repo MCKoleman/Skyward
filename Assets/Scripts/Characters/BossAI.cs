@@ -51,9 +51,6 @@ public class BossAI : EnemyController
         minX = anchor.position.x - roomX;
         maxZ = anchor.position.z + roomZ;
         minZ = anchor.position.z - roomZ;
-
-        //testing
-        EnterCasting();
     }
 
     // Update is called once per frame
@@ -79,7 +76,7 @@ public class BossAI : EnemyController
                     break;
             }
         }
-        else if (!gameOver)
+        else if (gameOver)
         {
             Debug.Log("DIE BITCH");
             EnterDeath();

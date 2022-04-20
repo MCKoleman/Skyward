@@ -1461,6 +1461,14 @@ PrefabInstance:
       propertyPath: speedMods
       value: 
       objectReference: {fileID: 11400000, guid: 4537d0465671a4d448c0aac0e3fcfc3c, type: 2}
+    - target: {fileID: 858445485639212211, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
+      propertyPath: xp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 858445485639212211, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2296353288259372170, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1531,7 +1539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8947402544891268238, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_Name
-      value: Enemy_Sentry_1
+      value: Enemy_Sentry
       objectReference: {fileID: 0}
     - target: {fileID: 8947402544891268238, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_TagString
@@ -1610,4 +1618,5 @@ MonoBehaviour:
   maxDashCooldown: 0.4
   movSpeed: 2
   rotSpeed: 3
+  despawnTime: 5
   range: 5

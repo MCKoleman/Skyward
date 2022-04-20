@@ -33,7 +33,8 @@ public class PrefabManager : Singleton<PrefabManager>
     // Object holders
     public Transform projectileHolder;
     public Transform enemyHolder;
-    public Transform powerupHolder;
+    public Transform dungeonContentHolder;
+    public Transform treasureHolder;
     public Transform levelHolder;
     public Transform bossHolder;
 
@@ -52,8 +53,11 @@ public class PrefabManager : Singleton<PrefabManager>
         for (int i = enemyHolder.childCount - 1; i >= 0; i--)
             Destroy(enemyHolder.GetChild(i).gameObject);
 
-        for (int i = powerupHolder.childCount - 1; i >= 0; i--)
-            Destroy(powerupHolder.GetChild(i).gameObject);
+        for (int i = dungeonContentHolder.childCount - 1; i >= 0; i--)
+            Destroy(dungeonContentHolder.GetChild(i).gameObject);
+
+        for (int i = treasureHolder.childCount - 1; i >= 0; i--)
+            Destroy(treasureHolder.GetChild(i).gameObject);
 
         for (int i = levelHolder.childCount - 1; i >= 0; i--)
             Destroy(levelHolder.GetChild(i).gameObject);

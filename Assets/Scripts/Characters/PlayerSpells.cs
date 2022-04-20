@@ -34,6 +34,7 @@ public class PlayerSpells : MonoBehaviour
             castTimer -= Time.deltaTime;
             yield return null;
         }
+        UIManager.Instance.UpdateSpellCooldown(0.0f);
     }
 
     //Rather than having separate cooldowns for each spell
@@ -50,6 +51,7 @@ public class PlayerSpells : MonoBehaviour
             timeLeft -= Time.deltaTime;
             yield return null;
         }
+        updateFunc(0.0f);
         checks[spell] = false;
     }
 
@@ -89,8 +91,9 @@ public class PlayerSpells : MonoBehaviour
         }
     }
 
-    public void MagicMissile() { 
-
+    public void MagicMissile()
+    {
+        StartCoroutine(Cooldown(3, UIManager.Instance.UpdateAbility0Cooldown));
     }
 
     public void Shield()

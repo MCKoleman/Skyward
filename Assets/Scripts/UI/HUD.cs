@@ -69,6 +69,7 @@ public class HUD : MonoBehaviour
     public void UpdateDashCooldown(float percent) { abilityHandler.UpdateDashCooldown(percent); }
     public void UpdateShieldCooldown(float percent) { abilityHandler.UpdateShieldCooldown(percent); }
     public void UpdateSpellCooldown(float percent) { abilityHandler.UpdateSpellCooldown(percent); }
+    public void UpdateAbility0Cooldown(float percent) { abilityHandler.UpdateAbility0Cooldown(percent); }
     public void UpdateAbility1Cooldown(float percent) { abilityHandler.UpdateAbility1Cooldown(percent); }
     public void UpdateAbility2Cooldown(float percent) { abilityHandler.UpdateAbility2Cooldown(percent); }
     public void UpdateAbility3Cooldown(float percent) { abilityHandler.UpdateAbility3Cooldown(percent); }

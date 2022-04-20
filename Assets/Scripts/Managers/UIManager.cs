@@ -111,6 +111,7 @@ public class UIManager : Singleton<UIManager>
     public void UpdateDashCooldown(float percent) { hud.UpdateDashCooldown(percent); }
     public void UpdateShieldCooldown(float percent) { hud.UpdateShieldCooldown(percent); }
     public void UpdateSpellCooldown(float percent) { hud.UpdateSpellCooldown(percent); }
+    public void UpdateAbility0Cooldown(float percent) { hud.UpdateAbility0Cooldown(percent); }
     public void UpdateAbility1Cooldown(float percent) { hud.UpdateAbility1Cooldown(percent); }
     public void UpdateAbility2Cooldown(float percent) { hud.UpdateAbility2Cooldown(percent); }
     public void UpdateAbility3Cooldown(float percent) { hud.UpdateAbility3Cooldown(percent); }

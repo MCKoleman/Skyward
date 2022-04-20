@@ -78,7 +78,27 @@ public class UIAbilityHandler : MonoBehaviour
     public void UpdateDashCooldown(float percent) { dashCooldown.UpdateCooldown(percent); }
     public void UpdateShieldCooldown(float percent) { shieldCooldown.UpdateCooldown(percent); }
     public void UpdateSpellCooldown(float percent) { spellCooldown.UpdateCooldown(percent); }
-    public void UpdateAbility1Cooldown(float percent) { ability1Cooldown.UpdateCooldown(percent); }
-    public void UpdateAbility2Cooldown(float percent) { ability2Cooldown.UpdateCooldown(percent); }
-    public void UpdateAbility3Cooldown(float percent) { ability3Cooldown.UpdateCooldown(percent); }
+
+    public void UpdateAbility0Cooldown(float percent)
+    {
+        GetAbilityElement(GlobalVars.AbilityType.MAGIC_MISSILE).UpdateCooldown(percent);
+    }
+
+    public void UpdateAbility1Cooldown(float percent) 
+    {
+        ability1Cooldown.UpdateCooldown(percent);
+        GetAbilityElement(GlobalVars.AbilityType.METEOR).UpdateCooldown(percent);
+    }
+
+    public void UpdateAbility2Cooldown(float percent)
+    {
+        ability2Cooldown.UpdateCooldown(percent);
+        GetAbilityElement(GlobalVars.AbilityType.ICE_WAVE).UpdateCooldown(percent);
+    }
+
+    public void UpdateAbility3Cooldown(float percent)
+    {
+        ability3Cooldown.UpdateCooldown(percent);
+        GetAbilityElement(GlobalVars.AbilityType.LIGHTNING_BOLT).UpdateCooldown(percent);
+    }
 }

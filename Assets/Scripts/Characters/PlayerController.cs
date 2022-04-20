@@ -257,20 +257,26 @@ public class PlayerController : CharacterController
     public void HandleMoveContext(InputAction.CallbackContext context)
     {
         //Debug.Log($"Can move? : [{GameManager.Instance.IsGameActive}]");
-        if(CanTakeInput())
+        if (CanTakeInput())
             HandleMove(context.ReadValue<Vector2>());
+        else if (context.ReadValue<Vector2>() == Vector2.zero)
+            HandleMove(Vector2.zero);
     }
 
     public void HandleLookContext(InputAction.CallbackContext context)
     {
         if (CanTakeInput())
             HandleLook(context.ReadValue<Vector2>());
+        else if (context.ReadValue<Vector2>() == Vector2.zero)
+            HandleMove(Vector2.zero);
     }
 
     public void HandleLookDeltaContext(InputAction.CallbackContext context)
     {
         if (CanTakeInput())
             HandleLookDelta(context.ReadValue<Vector2>());
+        else if (context.ReadValue<Vector2>() == Vector2.zero)
+            HandleMove(Vector2.zero);
     }
 
     public void HandleAttackContext(InputAction.CallbackContext context)

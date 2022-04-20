@@ -102,6 +102,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 858445485639212211, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
+      propertyPath: xp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3196604091257490428, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_Radius
       value: 0.75
@@ -160,7 +164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8947402544891268238, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_Name
-      value: BaseEnemy
+      value: Enemy_Mage
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5434092129128606751, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
@@ -211,24 +215,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6754389003982967905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8558072983760865184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9880dc70d092fa944a3baa4081bef45d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldownTime: 1
-  volleySize: 1
-  projSpeed: 200
-  timeBetweenProj: 0.5
-  spawnPoint: {fileID: 7196496474922333874}
-  projectile: {fileID: 4228796660883860438, guid: f6a8b0f069539564aadad5df795cd6cd, type: 3}
 --- !u!114 &1810968958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,7 +236,26 @@ MonoBehaviour:
   maxDashCooldown: 0.4
   movSpeed: 2
   rotSpeed: 3
+  despawnTime: 2
   range: 10
+--- !u!114 &6754389003982967905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8558072983760865184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9880dc70d092fa944a3baa4081bef45d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 1
+  volleySize: 1
+  projSpeed: 200
+  timeBetweenProj: 0.5
+  spawnPoint: {fileID: 7196496474922333874}
+  projectile: {fileID: 4228796660883860438, guid: f6a8b0f069539564aadad5df795cd6cd, type: 3}
 --- !u!1001 &4274524768479209259
 PrefabInstance:
   m_ObjectHideFlags: 0

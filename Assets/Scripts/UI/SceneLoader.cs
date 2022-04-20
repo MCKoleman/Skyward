@@ -52,16 +52,19 @@ public class SceneLoader : MonoBehaviour
     // Asynchronously loads the scene with the given ID
     public void LoadSceneWithIdAsync(int level)
     {
-        GameManager.Instance.SetGameState(GameManager.GameState.LOADING_LEVEL);
-        UIManager.Instance.EnableLoadingScreen(true);
-        UIManager.Instance.SetLoadingProgressText("Loading level");
-        EventSystem.current.SetSelectedGameObject(null);
         StartCoroutine(HandleSceneLoadAsync(level));
     }
 
     // Handles the asynchronous part of loading a scene
     private IEnumerator HandleSceneLoadAsync(int level)
     {
+        // Wait for dialogue to finish before loading the next level
+        yield return new WaitUntil(() => !UIManager.Instance.IsDialogueActive());
+        PrefabManager.Instance.ResetLevel();
+        GameManager.Instance.SetGameState(GameManager.GameState.LOADING_LEVEL);
+        UIManager.Instance.EnableLoadingScreen(true);
+        UIManager.Instance.SetLoadingProgressText("Loading level");
+        EventSystem.current.SetSelectedGameObject(null);
         AsyncOperation progress = SceneManager.LoadSceneAsync(level);
 
         yield return new WaitUntil(() => progress.isDone);

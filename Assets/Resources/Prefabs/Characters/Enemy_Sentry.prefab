@@ -1461,6 +1461,10 @@ PrefabInstance:
       propertyPath: speedMods
       value: 
       objectReference: {fileID: 11400000, guid: 4537d0465671a4d448c0aac0e3fcfc3c, type: 2}
+    - target: {fileID: 858445485639212211, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
+      propertyPath: xp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2296353288259372170, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

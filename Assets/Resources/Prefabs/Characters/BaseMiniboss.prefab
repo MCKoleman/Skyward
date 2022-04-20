@@ -73,6 +73,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 858445485639212211, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
+      propertyPath: xp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 858445485639212211, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: destroyOnDeath
       value: 0
       objectReference: {fileID: 0}
@@ -214,5 +218,6 @@ MonoBehaviour:
   maxDashCooldown: 0.4
   movSpeed: 5
   rotSpeed: 3
+  despawnTime: 2
   chaseDist: 30
   stopDist: 3

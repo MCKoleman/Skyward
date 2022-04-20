@@ -39,6 +39,7 @@ public class UIManager : Singleton<UIManager>
     // Displays the death menu
     public void ShowDeathMenu(bool shouldEnable = true)
     {
+        hud.EnableHUD(!shouldEnable);
         deathMenu.EnableMenu(shouldEnable);
     }
 
@@ -96,12 +97,16 @@ public class UIManager : Singleton<UIManager>
 
     /* ============================================================ Child component function wrappers ==================================== */
     //public void UpdateLifeDisplay() { hud.UpdateLifeDisplay(); }
+    public bool IsDialogueActive() { return hud.IsDialogueActive(); }
     public void UpdateHealth(float percent) { hud.UpdateHealth(percent); }
+    public void ShowHUDAbilities(bool shouldEnable = true) { hud.ShowAbilities(shouldEnable); }
     public void ContinueDialogue() { hud.ContinueDialogue(); }
     public void SetLoadingProgressText(string text) { loadingScreen.SetProgressText(text); }
     public void SetMinimapCameraWidth(float width) { hud.SetMinimapCameraWidth(width); }
     public void SetMinimapDungeonCenter(Vector3 center) { hud.SetMinimapDungeonCenter(center); }
     public void SetLevelNum(int num) { hud.SetLevelNum(num); }
+    public void UpdateXpDisplay(float percent) { hud.UpdateXpDisplay(percent); }
+    public void UpdateLifeDisplay(int lives) { hud.UpdateLifeDisplay(lives); }
     public GlobalVars.AbilityType SelectAbility(GlobalVars.AbilityType type, GlobalVars.AbilityType activeType) { return hud.SelectAbility(type, activeType); }
     public void UpdateDashCooldown(float percent) { hud.UpdateDashCooldown(percent); }
     public void UpdateShieldCooldown(float percent) { hud.UpdateShieldCooldown(percent); }

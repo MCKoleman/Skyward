@@ -17,6 +17,10 @@ public class EnemyAI_Sentry : EnemyController
 
     protected void Update()
     {
+        // Disable rotation when dead
+        if (isDead)
+            return;
+
         dist = Vector3.Distance(transform.position, player.transform.position);
         transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
         if (rAttack != null && dist <= range)

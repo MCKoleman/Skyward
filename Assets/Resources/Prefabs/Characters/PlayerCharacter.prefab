@@ -11,9 +11,13 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1010469354426891297, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5476302239681886078, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: PlayerCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 5709032547906216084, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
       propertyPath: m_RootOrder
@@ -67,6 +71,14 @@ PrefabInstance:
       propertyPath: healthRegenRate
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 7730085875987409624, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730085875987409625, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
 --- !u!1 &2358043394979810682 stripped
@@ -88,12 +100,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castCooldown: 1
   spells:
-  - {fileID: 5734887256358303943, guid: 22ff9fd857248a04aa8e87c8dfd91e51, type: 3}
+  - {fileID: 8734908834644877807, guid: 43523d5086cee3c4cbce0cf342102427, type: 3}
   - {fileID: 3163941058817245139, guid: b4c909f051db84d40bd0709fd4de2416, type: 3}
   - {fileID: 5734887256358303943, guid: 22ff9fd857248a04aa8e87c8dfd91e51, type: 3}
   - {fileID: 5734887256358303943, guid: 22ff9fd857248a04aa8e87c8dfd91e51, type: 3}
+  - {fileID: 8120930366862349644, guid: 0e967ae806fe8a844a9af8b1ff18048b, type: 3}
   cooldowns:
+  - 60
+  - 10
   - 5
-  - 5
-  - 5
-  - 5
+  - 2
+  - 30

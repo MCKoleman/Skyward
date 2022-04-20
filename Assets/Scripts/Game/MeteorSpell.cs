@@ -12,6 +12,7 @@ public class MeteorSpell : MonoBehaviour
 
     private void Start()
     {
+        inArea = new HashSet<Character>();
         StartCoroutine(Cleanup());
     }
 

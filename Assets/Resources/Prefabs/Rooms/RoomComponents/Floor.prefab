@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3101753301799957611}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -86,6 +86,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fb033ca5c4cbdc2448d9d039785d8dc2, type: 3}
       propertyPath: m_Name
       value: New 15x10 Dungeon Floor Meters
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fb033ca5c4cbdc2448d9d039785d8dc2, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fb033ca5c4cbdc2448d9d039785d8dc2, type: 3}
       propertyPath: m_TagString
@@ -178,6 +182,10 @@ PrefabInstance:
     - target: {fileID: 7138772909028035715, guid: 92f922b0b4a2904429b0b9d8097da822, type: 3}
       propertyPath: m_Name
       value: MinimapIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 7138772909028035715, guid: 92f922b0b4a2904429b0b9d8097da822, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7138772909028035715, guid: 92f922b0b4a2904429b0b9d8097da822, type: 3}
       propertyPath: m_TagString

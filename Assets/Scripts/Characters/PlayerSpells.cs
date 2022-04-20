@@ -9,14 +9,15 @@ public class PlayerSpells : MonoBehaviour
     private float castTimer;
 
     // Spells to instantiate
-    [Tooltip("Meteor - 0, Frost - 1, Lightning - 2, Shield - 3")]
-    public GameObject[] spells = new GameObject[4];
+    [Tooltip("Meteor - 0, Frost - 1, Lightning - 2, Magic Missile - 3, Shield - 4")]
+    public GameObject[] spells = new GameObject[5];
 
     // Cooldowns for spells
-    public float[] cooldowns = new float[4];
+    [Tooltip("Meteor - 0, Frost - 1, Lightning - 2, Magic Missile - 3, Shield - 4")]
+    public float[] cooldowns = new float[5];
 
     // Cooldown indicators
-    private bool[] checks = new bool[4];
+    private bool[] checks = new bool[5];
 
     private delegate void UpdateUI(float percent);
     private Ray viewRay;
@@ -94,10 +95,10 @@ public class PlayerSpells : MonoBehaviour
 
     public void Shield()
     {
-        if (checks[3])
+        if (castTimer <= 0 && !checks[4] && CastInParent(spells[4]))
         {
-            //Don't cast, just make the palyer invincible
-            //StartCoroutine(Cooldown(3));
+            Debug.Log("SHIELDS UP!!!");
+            StartCoroutine(Cooldown(4, UIManager.Instance.UpdateShieldCooldown));
         }
     }
 
@@ -107,8 +108,9 @@ public class PlayerSpells : MonoBehaviour
     {
         RaycastHit hit;
         LayerMask mask = LayerMask.GetMask("Ground");
-        if (Physics.Raycast(viewRay, out hit, mask))
+        if (Physics.Raycast(viewRay, out hit, 100.0f, mask))
         {
+            Debug.Log(hit.transform.name);
             Instantiate(spell, hit.point, Quaternion.identity);
             return true;
         }
@@ -119,6 +121,13 @@ public class PlayerSpells : MonoBehaviour
     private bool CastAtPos(GameObject spell)
     {
         Instantiate(spell, transform.position, transform.rotation);
+        return true;
+    }
+
+    private bool CastInParent(GameObject spell)
+    {
+        var magic = Instantiate(spell, transform.position, transform.rotation) as GameObject;
+        magic.transform.SetParent(transform);
         return true;
     }
 

@@ -458,6 +458,10 @@ MonoBehaviour:
   maxHealth: 6
   baseMoveSpeed: 8
   movementSpeedMod: 1
+  minRegenTime: 0
+  curRegenTime: 0
+  healthRegenRate: 0
+  isHealthRegenEnabled: 1
 --- !u!114 &7120619675437001521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,6 +735,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6dc70645-3d1e-4c05-8c19-98fe27cc03e9
     m_ActionName: Player/Ability3[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4773102276367652192}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: HandleAbility0Context
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0ef47dbc-0626-43c0-873f-48256409cb71
+    m_ActionName: Player/Ability0[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player

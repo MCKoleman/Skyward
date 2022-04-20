@@ -34,6 +34,10 @@ public class PlayerController : CharacterController
         spells = GetComponent<PlayerSpells>();
 
         rotationPlane = new Plane(Vector3.up, Vector3.zero);
+
+        // Select magic missile by default
+        curAbility = GlobalVars.AbilityType.MAGIC_MISSILE;
+        UIManager.Instance.SelectAbility(curAbility);
     }
 
     protected void Update()
@@ -231,19 +235,44 @@ public class PlayerController : CharacterController
         spells.Shield();
     }
 
+    protected void HandleAbility0()
+    {
+        // Don't reselect ability
+        if (curAbility == GlobalVars.AbilityType.MAGIC_MISSILE)
+            return;
+
+        curAbility = GlobalVars.AbilityType.MAGIC_MISSILE;
+        UIManager.Instance.SelectAbility(curAbility);
+    }
+
     protected void HandleAbility1()
     {
-        curAbility = UIManager.Instance.SelectAbility(GlobalVars.AbilityType.METEOR, curAbility);
+        // Don't reselect ability
+        if (curAbility == GlobalVars.AbilityType.METEOR)
+            return;
+
+        curAbility = GlobalVars.AbilityType.METEOR;
+        UIManager.Instance.SelectAbility(curAbility);
     }
 
     protected void HandleAbility2()
     {
-        curAbility = UIManager.Instance.SelectAbility(GlobalVars.AbilityType.ICE_WAVE, curAbility);
+        // Don't reselect ability
+        if (curAbility == GlobalVars.AbilityType.ICE_WAVE)
+            return;
+
+        curAbility = GlobalVars.AbilityType.ICE_WAVE;
+        UIManager.Instance.SelectAbility(curAbility);
     }
 
     protected void HandleAbility3()
     {
-        curAbility = UIManager.Instance.SelectAbility(GlobalVars.AbilityType.LIGHTNING_BOLT, curAbility);
+        // Don't reselect ability
+        if (curAbility == GlobalVars.AbilityType.LIGHTNING_BOLT)
+            return;
+
+        curAbility = GlobalVars.AbilityType.LIGHTNING_BOLT;
+        UIManager.Instance.SelectAbility(curAbility);
     }
 
     protected void HandleMenu()
@@ -302,6 +331,12 @@ public class PlayerController : CharacterController
     {
         if (context.performed && CanTakeInput())
             HandleShield();
+    }
+
+    public void HandleAbility0Context(InputAction.CallbackContext context)
+    {
+        if (context.performed && CanTakeInput())
+            HandleAbility0();
     }
 
     public void HandleAbility1Context(InputAction.CallbackContext context)

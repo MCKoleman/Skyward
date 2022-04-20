@@ -6,6 +6,18 @@ using UnityEngine;
 [System.Serializable]
 public class DungeonContentList : ScriptableObject
 {
+    [System.Serializable]
+    public struct ContentGameObject
+    {
+        public GlobalVars.ContentType content;
+        public GameObject obj;
+        public ContentGameObject(GlobalVars.ContentType _content, GameObject _obj)
+        {
+            content = _content;
+            obj = _obj;
+        }
+    }
+
     [Header("Content lists")]
     [SerializeField]
     private WeightedGameObjectList enemyList = new WeightedGameObjectList();
@@ -51,7 +63,7 @@ public class DungeonContentList : ScriptableObject
     private float hazardMod;
 
     // Returns a random gameObject from all the lists based on the given random values
-    public GameObject GetRandomContent(float roomPercent, ContentNode.NodePlace place)
+    public ContentGameObject GetRandomContent(float roomPercent, ContentNode.NodePlace place)
     {
         // Change content generation based on node type
         switch(place)
@@ -67,22 +79,22 @@ public class DungeonContentList : ScriptableObject
             case ContentNode.NodePlace.NORMAL:
                 return GetRandomContent(roomPercent);
             default:
-                return null;
+                return new ContentGameObject(GlobalVars.ContentType.NOTHING, null);
         }
     }
 
     // Gets a random wall object
-    private GameObject GetRandomWallContent(float roomPercent)
+    private ContentGameObject GetRandomWallContent(float roomPercent)
     {
         float rand = Random.Range(0.0f, 1.0f);
         if (rand < baseWallObjWeight * Mathf.Pow(1 + wallObjWeight, 1 + roomPercent))
-            return wallObjList.GetRandomObject();
+            return new ContentGameObject(GlobalVars.ContentType.WALL, wallObjList.GetRandomObject());
         else
-            return null;
+            return new ContentGameObject(GlobalVars.ContentType.NOTHING, null);
     }
 
     // Gets random content with the given room percent
-    private GameObject GetRandomContent(float roomPercent)
+    private ContentGameObject GetRandomContent(float roomPercent)
     {
         // Find modifiers
         float kN = Mathf.Clamp((baseNothingWeight + roomPercent * nothingMod), 0.0f, 2.0f) * nothingWeight;
@@ -95,24 +107,24 @@ public class DungeonContentList : ScriptableObject
         // Get random enemy
         if (rand < kE)
         {
-            return enemyList.GetRandomObject();
+            return new ContentGameObject(GlobalVars.ContentType.ENEMY, enemyList.GetRandomObject());
         }
         rand -= kE;
 
         // Get random treasure
         if (rand < kT)
         {
-            return treasureList.GetRandomObject();
+            return new ContentGameObject(GlobalVars.ContentType.TREASURE, treasureList.GetRandomObject());
         }
         rand -= kT;
 
         // Get random hazard
         if (rand < kH)
         {
-            return hazardList.GetRandomObject();
+            return new ContentGameObject(GlobalVars.ContentType.HAZARD, hazardList.GetRandomObject());
         }
 
         // Spawn nothing
-        return null;
+        return new ContentGameObject(GlobalVars.ContentType.NOTHING, null);
     }
 }

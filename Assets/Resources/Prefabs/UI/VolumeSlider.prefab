@@ -481,7 +481,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4abb41a2c87365a45b4d28bafcdd15dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 169dad39d566f584a9d13f53a3ee4649, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -554,10 +554,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.7490566, g: 0.7490566, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.40000004, g: 0.40000004, b: 1, a: 1}
-    m_PressedColor: {r: 0, g: 0, b: 0.75294125, a: 1}
-    m_SelectedColor: {r: 0.40000004, g: 0.40000004, b: 1, a: 1}
+    m_NormalColor: {r: 0.2735849, g: 0.16905482, b: 0.22131987, a: 1}
+    m_HighlightedColor: {r: 0.4716981, g: 0.14907439, b: 0.24077104, a: 1}
+    m_PressedColor: {r: 0.745283, g: 0.094918124, b: 0.23553468, a: 1}
+    m_SelectedColor: {r: 0.49056602, g: 0.11801351, b: 0.15674071, a: 1}
     m_DisabledColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -922,7 +922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.40000004, g: 0.40000004, b: 1, a: 1}
+  m_Color: {r: 0.3679245, g: 0.15792987, b: 0.19992885, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

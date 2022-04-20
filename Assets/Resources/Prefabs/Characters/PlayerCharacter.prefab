@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1010469354426891297, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5476302239681886078, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
       propertyPath: m_Name
-      value: PlayerCharacter
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5709032547906216084, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
       propertyPath: m_RootOrder
@@ -57,3 +61,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
+--- !u!1 &2358043394979810682 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5476302239681886078, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
+  m_PrefabInstance: {fileID: 7730085876571601412}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1425520662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358043394979810682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5fa2b0c8e43184399602a65c2bb6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castCooldown: 1
+  spells:
+  - {fileID: 5734887256358303943, guid: 22ff9fd857248a04aa8e87c8dfd91e51, type: 3}
+  - {fileID: 3163941058817245139, guid: b4c909f051db84d40bd0709fd4de2416, type: 3}
+  - {fileID: 5734887256358303943, guid: 22ff9fd857248a04aa8e87c8dfd91e51, type: 3}
+  - {fileID: 5734887256358303943, guid: 22ff9fd857248a04aa8e87c8dfd91e51, type: 3}
+  cooldowns:
+  - 5
+  - 5
+  - 5
+  - 5

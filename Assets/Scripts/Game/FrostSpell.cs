@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightningSpell : MonoBehaviour
+public class FrostSpell : MonoBehaviour
 {
     public int damage;
     public ParticleSystem vfx;
@@ -14,7 +14,6 @@ public class LightningSpell : MonoBehaviour
 
     IEnumerator Cleanup()
     {
-        //Debug.Log(vfx.time);
         yield return new WaitForSeconds(vfx.main.duration);
         Destroy(this.gameObject);
     }

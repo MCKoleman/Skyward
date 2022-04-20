@@ -18,6 +18,7 @@ public class PlayerController : CharacterController
     protected CameraController cam;
     [SerializeField]
     protected PlayerAttack_Melee meleeAttack;
+    protected PlayerSpells spells;
     private Plane rotationPlane;
 
     [SerializeField]
@@ -30,6 +31,7 @@ public class PlayerController : CharacterController
         base.Start();
         interactables = new List<Interactable>();
         cam = Camera.main.GetComponent<CameraController>();
+        spells = GetComponent<PlayerSpells>();
 
         rotationPlane = new Plane(Vector3.up, Vector3.zero);
     }
@@ -168,6 +170,9 @@ public class PlayerController : CharacterController
             Vector3 lookDif = viewRay.GetPoint(rayLength) - this.transform.position;
             targetRotation = Vector2.SignedAngle(new Vector2(lookDif.x, lookDif.z), Vector2.up);
         }
+
+        // Update spell casting 
+        spells.SetRay(viewRay);
     }
 
     protected void HandleLookDelta(Vector2 lookDelta)
@@ -204,16 +209,16 @@ public class PlayerController : CharacterController
         switch(curAbility)
         {
             case GlobalVars.AbilityType.MAGIC_MISSILE:
-                // Cast magic missiles
+                spells.MagicMissile();
                 break;
             case GlobalVars.AbilityType.METEOR:
-                // Cast meteor
+                spells.Meteor();
                 break;
             case GlobalVars.AbilityType.ICE_WAVE:
-                // Cast ice wave
+                spells.Frost(); 
                 break;
             case GlobalVars.AbilityType.LIGHTNING_BOLT:
-                // Cast lightning bolt
+                spells.Lightning();
                 break;
             case GlobalVars.AbilityType.DEFAULT:
             default:
@@ -223,7 +228,7 @@ public class PlayerController : CharacterController
 
     protected void HandleShield()
     {
-        // TODO: Handle shield
+        spells.Shield();
     }
 
     protected void HandleAbility1()

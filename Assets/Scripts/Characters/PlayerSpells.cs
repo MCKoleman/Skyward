@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class PlayerSpells : MonoBehaviour
 {
+    // Cast cooldown (should be < spell cooldowns)
+    public float castCooldown;
+    private float castTimer;
+
     // Spells to instantiate
-    [Tooltip("Lightning - 0, Forst - 1, Meteor - 2, Shield - 3")]
+    [Tooltip("Meteor - 0, Frost - 1, Lightning - 2, Shield - 3")]
     public GameObject[] spells = new GameObject[4];
 
     // Cooldowns for spells
@@ -14,41 +18,78 @@ public class PlayerSpells : MonoBehaviour
     // Cooldown indicators
     private bool[] checks = new bool[4];
 
+    private delegate void UpdateUI(float percent);
     private Ray viewRay;
 
-    //Sure wish I could pass references
-    IEnumerator Cooldown(int spell)
+    //Update loop wouldn't work when invoking UpdateSpellCooldown for some reason
+    IEnumerator CastCooldown()
     {
-        checks[spell] = false;
-        yield return new WaitForSeconds(cooldowns[spell]);
-        checks[spell] = true;
+        castTimer = castCooldown;
+
+        //Cast cooldown
+        while (castTimer > 0)
+        {
+            UIManager.Instance.UpdateSpellCooldown(castTimer / castCooldown);
+            castTimer -= Time.deltaTime;
+            yield return null;
+        }
     }
 
-    public void Lightning()
+    //Rather than having separate cooldowns for each spell
+    //Also allows having unique spells cooldowns, within the same casting cooldown, at the same time
+    IEnumerator Cooldown(int spell, UpdateUI updateFunc)
     {
-        if (checks[0])
+        StartCoroutine(CastCooldown());
+
+        checks[spell] = true;
+        var timeLeft = cooldowns[spell];
+        while (timeLeft > 0)
         {
-            CastAtMouse(spells[0]);
-            StartCoroutine(Cooldown(0));
+            updateFunc(timeLeft/cooldowns[spell]);
+            timeLeft -= Time.deltaTime;
+            yield return null;
+        }
+        checks[spell] = false;
+    }
+
+    public void Meteor()
+    {
+        if (castTimer <= 0 && !checks[0] && CastAtMouse(spells[0]))
+        {
+            Debug.Log("AAAAAAAAAAUGH!!!");
+            StartCoroutine(Cooldown(0, UIManager.Instance.UpdateAbility1Cooldown));
         }
     }
 
     public void Frost()
     {
-        if (checks[1])
+        if (castTimer <= 0 && !checks[1] && CastAtPos(spells[1]))
         {
-            //CastAtPos(spells[1]);
-            StartCoroutine(Cooldown(1));
+            Debug.Log("CHILLY!!!");
+            StartCoroutine(Cooldown(1, UIManager.Instance.UpdateAbility2Cooldown));
         }
     }
 
-    public void Meteor()
+    public void Lightning()
     {
-        if (checks[2])
+        if (castTimer <= 0 && !checks[2] && CastAtMouse(spells[2]))
         {
-            CastAtMouse(spells[2]);
-            StartCoroutine(Cooldown(2));
+            Debug.Log("THUNDER!!!");
+            StartCoroutine(Cooldown(2, UIManager.Instance.UpdateAbility3Cooldown));
         }
+    }
+
+    public void Missile()
+    {
+        if (castTimer <= 0 && !checks[3] && CastAtMouse(spells[3]))
+        {
+            Debug.Log("MAGIC MISSILE!!!");
+            //StartCoroutine(Cooldown(3, UIManager.Instance.Upd));
+        }
+    }
+
+    public void MagicMissile() { 
+
     }
 
     public void Shield()
@@ -56,24 +97,29 @@ public class PlayerSpells : MonoBehaviour
         if (checks[3])
         {
             //Don't cast, just make the palyer invincible
-            StartCoroutine(Cooldown(3));
+            //StartCoroutine(Cooldown(3));
         }
     }
 
     //Instantiate the spell. Spell-specific functionality is implemented in their respective scripts.
-    private void CastAtMouse(GameObject spell)
+    //Return bool. Only want spell to cooldown when it has actually triggered.
+    private bool CastAtMouse(GameObject spell)
     {
         RaycastHit hit;
         LayerMask mask = LayerMask.GetMask("Ground");
         if (Physics.Raycast(viewRay, out hit, mask))
         {
             Instantiate(spell, hit.point, Quaternion.identity);
+            return true;
         }
+
+        return false;
     }
 
-    private void CastAtPos()
+    private bool CastAtPos(GameObject spell)
     {
-        //Instantiate(spell, transform.position, transform.rotation);
+        Instantiate(spell, transform.position, transform.rotation);
+        return true;
     }
 
     public void SetRay(Ray fromMouse)

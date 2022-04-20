@@ -25,6 +25,9 @@ public class ProjectileMoveScript : MonoBehaviour {
     private RotateToMouseScript rotateToMouse;
     private GameObject target;
 
+    //to deal damage on impact
+    public MeteorSpell spell;
+
 	void Start () {
         startPos = transform.position;
         rb = GetComponent <Rigidbody> ();
@@ -103,6 +106,7 @@ public class ProjectileMoveScript : MonoBehaviour {
                 if (hitPrefab != null)
                 {
                     var hitVFX = Instantiate(hitPrefab, pos, rot) as GameObject;
+                    spell.ImpactDamage();
 
                     var ps = hitVFX.GetComponent<ParticleSystem>();
                     if (ps == null)

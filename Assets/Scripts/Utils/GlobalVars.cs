@@ -9,6 +9,8 @@ public class GlobalVars : Singleton<GlobalVars>
     public enum ElementType { DEFAULT, FIRE, ICE, LIGHTNING };
     [System.Serializable]
     public enum AbilityType { DEFAULT = 0, MAGIC_MISSILE = 1, METEOR = 2, ICE_WAVE = 3, LIGHTNING_BOLT = 4 };
+    [System.Serializable]
+    public enum ContentType { NOTHING, ENEMY, TREASURE, HAZARD, WALL };
 
     [System.Serializable]
     public enum Direction { MIDDLE = 0, TOP = 1, BOTTOM = 2, RIGHT = 3, LEFT = 4 }

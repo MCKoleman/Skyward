@@ -330,10 +330,26 @@ public class DungeonManager : Singleton<DungeonManager>
     public void SpawnContent(ContentNode node)
     {
         // Find random content for the room
-        GameObject tempContent = contentList.GetRandomContent(node.GetParentRoom().roomNum / (float)numRooms, node.nodePlace);
-        if (tempContent != null)
+        DungeonContentList.ContentGameObject tempContent = contentList.GetRandomContent(node.GetParentRoom().roomNum / (float)numRooms, node.nodePlace);
+        if (tempContent.obj != null)
         {
-            Instantiate(tempContent, node.transform.position, node.transform.rotation, node.GetParentRoom().transform);
+            switch(tempContent.content)
+            {
+                case GlobalVars.ContentType.HAZARD:
+                    Instantiate(tempContent.obj, node.transform.position, node.transform.rotation, PrefabManager.Instance.dungeonContentHolder);
+                    break;
+                case GlobalVars.ContentType.TREASURE:
+                    Instantiate(tempContent.obj, node.transform.position, node.transform.rotation, PrefabManager.Instance.treasureHolder);
+                    break;
+                case GlobalVars.ContentType.ENEMY:
+                    Instantiate(tempContent.obj, node.transform.position, node.transform.rotation, PrefabManager.Instance.enemyHolder);
+                    break;
+                case GlobalVars.ContentType.WALL:
+                case GlobalVars.ContentType.NOTHING:
+                default:
+                    Instantiate(tempContent.obj, node.transform.position, node.transform.rotation, node.GetParentRoom().transform);
+                    break;
+            }
         }
     }
 

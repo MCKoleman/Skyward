@@ -60,6 +60,36 @@ MonoBehaviour:
       text: Fair enough, well I imagine your journey will only get harder from here.
         Please take this with you and take care of yourself.
   - dialogue:
+    - speaker: 2
+      text: You finally made it.
+    - speaker: 2
+      text: As you probably can tell the air is suffocating since Ziel is right up
+        ahead.
+    - speaker: 2
+      text: Are you ready?
+    - speaker: 0
+      text: '*nods*'
+    - speaker: 2
+      text: "Good. After what you\u2019ve gone through I believe you now have what
+        it takes to overcome him."
+    - speaker: 2
+      text: "I\u2019m glad I got to see you one last time and I\u2019m grateful you
+        saved me."
+    - speaker: 2
+      text: The others you freed before me must have felt the same.
+    - speaker: 2
+      text: The way you always stood up for others as if you had a will of steel,
+        shined a bright light in my life.
+    - speaker: 2
+      text: I love you, **********!
+    - speaker: 2
+      text: "Before I go take this, it\u2019ll help you overcome Ziel this time."
+    - speaker: 2
+      text: "Go live your life and be happy, I\u2019ll be cheering you on from the
+        other side."
+    - speaker: 2
+      text: See ya.
+  - dialogue:
     - speaker: 1
       text: So you found your way back up again?
     - speaker: 1

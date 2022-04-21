@@ -40,7 +40,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         shake = Camera.main.GetComponentInParent<CameraShake>();
-        destination = new Vector3(roomPos.x + offset.x, offset.y, roomPos.z + offset.z);
+        //destination = new Vector3(roomPos.x + offset.x, offset.y, roomPos.z + offset.z);
         player = GameObject.FindGameObjectWithTag("Player").transform;
         targetFov = GetTargetFOV();
     }
@@ -79,7 +79,7 @@ public class CameraController : MonoBehaviour
         // Position the camera to match the room type
         if(IsLargeRoom())
         {
-            destination = new Vector3(roomPos.x + offset.x, offset.y, roomPos.z);
+            destination = new Vector3(roomPos.x, offset.y, roomPos.z);
             targetRot = new Vector3(90f, 0f, 0f);
         }
         else
@@ -94,9 +94,15 @@ public class CameraController : MonoBehaviour
     private Vector3 ClampDestinationToRoomBounds(Vector3 destination)
     {
         return new Vector3(
-            Mathf.Clamp(destination.x, roomPos.x - defaultRoomSize.x * 0.5f + offset.x, roomPos.x + defaultRoomSize.x * 0.5f + offset.x), 
-            Mathf.Clamp(destination.y, offset.y, offset.y), 
-            Mathf.Clamp(destination.z, roomPos.z - defaultRoomSize.y * 0.5f, roomPos.z + defaultRoomSize.y * 0.5f));
+            Mathf.Clamp(destination.x, 
+                roomPos.x - roomSize.x * 0.5f - defaultRoomSize.x * 0.5f + offset.x, 
+                roomPos.x + roomSize.x * 0.5f + defaultRoomSize.x * 0.5f + offset.x), 
+            Mathf.Clamp(destination.y, 
+                offset.y, 
+                offset.y), 
+            Mathf.Clamp(destination.z, 
+                roomPos.z - roomSize.y * 0.5f - defaultRoomSize.y * 0.5f,
+                roomPos.z + roomSize.y * 0.5f + defaultRoomSize.y * 0.5f));
     }
 
     // Returns whether the player is in a big room or not

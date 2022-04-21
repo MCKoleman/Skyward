@@ -42,6 +42,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Spell",
+                    "type": "Button",
+                    "id": "c09eea92-bfb6-42b9-926b-09ccf5e64e5a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "16c80e3d-b4bc-4d65-a447-2b6a974d3830",
@@ -51,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Crouch",
+                    "name": "Shield",
                     "type": "Button",
                     "id": "98fd8ef6-2797-4cd5-a4ee-4091d34f07bf",
                     "expectedControlType": "Button",
@@ -60,7 +69,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ability",
+                    "name": "Ability0",
+                    "type": "Button",
+                    "id": "0ef47dbc-0626-43c0-873f-48256409cb71",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ability1",
                     "type": "Button",
                     "id": "3cebc3a1-251a-4191-b775-1506b1b90ffb",
                     "expectedControlType": "Button",
@@ -69,9 +87,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Interact",
+                    "name": "Ability2",
                     "type": "Button",
-                    "id": "9e931269-6e22-43cc-aa85-0c01a4fc47a4",
+                    "id": "e2fa2276-020c-4ae7-af24-de868421db3c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ability3",
+                    "type": "Button",
+                    "id": "6dc70645-3d1e-4c05-8c19-98fe27cc03e9",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -333,7 +360,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Crouch",
+                    "action": "Shield",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -344,18 +371,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Crouch",
+                    "action": "Shield",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "1742eb8b-7c2f-4aa1-ab76-1b583cba56d0",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Ability",
+                    "action": "Ability1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -366,29 +393,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Ability",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a95e326b-572c-440e-8e7f-a729c01463dd",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a5ac0240-d108-44a9-a91d-b27597d2d984",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Interact",
+                    "action": "Ability1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -406,7 +411,7 @@
                 {
                     "name": "",
                     "id": "cb58f6a4-549b-4bc6-befe-5ce15222cbb7",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -532,6 +537,94 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68182575-fd05-4fff-a1aa-f9836b03594d",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Ability2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dcf9f679-95f3-4ba4-8ba1-b08754346dcb",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Ability2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ea837a8-562d-4030-9142-486b2eec6bc2",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Ability3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e8260a6e-6295-4b0f-9ee9-111f2ff86b59",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Ability3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "09a9df62-b889-4f4f-8e77-d00e2cea730e",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Spell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68103d14-7d4d-4a7c-8434-406c52faa4ea",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Spell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "87772f8f-9bf2-475f-b0d0-20ca735d321e",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Ability0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c0557a2-f49a-4aa3-bee2-c0530a4a81b3",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Ability0",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

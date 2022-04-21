@@ -15,6 +15,8 @@ public class GameManager : Singleton<GameManager>
     public bool IsGameActive { get; private set; }
 
     [SerializeField]
+    private bool isEasyMode = false;
+    [SerializeField]
     private bool DEBUG_DISABLE_DUNGEON = false;
 
     private SceneLoader sceneLoader;
@@ -37,6 +39,7 @@ public class GameManager : Singleton<GameManager>
         SaveManager.Instance.Init();
         CheckpointManager.Instance.Init();
         DialogueManager.Instance.Init();
+        PlayerManager.Instance.Init();
         DungeonManager.Instance.Init();
     }
 
@@ -55,13 +58,13 @@ public class GameManager : Singleton<GameManager>
         Print.Log("Ended game");
         SetIsGameActive(false);
         SaveManager.Instance.EndGame();
-        PrefabManager.Instance.ResetLevel();
     }
 
     // Restarts the game
     public void RestartGame()
     {
         EndGame();
+        sceneLoader.LoadSceneWithId((byte)GlobalVars.SceneType.DUNGEON);
         this.Init();
         StartGame();
     }
@@ -182,4 +185,12 @@ public class GameManager : Singleton<GameManager>
 
     // Getters and setters
     public void SetIsGameActive(bool state) { IsGameActive = state; }
+
+    public void SetIsEasyMode(bool _isEasy)
+    {
+        isEasyMode = _isEasy;
+        PlayerManager.Instance.UpdateUIDisplay();
+    }
+
+    public bool GetIsEasyMode() { return isEasyMode; }
 }

@@ -39,6 +39,7 @@ public class UIManager : Singleton<UIManager>
     // Displays the death menu
     public void ShowDeathMenu(bool shouldEnable = true)
     {
+        hud.EnableHUD(!shouldEnable);
         deathMenu.EnableMenu(shouldEnable);
     }
 
@@ -96,11 +97,22 @@ public class UIManager : Singleton<UIManager>
 
     /* ============================================================ Child component function wrappers ==================================== */
     //public void UpdateLifeDisplay() { hud.UpdateLifeDisplay(); }
+    public bool IsDialogueActive() { return hud.IsDialogueActive(); }
     public void UpdateHealth(float percent) { hud.UpdateHealth(percent); }
-    public void UpdateDashCooldown(float percent) { hud.UpdateDashCooldown(percent); }
+    public void ShowHUDAbilities(bool shouldEnable = true) { hud.ShowAbilities(shouldEnable); }
     public void ContinueDialogue() { hud.ContinueDialogue(); }
     public void SetLoadingProgressText(string text) { loadingScreen.SetProgressText(text); }
     public void SetMinimapCameraWidth(float width) { hud.SetMinimapCameraWidth(width); }
     public void SetMinimapDungeonCenter(Vector3 center) { hud.SetMinimapDungeonCenter(center); }
     public void SetLevelNum(int num) { hud.SetLevelNum(num); }
+    public void UpdateXpDisplay(float percent) { hud.UpdateXpDisplay(percent); }
+    public void UpdateLifeDisplay(int lives) { hud.UpdateLifeDisplay(lives); }
+    public void SelectAbility(GlobalVars.AbilityType type) { hud.SelectAbility(type); }
+    public void UpdateDashCooldown(float percent) { hud.UpdateDashCooldown(percent); }
+    public void UpdateShieldCooldown(float percent) { hud.UpdateShieldCooldown(percent); }
+    public void UpdateSpellCooldown(float percent) { hud.UpdateSpellCooldown(percent); }
+    public void UpdateAbility0Cooldown(float percent) { hud.UpdateAbility0Cooldown(percent); }
+    public void UpdateAbility1Cooldown(float percent) { hud.UpdateAbility1Cooldown(percent); }
+    public void UpdateAbility2Cooldown(float percent) { hud.UpdateAbility2Cooldown(percent); }
+    public void UpdateAbility3Cooldown(float percent) { hud.UpdateAbility3Cooldown(percent); }
 }

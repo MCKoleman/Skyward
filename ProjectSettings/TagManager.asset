@@ -12,6 +12,9 @@ TagManager:
   - DungeonContent
   - Wall
   - PostProcess
+  - Bullet
+  - FxTemporaire
+  - BossAnchor
   layers:
   - Default
   - TransparentFX
@@ -22,7 +25,7 @@ TagManager:
   - Minimap
   - PostProcessing
   - ClothSim
-  - 
+  - Ground
   - 
   - 
   - 

@@ -65,7 +65,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 823
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -105,9 +105,11 @@ MonoBehaviour:
   lockedFollowSpeed: 5
   fovLerpSpeed: 3
   angleLerpSpeed: 3
+  player: {fileID: 0}
   room: {fileID: 0}
   roomPos: {x: 0, y: 0, z: 0}
   roomSize: {x: 15, y: 1}
+  defaultRoomSize: {x: 0, y: 0}
   targetFov: 0
 --- !u!114 &5018630739268529186
 MonoBehaviour:

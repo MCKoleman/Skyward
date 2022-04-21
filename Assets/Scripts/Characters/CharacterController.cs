@@ -245,6 +245,12 @@ public class CharacterController : MonoBehaviour
         SetIsDashing(false);
     }
 
+    // Handles reacting to taking damage
+    public virtual void HandleTakeDamage(bool isDead)
+    {
+
+    }
+
     // Sets the jump cooldown to the given value, clamping it to [0, max]
     protected virtual void SetJumpCooldown(float _val)
     {

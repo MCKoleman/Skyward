@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossAI : EnemyController
 {
+    [Header("Boss Info")]
     [SerializeField]
     protected float roomX;
     [SerializeField]
@@ -46,11 +47,17 @@ public class BossAI : EnemyController
         base.Start();
         stats = GetComponent<EnemyCharacter>();
         abilities = GetComponent<BossAbilities>();
+        if (anchor == null)
+            anchor = GameObject.FindGameObjectWithTag("BossAnchor").transform;
         threshold = stats.CurHealth/2;
+
         maxX = anchor.position.x + roomX;
         minX = anchor.position.x - roomX;
         maxZ = anchor.position.z + roomZ;
         minZ = anchor.position.z - roomZ;
+
+        // TEMP Start boss
+        WakeUp();
     }
 
     // Update is called once per frame

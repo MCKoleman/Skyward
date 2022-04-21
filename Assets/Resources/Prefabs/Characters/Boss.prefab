@@ -261,7 +261,7 @@ MonoBehaviour:
   movSpeed: 10
   rotSpeed: 3
   despawnTime: 15
-  roomX: 10
+  roomX: 15
   roomZ: 10
   anchor: {fileID: 0}
   minStateTime: 10

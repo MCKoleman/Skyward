@@ -36,7 +36,7 @@ public class LevelProgressList : ScriptableObject
     public int GetLevelMinusMiniBosses(int curLevel)
     {
         int miniBosses = 0;
-        for(int i = 0; i < Mathf.Min(curLevel, progressList.Count); i++)
+        for(int i = 0; i < Mathf.Min(curLevel+1, progressList.Count); i++)
         {
             if(progressList[i].sceneType == GlobalVars.SceneType.MINIBOSS)
                 miniBosses++;

@@ -24,6 +24,7 @@ public class LightningSpell : MonoBehaviour
         Character tempChar = collision.gameObject.GetComponent<Character>();
         if (tempChar != null && collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("Hit");
             tempChar.TakeDamage(damage);
         }
     }

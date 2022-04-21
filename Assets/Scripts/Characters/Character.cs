@@ -99,4 +99,9 @@ public class Character : MonoBehaviour
     {
         invincible = setTo;
     }
+
+    public virtual int GetMaxHealth()
+    {
+        return maxHealth;
+    }
 }

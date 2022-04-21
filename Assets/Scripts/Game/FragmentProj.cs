@@ -14,7 +14,15 @@ public class FragmentProj : MonoBehaviour
     public int speedMultiplier = 2;
     //public float originalForce = 100.0f;
 
+    public AudioClip splitSFX;
+
     private bool fragged = false;
+    private AudioSource aSrc;
+
+    private void Start()
+    {
+        aSrc = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -57,6 +65,9 @@ public class FragmentProj : MonoBehaviour
     //Add any VFX or SFX....
     private void CleanUp()
     {
-        Destroy(gameObject);
+        aSrc.PlayOneShot(splitSFX);
+        GetComponentInChildren<ParticleSystem>().Stop();
+        GetComponent<Collider>().enabled = false;
+        Destroy(gameObject, splitSFX.length);
     }
 }

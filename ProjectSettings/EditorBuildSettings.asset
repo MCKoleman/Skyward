@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: b4c3d16d78722da4da00d91304699f5f
   - enabled: 1
     path: Assets/Scenes/Dungeon.unity
-    guid: ddf6a4c38c43b05479aa0020cadfc0c7
+    guid: 52870a10c396e1b4a9bbb2a2466fb83c
   - enabled: 1
     path: Assets/Scenes/MiniBossDungeon.unity
     guid: 28ed616bda72fe746b1ec8f34e5b528f

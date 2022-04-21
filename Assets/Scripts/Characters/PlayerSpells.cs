@@ -19,6 +19,8 @@ public class PlayerSpells : MonoBehaviour
     // Cooldown indicators
     private bool[] checks = new bool[5];
 
+    public float projSpeed;
+    public GameObject projSpawn;
     private delegate void UpdateUI(float percent);
     private Ray viewRay;
 
@@ -34,6 +36,7 @@ public class PlayerSpells : MonoBehaviour
             castTimer -= Time.deltaTime;
             yield return null;
         }
+        UIManager.Instance.UpdateSpellCooldown(0.0f);
     }
 
     //Rather than having separate cooldowns for each spell
@@ -50,6 +53,7 @@ public class PlayerSpells : MonoBehaviour
             timeLeft -= Time.deltaTime;
             yield return null;
         }
+        updateFunc(0.0f);
         checks[spell] = false;
     }
 
@@ -80,19 +84,14 @@ public class PlayerSpells : MonoBehaviour
         }
     }
 
-    public void Missile()
-    {
-        if (castTimer <= 0 && !checks[3] && CastAtMouse(spells[3]))
+    public void MagicMissile() {
+        if (castTimer <= 0 && !checks[3] && CastAtDirection(spells[3]))
         {
             Debug.Log("MAGIC MISSILE!!!");
-            //StartCoroutine(Cooldown(3, UIManager.Instance.Upd));
+            StartCoroutine(Cooldown(3, UIManager.Instance.UpdateAbility0Cooldown));
         }
     }
-
-    public void MagicMissile() { 
-
-    }
-
+	
     public void Shield()
     {
         if (castTimer <= 0 && !checks[4] && CastInParent(spells[4]))
@@ -128,6 +127,14 @@ public class PlayerSpells : MonoBehaviour
     {
         var magic = Instantiate(spell, transform.position, transform.rotation) as GameObject;
         magic.transform.SetParent(transform);
+        return true;
+    }
+
+    private bool CastAtDirection(GameObject spell)
+    {
+        var magic = Instantiate(spell, projSpawn.transform.position, projSpawn.transform.rotation, PrefabManager.Instance.projectileHolder) as GameObject;
+        magic.GetComponent<Rigidbody>().AddForce(magic.transform.forward * projSpeed);
+        //GetComponent<AudioSource>().PlayOneShot(magic.g);
         return true;
     }
 

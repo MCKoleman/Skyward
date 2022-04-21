@@ -17,6 +17,9 @@ public class EnemyCharacter : Character
     {
         base.HandleHealthChange();
         healthBar?.UpdateValue(CurHealth / (float)maxHealth);
+
+        if (CurHealth <= 0 && healthSFX[1] != null)
+            aSrc.PlayOneShot(healthSFX[1]);
     }
 
     IEnumerator Invincibility()

@@ -13,6 +13,8 @@ TagManager:
   - Wall
   - PostProcess
   - Bullet
+  - FxTemporaire
+  - BossAnchor
   layers:
   - Default
   - TransparentFX

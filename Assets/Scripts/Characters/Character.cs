@@ -11,8 +11,13 @@ public class Character : MonoBehaviour
     [SerializeField]
     protected float movementSpeedMod = 1.0f;
 
+    [Tooltip("0 - hurt, 1 - death, 2 - respawn")]
+    [SerializeField]
+    protected AudioClip[] healthSFX = new AudioClip[3];
+
     protected bool invincible = false;
     protected CharacterController controller;
+    protected AudioSource aSrc;
 
     public int CurHealth { get; protected set; }
     public float CurMoveSpeed { get; protected set; }
@@ -27,6 +32,7 @@ public class Character : MonoBehaviour
     /// </summary>
     protected virtual void HandleStart()
     {
+        aSrc = GetComponent<AudioSource>();
         controller = GetComponent<CharacterController>();
         CurMoveSpeed = baseMoveSpeed * movementSpeedMod;
         CurHealth = maxHealth;
@@ -60,6 +66,9 @@ public class Character : MonoBehaviour
             CurHealth = Mathf.Clamp(CurHealth - _amount, 0, maxHealth);
             HandleHealthChange();
             controller.HandleTakeDamage(IsDead());
+
+            if (healthSFX[0] != null)
+                aSrc.PlayOneShot(healthSFX[0]);
 
             // Checks whether the character is dead
             if (IsDead())
@@ -98,5 +107,10 @@ public class Character : MonoBehaviour
     public virtual void ToggleInvincibility(bool setTo)
     {
         invincible = setTo;
+    }
+
+    public virtual int GetMaxHealth()
+    {
+        return maxHealth;
     }
 }

@@ -13,12 +13,17 @@ public class PlayerController : CharacterController
     [SerializeField]
     protected float rotationLerpSpeed = 5.0f;
 
+    [Tooltip("0 - dash, 1 - melee")]
+    [SerializeField]
+    protected AudioClip[] playerSFX = new AudioClip[2];
+
     /* Component references*/
     protected List<Interactable> interactables;
     protected CameraController cam;
     [SerializeField]
     protected PlayerAttack_Melee meleeAttack;
     protected PlayerSpells spells;
+    protected AudioSource aSrc;
     private Plane rotationPlane;
 
     [SerializeField]
@@ -32,8 +37,13 @@ public class PlayerController : CharacterController
         interactables = new List<Interactable>();
         cam = Camera.main.GetComponent<CameraController>();
         spells = GetComponent<PlayerSpells>();
+        aSrc = GetComponent<AudioSource>();
 
         rotationPlane = new Plane(Vector3.up, Vector3.zero);
+
+        // Select magic missile by default
+        curAbility = GlobalVars.AbilityType.MAGIC_MISSILE;
+        UIManager.Instance.SelectAbility(curAbility);
     }
 
     protected void Update()
@@ -186,7 +196,8 @@ public class PlayerController : CharacterController
 
     protected void HandleAttack()
     {
-        meleeAttack.Attack();
+        if (meleeAttack.Attack() && playerSFX[1] != null)
+            aSrc.PlayOneShot(playerSFX[1]);
     }
 
     protected void HandleDash()
@@ -197,6 +208,9 @@ public class PlayerController : CharacterController
             // Increase dash counter only when midair
             if(!isGrounded)
                 numDashesUsed++;
+
+            if (playerSFX[0] != null)
+                aSrc.PlayOneShot(playerSFX[0]);
 
             // Start coroutine to handle the dash motion
             StartCoroutine(HandleDashMotion());
@@ -231,19 +245,44 @@ public class PlayerController : CharacterController
         spells.Shield();
     }
 
+    protected void HandleAbility0()
+    {
+        // Don't reselect ability
+        if (curAbility == GlobalVars.AbilityType.MAGIC_MISSILE)
+            return;
+
+        curAbility = GlobalVars.AbilityType.MAGIC_MISSILE;
+        UIManager.Instance.SelectAbility(curAbility);
+    }
+
     protected void HandleAbility1()
     {
-        curAbility = UIManager.Instance.SelectAbility(GlobalVars.AbilityType.METEOR, curAbility);
+        // Don't reselect ability
+        if (curAbility == GlobalVars.AbilityType.METEOR)
+            return;
+
+        curAbility = GlobalVars.AbilityType.METEOR;
+        UIManager.Instance.SelectAbility(curAbility);
     }
 
     protected void HandleAbility2()
     {
-        curAbility = UIManager.Instance.SelectAbility(GlobalVars.AbilityType.ICE_WAVE, curAbility);
+        // Don't reselect ability
+        if (curAbility == GlobalVars.AbilityType.ICE_WAVE)
+            return;
+
+        curAbility = GlobalVars.AbilityType.ICE_WAVE;
+        UIManager.Instance.SelectAbility(curAbility);
     }
 
     protected void HandleAbility3()
     {
-        curAbility = UIManager.Instance.SelectAbility(GlobalVars.AbilityType.LIGHTNING_BOLT, curAbility);
+        // Don't reselect ability
+        if (curAbility == GlobalVars.AbilityType.LIGHTNING_BOLT)
+            return;
+
+        curAbility = GlobalVars.AbilityType.LIGHTNING_BOLT;
+        UIManager.Instance.SelectAbility(curAbility);
     }
 
     protected void HandleMenu()
@@ -302,6 +341,12 @@ public class PlayerController : CharacterController
     {
         if (context.performed && CanTakeInput())
             HandleShield();
+    }
+
+    public void HandleAbility0Context(InputAction.CallbackContext context)
+    {
+        if (context.performed && CanTakeInput())
+            HandleAbility0();
     }
 
     public void HandleAbility1Context(InputAction.CallbackContext context)

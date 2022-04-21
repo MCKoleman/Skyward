@@ -24,8 +24,10 @@ public class MeteorSpell : MonoBehaviour
 
     public void ImpactDamage()
     {
+        Debug.Log("impact");
         foreach(Character enemy in inArea)
         {
+            Debug.Log("Hit");
             enemy.TakeDamage(damage);
         }
     }
@@ -35,6 +37,7 @@ public class MeteorSpell : MonoBehaviour
         Character tempChar = collision.gameObject.GetComponent<Character>();
         if (tempChar != null && collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("Added");
             inArea.Add(tempChar);
         }
     }
@@ -44,6 +47,7 @@ public class MeteorSpell : MonoBehaviour
         Character tempChar = collision.gameObject.GetComponent<Character>();
         if (tempChar != null && collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("Removed");
             inArea.Remove(tempChar);
         }
     }

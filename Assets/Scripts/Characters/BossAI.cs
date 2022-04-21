@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossAI : EnemyController
 {
+    [Header("Boss Info")]
     [SerializeField]
     protected float roomX;
     [SerializeField]
@@ -16,14 +17,19 @@ public class BossAI : EnemyController
     protected State curr = State.ASLEEP;
 
     // Misc.
+    [Tooltip("0 - stafe, 1 - deathStart, 2 - deathEnd")]
+    public AudioClip[] sfx;
     private bool gameOver = false;
     private bool halfSet = false;
     private int threshold;
     private float maxX, maxZ, minX, minZ;
     protected float dist;
     protected Vector3 dest;
+
+    // Component references
     protected EnemyCharacter stats;
     protected BossAbilities abilities;
+    protected AudioSource aSrc;
 
     // State timers
     public float minStateTime;
@@ -46,11 +52,20 @@ public class BossAI : EnemyController
         base.Start();
         stats = GetComponent<EnemyCharacter>();
         abilities = GetComponent<BossAbilities>();
-        threshold = stats.CurHealth/2;
+		aSrc = GetComponent<AudioSource>();
+		
+        if (anchor == null)
+            anchor = GameObject.FindGameObjectWithTag("BossAnchor").transform;
+
+        // Limit to kick-in extra states
+        threshold = stats.GetMaxHealth() / 2;
+
         maxX = anchor.position.x + roomX;
         minX = anchor.position.x - roomX;
         maxZ = anchor.position.z + roomZ;
         minZ = anchor.position.z - roomZ;
+
+        //WakeUp();
     }
 
     // Update is called once per frame
@@ -76,7 +91,7 @@ public class BossAI : EnemyController
                     break;
             }
         }
-        else if (gameOver)
+        else if (curr != State.ASLEEP && !gameOver)
         {
             Debug.Log("DIE BITCH");
             EnterDeath();
@@ -102,6 +117,9 @@ public class BossAI : EnemyController
 
     public void WakeUp()
     {
+        // Play background audio (make sure source has audio and is set to loop)
+        aSrc.Play();
+
         EnterCasting();
     }
 
@@ -142,6 +160,7 @@ public class BossAI : EnemyController
     {
         Debug.Log("BOSS STATE | CASTING");
         transform.position = new Vector3(anchor.position.x, transform.position.y, anchor.position.z);
+        transform.eulerAngles = new Vector3(0, 180, 0); //temporary hack until fix TurnToPlayer in HandleAttack and HandleCasting
         curr = State.CASTING;
         StartCoroutine(Casting());
     }
@@ -201,8 +220,11 @@ public class BossAI : EnemyController
 
         yield return new WaitForSeconds(castDelay); //animation placeholder
 
+        Debug.Log(stats.CurHealth + " and " + threshold);
+
         //Maybe instead of having Half only occur once, make it available whenever health < threshold?
         if (!halfSet && stats.CurHealth <= threshold) {
+            Debug.Log("Half");
             EnterHalf();
         }
         else
@@ -253,6 +275,8 @@ public class BossAI : EnemyController
             if (transform.position == dest)
             {
                 dest = GetRandomPoint(); //actual movement done in handler
+                if (sfx[0] != null)
+                    aSrc.PlayOneShot(sfx[0]);
             }
 
             yield return null;  //do this or INFINITE LOOP!

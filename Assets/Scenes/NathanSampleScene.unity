@@ -649,26 +649,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2989192909499199332, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
-      propertyPath: playerSFX.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989192909499199332, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
-      propertyPath: playerSFX.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 8b482b78c45e05c44be87283b0d6c0af, type: 3}
-    - target: {fileID: 2989192909499199332, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
-      propertyPath: playerSFX.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 2e273006ecd13dd4a946a9ff9276d6aa, type: 3}
-    - target: {fileID: 4066000674421729439, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
-      propertyPath: healthSFX.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 4af5e4498b9a9634bb11f6cce858abe7, type: 3}
-    - target: {fileID: 4066000674421729439, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
-      propertyPath: healthSFX.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 5bb678d65ce6db941ba3073c87050861, type: 3}
     - target: {fileID: 7296711693027509797, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

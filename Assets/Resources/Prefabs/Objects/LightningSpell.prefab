@@ -221,19 +221,6 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6423982680439868505, guid: a1cac2e5b3316864bb5178a3556a1e2e, type: 3}
   m_PrefabInstance: {fileID: 1474722127069175186}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &300968403141241620
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5734887256358303943}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &-5195322987829808452
 AudioSource:
   m_ObjectHideFlags: 0
@@ -344,3 +331,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   vfx: {fileID: 5571464837684040139}
+--- !u!136 &9191967795277725757
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5734887256358303943}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}

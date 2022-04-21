@@ -114,6 +114,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3135bd1ff81aa4c4f82a1be6a5d64b44, type: 2}
+    - target: {fileID: 4250830922056954526, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250830922056954526, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ccb7c3f5fa5500b489ee15c766e5b1c6, type: 3}
     - target: {fileID: 5434092129128606751, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -136,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7042752535427001969, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7042752535427001969, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_LocalPosition.z
@@ -264,6 +272,10 @@ MonoBehaviour:
   roomX: 10
   roomZ: 10
   anchor: {fileID: 0}
+  sfx:
+  - {fileID: 8300000, guid: 79c3ea47bd70d624d8d58f46bd6f63e0, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   minStateTime: 10
   maxStateTime: 20
   teleDelay: 1

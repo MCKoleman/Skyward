@@ -25,15 +25,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -85,11 +85,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0
+      value: 0.1830188
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.43529412
+      value: 0.86273766
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
@@ -228,3 +228,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 5
+  yOffset: 0
+  deactivateSFX: {fileID: 8300000, guid: 6d76b2019af4f3a4b93c068508134e6b, type: 3}

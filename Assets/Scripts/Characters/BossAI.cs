@@ -71,6 +71,10 @@ public class BossAI : EnemyController
     // Update is called once per frame
     void Update()
     {
+        // Don't do anything when dead
+        if (gameOver)
+            return;
+
         dist = Vector3.Distance(transform.position, player.transform.position);
 
         if (stats.CurHealth > 0)
@@ -103,6 +107,10 @@ public class BossAI : EnemyController
     /*===============================UTILITY===============================*/
     protected void TurnToPlayer()
     {
+        // Don't do anything when dead
+        if (gameOver)
+            return;
+
         transform.rotation = Quaternion.Slerp(transform.rotation,
             Quaternion.LookRotation(
                 new Vector3(player.transform.position.x, 0, player.transform.position.z) - new Vector3(transform.position.x, 0, transform.position.z)
@@ -112,6 +120,10 @@ public class BossAI : EnemyController
 
     protected void LockToPlayer()
     {
+        // Don't do anything when dead
+        if (gameOver)
+            return;
+
         transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
     }
 
@@ -315,6 +327,7 @@ public class BossAI : EnemyController
     {
         yield return new WaitForSeconds(deathDelay); //Placeholder for any animation or dialogue
         yield return new WaitForSeconds(abilities.SelfDestruct());
+        Instantiate(PrefabManager.Instance.exitPrefab, Vector3.zero, Quaternion.identity, PrefabManager.Instance.levelHolder);
         Destroy(this.gameObject);
     }
 }

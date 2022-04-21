@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Impact02_SGABScroll
-  m_Shader: {fileID: 4800000, guid: c183104a0d06f5c4780d2ec95079ab3f, type: 3}
+  m_Shader: {fileID: 4800000, guid: 772c876c2069d0b488fb2840de6e4f6b, type: 3}
   m_ShaderKeywords: _DISTORTMAINTEXTURE_ON _DOUBLESIDED_ON _ENABLE_FOG_ON_TRANSPARENT
     _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 1
@@ -37,19 +37,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_7FCC054E:
-        m_Texture: {fileID: 2800000, guid: 5e3c4fb784c03af49ad3bb4e3ddb6dcb, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_B24C83B0:
-        m_Texture: {fileID: 2800000, guid: 0bc407057fece104db605879b2b919ec, type: 3}
+        m_Texture: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_E43982E:
-        m_Texture: {fileID: 2800000, guid: 2f67131bd8bcd5540badff1422fbbf7b, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_E5130C32:
-        m_Texture: {fileID: 2800000, guid: b3a2a74664dda6f44b5aaaccac83bbfc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 03e4ee8d0b5f45045bb12e2930ed4058, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -57,7 +57,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ColorRamp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 789405d2635550c4c9df257b8e484c62, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -85,19 +85,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Gradient:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 926d5b0cf7ff2924995fa49fd6437c18, type: 3}
+        m_Texture: {fileID: 2800000, guid: 58e3a0bde9baa69438ff362ec85c73b5, type: 3}
         m_Scale: {x: 1, y: 0.75}
         m_Offset: {x: 0, y: 0.15}
     - _MainTexutre:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3283f1eebfcf78a428098c12f653fe0a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 03e4ee8d0b5f45045bb12e2930ed4058, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.Video;
 using TMPro;
 
 public class UIIntroDialogue : MonoBehaviour
@@ -12,13 +13,15 @@ public class UIIntroDialogue : MonoBehaviour
     [SerializeField]
     private GameObject introHolder;
     [SerializeField]
-    private GameObject continueBtn;
+    private GameObject skipBtn;
     [SerializeField]
     private GameObject mainMenu;
     [SerializeField]
     private TextMeshProUGUI textBox;
     [SerializeField]
     private Image bgImage;
+    [SerializeField]
+    private VideoPlayer videoPlayer;
 
     [Header("Settings")]
     [SerializeField, Range(0.01f, 100.0f), Tooltip("How many characters should be revealed per second")]
@@ -37,19 +40,24 @@ public class UIIntroDialogue : MonoBehaviour
     private float currentDialogueSpeed = 1.0f;
     private const float FAST_DIALOGUE_SPEED = 0.33f;
 
+    private void Start()
+    {
+        videoPlayer.loopPointReached += EndIntro;
+    }
+
     // Disable the main menu and start dialogue as soon as possible
     public void Activate()
     {
         introHolder.SetActive(true);
         mainMenu.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(continueBtn);
+        EventSystem.current.SetSelectedGameObject(skipBtn);
 
         // Get first slide
-        if (introSlides.slidesList.Count > 0)
-            currentSlide = introSlides.slidesList[0];
+        //if (introSlides.slidesList.Count > 0)
+        //    currentSlide = introSlides.slidesList[0];
 
         // Start intro
-        ContinueDialogue();
+        //ContinueDialogue();
     }
 
     // Handle dialogue speedup
@@ -68,7 +76,7 @@ public class UIIntroDialogue : MonoBehaviour
     public void ContinueDialogue()
     {
         // Disable the continue button
-        continueBtn.SetActive(false);
+        //continueBtn.SetActive(false);
 
         // Continue dialogue as long as there are options
         if (currentSlideIndex < introSlides.slidesList.Count)
@@ -98,6 +106,12 @@ public class UIIntroDialogue : MonoBehaviour
             }
         }
 
+        EndIntro();
+    }
+
+    // Wrapper delegate for video player
+    public void EndIntro(VideoPlayer vp)
+    {
         EndIntro();
     }
 
@@ -137,7 +151,7 @@ public class UIIntroDialogue : MonoBehaviour
         }
 
         // Enable continue button
-        continueBtn.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(continueBtn);
+        //continueBtn.SetActive(true);
+        //EventSystem.current.SetSelectedGameObject(continueBtn);
     }
 }

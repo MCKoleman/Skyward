@@ -19,7 +19,7 @@ public class EnemyAttack_Range : MonoBehaviour
     {
         for (int i = 0; i < volleySize; i++)
         {
-            var temp = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation);
+            var temp = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation, PrefabManager.Instance.projectileHolder);
             temp.GetComponent<Rigidbody>().AddForce(temp.transform.forward * projSpeed);
             //temp.GetComponent<Rigidbody>().velocity = temp.transform.forward * projSpeed;
             yield return new WaitForSeconds(timeBetweenProj);

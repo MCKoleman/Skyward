@@ -142,6 +142,7 @@ public class BossAI : EnemyController
     {
         Debug.Log("BOSS STATE | CASTING");
         transform.position = new Vector3(anchor.position.x, transform.position.y, anchor.position.z);
+        transform.eulerAngles = new Vector3(0, 180, 0); //temporary hack until fix TurnToPlayer in HandleAttack and HandleCasting
         curr = State.CASTING;
         StartCoroutine(Casting());
     }

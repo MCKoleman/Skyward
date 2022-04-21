@@ -59,9 +59,9 @@ public class CameraController : MonoBehaviour
         if (MathUtils.AlmostZero(this.transform.position - destination, 2))
             return;
 
-        //Vector3 tempVec = Vector3.Lerp(this.transform.position, destination, lockedFollowSpeed * Time.deltaTime);
-        //this.transform.position = new Vector3(tempVec.x, transform.position.y, tempVec.z);
-        //this.transform.eulerAngles = Vector3.Lerp(this.transform.eulerAngles, targetRot, angleLerpSpeed * Time.deltaTime);
+        Vector3 tempVec = Vector3.Lerp(this.transform.position, destination, lockedFollowSpeed * Time.deltaTime);
+        this.transform.position = new Vector3(tempVec.x, transform.position.y, tempVec.z);
+        this.transform.eulerAngles = Vector3.Lerp(this.transform.eulerAngles, targetRot, angleLerpSpeed * Time.deltaTime);
     }
 
     // Set the room to follow with the camera

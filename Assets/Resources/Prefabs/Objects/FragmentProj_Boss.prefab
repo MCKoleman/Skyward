@@ -84,6 +84,14 @@ PrefabInstance:
       propertyPath: fragProj
       value: 
       objectReference: {fileID: 1073490991306311976, guid: 1b6b83227a53fee4a84398d40ee83e08, type: 3}
+    - target: {fileID: 1935924340, guid: d0e110bbe4d1c4f4f845accc6987fb9c, type: 3}
+      propertyPath: splitSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 3617743a9cbe44f46946d94cafcbf609, type: 3}
+    - target: {fileID: 3474879215266613485, guid: d0e110bbe4d1c4f4f845accc6987fb9c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c3741195ec077be43bb808e79ebe8182, type: 3}
     - target: {fileID: 3516539621895273221, guid: d0e110bbe4d1c4f4f845accc6987fb9c, type: 3}
       propertyPath: m_Enabled
       value: 0

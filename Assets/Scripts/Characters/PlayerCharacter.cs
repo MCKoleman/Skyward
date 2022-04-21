@@ -57,6 +57,9 @@ public class PlayerCharacter : Character
         PlayerManager.Instance.RemoveLife(1);
         if(PlayerManager.Instance.GetLives() >= 0)
         {
+            if (healthSFX[2] != null)
+                aSrc.PlayOneShot(healthSFX[2]);
+
             CheckpointManager.Instance.ResetToCheckpoint();
             HandleStart();
             HandleHealthChange();
@@ -64,6 +67,9 @@ public class PlayerCharacter : Character
         // Show death menu on death
         else
         {
+            if (healthSFX[1] != null)
+                aSrc.PlayOneShot(healthSFX[1]);
+
             UIManager.Instance.ShowDeathMenu();
         }
     }

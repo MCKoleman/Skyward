@@ -137,6 +137,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 7983771062380701573, guid: 457c7bd598f6ba1458f68a65278bdc6e, type: 3}
+      propertyPath: healthSFX.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2087eced283b8b74c9a2cddee17ed764, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 457c7bd598f6ba1458f68a65278bdc6e, type: 3}
 --- !u!4 &2726899106634395335 stripped

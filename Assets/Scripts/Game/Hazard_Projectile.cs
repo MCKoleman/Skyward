@@ -31,11 +31,24 @@ public class Hazard_Projectile : MonoBehaviour
             if (tempChar != null)
             {
                 tempChar.TakeDamage(damage);
-                Destroy(gameObject);
+                StartCoroutine(Cleanup());
             }
         }
         else if (obj.CompareTag("Wall") || obj.CompareTag("DungeonContent")) {
-            Destroy(gameObject);
+            StartCoroutine(Cleanup());
         }
+    }
+
+    //I should have just had the Player/Enemy play sound effect on cast, rather than the individual projectiles play sound on awake
+    private IEnumerator Cleanup()
+    {
+        foreach (ParticleSystem ps in GetComponentsInChildren<ParticleSystem>())
+        {
+            ps.Stop();
+        }
+
+        GetComponent<Collider>().enabled = false;
+        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
+        Destroy(gameObject);
     }
 }

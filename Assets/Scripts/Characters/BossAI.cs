@@ -64,6 +64,8 @@ public class BossAI : EnemyController
         minX = anchor.position.x - roomX;
         maxZ = anchor.position.z + roomZ;
         minZ = anchor.position.z - roomZ;
+
+        //WakeUp();
     }
 
     // Update is called once per frame

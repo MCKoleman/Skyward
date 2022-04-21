@@ -98,32 +98,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5476302239681886078, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
   m_PrefabInstance: {fileID: 7730085876571601412}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1425520662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!1 &7730085876977098211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 405514215, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
+  m_PrefabInstance: {fileID: 7730085876571601412}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2358043394979810682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c5fa2b0c8e43184399602a65c2bb6ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  castCooldown: 1
-  spells:
-  - {fileID: 8734908834644877807, guid: 43523d5086cee3c4cbce0cf342102427, type: 3}
-  - {fileID: 3163941058817245139, guid: b4c909f051db84d40bd0709fd4de2416, type: 3}
-  - {fileID: 5734887256358303943, guid: 22ff9fd857248a04aa8e87c8dfd91e51, type: 3}
-  - {fileID: 2122159182298209263, guid: a86f7b43d1b2a864f8983454391fc832, type: 3}
-  - {fileID: 8120930366862349644, guid: 0e967ae806fe8a844a9af8b1ff18048b, type: 3}
-  cooldowns:
-  - 60
-  - 10
-  - 5
-  - 2
-  - 30
-  projSpeed: 200
 --- !u!82 &558060689
 AudioSource:
   m_ObjectHideFlags: 0
@@ -220,3 +199,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1425520662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358043394979810682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5fa2b0c8e43184399602a65c2bb6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castCooldown: 1
+  spells:
+  - {fileID: 8734908834644877807, guid: 43523d5086cee3c4cbce0cf342102427, type: 3}
+  - {fileID: 3163941058817245139, guid: b4c909f051db84d40bd0709fd4de2416, type: 3}
+  - {fileID: 5734887256358303943, guid: 22ff9fd857248a04aa8e87c8dfd91e51, type: 3}
+  - {fileID: 2122159182298209263, guid: a86f7b43d1b2a864f8983454391fc832, type: 3}
+  - {fileID: 8120930366862349644, guid: 0e967ae806fe8a844a9af8b1ff18048b, type: 3}
+  cooldowns:
+  - 60
+  - 10
+  - 5
+  - 1
+  - 30
+  projSpeed: 400
+  projSpawn: {fileID: 7730085876977098211}

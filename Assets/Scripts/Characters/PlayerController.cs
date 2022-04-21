@@ -13,10 +13,9 @@ public class PlayerController : CharacterController
     [SerializeField]
     protected float rotationLerpSpeed = 5.0f;
 
-    /* Audio */
     [Tooltip("0 - dash, 1 - melee")]
     [SerializeField]
-    protected AudioClip[] sfx;
+    protected AudioClip[] playerSFX = new AudioClip[2];
 
     /* Component references*/
     protected List<Interactable> interactables;
@@ -197,8 +196,8 @@ public class PlayerController : CharacterController
 
     protected void HandleAttack()
     {
-        if (meleeAttack.Attack() && sfx[1])
-            aSrc.PlayOneShot(sfx[1]);
+        if (meleeAttack.Attack() && playerSFX[1] != null)
+            aSrc.PlayOneShot(playerSFX[1]);
     }
 
     protected void HandleDash()
@@ -210,8 +209,8 @@ public class PlayerController : CharacterController
             if(!isGrounded)
                 numDashesUsed++;
 
-            if (sfx[0])
-                aSrc.PlayOneShot(sfx[0]);
+            if (playerSFX[0] != null)
+                aSrc.PlayOneShot(playerSFX[0]);
 
             // Start coroutine to handle the dash motion
             StartCoroutine(HandleDashMotion());

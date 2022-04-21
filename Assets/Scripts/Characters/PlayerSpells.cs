@@ -20,6 +20,7 @@ public class PlayerSpells : MonoBehaviour
     private bool[] checks = new bool[5];
 
     public float projSpeed;
+    public GameObject projSpawn;
     private delegate void UpdateUI(float percent);
     private Ray viewRay;
 
@@ -131,8 +132,9 @@ public class PlayerSpells : MonoBehaviour
 
     private bool CastAtDirection(GameObject spell)
     {
-        var magic = Instantiate(spell, transform.position, transform.rotation, PrefabManager.Instance.projectileHolder) as GameObject;
+        var magic = Instantiate(spell, projSpawn.transform.position, projSpawn.transform.rotation, PrefabManager.Instance.projectileHolder) as GameObject;
         magic.GetComponent<Rigidbody>().AddForce(magic.transform.forward * projSpeed);
+        //GetComponent<AudioSource>().PlayOneShot(magic.g);
         return true;
     }
 

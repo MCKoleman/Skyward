@@ -13,12 +13,18 @@ public class PlayerController : CharacterController
     [SerializeField]
     protected float rotationLerpSpeed = 5.0f;
 
+    /* Audio */
+    [Tooltip("0 - dash, 1 - melee")]
+    [SerializeField]
+    protected AudioClip[] sfx;
+
     /* Component references*/
     protected List<Interactable> interactables;
     protected CameraController cam;
     [SerializeField]
     protected PlayerAttack_Melee meleeAttack;
     protected PlayerSpells spells;
+    protected AudioSource aSrc;
     private Plane rotationPlane;
 
     [SerializeField]
@@ -32,6 +38,7 @@ public class PlayerController : CharacterController
         interactables = new List<Interactable>();
         cam = Camera.main.GetComponent<CameraController>();
         spells = GetComponent<PlayerSpells>();
+        aSrc = GetComponent<AudioSource>();
 
         rotationPlane = new Plane(Vector3.up, Vector3.zero);
     }
@@ -186,7 +193,8 @@ public class PlayerController : CharacterController
 
     protected void HandleAttack()
     {
-        meleeAttack.Attack();
+        if (meleeAttack.Attack() && sfx[1])
+            aSrc.PlayOneShot(sfx[1]);
     }
 
     protected void HandleDash()
@@ -197,6 +205,9 @@ public class PlayerController : CharacterController
             // Increase dash counter only when midair
             if(!isGrounded)
                 numDashesUsed++;
+
+            if (sfx[0])
+                aSrc.PlayOneShot(sfx[0]);
 
             // Start coroutine to handle the dash motion
             StartCoroutine(HandleDashMotion());

@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6247959978655120929, guid: daf37d70cfc570e468474a027fe2c4fa, type: 3}
+      propertyPath: comet
+      value: 
+      objectReference: {fileID: 9149742629516980067, guid: 6310591034ec9f24f8d6244d4e476b32, type: 3}
+    - target: {fileID: 6247959978655120929, guid: daf37d70cfc570e468474a027fe2c4fa, type: 3}
       propertyPath: radius
       value: 1.5
       objectReference: {fileID: 0}

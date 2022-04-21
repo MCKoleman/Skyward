@@ -69,6 +69,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Ability0",
+                    "type": "Button",
+                    "id": "0ef47dbc-0626-43c0-873f-48256409cb71",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Ability1",
                     "type": "Button",
                     "id": "3cebc3a1-251a-4191-b775-1506b1b90ffb",
@@ -347,7 +356,7 @@
                 {
                     "name": "",
                     "id": "14f98b09-9a56-46d3-afaa-8335ff9aaa5c",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -369,7 +378,7 @@
                 {
                     "name": "",
                     "id": "1742eb8b-7c2f-4aa1-ab76-1b583cba56d0",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -534,7 +543,7 @@
                 {
                     "name": "",
                     "id": "68182575-fd05-4fff-a1aa-f9836b03594d",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -556,7 +565,7 @@
                 {
                     "name": "",
                     "id": "1ea837a8-562d-4030-9142-486b2eec6bc2",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -594,6 +603,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Spell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "87772f8f-9bf2-475f-b0d0-20ca735d321e",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Ability0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c0557a2-f49a-4aa3-bee2-c0530a4a81b3",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Ability0",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

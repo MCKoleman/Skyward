@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossAI : EnemyController
 {
+    [Header("Boss Info")]
     [SerializeField]
     protected float roomX;
     [SerializeField]
@@ -51,7 +52,10 @@ public class BossAI : EnemyController
         base.Start();
         stats = GetComponent<EnemyCharacter>();
         abilities = GetComponent<BossAbilities>();
-        aSrc = GetComponent<AudioSource>();
+		aSrc = GetComponent<AudioSource>();
+		
+        if (anchor == null)
+            anchor = GameObject.FindGameObjectWithTag("BossAnchor").transform;
 
         // Limit to kick-in extra states
         threshold = stats.GetMaxHealth() / 2;
@@ -60,8 +64,6 @@ public class BossAI : EnemyController
         minX = anchor.position.x - roomX;
         maxZ = anchor.position.z + roomZ;
         minZ = anchor.position.z - roomZ;
-
-        WakeUp();
     }
 
     // Update is called once per frame

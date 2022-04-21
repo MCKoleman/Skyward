@@ -63,12 +63,13 @@ public class HUD : MonoBehaviour
     public bool IsDialogueActive() { return dialogueBox.IsDialogueActive(); }
     public void UpdateXpDisplay(float percent) { xpBar.UpdateValue(percent); }
     public void UpdateLifeDisplay(int lives) { livesNum.text = GameManager.Instance.GetIsEasyMode() ? '\u221E'.ToString() : lives.ToString(); }
-    public GlobalVars.AbilityType SelectAbility(GlobalVars.AbilityType type, GlobalVars.AbilityType activeType) { return abilityHandler.SelectAbility(type, activeType); }
+    public void SelectAbility(GlobalVars.AbilityType type) { abilityHandler.SelectAbility(type); }
 
     // Cooldown handles
     public void UpdateDashCooldown(float percent) { abilityHandler.UpdateDashCooldown(percent); }
     public void UpdateShieldCooldown(float percent) { abilityHandler.UpdateShieldCooldown(percent); }
     public void UpdateSpellCooldown(float percent) { abilityHandler.UpdateSpellCooldown(percent); }
+    public void UpdateAbility0Cooldown(float percent) { abilityHandler.UpdateAbility0Cooldown(percent); }
     public void UpdateAbility1Cooldown(float percent) { abilityHandler.UpdateAbility1Cooldown(percent); }
     public void UpdateAbility2Cooldown(float percent) { abilityHandler.UpdateAbility2Cooldown(percent); }
     public void UpdateAbility3Cooldown(float percent) { abilityHandler.UpdateAbility3Cooldown(percent); }

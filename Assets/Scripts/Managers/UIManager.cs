@@ -107,10 +107,11 @@ public class UIManager : Singleton<UIManager>
     public void SetLevelNum(int num) { hud.SetLevelNum(num); }
     public void UpdateXpDisplay(float percent) { hud.UpdateXpDisplay(percent); }
     public void UpdateLifeDisplay(int lives) { hud.UpdateLifeDisplay(lives); }
-    public GlobalVars.AbilityType SelectAbility(GlobalVars.AbilityType type, GlobalVars.AbilityType activeType) { return hud.SelectAbility(type, activeType); }
+    public void SelectAbility(GlobalVars.AbilityType type) { hud.SelectAbility(type); }
     public void UpdateDashCooldown(float percent) { hud.UpdateDashCooldown(percent); }
     public void UpdateShieldCooldown(float percent) { hud.UpdateShieldCooldown(percent); }
     public void UpdateSpellCooldown(float percent) { hud.UpdateSpellCooldown(percent); }
+    public void UpdateAbility0Cooldown(float percent) { hud.UpdateAbility0Cooldown(percent); }
     public void UpdateAbility1Cooldown(float percent) { hud.UpdateAbility1Cooldown(percent); }
     public void UpdateAbility2Cooldown(float percent) { hud.UpdateAbility2Cooldown(percent); }
     public void UpdateAbility3Cooldown(float percent) { hud.UpdateAbility3Cooldown(percent); }

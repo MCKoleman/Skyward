@@ -35,6 +35,7 @@ public class PlayerSpells : MonoBehaviour
             castTimer -= Time.deltaTime;
             yield return null;
         }
+        UIManager.Instance.UpdateSpellCooldown(0.0f);
     }
 
     //Rather than having separate cooldowns for each spell
@@ -51,6 +52,7 @@ public class PlayerSpells : MonoBehaviour
             timeLeft -= Time.deltaTime;
             yield return null;
         }
+        updateFunc(0.0f);
         checks[spell] = false;
     }
 
@@ -85,10 +87,10 @@ public class PlayerSpells : MonoBehaviour
         if (castTimer <= 0 && !checks[3] && CastAtDirection(spells[3]))
         {
             Debug.Log("MAGIC MISSILE!!!");
-            //StartCoroutine(Cooldown(4, UIManager.Instance.Update));
+            StartCoroutine(Cooldown(3, UIManager.Instance.UpdateAbility0Cooldown));
         }
     }
-
+	
     public void Shield()
     {
         if (castTimer <= 0 && !checks[4] && CastInParent(spells[4]))

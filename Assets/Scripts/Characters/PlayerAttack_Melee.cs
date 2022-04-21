@@ -17,10 +17,15 @@ public class PlayerAttack_Melee : MonoBehaviour
         GetComponent<CapsuleCollider>().enabled = false;
     }
 
-    public void Attack()
+    public bool Attack()
     {
         if (canAttack)
+        {
             StartCoroutine(HandleAttack());
+            return true;
+        }
+
+        return false;
     }
 
     //Temporarily turn on trigger and play VFX

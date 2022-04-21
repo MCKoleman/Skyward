@@ -679,6 +679,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 858445485639212211, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
+      propertyPath: healthSFX.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: e70ef3cb8e3d197449b9943b4a58f7f8, type: 3}
     - target: {fileID: 2296353288259372170, guid: e3ade6396bdfaa948806819ed5257610, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

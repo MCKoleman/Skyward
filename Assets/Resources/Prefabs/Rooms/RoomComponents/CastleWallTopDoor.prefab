@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2425114978703133198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2300041131356789682}
+  - component: {fileID: 1701553168117550416}
+  m_Layer: 0
+  m_Name: TopHitBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2300041131356789682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2425114978703133198}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4642465868172415600}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1701553168117550416
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2425114978703133198}
+  m_Material: {fileID: 13400000, guid: cb1371605dc0da64d9755fc8151dfe65, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.1072941, z: 4.9021034}
+  m_Center: {x: -2.8751475e-16, y: 3.446353, z: 0.10476792}
 --- !u!1001 &51974571101396891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -419,7 +463,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 76e93b13e3aac8045872396dda646cb2, type: 2}
     - target: {fileID: 752453350737659984, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1402963012064454230, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_RootOrder
@@ -468,6 +512,10 @@ PrefabInstance:
     - target: {fileID: 1611970422674925027, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699226029457775421, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5013924933096544700, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_Name

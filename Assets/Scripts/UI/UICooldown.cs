@@ -20,12 +20,31 @@ public class UICooldown : MonoBehaviour
     private Color cooldownColor;
     [SerializeField]
     private Color offCooldownColor;
+    private Color targetColor;
     [SerializeField]
     private bool reversed = true;
+    private const float LERP_SPEED = 3.0f;
 
     private void Start()
     {
         UpdateCooldown(0.0f);
+    }
+
+    private void Update()
+    {
+        // Don't update when the target is reached
+        if (targetColor == keybind.color)
+            return;
+
+        // If the target is almmost reached, set the value
+        if (targetColor.CompareRGB(keybind.color))
+        {
+            keybind.color = targetColor;
+            return;
+        }
+
+        // Lerp to the target value
+        keybind.color = Color.Lerp(keybind.color, targetColor, LERP_SPEED * Time.deltaTime);
     }
 
     // Sets the keybind of this cooldown
@@ -43,7 +62,12 @@ public class UICooldown : MonoBehaviour
     // Updates the cooldowns fill percentage, enabling or disabling it based on the percentage
     public void UpdateCooldown(float percent)
     {
-        keybind.color = (percent <= 0) ? offCooldownColor : cooldownColor;
+        // Only lerp color one direction
+        if (percent > 0)
+            keybind.color = cooldownColor;
+        else
+            targetColor = offCooldownColor;
+
         onCooldown.SetActive(percent > 0);
         offCooldown.SetActive(percent > 0);
         ready.SetActive(percent <= 0);

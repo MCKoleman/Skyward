@@ -119,6 +119,7 @@ public class UIIntroDialogue : MonoBehaviour
     public void EndIntro()
     {
         // Disable main menu and disable intro
+        videoPlayer.Stop();
         mainMenu.SetActive(false);
         introHolder.SetActive(false);
         DungeonManager.Instance.ResetCurLevel();

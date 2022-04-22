@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 995316773816352839}
   m_Layer: 0
   m_Name: TopHitBox
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2484240074297698296}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &995316773816352839
 BoxCollider:
@@ -274,6 +274,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 44446103790942260, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 620807985899605434, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -284,7 +288,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f177df0e3a5d1e3489ae1f98e4b2a393, type: 2}
     - target: {fileID: 752453350737659984, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 885438965594324492, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_IsActive
@@ -356,7 +360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4699226029457775421, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5013924933096544700, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_Name
@@ -364,7 +368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5013924933096544700, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5612417932531047685, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_IsActive

@@ -65,6 +65,8 @@ public class SceneLoader : MonoBehaviour
         UIManager.Instance.EnableLoadingScreen(true);
         UIManager.Instance.SetLoadingProgressText("Loading level");
         EventSystem.current.SetSelectedGameObject(null);
+
+        // Start loading level
         AsyncOperation progress = SceneManager.LoadSceneAsync(level);
 
         yield return new WaitUntil(() => progress.isDone);

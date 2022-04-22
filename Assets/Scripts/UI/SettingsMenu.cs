@@ -117,4 +117,16 @@ public class SettingsMenu : MonoBehaviour
     {
         audioMixer.SetFloat("SFXVolume", decibelScale[Mathf.Clamp(Mathf.FloorToInt(volume), 0, decibelScale.Length - 1)]);
     }
+
+    // Sets easy mode
+    public void SetIsEasyMode(bool _isEasy)
+    {
+        GameManager.Instance.SetIsEasyMode(_isEasy);
+    }
+
+    // Sets infinite mode
+    public void SetIsInfinite(bool _isInfinite)
+    {
+        GameManager.Instance.SetIsInfinite(_isInfinite);
+    }
 }

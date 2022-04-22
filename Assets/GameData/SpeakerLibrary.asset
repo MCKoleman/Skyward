@@ -22,7 +22,7 @@ MonoBehaviour:
   - type: 1
     sprite: {fileID: 21300000, guid: 5407cc0b12d8469499a64dada8bfdc54, type: 3}
     name: Ziel
-    bgColor: {r: 0.43921572, g: 0.32941177, b: 0.48235297, a: 1}
+    bgColor: {r: 0.43921572, g: 0.32941177, b: 0.48235297, a: 0.24313726}
     nameColor: {r: 0.5943396, g: 0.053266272, b: 0.053266272, a: 1}
     textColor: {r: 0.4528302, g: 0.0021359965, b: 0.04528775, a: 1}
   - type: 2

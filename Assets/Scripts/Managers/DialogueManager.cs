@@ -41,7 +41,11 @@ public class DialogueManager : Singleton<DialogueManager>
     // Starts dialogue, setting the new max dialogue index to be 1 higher
     public void BeginDialogue()
     {
-        BeginDialogue(maxUnlockedDialogue + 1);
+        if(!GameManager.Instance.GetIsInfinite())
+            BeginDialogue(maxUnlockedDialogue + 1);
+        // Skip dialogue in infinite mode
+        else
+            UIManager.Instance.EndDialogue();
     }
 
     // Starts dialogue, setting the new max dialogue index

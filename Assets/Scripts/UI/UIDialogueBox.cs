@@ -74,12 +74,18 @@ public class UIDialogueBox : MonoBehaviour
         // If no new dialogue was given, disable the dialogue box
         else
         {
-            EnableDialogue(false);
-            GameManager.Instance.SetTimeScale(1.0f);
-
-            if (PrefabManager.Instance.IsBossAlive())
-                PrefabManager.Instance.AwakeBoss();
+            EndDialogue();
         }
+    }
+
+    // Ends dialogue, resuming the game
+    public void EndDialogue()
+    {
+        EnableDialogue(false);
+        GameManager.Instance.SetTimeScale(1.0f);
+
+        if (PrefabManager.Instance.IsBossAlive())
+            PrefabManager.Instance.AwakeBoss();
     }
 
     // Plays a new dialogue, setting all necessary information in the process

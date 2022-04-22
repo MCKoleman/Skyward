@@ -17,6 +17,8 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private bool isEasyMode = false;
     [SerializeField]
+    private bool isInfinite = false;
+    [SerializeField]
     private bool DEBUG_DISABLE_DUNGEON = false;
 
     private SceneLoader sceneLoader;
@@ -192,5 +194,11 @@ public class GameManager : Singleton<GameManager>
         PlayerManager.Instance.UpdateUIDisplay();
     }
 
+    public void SetIsInfinite(bool _isInfinite)
+    {
+        isInfinite = _isInfinite;
+    }
+
     public bool GetIsEasyMode() { return isEasyMode; }
+    public bool GetIsInfinite() { return isInfinite; }
 }

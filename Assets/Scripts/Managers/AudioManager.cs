@@ -24,6 +24,8 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField]
     private AudioClip mainMenuMusic;
     [SerializeField]
+    private List<AudioClip> sceneMusic;
+    [SerializeField]
     private AudioClip uiSelect;
     [SerializeField]
     private AudioClip uiSubmit;
@@ -33,11 +35,13 @@ public class AudioManager : Singleton<AudioManager>
     // Info
     private bool isLooping;
     private const float AUDIO_INTERVAL = 3.0f;
+    private IEnumerator<AudioClip> currTrack;
 
     // Initializes the audio manager
     public void Init()
     {
         //StopMusic();
+        currTrack = sceneMusic.GetEnumerator();
     }
 
     // Stops the currently playing music and resets the manager
@@ -60,6 +64,31 @@ public class AudioManager : Singleton<AudioManager>
     public void PlayUISubmit()
     {
         tempSource.clip = uiSubmit;
+        tempSource.Play();
+    }
+
+    // Plays the Boss Intro music
+    public void PlayBossIntro()
+    {
+        tempSource.clip = bossIntro;
+        tempSource.Play();
+    }
+
+    // Plays the Boss Fight music
+    public void PlayBossFight()
+    {
+        tempSource.clip = bossMusic;
+        tempSource.Play();
+    }
+
+    // Plays the next clip
+    public void HandleSceneChange()
+    {
+        if (currTrack.MoveNext())
+        {
+            tempSource.clip = currTrack.Current;
+        }
+
         tempSource.Play();
     }
 

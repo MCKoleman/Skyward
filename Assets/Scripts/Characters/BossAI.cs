@@ -130,7 +130,8 @@ public class BossAI : EnemyController
     public void WakeUp()
     {
         // Play background audio (make sure source has audio and is set to loop)
-        aSrc.Play();
+        //aSrc.Play();
+        AudioManager.Instance.PlayBossFight();
 
         EnterCasting();
     }

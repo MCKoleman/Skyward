@@ -52,10 +52,15 @@ MonoBehaviour:
   transitionMusicSource: {fileID: 812123086591843961}
   sfxSource: {fileID: 283151653732686750}
   tempSource: {fileID: 4131167036518768640}
-  bossIntro: {fileID: 0}
-  bossMusic: {fileID: 0}
-  mainMenuIntro: {fileID: 0}
-  mainMenuMusic: {fileID: 0}
+  bossIntro: {fileID: 8300000, guid: 6353b95934022b64996a4b47ffe5a2ab, type: 3}
+  bossMusic: {fileID: 8300000, guid: ccb7c3f5fa5500b489ee15c766e5b1c6, type: 3}
+  mainMenuIntro: {fileID: 8300000, guid: a5da507b7764a3f4e97349e32fac9a27, type: 3}
+  mainMenuMusic: {fileID: 8300000, guid: f41c45e414808ff4399a29998379a4ab, type: 3}
+  sceneMusic:
+  - {fileID: 8300000, guid: becf1849dd7cde84b8ed11d97916cd1a, type: 3}
+  - {fileID: 8300000, guid: 51141de785fbad64a8cc6f25a44b7d68, type: 3}
+  - {fileID: 8300000, guid: c2182f01ff9ad8d4f80a68a4067e9ec7, type: 3}
+  - {fileID: 8300000, guid: 6353b95934022b64996a4b47ffe5a2ab, type: 3}
   uiSelect: {fileID: 8300000, guid: 32c4b4d4fa08cd74c8ade5e397d83611, type: 3}
   uiSubmit: {fileID: 8300000, guid: a3a254fe85115594392b669e5fd9d615, type: 3}
   musicList: []

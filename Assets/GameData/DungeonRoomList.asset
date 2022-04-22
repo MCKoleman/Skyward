@@ -149,4 +149,4 @@ MonoBehaviour:
   minRoomCount: 6
   prefRoomCount: 15
   maxRoomCount: 25
-  specialRoomChance: 3
+  specialRoomChance: 10

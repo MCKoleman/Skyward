@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4258901605904342242}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3549641216363050376}
-  m_RootOrder: 17
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4258901605904342242
 BoxCollider:
@@ -116,6 +116,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 44446103790942260, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 620807985899605434, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -130,11 +134,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 752453350737659984, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 775552964862186955, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1402963012064454230, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1611970422674925027, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_RootOrder
@@ -192,6 +200,10 @@ PrefabInstance:
       propertyPath: m_Center.x
       value: -0.04060523
       objectReference: {fileID: 0}
+    - target: {fileID: 4699226029457775421, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5013924933096544700, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_Name
       value: CaveWallTopDoor
@@ -206,7 +218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6765002042073054614, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 7194067148402244554, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_Enabled
@@ -218,7 +230,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f2d031bc4a3b8ad4dbf7c00dfe37c878, type: 2}
     - target: {fileID: 8811539035286546289, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8811539035286546289, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_LocalPosition.y

@@ -72,7 +72,7 @@ public class DungeonRoomList : ScriptableObject
     }
 
     // Returns whether a large room should be attempted to spawn
-    public bool ShouldAttemptSpecialRoom() { return specialRoomChance < Random.Range(0, 100); }
+    public bool ShouldAttemptSpecialRoom() { return specialRoomChance > Random.Range(0, 100); }
 
     // Returns the maximum room count of dungeons
     public int GetMaxRoomCount() { return maxRoomCount; }

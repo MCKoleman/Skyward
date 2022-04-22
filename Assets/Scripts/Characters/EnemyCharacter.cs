@@ -7,6 +7,8 @@ public class EnemyCharacter : Character
     [SerializeField]
     private UISliderBar healthBar;
     [SerializeField]
+    private GameObject minimapIcon;
+    [SerializeField]
     protected float invincTime = 0.25f;
     [SerializeField]
     protected bool destroyOnDeath = true;
@@ -32,6 +34,7 @@ public class EnemyCharacter : Character
     {
         // Handle xp first
         PlayerManager.Instance.AddXp(xp);
+        Destroy(minimapIcon);
 
         if (destroyOnDeath)
         {

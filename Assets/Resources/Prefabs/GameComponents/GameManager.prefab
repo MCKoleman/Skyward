@@ -2401,6 +2401,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Abilities
       objectReference: {fileID: 0}
+    - target: {fileID: 4801481078305754271, guid: e36e5212d3ccc0842888faf451f3d0a3, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801481078305754271, guid: e36e5212d3ccc0842888faf451f3d0a3, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5703977031076062822, guid: e36e5212d3ccc0842888faf451f3d0a3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2484,6 +2492,18 @@ PrefabInstance:
     - target: {fileID: 5703977031076062822, guid: e36e5212d3ccc0842888faf451f3d0a3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544392672630568925, guid: e36e5212d3ccc0842888faf451f3d0a3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526624319095877082, guid: e36e5212d3ccc0842888faf451f3d0a3, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071544681600276120, guid: e36e5212d3ccc0842888faf451f3d0a3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e36e5212d3ccc0842888faf451f3d0a3, type: 3}

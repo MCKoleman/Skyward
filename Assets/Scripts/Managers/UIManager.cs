@@ -101,6 +101,7 @@ public class UIManager : Singleton<UIManager>
     public void UpdateHealth(float percent) { hud.UpdateHealth(percent); }
     public void ShowHUDAbilities(bool shouldEnable = true) { hud.ShowAbilities(shouldEnable); }
     public void ContinueDialogue() { hud.ContinueDialogue(); }
+    public void EndDialogue() { hud.EndDialogue(); }
     public void SetLoadingProgressText(string text) { loadingScreen.SetProgressText(text); }
     public void SetMinimapCameraWidth(float width) { hud.SetMinimapCameraWidth(width); }
     public void SetMinimapDungeonCenter(Vector3 center) { hud.SetMinimapDungeonCenter(center); }

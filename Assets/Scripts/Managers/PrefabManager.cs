@@ -103,6 +103,21 @@ public class PrefabManager : Singleton<PrefabManager>
         }
     }
 
+    // Wakes up the current boss if they exist
+    public void AwakeBoss()
+    {
+        // Don't awake a non-existing boss
+        if (!IsBossAlive())
+            return;
+
+        // Wake up boss
+        BossAI tempAI = bossHolder.GetComponentInChildren<BossAI>();
+        if(tempAI != null)
+        {
+            tempAI.WakeUp();
+        }
+    }
+
     // Returns the number of enemies 
     public int GetEnemyCount() { return enemyHolder.childCount; }
 

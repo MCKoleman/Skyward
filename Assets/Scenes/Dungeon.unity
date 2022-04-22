@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -592,6 +592,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3116778457980875192, guid: 26b32b4adb726b746b694beada11eeb3, type: 3}
+      propertyPath: musicList.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116778457980875192, guid: 26b32b4adb726b746b694beada11eeb3, type: 3}
+      propertyPath: musicList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: becf1849dd7cde84b8ed11d97916cd1a, type: 3}
+    - target: {fileID: 3116778457980875192, guid: 26b32b4adb726b746b694beada11eeb3, type: 3}
+      propertyPath: musicList.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 51141de785fbad64a8cc6f25a44b7d68, type: 3}
+    - target: {fileID: 3116778457980875192, guid: 26b32b4adb726b746b694beada11eeb3, type: 3}
+      propertyPath: musicList.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: c2182f01ff9ad8d4f80a68a4067e9ec7, type: 3}
+    - target: {fileID: 3116778457980875192, guid: 26b32b4adb726b746b694beada11eeb3, type: 3}
+      propertyPath: musicList.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6353b95934022b64996a4b47ffe5a2ab, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b32b4adb726b746b694beada11eeb3, type: 3}
 --- !u!4 &908327639 stripped

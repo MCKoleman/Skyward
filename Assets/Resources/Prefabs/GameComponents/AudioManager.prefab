@@ -63,7 +63,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6353b95934022b64996a4b47ffe5a2ab, type: 3}
   uiSelect: {fileID: 8300000, guid: 32c4b4d4fa08cd74c8ade5e397d83611, type: 3}
   uiSubmit: {fileID: 8300000, guid: a3a254fe85115594392b669e5fd9d615, type: 3}
-  musicList: []
+  musicList:
+  - {fileID: 8300000, guid: f41c45e414808ff4399a29998379a4ab, type: 3}
+  - {fileID: 8300000, guid: becf1849dd7cde84b8ed11d97916cd1a, type: 3}
+  - {fileID: 8300000, guid: 51141de785fbad64a8cc6f25a44b7d68, type: 3}
+  - {fileID: 8300000, guid: c2182f01ff9ad8d4f80a68a4067e9ec7, type: 3}
+  - {fileID: 8300000, guid: 6353b95934022b64996a4b47ffe5a2ab, type: 3}
 --- !u!82 &7478778626042826341
 AudioSource:
   m_ObjectHideFlags: 0

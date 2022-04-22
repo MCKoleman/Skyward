@@ -28,6 +28,7 @@ public class PrefabManager : Singleton<PrefabManager>
     public GameObject caveBossPrefab;
     public GameObject castleBossPrefab;
     public GameObject skyBossPrefab;
+    public GameObject visagePrefab;
 
     [Header("Holders")]
     // Object holders

@@ -6675,6 +6675,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayInfiniteBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 4336949407580133, guid: f516bf3c0757fee42bbb9e613f4004cb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5923743665628219, guid: f516bf3c0757fee42bbb9e613f4004cb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

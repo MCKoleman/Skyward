@@ -14,6 +14,8 @@ public class UIManager : Singleton<UIManager>
     private DeathMenu deathMenu;
     [SerializeField]
     private UILoadingScreen loadingScreen;
+    [SerializeField]
+    private EndScreen endScreen;
 
     // Initializes the UI
     public void Init()
@@ -26,6 +28,7 @@ public class UIManager : Singleton<UIManager>
     {
         ShowPauseMenu(false);
         ShowDeathMenu(false);
+        ShowEndScreen(false);
         ShowHUD(true);
         //Cursor.visible = (SceneManager.GetActiveScene().buildIndex == 0);
     }
@@ -48,6 +51,13 @@ public class UIManager : Singleton<UIManager>
     {
         pauseMenu.EnableMenu(shouldEnable);
     }
+
+    // Displays the end screen
+    public void ShowEndScreen(bool shouldEnable = true)
+    {
+        endScreen.EnableScreen(shouldEnable);
+    }
+
 
     // Enables or disables the loading screen
     public void EnableLoadingScreen(bool shouldEnable = true)

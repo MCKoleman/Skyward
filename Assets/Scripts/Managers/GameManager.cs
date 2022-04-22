@@ -77,6 +77,7 @@ public class GameManager : Singleton<GameManager>
         switch(sceneType)
         {
             case GlobalVars.SceneType.MENU:
+                UIManager.Instance.ShowEndScreen(false);
                 SetGameState(GameState.MENU);
                 break;
             case GlobalVars.SceneType.DUNGEON:

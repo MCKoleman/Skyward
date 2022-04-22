@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1701553168117550416}
   m_Layer: 0
   m_Name: TopHitBox
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4642465868172415600}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1701553168117550416
 BoxCollider:
@@ -453,6 +453,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 44446103790942260, guid: 07007de53e507064a9330031636297a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 620807985899605434, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -463,7 +467,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 76e93b13e3aac8045872396dda646cb2, type: 2}
     - target: {fileID: 752453350737659984, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1402963012064454230, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_RootOrder
@@ -515,7 +519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4699226029457775421, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5013924933096544700, guid: 07007de53e507064a9330031636297a3, type: 3}
       propertyPath: m_Name

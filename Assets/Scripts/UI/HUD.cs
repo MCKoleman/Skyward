@@ -57,6 +57,7 @@ public class HUD : MonoBehaviour
     /* ============================================================ Child component function wrappers ==================================== */
     public void EnableDialogue(bool shouldEnable = true) { dialogueBox.EnableDialogue(shouldEnable); }
     public void ContinueDialogue() { dialogueBox.ContinueDialogue(); }
+    public void EndDialogue() { dialogueBox.EndDialogue(); }
     public void UpdateHealth(float percent) { healthBar.UpdateValue(percent); }
     public void SetMinimapCameraWidth(float width) { minimap.SetCameraWidth(width); }
     public void SetMinimapDungeonCenter(Vector3 center) { minimap.SetDungeonCenter(center); }

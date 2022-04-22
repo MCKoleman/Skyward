@@ -11,7 +11,7 @@ public class DialogueTrigger : MonoBehaviour
         // If colliding with the player, enable the next dialogue option
         if(other.CompareTag("Player") && isEnabled)
         {
-            DialogueManager.Instance.BeginDialogue();
+            DialogueManager.Instance.BeginDelayedAsyncDialogue();
             this.gameObject.SetActive(false);
         }
     }

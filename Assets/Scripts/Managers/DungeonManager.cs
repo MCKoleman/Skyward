@@ -387,6 +387,8 @@ public class DungeonManager : Singleton<DungeonManager>
     public int GetNumRooms() { return numRooms; }
     // Returns the current level number
     public int GetLevelNum() { return curLevel; }
+    // Returns the current dungeon theme
+    public GlobalVars.DungeonTheme GetCurrentTheme() { return curLevelInfo.theme; }
     // Returns the next scene type
     public GlobalVars.SceneType GetNextSceneType() { return levelProgressList.GetNextSceneType(curLevel); }
 }

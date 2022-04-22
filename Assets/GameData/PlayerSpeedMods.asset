@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b596f68bdde8f8f46be7eace49cb1067, type: 3}
   m_Name: PlayerSpeedMods
   m_EditorClassIdentifier: 
-  MOVE_MOD: 5
+  MOVE_MOD: 7
   MOVE_SPEED_MOD: 5
   MOVE_SLOW_MOD: 5
   JUMP_MOD: 7

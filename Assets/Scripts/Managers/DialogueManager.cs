@@ -22,6 +22,22 @@ public class DialogueManager : Singleton<DialogueManager>
         currentDialogue = 0;
     }
 
+    // Wrapper for delayed dialogue handling
+    public void BeginDelayedAsyncDialogue()
+    {
+        StartCoroutine(DelayedAsyncDialogueHandle());
+    }
+    
+    // Delays dialogue until __ is finished
+    private IEnumerator DelayedAsyncDialogueHandle()
+    {
+        // Wait for game to start before showing dialogue
+        if(!GameManager.Instance.IsGameActive)
+            yield return new WaitUntil(() => GameManager.Instance.IsGameActive);
+
+        BeginDialogue();
+    }
+
     // Starts dialogue, setting the new max dialogue index to be 1 higher
     public void BeginDialogue()
     {

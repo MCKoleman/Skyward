@@ -15,7 +15,7 @@ MonoBehaviour:
   dialogue:
   - dialogue:
     - speaker: 2
-      text: "What\u2019s with the blank face, ******?"
+      text: "What\u2019s with the blank face, \u2282\u2282\u2282\u2282\u2282\u2282\u2282\u2282\u2282\u2282\u2671?"
     - speaker: 0
       text: ...
     - speaker: 2
@@ -81,7 +81,7 @@ MonoBehaviour:
       text: The way you always stood up for others as if you had a will of steel,
         shined a bright light in my life.
     - speaker: 2
-      text: I love you, **********!
+      text: "I love you, \u2282\u2282\u2282\u2282\u2282\u2282\u2282\u2282\u2282\u2282!"
     - speaker: 2
       text: "Before I go take this, it\u2019ll help you overcome Ziel this time."
     - speaker: 2

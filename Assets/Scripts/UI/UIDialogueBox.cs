@@ -76,6 +76,9 @@ public class UIDialogueBox : MonoBehaviour
         {
             EnableDialogue(false);
             GameManager.Instance.SetTimeScale(1.0f);
+
+            if (PrefabManager.Instance.IsBossAlive())
+                PrefabManager.Instance.AwakeBoss();
         }
     }
 

@@ -325,9 +325,17 @@ public class BossAI : EnemyController
 
     private IEnumerator Death()
     {
+        // Handle dialogue
+        DialogueManager.Instance.BeginDialogue();
+
         yield return new WaitForSeconds(deathDelay); //Placeholder for any animation or dialogue
         yield return new WaitForSeconds(abilities.SelfDestruct());
-        Instantiate(PrefabManager.Instance.exitPrefab, Vector3.zero, Quaternion.identity, PrefabManager.Instance.levelHolder);
+
+        // Spawn exit
+        GameObject exit = Instantiate(PrefabManager.Instance.exitPrefab, Vector3.zero, Quaternion.identity, PrefabManager.Instance.levelHolder);
+        exit.GetComponentInChildren<DialogueTrigger>().isEnabled = true;
+
+        // Die
         Destroy(this.gameObject);
     }
 }

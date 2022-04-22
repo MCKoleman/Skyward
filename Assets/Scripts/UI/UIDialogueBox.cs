@@ -81,6 +81,7 @@ public class UIDialogueBox : MonoBehaviour
     // Ends dialogue, resuming the game
     public void EndDialogue()
     {
+        PrefabManager.Instance.ClearVisages();
         EnableDialogue(false);
         GameManager.Instance.SetTimeScale(1.0f);
 

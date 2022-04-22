@@ -333,10 +333,18 @@ public class BossAI : EnemyController
         yield return new WaitForSeconds(abilities.SelfDestruct());
 
         // Spawn exit
-        GameObject exit = Instantiate(PrefabManager.Instance.exitPrefab, Vector3.zero, Quaternion.identity, PrefabManager.Instance.levelHolder);
-        exit.GetComponentInChildren<DialogueTrigger>().isEnabled = true;
+        SpawnExit();
 
         // Die
         Destroy(this.gameObject);
+    }
+
+    // Spawns the exit when the boss dies
+    protected void SpawnExit()
+    {
+        Instantiate(PrefabManager.Instance.visagePrefab, new Vector3(-2, 0, -2), Quaternion.identity, PrefabManager.Instance.visageHolder);
+        Instantiate(PrefabManager.Instance.visagePrefab, new Vector3(2, 0, -2), Quaternion.identity, PrefabManager.Instance.visageHolder);
+        GameObject exit = Instantiate(PrefabManager.Instance.exitPrefab, Vector3.zero, Quaternion.identity, PrefabManager.Instance.levelHolder);
+        exit.GetComponentInChildren<DialogueTrigger>().isEnabled = true;
     }
 }

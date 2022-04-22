@@ -38,6 +38,7 @@ public class PrefabManager : Singleton<PrefabManager>
     public Transform treasureHolder;
     public Transform levelHolder;
     public Transform bossHolder;
+    public Transform visageHolder;
 
     // Initializes the manager. Should only be called from GameManager
     public void Init()
@@ -65,6 +66,13 @@ public class PrefabManager : Singleton<PrefabManager>
 
         for (int i = bossHolder.childCount - 1; i >= 0; i--)
             Destroy(bossHolder.GetChild(i).gameObject);
+    }
+
+    // Clears the visages
+    public void ClearVisages()
+    {
+        for (int i = visageHolder.childCount - 1; i >= 0; i--)
+            Destroy(visageHolder.GetChild(i).gameObject);
     }
 
     // Returns a wall object of the given wall type and given theme

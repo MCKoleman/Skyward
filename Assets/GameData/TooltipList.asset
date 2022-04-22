@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipList:
     list:
-    - weight: 10
+    - weight: 2
       obj: 'Tip: Killing enemies can do wonders to helping you survive the dungeons'
-    - weight: 10
+    - weight: 5
       obj: 'Tip: The key to survival is not dying.'
     - weight: 5
       obj: 'Tip: Enemies will rarely follow you into other rooms or around sharp
@@ -25,7 +25,7 @@ MonoBehaviour:
       obj: 'Tip: Some tips in the game may not be very useful'
     - weight: 1
       obj: 'Tip: There are many easter eggs in the game.'
-    - weight: 1
+    - weight: 2
       obj: Just keep jumping...
     - weight: 1
       obj: 'Tip: Sdrawkcab si pi siht!'
@@ -33,20 +33,20 @@ MonoBehaviour:
       obj: 'Tip: Hehe... Good luck'
     - weight: 1
       obj: 'Tip: You can use the move keys to move'
-    - weight: 1
+    - weight: 3
       obj: 'Tip: Playing this game may require your attention'
     - weight: 1
       obj: "\xA1\u0250\u1D09l\u0250\u0279\u0287sn\u2200 \u026Fo\u0279\u025F s\u1D09
         d\u1D09\u0287 s\u1D09\u0265\u2534"
-    - weight: 1
+    - weight: 5
       obj: 'Tip: Running out of health may kill you'
-    - weight: 1
+    - weight: 5
       obj: 'Tip: Filling your xp bar will give you a bonus life'
-    - weight: 1
+    - weight: 2
       obj: 'Tip: Stop spamming Q, it''s not helping'
-    - weight: 1
+    - weight: 2
       obj: 'Tip: To make enemies die, you need to kill them'
-    - weight: 1
+    - weight: 2
       obj: 'Tip: Make sure to move to the next level'
     - weight: 1
       obj: 'Tip: You simply don''t measure up.'
@@ -54,3 +54,11 @@ MonoBehaviour:
       obj: 'Tip: You can''t HANDLE unsanitized silverware'
     - weight: 1
       obj: 'Tip: Stuck on a level? Press ALT+F4 for an extra hint'
+    - weight: 5
+      obj: 'Tip: Touch grass'
+    - weight: 3
+      obj: 'Tip: Reaction time too slow? Try harder.'
+    - weight: 3
+      obj: 'Tip: To get more powerful attacks, email the devs your credit card number'
+    - weight: 3
+      obj: 'Tip: Unsure where to go? Use the minimap.'

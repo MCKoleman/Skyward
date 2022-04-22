@@ -130,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1010469354426891297, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2358043394979810682, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -182,18 +178,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7296711693027509797, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7296711693027509797, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9167891844672227086, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -8735695527879837647, guid: fa668dc437be0bb40a4c0944f1e33df1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc1a79f5b1d73ea41b6d1d82b5e1801e, type: 3}
 --- !u!1001 &378838966

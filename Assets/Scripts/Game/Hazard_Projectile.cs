@@ -48,7 +48,9 @@ public class Hazard_Projectile : MonoBehaviour
         }
 
         GetComponent<Collider>().enabled = false;
-        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
+        AudioClip audio = GetComponent<AudioSource>().clip;
+        if(audio != null)
+            yield return new WaitForSeconds(audio.length);
         Destroy(gameObject);
     }
 }

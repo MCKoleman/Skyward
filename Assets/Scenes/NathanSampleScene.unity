@@ -325,7 +325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &183383043
 Transform:
   m_ObjectHideFlags: 0
@@ -648,6 +648,10 @@ PrefabInstance:
     - target: {fileID: 9171935492634522533, guid: a1986a937b745c447a003e1303ed52e0, type: 3}
       propertyPath: m_Name
       value: MinibossGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 9171935492634522533, guid: a1986a937b745c447a003e1303ed52e0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1986a937b745c447a003e1303ed52e0, type: 3}
@@ -1677,10 +1681,6 @@ PrefabInstance:
       propertyPath: anchor
       value: 
       objectReference: {fileID: 2088723053}
-    - target: {fileID: 7126717128657198299, guid: d8e42e53e7e7b474386f7c608956d1b8, type: 3}
-      propertyPath: m_Height
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8e42e53e7e7b474386f7c608956d1b8, type: 3}
 --- !u!1001 &7434184565709487248

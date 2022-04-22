@@ -102,11 +102,11 @@ PrefabInstance:
     - target: {fileID: 5993057676315562651, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
       propertyPath: healthSFX.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 4af5e4498b9a9634bb11f6cce858abe7, type: 3}
+      objectReference: {fileID: 8300000, guid: caf60b0bed97a8244a05e4249b862d60, type: 3}
     - target: {fileID: 5993057676315562651, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
       propertyPath: healthSFX.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 5bb678d65ce6db941ba3073c87050861, type: 3}
+      objectReference: {fileID: 8300000, guid: 17b73da72cd49f444a8a52c03d2054a0, type: 3}
     - target: {fileID: 6475760602972415007, guid: 2f3e261b266bd3446bf8b936dbac9883, type: 3}
       propertyPath: m_Constraints
       value: 112
@@ -259,7 +259,7 @@ MonoBehaviour:
   - {fileID: 2122159182298209263, guid: a86f7b43d1b2a864f8983454391fc832, type: 3}
   - {fileID: 8120930366862349644, guid: 0e967ae806fe8a844a9af8b1ff18048b, type: 3}
   cooldowns:
-  - 60
+  - 30
   - 10
   - 5
   - 1

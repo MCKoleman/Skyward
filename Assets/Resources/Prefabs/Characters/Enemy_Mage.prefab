@@ -237,7 +237,7 @@ MonoBehaviour:
   movSpeed: 2
   rotSpeed: 3
   despawnTime: 2
-  range: 10
+  range: 100
 --- !u!114 &6754389003982967905
 MonoBehaviour:
   m_ObjectHideFlags: 0

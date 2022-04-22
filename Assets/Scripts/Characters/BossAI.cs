@@ -131,9 +131,12 @@ public class BossAI : EnemyController
     {
         // Play background audio (make sure source has audio and is set to loop)
         //aSrc.Play();
-        AudioManager.Instance.PlayBossFight();
+        if (!gameOver) {
+            AudioManager.Instance.PlayBossFight();
+            EnterCasting();
+        }
 
-        EnterCasting();
+        Debug.Log("AWOKEN");
     }
 
     protected Vector3 GetRandomPoint()
@@ -326,6 +329,8 @@ public class BossAI : EnemyController
 
     private IEnumerator Death()
     {
+        AudioManager.Instance.StopMusic();
+
         // Handle dialogue
         DialogueManager.Instance.BeginDialogue();
 

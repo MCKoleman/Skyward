@@ -79,12 +79,14 @@ public class GameManager : Singleton<GameManager>
             case GlobalVars.SceneType.MENU:
                 UIManager.Instance.ShowEndScreen(false);
                 SetGameState(GameState.MENU);
+                AudioManager.Instance.PlayMainMenu();
                 break;
             case GlobalVars.SceneType.DUNGEON:
             case GlobalVars.SceneType.MINIBOSS:
             case GlobalVars.SceneType.BOSS:
+                AudioManager.Instance.HandleSceneChange(DungeonManager.Instance.GetCurrentLevel());
 #if UNITY_EDITOR
-                if(DEBUG_DISABLE_DUNGEON)
+                if (DEBUG_DISABLE_DUNGEON)
                 {
                     // Communicate ending of generation to GameStateManager
                     StartGame();
@@ -98,6 +100,8 @@ public class GameManager : Singleton<GameManager>
             default:
                 break;
         }
+
+        UIManager.Instance.ResetAllCooldowns();
     }
 
     // Swaps the level to the given level

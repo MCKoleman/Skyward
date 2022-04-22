@@ -391,4 +391,6 @@ public class DungeonManager : Singleton<DungeonManager>
     public GlobalVars.DungeonTheme GetCurrentTheme() { return curLevelInfo.theme; }
     // Returns the next scene type
     public GlobalVars.SceneType GetNextSceneType() { return levelProgressList.GetNextSceneType(curLevel); }
+
+    public LevelProgressList.LevelProgress GetCurrentLevel() { return levelProgressList.GetCurrentLevel(curLevel); }
 }

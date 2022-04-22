@@ -48,9 +48,22 @@ public class UIIntroDialogue : MonoBehaviour
     // Disable the main menu and start dialogue as soon as possible
     public void Activate()
     {
-        introHolder.SetActive(true);
-        mainMenu.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(skipBtn);
+        AudioManager.Instance.StopMusic();
+
+        // TEMP FIX UNTIL WE FIGURE OUT WHY INTRO DOESN'T PLAY A 2ND TIME
+        if (UIManager.Instance.IfIntroPlayed())
+        {
+            EndIntro();
+        }
+        else
+        {
+            UIManager.Instance.IntroComplete();
+
+            //original
+            introHolder.SetActive(true);
+            mainMenu.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(skipBtn);
+        }
 
         // Get first slide
         //if (introSlides.slidesList.Count > 0)

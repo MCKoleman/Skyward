@@ -32,6 +32,8 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField]
     private AudioClip[] musicList;
 
+    private GlobalVars.DungeonTheme prevTheme = GlobalVars.DungeonTheme.SKY;
+
     // Info
     private bool isLooping;
     private const float AUDIO_INTERVAL = 3.0f;
@@ -42,6 +44,7 @@ public class AudioManager : Singleton<AudioManager>
     {
         //StopMusic();
         currTrack = sceneMusic.GetEnumerator();
+        mainMusicSource.loop = true;
     }
 
     // Stops the currently playing music and resets the manager
@@ -52,6 +55,8 @@ public class AudioManager : Singleton<AudioManager>
         transitionMusicSource.Stop();
         isLooping = false;
     }
+
+    //BUG: CAUSE INFINITE-LOOP CLICKING NOISE UNTIL SCENE CHANGE
 
     // Plays the UI select effect
     public void PlayUISelect()
@@ -70,26 +75,52 @@ public class AudioManager : Singleton<AudioManager>
     // Plays the Boss Intro music
     public void PlayBossIntro()
     {
-        tempSource.clip = bossIntro;
-        tempSource.Play();
+        mainMusicSource.clip = bossIntro;
+        mainMusicSource.Play();
     }
 
     // Plays the Boss Fight music
     public void PlayBossFight()
     {
-        tempSource.clip = bossMusic;
-        tempSource.Play();
+        mainMusicSource.clip = bossMusic;
+        mainMusicSource.Play();
+    }
+
+    public void PlayMainMenu()
+    {
+        mainMusicSource.clip = musicList[0];
+        mainMusicSource.Play();
+        prevTheme = GlobalVars.DungeonTheme.DEFAULT;
     }
 
     // Plays the next clip
-    public void HandleSceneChange()
+    public void HandleSceneChange(LevelProgressList.LevelProgress curLevel)
     {
-        if (currTrack.MoveNext())
+        switch (curLevel.theme)
         {
-            tempSource.clip = currTrack.Current;
+            case GlobalVars.DungeonTheme.DEFAULT:
+                mainMusicSource.clip = musicList[1];
+                break;
+            case GlobalVars.DungeonTheme.CAVE:
+                mainMusicSource.clip = musicList[1];
+                break;
+            case GlobalVars.DungeonTheme.CASTLE:
+                mainMusicSource.clip = musicList[2];
+                break;
+            case GlobalVars.DungeonTheme.SKY:
+                if (curLevel.sceneType == GlobalVars.SceneType.BOSS)
+                {
+                    mainMusicSource.clip = musicList[4];
+                }
+                else
+                {
+                    mainMusicSource.clip = musicList[3];
+                }
+                break;
         }
 
-        tempSource.Play();
+        if (curLevel.theme != prevTheme) { mainMusicSource.Play(); }
+        prevTheme = curLevel.theme;
     }
 
     // Plays the given clip in the temporary channel
@@ -108,4 +139,6 @@ public class AudioManager : Singleton<AudioManager>
 
     // Returns the SFX source
     public AudioSource GetSFXSource() { return sfxSource; }
+
+    public void SetPrevTheme(GlobalVars.DungeonTheme theme) { prevTheme = theme; }
 }

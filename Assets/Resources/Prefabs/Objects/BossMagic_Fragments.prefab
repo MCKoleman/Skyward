@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1060440171747770204, guid: 290fc86ca1bcac540bf3ea891110359c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c3741195ec077be43bb808e79ebe8182, type: 3}
     - target: {fileID: 1129515827935932258, guid: 290fc86ca1bcac540bf3ea891110359c, type: 3}
       propertyPath: m_Name
       value: BossMagic_Fragments

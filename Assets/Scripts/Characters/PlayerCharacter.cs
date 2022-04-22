@@ -71,6 +71,7 @@ public class PlayerCharacter : Character
                 aSrc.PlayOneShot(healthSFX[1]);
 
             UIManager.Instance.ShowDeathMenu();
+            Destroy(gameObject);
         }
     }
 

@@ -17,6 +17,8 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private EndScreen endScreen;
 
+    private bool playedIntro = false;
+
     // Initializes the UI
     public void Init()
     {
@@ -126,4 +128,16 @@ public class UIManager : Singleton<UIManager>
     public void UpdateAbility1Cooldown(float percent) { hud.UpdateAbility1Cooldown(percent); }
     public void UpdateAbility2Cooldown(float percent) { hud.UpdateAbility2Cooldown(percent); }
     public void UpdateAbility3Cooldown(float percent) { hud.UpdateAbility3Cooldown(percent); }
+    public void ResetAllCooldowns()
+    {
+        UpdateAbility0Cooldown(0.0f);
+        UpdateAbility1Cooldown(0.0f);
+        UpdateAbility2Cooldown(0.0f);
+        UpdateAbility3Cooldown(0.0f);
+        UpdateDashCooldown(0.0f);
+        UpdateShieldCooldown(0.0f);
+        UpdateSpellCooldown(0.0f);
+    }
+    public void IntroComplete() { playedIntro = true; }
+    public bool IfIntroPlayed() { return playedIntro; }
 }

@@ -20,6 +20,12 @@ public class GameManager : Singleton<GameManager>
     private bool isInfinite = false;
     [SerializeField]
     private bool DEBUG_DISABLE_DUNGEON = false;
+    [SerializeField]
+    private bool DEBUG_SIMULATE_MOBILE = false;
+
+    public bool IsMobile { get; private set; }
+    public delegate void MobileStatusChanged(bool isMobile);
+    public event MobileStatusChanged OnMobileStatusChange;
 
     private SceneLoader sceneLoader;
 
@@ -30,6 +36,21 @@ public class GameManager : Singleton<GameManager>
         gameState = GameState.INVALID;
         prevGameState = GameState.INVALID;
         this.Init();
+
+        SetIsMobile(SystemInfo.deviceType == DeviceType.Handheld);
+    }
+
+    private void LateUpdate()
+    {
+        if (IsMobile)
+            return;
+
+        // Mobile status can be confirmed by either receiving touch input from the remote or from the device identifying as handheld
+        if ((UnityEditor.EditorApplication.isRemoteConnected && Input.touchCount != 0)
+            || (SystemInfo.deviceType == DeviceType.Handheld))
+        {
+            SetIsMobile(true);
+        }
     }
 
     // Initializes the game manager and all singletons
@@ -191,6 +212,18 @@ public class GameManager : Singleton<GameManager>
     }
 
     // Getters and setters
+
+    public void SetIsMobile(bool _value)
+    {
+#if UNITY_EDITOR
+        IsMobile = _value || DEBUG_SIMULATE_MOBILE;
+#else
+        IsMobile = _value;
+#endif
+        if (IsMobile && OnMobileStatusChange != null)
+            OnMobileStatusChange(IsMobile);
+    }
+
     public void SetIsGameActive(bool state) { IsGameActive = state; }
 
     public void SetIsEasyMode(bool _isEasy)

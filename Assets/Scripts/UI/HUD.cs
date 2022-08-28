@@ -54,6 +54,8 @@ public class HUD : MonoBehaviour
         levelNum.text = num.ToString();
     }
 
+    public bool IsActive() { return isActive; }
+
     /* ============================================================ Child component function wrappers ==================================== */
     public void EnableDialogue(bool shouldEnable = true) { dialogueBox.EnableDialogue(shouldEnable); }
     public void ContinueDialogue() { dialogueBox.ContinueDialogue(); }

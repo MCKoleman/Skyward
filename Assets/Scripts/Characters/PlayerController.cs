@@ -61,6 +61,7 @@ public class PlayerController : CharacterController
     }
 
     /* ==================================================== Helper functions =================================================================== */
+    #region Helper
     // Getters and setters for ability type
     public GlobalVars.AbilityType GetActiveAbility() { return curAbility; }
     public void SetActiveAbility(GlobalVars.AbilityType _type) { curAbility = _type; }
@@ -147,10 +148,11 @@ public class PlayerController : CharacterController
         //GameManager.Instance.HandleLevelSwap(tempI.value);
         SaveManager.Instance.WinLevel();
     }
-
+    #endregion
 
 
     /* ==================================================== UI Functions =================================================================== */
+    #region UI
     protected override void SetDashCooldown(float _val)
     {
         base.SetDashCooldown(_val);
@@ -161,10 +163,11 @@ public class PlayerController : CharacterController
     {
         base.SetJumpCooldown(_val);
     }
-
+    #endregion
 
 
     /* ==================================================== Input actions =================================================================== */
+    #region Input Actions
     protected void HandleLook(Vector2 lookPos)
     {
         // Don't look outside of screen
@@ -289,33 +292,27 @@ public class PlayerController : CharacterController
     {
         UIManager.Instance.PauseGameToggle();
     }
-
+    #endregion
 
 
     /* ==================================================== Input context handlers =================================================================== */
+    #region Input Context
     public void HandleMoveContext(InputAction.CallbackContext context)
     {
-        //Debug.Log($"Can move? : [{GameManager.Instance.IsGameActive}]");
-        if (CanTakeInput())
+        if (CanTakeInput() || context.ReadValue<Vector2>() == Vector2.zero)
             HandleMove(context.ReadValue<Vector2>());
-        else if (context.ReadValue<Vector2>() == Vector2.zero)
-            HandleMove(Vector2.zero);
     }
 
     public void HandleLookContext(InputAction.CallbackContext context)
     {
-        if (CanTakeInput())
+        if (CanTakeInput() || context.ReadValue<Vector2>() == Vector2.zero)
             HandleLook(context.ReadValue<Vector2>());
-        else if (context.ReadValue<Vector2>() == Vector2.zero)
-            HandleMove(Vector2.zero);
     }
 
     public void HandleLookDeltaContext(InputAction.CallbackContext context)
     {
-        if (CanTakeInput())
+        if (CanTakeInput() || context.ReadValue<Vector2>() == Vector2.zero)
             HandleLookDelta(context.ReadValue<Vector2>());
-        else if (context.ReadValue<Vector2>() == Vector2.zero)
-            HandleMove(Vector2.zero);
     }
 
     public void HandleAttackContext(InputAction.CallbackContext context)
@@ -379,6 +376,7 @@ public class PlayerController : CharacterController
         if (context.performed && GameManager.Instance.IsGameActive)
             HandleMenu();
     }
+
     public void HandleSkipContext(InputAction.CallbackContext context)
     {
         // Turn on and off dialogue skipping
@@ -387,10 +385,105 @@ public class PlayerController : CharacterController
         else if (context.canceled)
             DialogueManager.Instance.EnableFastDialogue(false);
     }
+    #endregion
 
+    #region Mobile Input Context
+    public void HandleMoveContext(Vector2 delta)
+    {
+        if (CanTakeInput() || delta == Vector2.zero)
+            HandleMove(delta);
+    }
+
+    public void HandleLookContext(Vector2 pos)
+    {
+        if (CanTakeInput() || pos == Vector2.zero)
+            HandleLook(pos);
+    }
+
+    public void HandleLookDeltaContext(Vector2 delta)
+    {
+        if (CanTakeInput() || delta == Vector2.zero)
+            HandleLookDelta(delta);
+    }
+
+    public void HandleAttackContext()
+    {
+        // Prevent attacking if the player has their mouse over UI elements
+        if (CanTakeInput())
+            HandleAttack();
+    }
+
+    public void HandleSpellContext()
+    {
+        if (CanTakeInput())
+            HandleSpell();
+    }
+
+    public void HandleDashContext()
+    {
+        if (CanTakeInput())
+            HandleDash();
+    }
+
+    public void HandleShieldContext()
+    {
+        if (CanTakeInput())
+            HandleShield();
+    }
+
+    public void HandleAbility0Context()
+    {
+        if (CanTakeInput())
+            HandleAbility0();
+    }
+
+    public void HandleAbility1Context()
+    {
+        if (CanTakeInput())
+            HandleAbility1();
+    }
+
+    public void HandleAbility2Context()
+    {
+        if (CanTakeInput())
+            HandleAbility2();
+    }
+
+    public void HandleAbility3Context()
+    {
+        if (CanTakeInput())
+            HandleAbility3();
+    }
+
+    public void HandleJumpContext()
+    {
+        if (CanTakeInput())
+            HandleJump();
+    }
+
+    public void HandleMenuContext()
+    {
+        // Allow input when paused, but not when game is inactive
+        if (GameManager.Instance.IsGameActive)
+            HandleMenu();
+    }
+
+    public void HandleSkipEnableContext()
+    {
+        // Turn on and off dialogue skipping
+        if (GameManager.Instance.IsGameActive)
+            DialogueManager.Instance.EnableFastDialogue(true);
+    }
+
+    public void HandleSkipDisableContext()
+    {
+        DialogueManager.Instance.EnableFastDialogue(false);
+    }
+    #endregion
 
 
     /* ==================================================== Collision Triggers =================================================================== */
+    #region Collision
     protected void OnTriggerEnter(Collider collision)
     {
         HandleTriggerEnter(collision, true);
@@ -431,4 +524,5 @@ public class PlayerController : CharacterController
         if (tempI != null)
             interactables.Remove(tempI);
     }
+    #endregion
 }

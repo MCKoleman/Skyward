@@ -9,6 +9,8 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private HUD hud;
     [SerializeField]
+    private HUD mobileHud;
+    [SerializeField]
     private PauseMenu pauseMenu;
     [SerializeField]
     private DeathMenu deathMenu;
@@ -18,6 +20,9 @@ public class UIManager : Singleton<UIManager>
     private EndScreen endScreen;
 
     private bool playedIntro = false;
+
+    private void OnEnable() { GameManager.Instance.OnMobileStatusChange += RefreshMobileHUD; }
+    private void OnDisable() { GameManager.Instance.OnMobileStatusChange -= RefreshMobileHUD; }
 
     // Initializes the UI
     public void Init()
@@ -38,13 +43,13 @@ public class UIManager : Singleton<UIManager>
     // Displays the HUD
     public void ShowHUD(bool shouldEnable = true)
     {
-        hud.EnableHUD(shouldEnable);
+        GetHUD().EnableHUD(shouldEnable);
     }
 
     // Displays the death menu
     public void ShowDeathMenu(bool shouldEnable = true)
     {
-        hud.EnableHUD(!shouldEnable);
+        GetHUD().EnableHUD(!shouldEnable);
         deathMenu.EnableMenu(shouldEnable);
     }
 
@@ -71,7 +76,7 @@ public class UIManager : Singleton<UIManager>
     public void PauseGameToggle()
     {
         // Don't allow pausing during dialogue
-        if (hud.IsDialogueActive())
+        if (GetHUD().IsDialogueActive())
             return;
 
         // Pause an unpaused game
@@ -101,6 +106,34 @@ public class UIManager : Singleton<UIManager>
         GameManager.Instance.EndGame();
     }
 
+    // Resets the display of all cooldowns
+    public void ResetAllCooldowns()
+    {
+        UpdateAbility0Cooldown(0.0f);
+        UpdateAbility1Cooldown(0.0f);
+        UpdateAbility2Cooldown(0.0f);
+        UpdateAbility3Cooldown(0.0f);
+        UpdateDashCooldown(0.0f);
+        UpdateShieldCooldown(0.0f);
+        UpdateSpellCooldown(0.0f);
+    }
+
+    // Refreshes the status of mobile and regular UIs
+    public void RefreshMobileHUD(bool isMobile)
+    {
+        hud.EnableHUD(!isMobile && hud.IsActive());
+        mobileHud.EnableHUD(isMobile && mobileHud.IsActive());
+    }
+
+    // Returns the HUD that is currently in use
+    public HUD GetHUD()
+    {
+        if (GameManager.Instance.IsMobile)
+            return mobileHud;
+        else
+            return hud;
+    }
+
     // Returns whether the game is paused or not
     public bool IsPaused() { return Time.timeScale == 0.0f; }
 
@@ -128,16 +161,6 @@ public class UIManager : Singleton<UIManager>
     public void UpdateAbility1Cooldown(float percent) { hud.UpdateAbility1Cooldown(percent); }
     public void UpdateAbility2Cooldown(float percent) { hud.UpdateAbility2Cooldown(percent); }
     public void UpdateAbility3Cooldown(float percent) { hud.UpdateAbility3Cooldown(percent); }
-    public void ResetAllCooldowns()
-    {
-        UpdateAbility0Cooldown(0.0f);
-        UpdateAbility1Cooldown(0.0f);
-        UpdateAbility2Cooldown(0.0f);
-        UpdateAbility3Cooldown(0.0f);
-        UpdateDashCooldown(0.0f);
-        UpdateShieldCooldown(0.0f);
-        UpdateSpellCooldown(0.0f);
-    }
     public void IntroComplete() { playedIntro = true; }
     public bool IfIntroPlayed() { return playedIntro; }
 }

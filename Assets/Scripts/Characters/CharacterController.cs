@@ -167,7 +167,7 @@ public class CharacterController : MonoBehaviour
     }
 
     // Handles the movement based on Vector2 directional input
-    protected virtual void HandleMove(Vector2 moveContext)
+    public virtual void HandleMove(Vector2 moveContext)
     {
         // If the movement hasn't ended, store it as the previous delta for direction calculations
         if(moveDelta != Vector3.zero)

@@ -188,7 +188,7 @@ public class PlayerController : CharacterController
         spells.SetRay(viewRay);
     }
 
-    protected void HandleLookDelta(Vector2 lookDelta)
+    public void HandleLookDelta(Vector2 lookDelta)
     {
         // Don't change the look direction to nothing
         if(lookDelta != Vector2.zero && lookDelta.magnitude > 0.1f)

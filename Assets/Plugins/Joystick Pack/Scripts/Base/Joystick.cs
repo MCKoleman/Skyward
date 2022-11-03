@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
-    public delegate void OnInputChange(Vector2 dir);
-    public event OnInputChange onInputChange;
+    public delegate void InputChange(Vector2 dir);
+    public event InputChange OnInputChange;
     public float Horizontal { get { return (snapX) ? SnapFloat(input.x, AxisOptions.Horizontal) : input.x; } }
     public float Vertical { get { return (snapY) ? SnapFloat(input.y, AxisOptions.Vertical) : input.y; } }
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
@@ -88,8 +88,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         else
             input = Vector2.zero;
 
-        if (onInputChange != null)
-            onInputChange(Direction);
+        OnInputChange?.Invoke(Direction);
     }
 
     private void FormatInput()
@@ -138,8 +137,8 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     {
         input = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;
-        if (onInputChange != null)
-            onInputChange(Direction);
+        if (OnInputChange != null)
+            OnInputChange(Direction);
     }
 
     protected Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)

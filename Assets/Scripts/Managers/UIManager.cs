@@ -27,7 +27,7 @@ public class UIManager : Singleton<UIManager>
     // Initializes the UI
     public void Init()
     {
-
+        RefreshMobileHUD(GameManager.Instance.IsMobile);
     }
 
     // Initializes the hud
@@ -121,18 +121,12 @@ public class UIManager : Singleton<UIManager>
     // Refreshes the status of mobile and regular UIs
     public void RefreshMobileHUD(bool isMobile)
     {
-        hud.EnableHUD(!isMobile && hud.IsActive());
-        mobileHud.EnableHUD(isMobile && mobileHud.IsActive());
+        hud.EnableHUD(!isMobile);
+        mobileHud.EnableHUD(isMobile);
     }
 
     // Returns the HUD that is currently in use
-    public HUD GetHUD()
-    {
-        if (GameManager.Instance.IsMobile)
-            return mobileHud;
-        else
-            return hud;
-    }
+    public HUD GetHUD() { return (GameManager.Instance.IsMobile) ? mobileHud : hud; }
 
     // Returns whether the game is paused or not
     public bool IsPaused() { return Time.timeScale == 0.0f; }

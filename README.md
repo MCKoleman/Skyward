@@ -11,10 +11,10 @@ Get the game on [itch.io](https://mckoleman.itch.io/skyward)!
 The game was created in Unity with C#.
 
 ### Credits
-Systems Programmer - Kristian Kolehmainen
-Gameplay Programmer - Nathan Whelden
-Writer - Austin Bird
-Level Designer - Ana Thomas
-Designer - Stephen Soto
-VFX & UI Artist - Dang Hoang
-Character & Background Artist - Robert Peterson
+Systems Programmer - Kristian Kolehmainen<br/>
+Gameplay Programmer - Nathan Whelden<br/>
+Writer - Austin Bird<br/>
+Level Designer - Ana Thomas<br/>
+Designer - Stephen Soto<br/>
+VFX & UI Artist - Dang Hoang<br/>
+Character & Background Artist - Robert Peterson<br/>
